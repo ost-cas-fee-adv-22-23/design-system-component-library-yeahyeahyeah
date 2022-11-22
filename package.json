@@ -1,0 +1,15 @@
+{
+  "name": "@smartive-education/todo-insert-package-name-here",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com",
+    "tag": "latest"
+  },
+  "scripts": {
+    "build": "echo 'build'",
+    "build-storybook": "echo 'build storybook'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
