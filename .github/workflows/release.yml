@@ -3,7 +3,7 @@ name: Release Component Library
 on:
   push:
     branches:
-      - master
+      - main
 
 concurrency:
   group: 'release'
