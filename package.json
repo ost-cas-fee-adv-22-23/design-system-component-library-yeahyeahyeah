@@ -1,6 +1,11 @@
 {
-  "name": "casfea22-storybook-yeahyeayeah",
-  "version": "0.1.0",
+  "name": "@smartive-education/todo-insert-package-name-here",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com",
+    "tag": "latest"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
