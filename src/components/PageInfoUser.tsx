@@ -4,7 +4,7 @@ import { GlobalContext } from '../context/context';
 const PageInfoUser = (): ReactElement => {
   const { user } = useContext(GlobalContext);
 
-  useEffect(() => console.log('PageInfoUser', user), [user]);
+  useEffect(() => console.log('userinfo', user), [user]);
 
   return (
     <div className="text-black">

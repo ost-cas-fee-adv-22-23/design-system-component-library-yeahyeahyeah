@@ -10,7 +10,7 @@ export default function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="pageuser" element={<PageUser />} />
-        <Route path="pageinfouser" element={<PageInfoUser />} />
+        <Route path="pageinfo" element={<PageInfoUser />} />
 
         {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
@@ -35,7 +35,7 @@ function Layout() {
             <Link to="/pageuser">PageUser</Link>
           </li>
           <li>
-            <Link to="/pageinfouser">PageInfoUser</Link>
+            <Link to="/pageinfo">PageInfoUser</Link>
           </li>
         </ul>
       </nav>

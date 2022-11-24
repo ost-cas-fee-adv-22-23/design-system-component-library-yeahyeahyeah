@@ -8,11 +8,11 @@ const PageUser = (): ReactElement => {
   const [name, setName] = useState<string>('');
   const [surName, setSurName] = useState<string>('');
 
-  useEffect(() => console.log('PageUser', user), [user]);
+  useEffect(() => console.log('pageuser', user), [user]);
 
   return (
     <div className="p-10">
-      <h2 className="text text-2xl pb-2">PageUser</h2>
+      <h2 className="text text-2xl pb-2">Page User</h2>
       <form>
         <div className="grid gap-6 mb-6 md:grid-cols-2">
           <InputField
