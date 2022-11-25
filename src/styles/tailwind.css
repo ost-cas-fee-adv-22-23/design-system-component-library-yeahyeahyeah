@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Buttons */
+.btn {
+  background-color: theme('colors.violet.800');
+  padding: theme('padding.1') theme('padding.2');
+  border-radius: theme('borderRadius.lg');
+
+  color: theme('colors.white');
+  font-weight: theme('fontWeight.semibold');
+  line-height: theme(lineHeight.normal);
+}
+
+.btn:hover {
+  background-color: theme('colors.violet.600');
+}
+
+.btn--large {
+  padding: theme('padding.3') theme('padding.4');
+}
+
+.btn--default-slate {
+  background-color: theme('colors.slate.500');
+  padding: theme('padding.1') theme('padding.2');
+}
+
+.btn--large-slate {
+  background-color: theme('colors.slate.500');
+}
