@@ -7,16 +7,5 @@
     --color-base: #475569;
     --color-light: #ffffff;
     --color-dark: var(--color-text-light);
-
-    --button-border-width-sm: 0.375rem;
-    --button-border-width-md: 0.438rem;
-  }
-
-  /* BUTTONS */
-  .btn:hover {
-    @apply border border-slate-100;
-  }
-  .btn:focus {
-    @apply border border-slate-200;
   }
 }

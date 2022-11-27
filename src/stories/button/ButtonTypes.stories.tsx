@@ -17,14 +17,31 @@ export default {
       defaultValue: 'Button Label',
       type: { name: 'string', required: true },
     },
-    backgroundColor: {
-      defaultValue: 'bg-slate-600',
+    isLarge: {
+      description: 'A small version of the button',
+      defaultValue: 'large',
+      options: ['small', 'large'],
+      control: { type: 'radio' },
+    },
+    width: {
+      description: 'A width version of the button',
+      defaultValue: 'default',
       control: {
         type: 'select',
         options: {
-          slate: 'bg-slate-600',
-          violet: 'bg-violet-600',
-          pink: 'bg-gradient-to-r from-pink-500 to-violet-500',
+          default: 'default',
+          full: 'full',
+        },
+      },
+    },
+    variant: {
+      defaultValue: 'slate',
+      control: {
+        type: 'select',
+        options: {
+          slate: 'slate',
+          violet: 'violet',
+          pink: 'pink',
         },
       },
     },
@@ -43,7 +60,7 @@ Default.args = {
 
 Default.decorators = [
   (Story) => (
-    <div className="flex flex-row justify-center mb-4">
+    <div className="flex flex-row justify-center">
       <Story />
     </div>
   ),
