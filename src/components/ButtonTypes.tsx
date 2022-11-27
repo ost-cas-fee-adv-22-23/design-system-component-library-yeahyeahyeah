@@ -28,6 +28,7 @@ export const ButtonTypes: React.FC<IButtonStyledComponent> = ({
         isLarge={isLarge}
         width={width}
         disabled={disabled}
+        onClick={() => console.log('click')}
       >
         {label}
         <img
@@ -85,23 +86,23 @@ const ButtonStyles = styled.button(
       grow-0
       justify-center
       items-center
+      p-3
       rounded
-      text-skin-slate
-      font-semibold
-      py-3 px-4
-      leading
       w-auto
-      border
+      border-4
+      text-skin-light      
+      font-semibold
+      leading      
   `,
-    tw`focus:(border border-slate-100)`,
-    tw`hover:(border border-slate-100)`,
-    width === 'default' ? tw`w-auto` : tw`w-full`,
-    isLarge === 'large' ? tw`py-4 px-6` : tw`py-3 px-4`,
+    // tw`focus:(border border-slate-100)`,
+    // tw`hover:(border border-slate-100)`,
+    width === 'default' ? null : tw`w-full`,
+    isLarge === 'large' ? tw`py-4 px-6` : null,
     variant === 'slate' &&
-      tw`bg-slate-600 hover:bg-slate-700 disabled:bg-slate-300`,
+      tw`bg-slate-600 hover:(bg-slate-700 border-slate-100) focus:(border-slate-200) disabled:bg-slate-300`,
     variant === 'violet' &&
-      tw`bg-violet-600 hover:bg-violet-700 disabled:bg-violet-300`,
+      tw`bg-violet-600 hover:(bg-violet-700 border-violet-100) focus:(border-violet-200) disabled:bg-violet-300`,
     variant === 'pink' &&
-      tw`bg-gradient-to-r from-pink-500 to-violet-500 disabled:bg-pink-200`,
+      tw`bg-gradient-to-r from-pink-500 to-violet-500 hover:(border-pink-100) focus:(border-pink-200) disabled:bg-pink-200 `,
   ],
 );
