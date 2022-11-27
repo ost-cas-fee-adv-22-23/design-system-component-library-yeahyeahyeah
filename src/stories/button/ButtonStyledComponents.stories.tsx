@@ -1,24 +1,30 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ButtonStyledComponent as Button } from '../../components/ButtonStyledComponents';
+import { ButtonTypes as Button } from '../../components/ButtonTypes';
 
 export default {
   title: 'Interactions/Buttons',
   component: Button,
   parameters: {
+    controls: { sort: 'requiredFirst' },
     actions: {
       argTypesRegex: '^on.*',
       handles: ['mouseover', 'click .btn', 'mouseout', 'click .btn'],
     },
   },
   argTypes: {
+    label: {
+      name: 'Button Label',
+      defaultValue: 'Button Label',
+      type: { name: 'string', required: true },
+    },
     backgroundColor: {
-      defaultValue: 'bg-violet-600',
+      defaultValue: 'bg-slate-600',
       control: {
         type: 'select',
         options: {
           slate: 'bg-slate-600',
           violet: 'bg-violet-600',
-          pink: 'bg-pink-500',
+          pink: 'bg-gradient-to-r from-pink-500 to-violet-500',
         },
       },
     },
@@ -30,9 +36,6 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const Default = Template.bind({});
 
 Default.args = {
-  label: 'Button Label',
-  isLarge: false,
-  width: false,
   fCallBack: () => {
     console.log('callback primary');
   },

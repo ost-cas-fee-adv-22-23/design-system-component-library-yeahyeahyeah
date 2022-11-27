@@ -175,6 +175,21 @@ module.exports = {
       9: '2.25rem',
       10: '2.5rem',
     },
+    backgroundImage: {
+      none: 'none',
+      'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
+      'gradient-to-tr':
+        'linear-gradient(to top right, var(--tw-gradient-stops))',
+      'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
+      'gradient-to-br':
+        'linear-gradient(to bottom right, var(--tw-gradient-stops))',
+      'gradient-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
+      'gradient-to-bl':
+        'linear-gradient(to bottom left, var(--tw-gradient-stops))',
+      'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
+      'gradient-to-tl':
+        'linear-gradient(to top left, var(--tw-gradient-stops))',
+    },
     width: ({ theme }) => ({
       auto: 'auto',
       ...theme('spacing'),
@@ -211,6 +226,7 @@ module.exports = {
       fit: 'fit-content',
     }),
     backgroundColor: ({ theme }) => theme('colors'),
+    gradientColorStops: ({ theme }) => theme('colors'),
     borderColor: ({ theme }) => ({
       ...theme('colors'),
       DEFAULT: theme('colors.gray.200', 'currentColor'),

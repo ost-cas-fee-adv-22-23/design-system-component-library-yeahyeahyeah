@@ -97,6 +97,8 @@ dist
 # Serverless directories
 .serverless/
 
+./full-tailwind.config.js
+
 # FuseBox cache
 .fusebox/
 
