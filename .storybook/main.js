@@ -14,7 +14,7 @@ module.exports = {
   },
   webpackFinal: async (config) => {
     config.module.rules
-      .filter((rule) => rule.test.test('.svg'))
+      .filter((rule) => rule.test?.test('.svg'))
       .forEach((rule) => (rule.exclude = /\.svg$/i));
 
     config.module.rules.push({
