@@ -95,10 +95,8 @@ const ButtonStyles = styled.button(
   `,
     tw`focus:(border border-slate-100)`,
     tw`hover:(border border-slate-100)`,
-    width === 'default' && tw`w-auto`,
-    width === 'full' && tw`w-full`,
-    isLarge === 'large' && tw`py-4 px-6`,
-    isLarge === 'smalle' && tw`py-3 px-4`,
+    width === 'default' ? tw`w-auto` : tw`w-full`,
+    isLarge === 'large' ? tw`py-4 px-6` : tw`py-3 px-4`,
     variant === 'slate' &&
       tw`bg-slate-600 hover:bg-slate-700 disabled:bg-slate-300`,
     variant === 'violet' &&

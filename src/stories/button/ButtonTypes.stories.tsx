@@ -1,62 +1,61 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ButtonTypes as Button } from '../../components/ButtonTypes';
 
+const buttonProps = {
+  label: { name: 'Button Label' },
+  width: { default: 'default', full: 'full' },
+  isLarge: { small: 'small', large: 'large' },
+  variant: { slate: 'slate', violet: 'violet', pink: 'pink' },
+};
+
 export default {
   title: 'Interactions/Buttons',
   component: Button,
   parameters: {
-    controls: { sort: 'requiredFirst' },
+    controls: { sort: 'requiredLast' },
     actions: {
+      onClick: { action: 'clicked' },
       argTypesRegex: '^on.*',
-      handles: ['mouseover', 'click .btn', 'mouseout', 'click .btn'],
+      handles: ['click', 'click .btn', 'mouseout', 'click .btn'],
     },
   },
   argTypes: {
     label: {
-      name: 'Button Label',
-      defaultValue: 'Button Label',
-      type: { name: 'string', required: true },
+      name: buttonProps.label.name,
     },
     isLarge: {
       description: 'A small version of the button',
-      defaultValue: 'large',
-      options: ['small', 'large'],
+      options: Object.keys(buttonProps.isLarge),
       control: { type: 'radio' },
     },
     width: {
-      description: 'A width version of the button',
-      defaultValue: 'default',
+      description: 'A full width version of the button',
+      options: Object.keys(buttonProps.width),
+      mapping: buttonProps.width,
       control: {
         type: 'select',
-        options: {
-          default: 'default',
-          full: 'full',
-        },
       },
     },
     variant: {
-      defaultValue: 'slate',
+      options: Object.keys(buttonProps.variant),
+      mapping: buttonProps.variant,
       control: {
         type: 'select',
-        options: {
-          slate: 'slate',
-          violet: 'violet',
-          pink: 'pink',
-        },
       },
     },
+  },
+  args: {
+    label: buttonProps.label.name,
+    isLarge: buttonProps.isLarge.small,
+    width: buttonProps.width.default,
+    variant: buttonProps.variant.slate,
+    fCallBack: () => console.log('fCallBack'),
   },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Default = Template.bind({});
-
-Default.args = {
-  fCallBack: () => {
-    console.log('callback primary');
-  },
-};
 
 Default.decorators = [
   (Story) => (
