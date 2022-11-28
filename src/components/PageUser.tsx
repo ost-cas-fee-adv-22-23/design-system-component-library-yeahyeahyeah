@@ -2,6 +2,9 @@ import React, { ReactElement, useContext, useEffect, useState } from 'react';
 import Button from './Button';
 import InputField from './Input';
 import { GlobalContext } from '../context/context';
+import { ReactComponent as Heart } from '../stories/assets/icons/heart_filled.svg';
+import { ReactComponent as Share } from '../stories/assets/icons/share.svg';
+import { Icon } from './Icon';
 
 const PageUser = (): ReactElement => {
   const { user, setUser } = useContext(GlobalContext);
@@ -46,6 +49,11 @@ const PageUser = (): ReactElement => {
           />
         </div>
       </form>
+      <p>
+        <Heart onClick={() => console.log('This is my heart')} />
+        <Share onClick={() => console.log('This is a share icon')} />
+        <Icon type={'Cancel'} filled={false} />
+      </p>
     </div>
   );
 };
