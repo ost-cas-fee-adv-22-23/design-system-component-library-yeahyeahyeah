@@ -90,19 +90,33 @@ const ButtonStyles = styled.button(
       rounded
       w-auto
       border-4
+      border-opacity-100
       text-skin-light      
       font-semibold
-      leading      
+      leading-normal
   `,
     // tw`focus:(border border-slate-100)`,
     // tw`hover:(border border-slate-100)`,
     width === 'default' ? null : tw`w-full`,
     isLarge === 'large' ? tw`py-4 px-6` : null,
     variant === 'slate' &&
-      tw`bg-slate-600 hover:(bg-slate-700 border-slate-100) focus:(border-slate-200) disabled:bg-slate-300`,
+      tw`
+      bg-slate-600 hover:(bg-slate-700 border-slate-100)
+        focus:(border-slate-200)
+      disabled:bg-slate-300`,
     variant === 'violet' &&
-      tw`bg-violet-600 hover:(bg-violet-700 border-violet-100) focus:(border-violet-200) disabled:bg-violet-300`,
+      tw`
+     bg-violet-600
+       hover:(bg-violet-700 border-violet-100)
+       focus:(border-violet-200)
+     disabled:bg-violet-300`,
     variant === 'pink' &&
-      tw`bg-gradient-to-r from-pink-500 to-violet-500 hover:(border-pink-100) focus:(border-pink-200) disabled:bg-pink-200 `,
+      tw`
+       bg-gradient-to-r
+     from-pink-500
+     to-violet-500
+       hover:(bg-gradient-to-r from-pink-600 to-violet-600 border-pink-100)
+       focus:(bg-gradient-to-r from-pink-700 to-violet-700 border-pink-200)
+       disabled:(bg-gradient-to-r from-pink-300 to-violet-300) `,
   ],
 );
