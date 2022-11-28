@@ -24,6 +24,9 @@ module.exports = {
         4: '4px',
         none: 'transparent',
       },
+      outlineWidth: {
+        3: '3px',
+      },
     },
     colors: {
       slate: {

@@ -94,8 +94,8 @@ const ButtonStyles = styled.button(
       font-semibold
       leading-normal
   `,
-    // tw`focus:(border border-slate-100)`,
-    // tw`hover:(border border-slate-100)`,
+    tw`hover:(outline-3)`,
+    tw`focus:(outline-4)`,
     width === 'default' ? null : tw`w-full`,
     isLarge === 'large' ? tw`py-4 px-6` : null,
     variant === 'slate' &&
