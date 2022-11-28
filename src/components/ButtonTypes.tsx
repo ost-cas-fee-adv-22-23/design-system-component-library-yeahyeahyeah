@@ -19,8 +19,6 @@ export const ButtonTypes: React.FC<IButtonStyledComponent> = ({
   width,
   disabled,
 }) => {
-  console.log(disabled);
-
   return (
     <>
       <ButtonStyles
@@ -88,7 +86,8 @@ const ButtonStyles = styled.button(({ variant, width, size }: ButtonProps) => [
       p-3
       rounded
       w-auto
-      outline
+      border-none
+      outline-none
       text-skin-light      
       font-semibold
       leading-normal
@@ -115,5 +114,5 @@ const ButtonStyles = styled.button(({ variant, width, size }: ButtonProps) => [
         to-violet-500
         hover:(bg-gradient-to-r-70 outline-violet-100)
         focus:(bg-gradient-to-r-80 outline-violet-200)
-        disabled:(bg-gradient-to-r from-pink-300 to-violet-300) `,
+        disabled:(bg-gradient-to-r from-pink-300 to-violet-300)`,
 ]);

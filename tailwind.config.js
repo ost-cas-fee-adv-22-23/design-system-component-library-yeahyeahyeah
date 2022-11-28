@@ -8,8 +8,6 @@ module.exports = {
         skin: {
           base: 'var(--color-base)',
           light: 'var(--color-light)',
-          violet: 'var(--color-text-violet)',
-          pink: 'var(--color-text-pink)',
         },
       },
       fontFamily: {
