@@ -86,8 +86,9 @@ const ButtonStyles = styled.button(({ variant, width, size }: ButtonProps) => [
       p-3
       rounded
       w-auto
-      border-none
+      border-hidden
       outline-none
+      outline-offset-0
       text-skin-light      
       font-semibold
       leading-normal

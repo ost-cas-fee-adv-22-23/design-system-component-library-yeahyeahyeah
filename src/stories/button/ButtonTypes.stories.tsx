@@ -58,5 +58,11 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const Default = Template.bind({});
 
 Default.decorators = [
-  (Story) => <div className="flex flex-row justify-center">{Story()}</div>,
+  (Story) => (
+    <div className="flex flex-row justify-center items-center w-full h-full bg-slate-50">
+      <div className="flex justify-center items-center h-fit w-full p-10">
+        {Story()}
+      </div>
+    </div>
+  ),
 ];
