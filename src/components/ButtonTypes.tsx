@@ -114,8 +114,8 @@ const ButtonStyles = styled.button(
         bg-gradient-to-r
         from-pink-500
         to-violet-500
-        hover:(bg-gradient-to-r from-pink-600 to-violet-600 outline-pink-100)
-        focus:(bg-gradient-to-r from-pink-700 to-violet-700 outline-pink-200)
+        hover:(bg-gradient-to-r-70 outline-violet-100)
+        focus:(bg-gradient-to-r-80 outline-violet-200)
         disabled:(bg-gradient-to-r from-pink-300 to-violet-300) `,
   ],
 );

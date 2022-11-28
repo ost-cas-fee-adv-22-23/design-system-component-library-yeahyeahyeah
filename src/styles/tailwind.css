@@ -7,5 +7,8 @@
     --color-base: #475569;
     --color-light: #ffffff;
     --color-dark: var(--color-text-light);
+
+    --color-gradient-pink: #ec4899;
+    --color-gradient-violet: #8b5cf6;
   }
 }

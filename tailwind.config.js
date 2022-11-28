@@ -27,6 +27,12 @@ module.exports = {
       outlineWidth: {
         3: '3px',
       },
+      backgroundImage: {
+        'gradient-to-r-70':
+          'linear-gradient(90deg, var(--color-gradient-pink) 0%, var(--color-gradient-violet) 70%)',
+        'gradient-to-r-80':
+          'linear-gradient(90deg, var(--color-gradient-pink) 0%, var(--color-gradient-violet) 40%)',
+      },
     },
     colors: {
       slate: {
