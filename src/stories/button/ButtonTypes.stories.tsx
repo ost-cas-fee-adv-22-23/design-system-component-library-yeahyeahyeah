@@ -4,7 +4,7 @@ import { ButtonTypes as Button } from '../../components/ButtonTypes';
 const buttonProps = {
   label: { name: 'Button Label' },
   width: { default: 'default', full: 'full' },
-  isLarge: { small: 'small', large: 'large' },
+  size: { small: 'small', large: 'large' },
   variant: { slate: 'slate', violet: 'violet', pink: 'pink' },
 };
 
@@ -23,9 +23,9 @@ export default {
     label: {
       name: buttonProps.label.name,
     },
-    isLarge: {
+    size: {
       description: 'A small version of the button',
-      options: Object.keys(buttonProps.isLarge),
+      options: Object.keys(buttonProps.size),
       control: { type: 'radio' },
     },
     width: {
@@ -46,7 +46,7 @@ export default {
   },
   args: {
     label: buttonProps.label.name,
-    isLarge: buttonProps.isLarge.small,
+    size: buttonProps.size.small,
     width: buttonProps.width.default,
     variant: buttonProps.variant.slate,
     fCallBack: () => console.log('fCallBack'),
