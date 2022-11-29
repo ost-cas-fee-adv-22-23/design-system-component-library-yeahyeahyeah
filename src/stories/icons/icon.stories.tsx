@@ -3,10 +3,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Icon } from '../../components/Icon';
 
-export default {
-  title: 'CASFEA22/Icons',
-  component: Icon,
-} as ComponentMeta<typeof Icon>;
+let tailWindColors = ['fill-slate-500', 'fill-violet-500', 'fill-pink-500'];
+let tailWindColorsElement: string = '';
 
 const iconTypes = [
   'calendar',
@@ -35,11 +33,42 @@ const iconTypes = [
   'upload',
 ];
 
-let tailWindColors = ['fill-slate-500', 'fill-violet-500', 'fill-pink-500'];
-let tailWindColorsElement: string = '';
+const buttonProps = {
+  color: {
+    slate: 'fill-slate-500',
+    violet: 'fill-violet-500',
+    pink: 'fill-pink-500',
+  },
+  type: iconTypes,
+};
+
+export default {
+  title: 'CASFEA22/Icons',
+  component: Icon,
+  argTypes: {
+    color: {
+      options: Object.keys(buttonProps.color),
+      mapping: buttonProps.color,
+      control: {
+        type: 'select',
+      },
+    },
+    type: {
+      options: buttonProps.type,
+      mapping: buttonProps.type,
+      control: {
+        type: 'select',
+      },
+    },
+  },
+} as ComponentMeta<typeof Icon>;
 
 const TemplateIcon: ComponentStory<typeof Icon> = (args) => (
   <>
+    <p>
+      <Icon {...args} />
+    </p>
+
     {iconTypes.map((iconType, index) => {
       tailWindColorsElement = tailWindColors.shift() || '';
       let icon = (
@@ -48,7 +77,11 @@ const TemplateIcon: ComponentStory<typeof Icon> = (args) => (
       tailWindColors.push(tailWindColorsElement);
       return <p key={index}>{icon}</p>;
     })}
+  </>
+);
 
+const TemplateIconSingle: ComponentStory<typeof Icon | any> = (args) => (
+  <>
     <p>
       <Icon {...args} />
     </p>
@@ -57,7 +90,14 @@ const TemplateIcon: ComponentStory<typeof Icon> = (args) => (
 
 export const All = TemplateIcon.bind({});
 All.args = {
+  type: 'time',
+  color: buttonProps.color.violet,
+  fCallBack: () => console.log('icon clicked'),
+};
+
+export const Single = TemplateIconSingle.bind({});
+Single.args = {
   type: 'upload',
-  color: 'fill-slate-500',
+  color: buttonProps.color.pink,
   fCallBack: () => console.log('icon clicked'),
 };
