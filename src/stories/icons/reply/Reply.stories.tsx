@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ReactComponent as ReplyFilled } from '../../assets/icons/reply_filled.svg';
-import { ReactComponent as ReplyEmpty } from '../../assets/icons/reply_empty.svg';
+import { ReactComponent as ReplyEmpty } from '../../assets/icons/reply_outlined.svg';
 
 export default {
   title: 'CASFEA22/Icons/Reply',

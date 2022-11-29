@@ -22,11 +22,12 @@ import { ReactComponent as Settings } from '../stories/assets/icons/settings.svg
 import { ReactComponent as Share } from '../stories/assets/icons/share.svg';
 import { ReactComponent as Time } from '../stories/assets/icons/time.svg';
 import { ReactComponent as Upload } from '../stories/assets/icons/upload.svg';
+import { MouseEvent } from 'react';
 
 interface IIcon extends React.HTMLAttributes<HTMLElement> {
   type: string;
   color?: string | undefined;
-  fCallBack?: () => void;
+  fCallBack?: (e: MouseEvent) => void;
 }
 
 export const Icon: React.FC<IIcon> = ({ type, color, fCallBack }: IIcon) => {
