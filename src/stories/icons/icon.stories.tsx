@@ -3,7 +3,12 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Icon } from '../../components/Icon';
 
-let tailWindColors = ['fill-slate-500', 'fill-violet-500', 'fill-pink-500'];
+let tailWindColors: string[] = [
+  'fill-slate-500',
+  'fill-violet-500',
+  'fill-pink-500',
+];
+
 let tailWindColorsElement: string = '';
 
 const iconTypes = [
@@ -65,18 +70,19 @@ export default {
 
 const TemplateIcon: ComponentStory<typeof Icon> = (args) => (
   <>
-    <p>
-      <Icon {...args} />
-    </p>
-
-    {iconTypes.map((iconType, index) => {
-      tailWindColorsElement = tailWindColors.shift() || '';
-      let icon = (
-        <Icon {...args} type={iconType} color={tailWindColorsElement} />
-      );
-      tailWindColors.push(tailWindColorsElement);
-      return <p key={index}>{icon}</p>;
-    })}
+    <div className="grid grid-rows-4 grid-flow-col gap-4">
+      <div>
+        <Icon {...args} />
+      </div>
+      {iconTypes.map((iconType, index) => {
+        tailWindColorsElement = tailWindColors.shift() || '';
+        let icon = (
+          <Icon {...args} type={iconType} color={tailWindColorsElement} />
+        );
+        tailWindColors.push(tailWindColorsElement);
+        return <div key={index}>{icon}</div>;
+      })}
+    </div>
   </>
 );
 
