@@ -55,9 +55,9 @@ const TemplateIcon: ComponentStory<typeof Icon> = (args) => (
   </>
 );
 
-export const IconCancel = TemplateIcon.bind({});
-IconCancel.args = {
+export const All = TemplateIcon.bind({});
+All.args = {
   type: 'upload',
-  color: 'fill-slate-300',
+  color: 'fill-slate-500',
   fCallBack: () => console.log('icon clicked'),
 };

@@ -18,7 +18,13 @@ const TemplateHeartOutlined: ComponentStory<typeof HeartOutlined> = (args) => (
 );
 
 export const Filled = TemplateHeartFilled.bind({});
-Filled.args = {};
+Filled.args = {
+  className: 'fill-slate-500',
+  onClick: () => console.log('icon clicked'),
+};
 
 export const Outlined = TemplateHeartOutlined.bind({});
-Outlined.args = {};
+Outlined.args = {
+  className: 'fill-slate-300',
+  onClick: () => console.log('icon clicked'),
+};

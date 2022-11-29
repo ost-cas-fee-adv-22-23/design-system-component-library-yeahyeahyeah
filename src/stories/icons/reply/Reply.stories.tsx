@@ -18,7 +18,13 @@ const TemplateReplyEmpty: ComponentStory<typeof ReplyEmpty> = (args) => (
 );
 
 export const Filled = TemplateReplyFilled.bind({});
-Filled.args = {};
+Filled.args = {
+  className: 'fill-slate-300',
+  onClick: () => console.log('icon clicked'),
+};
 
 export const Empty = TemplateReplyEmpty.bind({});
-Empty.args = {};
+Empty.args = {
+  className: 'fill-slate-500',
+  onClick: () => console.log('icon clicked'),
+};
