@@ -11,3 +11,8 @@
     --color-gradient-violet: #8b5cf6;
   }
 }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-base);
+}
