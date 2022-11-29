@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 
 interface IHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  variant: 'h1' | 'h2' | 'h3' | 'h4';
   label: string;
-  color: string;
+  variant: 'h1' | 'h2' | 'h3' | 'h4';
+  color: 'slate' | 'violet' | 'pink';
 }
 
 export const Typography: React.FC<IHeadingProps> = ({

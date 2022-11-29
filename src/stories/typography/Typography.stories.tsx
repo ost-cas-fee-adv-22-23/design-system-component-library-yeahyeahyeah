@@ -1,35 +1,24 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Typography } from '../../components/Typography';
 
-const headingProps = {
-  variant: { h1: 'h1', h2: 'h2', h3: 'h3', h4: 'h4' },
-  color: { slate: 'slate', violet: 'violet', pink: 'pink' },
-};
-
 export default {
   title: 'Typography',
   component: Typography,
   argTypes: {
     label: {
-      name: 'Typography Headings',
+      name: 'Heading',
     },
     variant: {
       description: 'Lorem ipsum',
-      options: Object.keys(headingProps.variant),
-      mapping: headingProps.variant,
       control: { type: 'select' },
     },
     color: {
       description: 'Choose your font color',
-      options: Object.keys(headingProps.color),
-      mapping: headingProps.color,
       control: { type: 'select' },
     },
   },
   args: {
-    label: 'Hello Heading Lorem Ipsum',
-    variant: headingProps.variant.h1,
-    color: headingProps.color.pink,
+    label: 'Typografie',
   },
 } as ComponentMeta<typeof Typography>;
 
