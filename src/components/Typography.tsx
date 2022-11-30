@@ -25,7 +25,7 @@ export const Typography: React.FC<IHeadingProps> = ({
           <h4 className="text-lg font-medium text-slate-500 mb-6">
             Google Font “Poppins”, Medium, Semibold & Bold
           </h4>
-          <h1 className="text-4xl font-bold mb-8">{label}</h1>
+          <h1 className="text-4xl font-bold m-0 mb-8">{label}</h1>
           <h2 className="text-3xl font-bold mb-8">{label}</h2>
           <h3 className="text-2xl font-semibold mb-8">{label}</h3>
           <h4 className="text-xl font-semibold mb-32">{label}</h4>
