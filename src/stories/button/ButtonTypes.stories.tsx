@@ -11,14 +11,6 @@ const buttonProps = {
 export default {
   title: 'Interactions/Buttons',
   component: Button,
-  parameters: {
-    controls: { sort: 'requiredLast' },
-    actions: {
-      onClick: { action: 'clicked' },
-      argTypesRegex: '^on.*',
-      handles: ['click', 'click .btn', 'mouseout', 'click .btn'],
-    },
-  },
   argTypes: {
     label: {
       name: buttonProps.label.name,
@@ -26,7 +18,7 @@ export default {
     size: {
       description: 'A small version of the button',
       options: Object.keys(buttonProps.size),
-      control: { type: 'radio' },
+      control: { type: 'radio', defaultValue: 'small' },
     },
     width: {
       description: 'A full width version of the button',
@@ -57,10 +49,16 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Default = Template.bind({});
 
+Default.parameters = {
+  docs: {
+    source: { type: 'dynamic' },
+  },
+};
+
 Default.decorators = [
   (Story) => (
-    <div className="flex flex-row justify-center items-center w-full h-full bg-slate-50">
-      <div className="flex justify-center items-center h-fit w-full p-10">
+    <div className="m-0 p-0 flex flex-row justify-center items-center w-full h-full">
+      <div className="flex justify-center items-center w-full p-8">
         {Story()}
       </div>
     </div>

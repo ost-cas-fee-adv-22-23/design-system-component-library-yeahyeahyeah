@@ -4,20 +4,20 @@ import Icon from '../stories/assets/icons/mumble.svg';
 
 interface IButtonStyledComponent
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
+  label: 'Button Label';
   variant?: 'slate' | 'violet' | 'pink';
-  size?: string;
-  width?: string;
-  disabled?: boolean;
+  size?: 'small' | 'large';
+  width?: 'default' | 'full';
+  disabled?: true | false;
   fCallBack?: () => void;
 }
 
 export const ButtonTypes: React.FC<IButtonStyledComponent> = ({
-  label,
-  variant,
-  size,
-  width,
-  disabled,
+  label = 'Button Label',
+  variant = 'slate',
+  size = 'small',
+  width = 'default',
+  disabled = false,
 }) => {
   return (
     <>
