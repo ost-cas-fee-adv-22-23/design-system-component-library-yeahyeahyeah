@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import Icon from '../stories/assets/mumble.svg';
+import Icon from '../stories/assets/icons/mumble.svg';
 
 interface IButtonStyledComponent
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -29,43 +29,25 @@ export const ButtonTypes: React.FC<IButtonStyledComponent> = ({
         onClick={() => console.log('click')}
       >
         {label}
-        <img
-          className="ml-2"
-          src={Icon}
-          alt="Panda Icon"
-          width={16}
-          height={16}
-        />
+      </ButtonStyles>
+      <ButtonStyles
+        className="ml-8 mr-8"
+        variant={variant}
+        size={size}
+        width={width}
+        disabled={disabled}
+        onClick={() => console.log('click')}
+      >
+        {label}
       </ButtonStyles>
       <ButtonStyles
         variant={variant}
         size={size}
         width={width}
         disabled={disabled}
+        onClick={() => console.log('click')}
       >
         {label}
-        <img
-          className="ml-2"
-          src={Icon}
-          alt="Panda Icon"
-          width={16}
-          height={16}
-        />
-      </ButtonStyles>
-      <ButtonStyles
-        variant={variant}
-        size={size}
-        width={width}
-        disabled={disabled}
-      >
-        {label}
-        <img
-          className="ml-2"
-          src={Icon}
-          alt="Panda Icon"
-          width={16}
-          height={16}
-        />
       </ButtonStyles>
     </>
   );
@@ -83,7 +65,7 @@ const ButtonStyles = styled.button(({ variant, width, size }: ButtonProps) => [
       grow-0
       justify-center
       items-center
-      p-3
+      p-12
       rounded
       w-auto
       border-hidden
@@ -96,7 +78,7 @@ const ButtonStyles = styled.button(({ variant, width, size }: ButtonProps) => [
   tw`hover:(outline-3)`,
   tw`focus:(outline-4)`,
   width === 'default' ? null : tw`w-full`,
-  size === 'large' ? tw`py-4 px-6` : null,
+  size === 'large' ? tw`py-16 px-24` : null,
   variant === 'slate' &&
     tw`
         bg-slate-600 hover:(bg-slate-700 outline-slate-100)
