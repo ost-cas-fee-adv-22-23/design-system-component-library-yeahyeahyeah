@@ -19,6 +19,8 @@ export default {
   },
   args: {
     label: 'Typografie',
+    variant: 'h1',
+    color: 'slate-600',
   },
 } as ComponentMeta<typeof Typography>;
 
