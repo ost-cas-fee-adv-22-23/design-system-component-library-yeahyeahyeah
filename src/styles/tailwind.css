@@ -5,34 +5,34 @@
 
 @layer base {
   :root {
+    /*
+      @globals
+      @desc colors
+    */
     --color-base: #475569;
     --color-light: #ffffff;
-
     --color-gradient-pink: #ec4899;
     --color-gradient-violet: #8b5cf6;
+
+    /* 
+      @global
+      @desc font defaults
+      */
+    --font-family-base: 'Poppins', sans-serif;
+    --font-size-base: '1rem';
+    --font-style: 'normal';
+    --font-weight: 300;
+    --font-letter-spacing: 0;
+    --hyphens-base: 'auto';
   }
-}
 
-body {
-  font-family: 'Poppins', sans-serif;
-  font-style: normal;
-  color: var(--color-base);
-  font-size: '1rem';
-  font-weight: 400;
-}
-
-p {
-  @apply text-slate-600 text-base leading-loose;
-}
-
-h2 {
-  @apply text-4xl font-bold leading-relaxed;
-}
-
-h3 {
-  @apply text-3xl font-semibold leading-10;
-}
-
-h4 {
-  @apply text-2xl font-semibold  leading-relaxed;
+  body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight);
+    font-style: var(--font-style);
+    letter-spacing: var(--font-letter-spacing);
+    color: var(--color-base);
+    hyphens: var(--hyphens-base);
+  }
 }
