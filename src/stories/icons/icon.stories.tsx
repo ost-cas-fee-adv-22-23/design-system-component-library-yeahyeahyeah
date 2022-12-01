@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Icon } from '../../components/Icon';
+import { Icon, IIcon } from '../../components/Icon';
 
 let tailWindColors: string[] = [
   'fill-slate-500',
@@ -59,8 +59,6 @@ export default {
       },
     },
     type: {
-      options: buttonProps.type,
-      mapping: buttonProps.type,
       control: {
         type: 'select',
       },
@@ -77,7 +75,11 @@ const TemplateIcon: ComponentStory<typeof Icon> = (args) => (
       {iconTypes.map((iconType, index) => {
         tailWindColorsElement = tailWindColors.shift() || '';
         let icon = (
-          <Icon {...args} type={iconType} color={tailWindColorsElement} />
+          <Icon
+            {...args}
+            type={iconType as IIcon['type']}
+            color={tailWindColorsElement}
+          />
         );
         tailWindColors.push(tailWindColorsElement);
         return <div key={index}>{icon}</div>;
