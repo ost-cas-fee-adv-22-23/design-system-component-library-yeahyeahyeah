@@ -30,6 +30,8 @@ const Template: ComponentStory<typeof Typography> = (args) => (
 
 export const Heading = Template.bind({});
 
+Heading.storyName = 'Overview';
+
 Heading.decorators = [
   (Story) => (
     <div className="flex justify-center items-start w-full">
