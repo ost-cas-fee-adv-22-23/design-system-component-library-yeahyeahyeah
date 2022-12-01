@@ -98,6 +98,8 @@ export const All = TemplateIcon.bind({});
 All.args = {
   type: 'time',
   color: buttonProps.color.violet,
+  width: '100px',
+  height: '100px',
   fCallBack: () => console.log('icon clicked'),
 };
 
@@ -105,5 +107,7 @@ export const Single = TemplateIconSingle.bind({});
 Single.args = {
   type: 'upload',
   color: buttonProps.color.pink,
+  width: '100px',
+  height: '100px',
   fCallBack: () => console.log('icon clicked'),
 };

@@ -1,10 +1,7 @@
-import React, { ReactElement, useContext, useEffect, useState } from 'react';
+import { ReactElement, useContext, useEffect, useState } from 'react';
 import Button from './Button';
 import InputField from './Input';
 import { GlobalContext } from '../context/context';
-import { ReactComponent as HeartFilled } from '../stories/assets/icons/heart_filled.svg';
-import { ReactComponent as HeartEmpty } from '../stories/assets/icons/heart_empty.svg';
-import { ReactComponent as Share } from '../stories/assets/icons/share.svg';
 import { Icon } from './Icon';
 
 const PageUser = (): ReactElement => {
@@ -51,31 +48,61 @@ const PageUser = (): ReactElement => {
         </div>
       </form>
       <p>
-        {/* <HeartFilled
-          className={'fill-pink-500'}
-          onClick={() => console.log('This is my heart')}
-        />
-        <HeartEmpty
-          className={'fill-pink-500'}
-          onClick={() => console.log('This is my heart')}
-        />
-        <Share
-          className={'fill-pink-500'}
-          onClick={() => console.log('This is a share icon')}
-        /> */}
         <Icon
           type={'cancel'}
           color={'fill-pink-500'}
+          width="50px"
+          height="50px"
           fCallBack={() => console.log('cancel clicked')}
         />
-        <Icon type={'calendar'} color={'fill-pink-500'} />
-        <Icon type={'checkmark'} color={'fill-violet-500'} />
-        <Icon type={'heart-filled'} color={'fill-pink-500'} />
-        <Icon type={'heart-outlined'} color={'fill-violet-500'} />
-        <Icon type={'reply-filled'} color={'fill-pink-500'} />
-        <Icon type={'reply-outlined'} color={'fill-violet-500'} />
-        <Icon type={'chevron-left'} color={'fill-pink-500'} />
-        <Icon type={'location'} color={'fill-violet-500'} />
+        <Icon
+          type={'calendar'}
+          color={'fill-pink-500'}
+          width="50px"
+          height="50px"
+        />
+        <Icon
+          type={'checkmark'}
+          color={'fill-violet-500'}
+          width="50px"
+          height="50px"
+        />
+        <Icon
+          type={'heart-filled'}
+          color={'fill-pink-500'}
+          width="50px"
+          height="50px"
+        />
+        <Icon
+          type={'heart-outlined'}
+          color={'fill-violet-500'}
+          width="50px"
+          height="50px"
+        />
+        <Icon
+          type={'reply-filled'}
+          color={'fill-pink-500'}
+          width="50px"
+          height="50px"
+        />
+        <Icon
+          type={'reply-outlined'}
+          color={'fill-violet-500'}
+          width="50px"
+          height="50px"
+        />
+        <Icon
+          type={'chevron-left'}
+          color={'fill-pink-500'}
+          width="50px"
+          height="50px"
+        />
+        <Icon
+          type={'location'}
+          color={'fill-violet-500'}
+          width="50px"
+          height="50px"
+        />
       </p>
     </div>
   );
