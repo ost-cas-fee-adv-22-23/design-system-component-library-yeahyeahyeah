@@ -32,6 +32,54 @@ module.exports = {
           'linear-gradient(90deg, var(--color-gradient-pink) 0%, var(--color-gradient-violet) 40%)',
       },
     },
+    fontWeight: {
+      normal: '300',
+      medium: '500',
+      semibold: '600',
+      bold: '700',
+    },
+    fontSize: {
+      xs: ['0.875rem', { lineHeight: '0.875rem' }], // 14px / 14px Label S
+      sm: ['1rem', { lineHeight: '1rem' }], // 16px / 16px
+      base: ['1.125rem', { lineHeight: '1.575rem' }], // 18px / 25px
+      md: ['1.25rem', { lineHeight: '1.575rem' }], // 20px / 20px / 25px
+      lg: ['1.5rem', { lineHeight: '2.1875rem' }], // 24px / 30px Paragraph L
+      xl: ['1.5rem', { lineHeight: '1.875rem' }], // h4 -> 24px / 30px
+      '2xl': ['2rem', { lineHeight: '2.5rem' }], // h3 -> 32px / 40px
+      '3xl': ['2.5rem', { lineHeight: '3.125rem' }], // h2 -> 40px
+      '4xl': ['3rem', { lineHeight: '3.75rem' }], // h1 -> 48px / 60px
+    },
+    spacing: {
+      DEFAULT: '0',
+      0: '0',
+      3: '0.1875rem',
+      4: '0.25rem',
+      6: '1.5rem',
+      8: '0.5rem',
+      12: '0.75rem',
+      16: '1rem',
+      24: '1.5rem',
+      32: '2rem',
+      48: '3rem',
+      64: '4rem',
+    },
+    lineHeight: {
+      DEFAULT: '100%',
+      none: '1',
+      tight: '1.25',
+      snug: '1.375',
+      normal: '100%',
+      relaxed: '125%',
+      loose: '140%',
+      3: '.75rem',
+      4: '1rem',
+      5: '1.25rem',
+      6: '1.5rem',
+      7: '1.75rem',
+      8: '2rem',
+      9: '2.25rem',
+      10: '2.5rem',
+    },
     colors: {
       slate: {
         50: '#f8fafc',
@@ -69,6 +117,9 @@ module.exports = {
         800: '#9d174d',
         900: '#831843',
       },
+    },
+    container: {
+      center: true,
     },
   },
   plugins: [],
