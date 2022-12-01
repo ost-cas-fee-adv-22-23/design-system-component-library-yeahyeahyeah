@@ -13,4 +13,7 @@ const TemplateCancel: ComponentStory<typeof Cancel> = (args) => (
 );
 
 export const Filled = TemplateCancel.bind({});
-Filled.args = {};
+Filled.args = {
+  className: 'fill-slate-300',
+  onClick: () => console.log('icon clicked'),
+};
