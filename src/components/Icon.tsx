@@ -27,8 +27,32 @@ import {
 
 import { MouseEvent } from 'react';
 
-interface IIcon extends React.HTMLAttributes<HTMLElement> {
-  type: string;
+export interface IIcon extends React.HTMLAttributes<HTMLElement> {
+  type:
+    | 'calendar'
+    | 'cancel'
+    | 'checkmark'
+    | 'chevron-up'
+    | 'chevron-down'
+    | 'chevron-left'
+    | 'chevron-right'
+    | 'edit'
+    | 'eye'
+    | 'fullscreen'
+    | 'heart-filled'
+    | 'heart-outlined'
+    | 'location'
+    | 'logout'
+    | 'mumble'
+    | 'profile'
+    | 'reply-filled'
+    | 'reply-outlined'
+    | 'repost'
+    | 'send'
+    | 'settings'
+    | 'share'
+    | 'time'
+    | 'upload';
   color?: string | undefined;
   width?: string | undefined;
   height?: string | undefined;
