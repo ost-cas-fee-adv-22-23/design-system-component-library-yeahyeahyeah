@@ -1,9 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ButtonTypes as Button } from '../../components/ButtonTypes';
+import { Button } from '../../components/Button';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
+import { Single } from '../icons/icon.stories';
 
 export default {
-  title: 'Interactions/Buttons',
+  title: 'Interactions/Button',
   component: Button,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
@@ -32,7 +33,6 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
-
 /**
  * @button
  * @desc button standard slate
@@ -44,6 +44,7 @@ Slate.args = {
   variant: 'slate',
   width: 'default',
   size: 'small',
+  children: <Single {...Single.args} />,
 };
 
 Slate.parameters = {

@@ -37,22 +37,11 @@ const iconTypes = [
   'upload',
 ];
 
-const buttonProps = {
-  color: {
-    slate: 'fill-slate-500',
-    violet: 'fill-violet-500',
-    pink: 'fill-pink-500',
-  },
-  type: iconTypes,
-};
-
 export default {
   title: 'Icons/Collection',
   component: Icon,
   argTypes: {
     color: {
-      options: Object.keys(buttonProps.color),
-      mapping: buttonProps.color,
       control: {
         type: 'select',
       },
@@ -73,13 +62,7 @@ const TemplateIcon: ComponentStory<typeof Icon> = (args) => (
       </div>
       {iconTypes.map((iconType, index) => {
         tailWindColorsElement = tailWindColors.shift() || '';
-        let icon = (
-          <Icon
-            {...args}
-            type={iconType as IIcon['type']}
-            color={tailWindColorsElement}
-          />
-        );
+        let icon = <Icon {...args} type={iconType as IIcon['type']} />;
         tailWindColors.push(tailWindColorsElement);
         return <div key={index}>{icon}</div>;
       })}
@@ -88,17 +71,13 @@ const TemplateIcon: ComponentStory<typeof Icon> = (args) => (
 );
 
 const TemplateIconSingle: ComponentStory<typeof Icon | any> = (args) => (
-  <>
-    <p>
-      <Icon {...args} />
-    </p>
-  </>
+  <Icon {...args} />
 );
 
 export const All = TemplateIcon.bind({});
 All.args = {
   type: 'time',
-  color: buttonProps.color.violet,
+  color: 'fill-slate-50',
   width: '100px',
   height: '100px',
   fCallBack: () => console.log('icon clicked'),
@@ -106,9 +85,9 @@ All.args = {
 
 export const Single = TemplateIconSingle.bind({});
 Single.args = {
-  type: 'upload',
-  color: buttonProps.color.pink,
-  width: '100px',
-  height: '100px',
+  type: 'heart-filled',
+  color: 'fill-slate-50',
+  width: '16px',
+  height: '16px',
   fCallBack: () => console.log('icon clicked'),
 };

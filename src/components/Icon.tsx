@@ -53,7 +53,7 @@ export interface IIcon extends React.HTMLAttributes<HTMLElement> {
     | 'share'
     | 'time'
     | 'upload';
-  color?: string | undefined;
+  color?: 'fill-slate-50' | 'fill-pink-500';
   width?: string | undefined;
   height?: string | undefined;
   fCallBack?: (e: MouseEvent) => void;

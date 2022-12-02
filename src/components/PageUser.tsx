@@ -1,5 +1,5 @@
 import { ReactElement, useContext, useEffect, useState } from 'react';
-import Button from './Button';
+// import { Button } from '../components/Button';
 import InputField from './Input';
 import { GlobalContext } from '../context/context';
 import { Icon } from './Icon';
@@ -34,17 +34,14 @@ const PageUser = (): ReactElement => {
             type="text"
             fCallBack={(data: any) => setSurName(data.target.value)}
           />
-          <Button
+          {/* <Button
             label={'Submit'}
-            fCallBack={() => {
+            onClick={() => {
               setUser({ name: name, surname: surName });
               setName('');
               setSurName('');
             }}
-            styles={
-              'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
-            }
-          />
+          /> */}
         </div>
       </form>
       <p>
@@ -63,7 +60,7 @@ const PageUser = (): ReactElement => {
         />
         <Icon
           type={'checkmark'}
-          color={'fill-violet-500'}
+          color={'fill-slate-50'}
           width="50px"
           height="50px"
         />
@@ -75,7 +72,7 @@ const PageUser = (): ReactElement => {
         />
         <Icon
           type={'heart-outlined'}
-          color={'fill-violet-500'}
+          color={'fill-slate-50'}
           width="50px"
           height="50px"
         />
@@ -87,7 +84,7 @@ const PageUser = (): ReactElement => {
         />
         <Icon
           type={'reply-outlined'}
-          color={'fill-violet-500'}
+          color={'fill-slate-50'}
           width="50px"
           height="50px"
         />
@@ -99,7 +96,7 @@ const PageUser = (): ReactElement => {
         />
         <Icon
           type={'location'}
-          color={'fill-violet-500'}
+          color={'fill-slate-50'}
           width="50px"
           height="50px"
         />

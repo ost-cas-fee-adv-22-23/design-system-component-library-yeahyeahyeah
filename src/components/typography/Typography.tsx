@@ -31,10 +31,9 @@ export const Typography: React.FC<IHeadingProps> = ({
           <h4 className="mb-32">{label}</h4>
           <p className="text-lg font-medium mb-32">
             Paragraph L – Quia aut et aut. Sunt et eligendi similique enim qui
-            quo minus. <a href="#">Aut aut error velit voluptatum</a> optio sed
-            quis cumque error magni. Deserunt pariatur molestiae incidunt. Omnis
-            deserunt ratione et recusandae quos excepturi ut deleniti ut
-            repellat magni.
+            quo minus. optio sed quis cumque error magni. Deserunt pariatur
+            molestiae incidunt. Omnis deserunt ratione et recusandae quos
+            excepturi ut deleniti ut repellat magni.
           </p>
           <p className="text-base font-medium leading-loose mb-32">
             Paragraph M – Quia aut et aut. Sunt et eligendi similique enim qui

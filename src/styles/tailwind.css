@@ -72,3 +72,7 @@ a:hover {
 a:active {
   @apply text-violet-800;
 }
+
+button svg {
+  @apply ml-8;
+}
