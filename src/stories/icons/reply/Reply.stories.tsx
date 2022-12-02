@@ -5,7 +5,7 @@ import { ReactComponent as ReplyFilled } from '../../assets/icons/reply_filled.s
 import { ReactComponent as ReplyEmpty } from '../../assets/icons/reply_outlined.svg';
 
 export default {
-  title: 'CASFEA22/Icons/Reply',
+  title: 'Icons/Reply',
   component: ReplyFilled,
 } as ComponentMeta<typeof ReplyFilled | typeof ReplyEmpty>;
 

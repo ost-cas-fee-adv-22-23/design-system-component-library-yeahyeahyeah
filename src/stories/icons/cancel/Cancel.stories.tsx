@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ReactComponent as Cancel } from '../../assets/icons/cancel.svg';
 
 export default {
-  title: 'CASFEA22/Icons/Cancel',
+  title: 'Icons/Cancel',
   component: Cancel,
 } as ComponentMeta<typeof Cancel>;
 

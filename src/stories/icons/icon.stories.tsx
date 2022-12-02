@@ -1,6 +1,5 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import { Icon, IIcon } from '../../components/Icon';
 
 let tailWindColors: string[] = [
@@ -48,7 +47,7 @@ const buttonProps = {
 };
 
 export default {
-  title: 'CASFEA22/Icons',
+  title: 'Icons/Collection',
   component: Icon,
   argTypes: {
     color: {

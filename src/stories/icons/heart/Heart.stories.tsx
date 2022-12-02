@@ -5,7 +5,7 @@ import { ReactComponent as HeartFilled } from '../../assets/icons/heart_filled.s
 import { ReactComponent as HeartOutlined } from '../../assets/icons/heart_outlined.svg';
 
 export default {
-  title: 'CASFEA22/Icons/Heart',
+  title: 'Icons/Heart',
   component: HeartFilled,
 } as ComponentMeta<typeof HeartFilled | typeof HeartOutlined>;
 
