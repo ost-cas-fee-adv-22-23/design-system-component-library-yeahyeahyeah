@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Typography } from '../../components/typography/Typography';
 
 export default {
-  title: 'Typography',
+  title: 'Typography/Typography',
   component: Typography,
   argTypes: {
     label: {

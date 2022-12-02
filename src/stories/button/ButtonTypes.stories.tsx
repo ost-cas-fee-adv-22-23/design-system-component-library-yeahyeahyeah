@@ -25,6 +25,9 @@ export default {
         type: 'select',
       },
     },
+    handleClick: {
+      action: () => 'handleClick',
+    },
   },
 } as ComponentMeta<typeof Button>;
 
@@ -41,7 +44,6 @@ Slate.args = {
   variant: 'slate',
   width: 'default',
   size: 'small',
-  fCallBack: () => console.log('fCallBack'),
 };
 
 Slate.parameters = {
@@ -56,8 +58,10 @@ Slate.parameters = {
  */
 export const ButtonViolet = Template.bind({});
 ButtonViolet.args = {
+  ...Slate.args,
   variant: 'violet',
 };
+
 ButtonViolet.storyName = 'Violet';
 
 /**
@@ -66,6 +70,8 @@ ButtonViolet.storyName = 'Violet';
  */
 export const ButtonPink = Template.bind({});
 ButtonPink.args = {
+  ...Slate.args,
   variant: 'pink',
 };
+
 ButtonPink.storyName = 'Pink';

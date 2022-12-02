@@ -8,7 +8,7 @@ interface IButtonStyledComponent
   size?: 'small' | 'large';
   width?: 'default' | 'full';
   disabled?: true | false;
-  fCallBack?: () => void;
+  handleClick?: () => void;
 }
 
 export const ButtonTypes: React.FC<IButtonStyledComponent> = ({
@@ -17,6 +17,7 @@ export const ButtonTypes: React.FC<IButtonStyledComponent> = ({
   size = 'small',
   width = 'default',
   disabled = false,
+  handleClick,
 }) => {
   return (
     <>
@@ -25,23 +26,7 @@ export const ButtonTypes: React.FC<IButtonStyledComponent> = ({
         size={size}
         width={width}
         disabled={disabled}
-      >
-        {label}
-      </ButtonStyles>
-      <ButtonStyles
-        className="ml-8 mr-8"
-        variant={variant}
-        size={size}
-        width={width}
-        disabled={disabled}
-      >
-        {label}
-      </ButtonStyles>
-      <ButtonStyles
-        variant={variant}
-        size={size}
-        width={width}
-        disabled={disabled}
+        onClick={handleClick}
       >
         {label}
       </ButtonStyles>

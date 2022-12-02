@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Paragraph } from 'src/components/typography/Paragraph';
 
 export default {
-  title: 'Typography',
+  title: 'Typography/Paragraph',
   component: Paragraph,
   argTypes: {
     variant: {
