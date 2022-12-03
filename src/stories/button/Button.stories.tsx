@@ -41,43 +41,19 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
  * @button
  * @desc button standard slate
  */
-export const Slate = Template.bind({});
+export const ButtonVariants = Template.bind({});
 
-Slate.args = {
+ButtonVariants.args = {
   label: 'Button Label',
   variant: 'slate',
   width: 'default',
   size: 'small',
-  iconName: 'heart-filled',
-  iconColor: 'fill-pink-500',
 };
 
-Slate.parameters = {
+ButtonVariants.parameters = {
   docs: {
     source: { type: 'dynamic' },
   },
 };
 
-/**
- * @button
- * @desc button violet
- */
-export const ButtonViolet = Template.bind({});
-ButtonViolet.args = {
-  ...Slate.args,
-  variant: 'violet',
-};
-
-ButtonViolet.storyName = 'Violet';
-
-/**
- * @button
- * @desc button violet
- */
-export const ButtonPink = Template.bind({});
-ButtonPink.args = {
-  ...Slate.args,
-  variant: 'pink',
-};
-
-ButtonPink.storyName = 'Pink';
+ButtonVariants.storyName = 'Variants';

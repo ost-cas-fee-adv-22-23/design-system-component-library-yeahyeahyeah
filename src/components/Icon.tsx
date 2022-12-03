@@ -58,7 +58,7 @@ export interface IIcon extends React.HTMLAttributes<HTMLElement> {
 }
 
 export const Icon: React.FC<IIcon> = ({
-  iconName = 'heart-outlined',
+  iconName = 'mumble',
   iconColor = 'fill-pink-500',
   iconWidth = '16px',
   iconHeight = '16px',

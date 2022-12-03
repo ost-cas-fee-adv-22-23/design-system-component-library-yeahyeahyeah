@@ -74,5 +74,5 @@ a:active {
 }
 
 button svg {
-  @apply ml-8;
+  @apply relative -top-1 ml-8;
 }
