@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '../../components/Button';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
-import { Single } from '../icons/icon.stories';
 
 export default {
   title: 'Interactions/Button',
@@ -18,7 +17,7 @@ export default {
     width: {
       description: 'A full width version of the button',
       control: {
-        type: 'select',
+        type: 'radio',
       },
     },
     variant: {
@@ -28,6 +27,11 @@ export default {
     },
     handleClick: {
       action: () => 'handleClick',
+    },
+    iconColor: {
+      control: {
+        type: 'select',
+      },
     },
   },
 } as ComponentMeta<typeof Button>;
@@ -44,7 +48,8 @@ Slate.args = {
   variant: 'slate',
   width: 'default',
   size: 'small',
-  children: <Single {...Single.args} />,
+  iconName: 'heart-filled',
+  iconColor: 'fill-pink-500',
 };
 
 Slate.parameters = {

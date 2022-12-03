@@ -23,7 +23,7 @@ const Template: ComponentStory<typeof Paragraph> = (args) => (
 export const ParagraphVariants = Template.bind({});
 
 ParagraphVariants.args = {
-  variant: 'large',
+  variant: 'default',
   color: 'dark',
 };
 

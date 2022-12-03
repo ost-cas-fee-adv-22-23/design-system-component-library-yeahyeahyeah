@@ -1,24 +1,28 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
-interface IButtonStyledComponent
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+import { Icon, IIcon } from 'src/components/Icon';
+import React from 'react';
+
+interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   variant?: 'slate' | 'violet' | 'pink';
   size?: 'small' | 'large';
   width?: 'default' | 'full';
-  disabled?: true | false;
+  disabled?: boolean;
   handleClick?: () => void;
-  chidren?: React.ReactNode;
 }
 
-export const Button: React.FC<IButtonStyledComponent> = ({
+export const Button: React.FC<IButtonProps & IIcon> = ({
   label = 'Button Label',
   variant = 'slate',
   size = 'small',
   width = 'default',
   disabled = false,
   handleClick,
-  children,
+  iconName = 'heart-filled',
+  iconColor,
+  iconHeight = '16px',
+  iconWidth,
 }) => {
   return (
     <>
@@ -30,7 +34,12 @@ export const Button: React.FC<IButtonStyledComponent> = ({
         onClick={handleClick}
       >
         {label}
-        {children}
+        <Icon
+          iconName={iconName}
+          iconColor={iconColor}
+          iconHeight={iconHeight}
+          iconWidth={iconWidth}
+        />
       </ButtonStyles>
     </>
   );

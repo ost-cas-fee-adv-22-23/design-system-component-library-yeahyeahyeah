@@ -22,7 +22,7 @@ const PageUser = (): ReactElement => {
             value={name}
             name="name"
             placeholder="Name"
-            type="text"
+            iconName="text"
             fCallBack={(data: any) => setName(data.target.value)}
           />
           <InputField
@@ -31,8 +31,8 @@ const PageUser = (): ReactElement => {
             value={surName}
             name="surname"
             placeholder="Surname"
-            type="text"
-            fCallBack={(data: any) => setSurName(data.target.value)}
+            iconName="text"
+            onClick={(data: any) => setSurName(data.target.value)}
           />
           {/* <Button
             label={'Submit'}
@@ -46,59 +46,59 @@ const PageUser = (): ReactElement => {
       </form>
       <p>
         <Icon
-          type={'cancel'}
-          color={'fill-pink-500'}
-          width="50px"
-          height="50px"
-          fCallBack={() => console.log('cancel clicked')}
+          iconName={'cancel'}
+          iconColor={'fill-pink-500'}
+          iconWidth="50px"
+          iconHeight="50px"
+          onClick={(data: any) => setSurName(data.target.value)}
         />
         <Icon
-          type={'calendar'}
-          color={'fill-pink-500'}
-          width="50px"
-          height="50px"
+          iconName={'calendar'}
+          iconColor={'fill-pink-500'}
+          iconWidth="50px"
+          iconHeight="50px"
         />
         <Icon
-          type={'checkmark'}
-          color={'fill-slate-50'}
-          width="50px"
-          height="50px"
+          iconName={'checkmark'}
+          iconColor={'fill-slate-white'}
+          iconWidth="50px"
+          iconHeight="50px"
         />
         <Icon
-          type={'heart-filled'}
-          color={'fill-pink-500'}
-          width="50px"
-          height="50px"
+          iconName={'heart-filled'}
+          iconColor={'fill-pink-500'}
+          iconWidth="50px"
+          iconHeight="50px"
         />
         <Icon
-          type={'heart-outlined'}
-          color={'fill-slate-50'}
-          width="50px"
-          height="50px"
+          iconName={'heart-outlined'}
+          iconColor={'fill-slate-white'}
+          iconWidth="50px"
+          iconHeight="50px"
         />
         <Icon
-          type={'reply-filled'}
-          color={'fill-pink-500'}
-          width="50px"
-          height="50px"
+          iconName={'reply-filled'}
+          iconColor={'fill-pink-500'}
+          iconWidth="50px"
+          iconHeight="50px"
         />
         <Icon
-          type={'reply-outlined'}
-          color={'fill-slate-50'}
-          width="50px"
-          height="50px"
+          iconName={'reply-outlined'}
+          iconColor={'fill-slate-white'}
+          iconWidth="50px"
+          iconHeight="50px"
         />
         <Icon
-          type={'chevron-left'}
-          color={'fill-pink-500'}
-          width="50px"
-          height="50px"
+          iconName={'chevron-left'}
+          iconColor={'fill-pink-500'}
+          iconWidth="50px"
+          iconHeight="50px"
         />
         <Icon
-          type={'location'}
-          color={'fill-slate-50'}
-          width="50px"
-          height="50px"
+          iconName={'location'}
+          iconColor={'fill-slate-white'}
+          iconWidth="50px"
+          iconHeight="50px"
         />
       </p>
     </div>

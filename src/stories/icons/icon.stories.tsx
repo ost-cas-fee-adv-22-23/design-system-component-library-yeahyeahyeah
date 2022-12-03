@@ -1,5 +1,5 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 import { Icon, IIcon } from '../../components/Icon';
 
 let tailWindColors: string[] = [
@@ -39,34 +39,36 @@ const iconTypes = [
 
 export default {
   title: 'Icons/Collection',
+  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   component: Icon,
   argTypes: {
-    color: {
+    iconColor: {
       control: {
         type: 'select',
       },
     },
-    type: {
+    iconName: {
       control: {
         type: 'select',
       },
+    },
+    handleClick: {
+      action: () => 'handleClick',
     },
   },
 } as ComponentMeta<typeof Icon>;
 
 const TemplateIcon: ComponentStory<typeof Icon> = (args) => (
   <>
-    <div className="grid grid-rows-4 grid-flow-col gap-4">
-      <div>
-        <Icon {...args} />
-      </div>
-      {iconTypes.map((iconType, index) => {
-        tailWindColorsElement = tailWindColors.shift() || '';
-        let icon = <Icon {...args} type={iconType as IIcon['type']} />;
-        tailWindColors.push(tailWindColorsElement);
-        return <div key={index}>{icon}</div>;
-      })}
+    <div>
+      <Icon {...args} />
     </div>
+    {iconTypes.map((iconType, index) => {
+      tailWindColorsElement = tailWindColors.shift() || '';
+      let icon = <Icon {...args} iconName={iconType as IIcon['iconName']} />;
+      tailWindColors.push(tailWindColorsElement);
+      return <div key={index}>{icon}</div>;
+    })}
   </>
 );
 
@@ -76,18 +78,16 @@ const TemplateIconSingle: ComponentStory<typeof Icon | any> = (args) => (
 
 export const All = TemplateIcon.bind({});
 All.args = {
-  type: 'time',
-  color: 'fill-slate-50',
-  width: '100px',
-  height: '100px',
-  fCallBack: () => console.log('icon clicked'),
+  iconName: 'time',
+  iconColor: 'fill-pink-500',
+  iconWidth: '100px',
+  iconHeight: '100px',
 };
 
 export const Single = TemplateIconSingle.bind({});
 Single.args = {
-  type: 'heart-filled',
-  color: 'fill-slate-50',
-  width: '16px',
-  height: '16px',
-  fCallBack: () => console.log('icon clicked'),
+  iconName: 'heart-outlined',
+  iconColor: 'fill-pink-500',
+  iconWidth: '16px',
+  iconHeight: '16px',
 };
