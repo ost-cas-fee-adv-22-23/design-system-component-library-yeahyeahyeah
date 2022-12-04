@@ -2,6 +2,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '../../components/Button';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
+const ButtonIconColorProps = {
+  default: 'fill-pink-200',
+};
+
 export default {
   title: 'Interactions/Button',
   component: Button,
@@ -29,8 +33,9 @@ export default {
       action: () => 'handleClick',
     },
     iconColor: {
-      control: {
-        type: 'select',
+      control: false,
+      table: {
+        disable: true,
       },
     },
   },
@@ -48,6 +53,7 @@ ButtonVariants.args = {
   variant: 'slate',
   width: 'default',
   size: 'small',
+  iconColor: 'fill-slate-white',
 };
 
 ButtonVariants.parameters = {

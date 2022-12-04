@@ -20,9 +20,9 @@ export const Button: React.FC<IButtonProps & IIcon> = ({
   disabled = false,
   handleClick,
   iconName = 'heart-filled',
-  iconColor,
   iconHeight = '16px',
   iconWidth,
+  iconColor,
 }) => {
   return (
     <>
