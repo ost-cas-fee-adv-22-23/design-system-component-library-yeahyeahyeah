@@ -1,24 +1,14 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button } from '../../components/buttons/Button';
+import { NaviButton } from 'src/components/buttons/NaviButton';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
   title: 'Interactions/Button',
-  component: Button,
+  component: NaviButton,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
       name: 'Button Label',
-    },
-    size: {
-      description: 'A sized version of the button',
-      control: { type: 'radio' },
-    },
-    width: {
-      description: 'A full width version of the button',
-      control: {
-        type: 'radio',
-      },
     },
     variant: {
       control: {
@@ -27,6 +17,18 @@ export default {
     },
     handleClick: {
       action: () => 'handleClick',
+    },
+    width: {
+      control: false,
+      table: {
+        disable: true,
+      },
+    },
+    size: {
+      control: false,
+      table: {
+        disable: true,
+      },
     },
     iconColor: {
       control: false,
@@ -47,27 +49,28 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof NaviButton>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof NaviButton> = (args) => (
+  <NaviButton {...args} />
+);
 /**
  * @button
  * @desc button standard slate
  */
-export const ButtonVariants = Template.bind({});
+export const NaviButtonStory = Template.bind({});
 
-ButtonVariants.args = {
-  label: 'Button Label',
-  variant: 'slate',
-  width: 'default',
-  size: 'small',
+NaviButtonStory.args = {
+  label: 'Label',
+  variant: 'label',
   iconColor: 'fill-slate-white',
+  iconName: 'settings',
 };
 
-ButtonVariants.parameters = {
+NaviButtonStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
   },
 };
 
-ButtonVariants.storyName = 'Variants';
+NaviButtonStory.storyName = 'Navi-Button';
