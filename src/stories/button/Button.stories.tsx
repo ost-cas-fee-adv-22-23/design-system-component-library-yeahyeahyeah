@@ -62,6 +62,7 @@ ButtonVariants.args = {
   width: 'default',
   size: 'small',
   iconColor: 'fill-slate-white',
+  iconName: 'mumble',
 };
 
 ButtonVariants.parameters = {
