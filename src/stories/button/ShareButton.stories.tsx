@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ShareButton as Button } from 'src/components/buttons/ShareButtons';
+import { ShareButton } from 'src/components/buttons/ShareButtons';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
   title: 'Interactions',
-  component: Button,
+  component: ShareButton,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
@@ -44,23 +44,25 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof ShareButton>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof ShareButton> = (args) => (
+  <ShareButton {...args} />
+);
 /**
  * @button
  * @desc button standard slate
  */
-export const ButtonVariants = Template.bind({});
+export const ShareButtonStory = Template.bind({});
 
-ButtonVariants.args = {
+ShareButtonStory.args = {
   label: 'Copy Link',
 };
 
-ButtonVariants.parameters = {
+ShareButtonStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
   },
 };
 
-ButtonVariants.storyName = 'Share Button';
+ShareButtonStory.storyName = 'Share Button';

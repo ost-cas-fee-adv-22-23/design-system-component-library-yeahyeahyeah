@@ -69,8 +69,6 @@ const buttonDefaults = tw`
   p-12
   rounded
   w-auto
-  border-hidden
-  outline-none
   outline-offset-0
 `;
 
