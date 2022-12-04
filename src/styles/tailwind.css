@@ -62,11 +62,13 @@ h4 {
 a,
 a:link,
 a:visited {
-  @apply text-violet-600;
+  color: currentColor;
 }
 
 a:hover {
   @apply text-violet-700;
+  /* text-decoration: underline;
+  text-underline-offset: 5px; */
 }
 
 a:active {
@@ -75,4 +77,8 @@ a:active {
 
 button svg {
   @apply relative -top-1 ml-8;
+}
+
+a svg {
+  @apply relative -top-1 mr-4;
 }

@@ -13,6 +13,7 @@ export const IconLink: React.FC<IIconLinkProps & IIcon> = ({
   label = 'username',
   variant = 'violet',
   handleClick,
+  iconColor,
   iconName = 'profile',
   iconHeight,
   iconWidth,
@@ -23,7 +24,7 @@ export const IconLink: React.FC<IIconLinkProps & IIcon> = ({
         <Icon
           iconName={iconName}
           iconColor={
-            variant === 'violet' ? 'fill-violet-600' : 'fill-slate-400'
+            variant === 'violet' ? 'fill-slate-white' : 'fill-pink-500'
           }
           iconHeight={iconHeight}
           iconWidth={iconWidth}

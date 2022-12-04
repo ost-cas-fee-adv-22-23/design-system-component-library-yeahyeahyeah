@@ -1,60 +1,53 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { IconLink } from 'src/components/IconLinks';
+import { IconButton } from '../../components/buttons/IconButton';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
-  title: 'Interactions/Icon Link',
-  component: IconLink,
+  title: 'Interactions/Button/Icon Button',
+  component: IconButton,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
-    label: {
-      name: 'Button Label',
-    },
-    variant: {
-      control: {
-        type: 'select',
-      },
-    },
     handleClick: {
       action: () => 'handleClick',
     },
     iconColor: {
+      control: false,
       table: {
         disable: true,
       },
     },
     iconWidth: {
+      control: false,
       table: {
         disable: true,
       },
     },
     iconHeight: {
+      control: false,
       table: {
         disable: true,
       },
     },
   },
-} as ComponentMeta<typeof IconLink>;
+} as ComponentMeta<typeof IconButton>;
 
-const Template: ComponentStory<typeof IconLink> = (args) => (
-  <IconLink {...args} />
+const Template: ComponentStory<typeof IconButton> = (args) => (
+  <IconButton {...args} />
 );
 /**
  * @button
  * @desc button standard slate
  */
-export const IconLinkVariants = Template.bind({});
+export const ButtonIcon = Template.bind({});
 
-IconLinkVariants.args = {
-  label: 'username',
-  variant: 'slate',
-  iconName: 'profile',
+ButtonIcon.args = {
+  iconColor: 'fill-slate-white',
 };
 
-IconLinkVariants.parameters = {
+ButtonIcon.parameters = {
   docs: {
     source: { type: 'dynamic' },
   },
 };
 
-IconLinkVariants.storyName = 'Variants';
+ButtonIcon.storyName = 'Icon Button';

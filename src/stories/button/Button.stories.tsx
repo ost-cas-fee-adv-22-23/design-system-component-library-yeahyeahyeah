@@ -1,10 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button } from '../../components/Button';
+import { Button } from '../../components/buttons/Button';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
-
-const ButtonIconColorProps = {
-  default: 'fill-pink-200',
-};
 
 export default {
   title: 'Interactions/Button',
