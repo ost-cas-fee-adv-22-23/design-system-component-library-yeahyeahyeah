@@ -15,20 +15,29 @@ export const LikeButton: React.FC<IButtonProps & IIcon> = ({
   iconName = 'heart-outlined',
 }) => {
   const [iconChange, setIconChange] = useState(iconName);
-  const [labelChange, setLabelChange] = useState(label);
+  const [labelChange, setLabelChange] = useState<string>(label);
   const [iconColorChange, setIconColorChange] = useState(iconColor);
+  let [likes, setLikes] = useState<number>(0);
+  const [fontColor, setFontColor] = useState('text-slate-500');
 
   const handleClick = () => {
     setIconChange('heart-filled');
-    setLabelChange('Liked');
     setIconColorChange('fill-pink-500');
+    setLikes(likes + 1);
+
+    if (likes >= 1) {
+      setFontColor('hasLike');
+      setLabelChange('Likes');
+    } else {
+      setLabelChange('Like');
+    }
   };
 
   return (
     <>
-      <ButtonStyles onClick={handleClick}>
+      <ButtonStyles className={fontColor} onClick={handleClick}>
         <Icon iconName={iconChange} iconColor={iconColorChange} />
-        {labelChange}
+        {likes === 0 ? false : `${likes}`} {labelChange}
       </ButtonStyles>
     </>
   );
@@ -39,12 +48,13 @@ export const LikeButton: React.FC<IButtonProps & IIcon> = ({
  * @desc Button styles
  */
 const buttonFont = tw`
-  text-skin-light
+  text-pink-600
   font-semibold
   leading-normal
 `;
 
 const buttonDefaults = tw`
+  text-slate-500
   flex
   grow-0
   justify-center
@@ -53,7 +63,6 @@ const buttonDefaults = tw`
   rounded-full
   w-auto
   outline-none
-  text-slate-600
   bg-none
   hover:(text-pink-600 bg-pink-50)
   active:(bg-none text-pink-500)
@@ -63,6 +72,10 @@ const ButtonStyles = styled.button(({}) => [
   buttonFont,
   buttonDefaults,
   css`
+    &.hasLike {
+      color: #db2777;
+    }
+
     svg {
       margin-left: 0;
       margin-right: 8px;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import { Icon, IIcon } from 'src/components/Icon';
 import React from 'react';
@@ -21,15 +21,17 @@ export const IconLink: React.FC<IIconLinkProps & IIcon> = ({
   return (
     <>
       <IconLinkStyles variant={variant} onClick={handleClick}>
-        <Icon
-          iconName={iconName}
-          iconColor={
-            variant === 'violet' ? 'fill-slate-white' : 'fill-pink-500'
-          }
-          iconHeight={iconHeight}
-          iconWidth={iconWidth}
-        />
-        {label}
+        <SpanStyle>
+          <Icon
+            iconName={iconName}
+            iconColor={
+              variant === 'slate' ? 'fill-slate-400' : 'fill-slate-500'
+            }
+            iconHeight={iconHeight}
+            iconWidth={iconWidth}
+          />
+          {label}
+        </SpanStyle>
       </IconLinkStyles>
     </>
   );
@@ -43,21 +45,30 @@ interface IStyleProps {
  * @Button
  * @desc Button styles
  */
-const fontStyles = tw`
+const defaultStyles = tw`
   font-semibold
+  text-slate-400
   leading
   cursor-pointer
+  hover:(text-slate-600)
 `;
 
-const defaultStyles = tw`
-  flex
-  items-center
-  justify-between
+const SpanStyle = styled.span`
+  display: flex;
 `;
 
 const IconLinkStyles = styled.a(({ variant }: IStyleProps) => [
-  fontStyles,
   defaultStyles,
-  variant === 'slate' && tw`text-slate-400 hover:(text-slate-600)`,
+  variant === 'slate' &&
+    tw`text-slate-400 hover:(text-slate-600)` &&
+    css`
+      :hover {
+          svg {
+            fill: #475569;
+          }
+        }
+      } 
+    `,
   variant === 'violet' && tw`text-violet-600 hover:(text-violet-900)`,
+  css``,
 ]);

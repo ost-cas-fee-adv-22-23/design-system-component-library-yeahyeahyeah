@@ -19,7 +19,7 @@ export const Button: React.FC<IButtonProps & IIcon> = ({
   width = 'default',
   disabled = false,
   handleClick,
-  iconName = 'heart-filled',
+  iconName,
   iconHeight = '16px',
   iconWidth,
   iconColor,
