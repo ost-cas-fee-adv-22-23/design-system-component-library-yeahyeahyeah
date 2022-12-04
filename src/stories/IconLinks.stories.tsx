@@ -3,7 +3,7 @@ import { IconLink } from 'src/components/IconLinks';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
-  title: 'Interactions/Icon Link',
+  title: 'Interactions',
   component: IconLink,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
@@ -57,4 +57,4 @@ IconLinkVariants.parameters = {
   },
 };
 
-IconLinkVariants.storyName = 'Variants';
+IconLinkVariants.storyName = 'Icon Link';

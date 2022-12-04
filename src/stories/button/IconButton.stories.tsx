@@ -3,10 +3,13 @@ import { IconButton } from '../../components/buttons/IconButton';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
-  title: 'Interactions/Button/Icon Button',
+  title: 'Interactions/IconButton',
   component: IconButton,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
+    label: {
+      name: 'Button Label',
+    },
     handleClick: {
       action: () => 'handleClick',
     },
@@ -41,6 +44,7 @@ const Template: ComponentStory<typeof IconButton> = (args) => (
 export const ButtonIcon = Template.bind({});
 
 ButtonIcon.args = {
+  label: 'Button Label',
   iconColor: 'fill-slate-white',
 };
 

@@ -3,7 +3,7 @@ import { TextButton } from 'src/components/buttons/TextButton';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
-  title: 'Interactions/Button',
+  title: 'Interactions',
   component: TextButton,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {

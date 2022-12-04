@@ -3,7 +3,7 @@ import { Button } from '../../components/buttons/Button';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
-  title: 'Interactions/Button',
+  title: 'Interactions',
   component: Button,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
@@ -57,7 +57,6 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const ButtonVariants = Template.bind({});
 
 ButtonVariants.args = {
-  label: 'Button Label',
   variant: 'slate',
   width: 'default',
   size: 'small',
@@ -70,4 +69,4 @@ ButtonVariants.parameters = {
   },
 };
 
-ButtonVariants.storyName = 'Variants';
+ButtonVariants.storyName = 'Button';

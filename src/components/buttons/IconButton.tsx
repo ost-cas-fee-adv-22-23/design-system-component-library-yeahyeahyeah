@@ -4,10 +4,12 @@ import tw from 'twin.macro';
 import { Icon, IIcon } from 'src/components/Icon';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+  label: string;
   handleClick?: () => void;
 }
 
 export const IconButton: React.FC<IButtonProps & IIcon> = ({
+  label = 'Button Label',
   handleClick,
   iconName = 'mumble',
   iconHeight = '16px',
@@ -23,6 +25,7 @@ export const IconButton: React.FC<IButtonProps & IIcon> = ({
           iconHeight={iconHeight}
           iconWidth={iconWidth}
         />
+        {label}
       </ButtonStyles>
     </>
   );
@@ -41,12 +44,13 @@ const buttonFont = tw`
 const buttonDefaults = tw`
   bg-slate-500
   flex
+  flex-col-reverse
   justify-center
-  items-center
-  p-16
-  gap-12
+  place-items-center
+  [text-indent: -10000px]
+  w-48
+  h-48
   rounded-full
-  w-auto
   border-hidden
   outline-none
   outline-offset-0
@@ -70,6 +74,8 @@ const ButtonStyles = styled.button(({}) => [
   buttonFocus,
   css`
     svg {
+      position: relative;
+      top: -8px;
       margin-left: 0;
     }
   `,
