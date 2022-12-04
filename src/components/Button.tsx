@@ -70,7 +70,7 @@ const buttonDefaults = tw`
   rounded
   w-auto
   border-hidden
-  outline-none
+  outline-none // do not remove this rule!
   outline-offset-0
 `;
 

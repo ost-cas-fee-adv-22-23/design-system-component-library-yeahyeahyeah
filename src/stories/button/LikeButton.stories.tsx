@@ -1,30 +1,22 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { NaviButton } from 'src/components/buttons/NaviButton';
+import { LikeButton } from 'src/components/buttons/LikeButtons';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
   title: 'Interactions',
-  component: NaviButton,
+  component: LikeButton,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
       name: 'Button Label',
     },
-    variant: {
-      control: {
-        type: 'select',
-      },
-    },
-    handleClick: {
-      action: () => 'handleClick',
-    },
-    width: {
+    size: {
       control: false,
       table: {
         disable: true,
       },
     },
-    size: {
+    iconName: {
       control: false,
       table: {
         disable: true,
@@ -35,6 +27,9 @@ export default {
       table: {
         disable: true,
       },
+    },
+    handleClick: {
+      action: () => 'handleClick',
     },
     iconWidth: {
       control: false,
@@ -49,28 +44,25 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof NaviButton>;
+} as ComponentMeta<typeof LikeButton>;
 
-const Template: ComponentStory<typeof NaviButton> = (args) => (
-  <NaviButton {...args} />
+const Template: ComponentStory<typeof LikeButton> = (args) => (
+  <LikeButton {...args} />
 );
 /**
  * @button
  * @desc button standard slate
  */
-export const NaviButtonStory = Template.bind({});
+export const LikeButtonStory = Template.bind({});
 
-NaviButtonStory.args = {
-  label: 'Label',
-  variant: 'label',
-  iconColor: 'fill-slate-white',
-  iconName: 'settings',
+LikeButtonStory.args = {
+  label: 'Like',
 };
 
-NaviButtonStory.parameters = {
+LikeButtonStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
   },
 };
 
-NaviButtonStory.storyName = 'Navi Button';
+LikeButtonStory.storyName = 'Like Button';
