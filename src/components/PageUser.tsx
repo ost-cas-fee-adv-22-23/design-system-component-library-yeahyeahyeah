@@ -1,5 +1,4 @@
 import { ReactElement, useContext, useEffect, useState } from 'react';
-// import { Button } from '../components/Button';
 import InputField from './Input';
 import { GlobalContext } from '../context/context';
 import { Icon } from './Icon';
@@ -34,14 +33,14 @@ const PageUser = (): ReactElement => {
             iconName="text"
             onClick={(data: any) => setSurName(data.target.value)}
           />
-          {/* <Button
-            label={'Submit'}
+          <button
+            type="submit"
             onClick={() => {
               setUser({ name: name, surname: surName });
               setName('');
               setSurName('');
             }}
-          /> */}
+          />
         </div>
       </form>
       <p>
