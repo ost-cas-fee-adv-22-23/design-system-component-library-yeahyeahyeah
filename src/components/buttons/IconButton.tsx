@@ -52,7 +52,6 @@ const buttonDefaults = tw`
   h-48
   rounded-full
   border-hidden
-  outline-none
   outline-offset-0
   hover:(bg-slate-700 outline-slate-100)
   focus:(outline-slate-200)
@@ -67,7 +66,7 @@ const buttonFocus = tw`
   focus:(outline-4)
 `;
 
-const ButtonStyles = styled.button(({}) => [
+const ButtonStyles = styled.button((undefinded) => [
   buttonFont,
   buttonDefaults,
   buttonHover,

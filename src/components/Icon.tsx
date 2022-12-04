@@ -51,7 +51,7 @@ export interface IIcon extends React.HTMLAttributes<HTMLElement> {
     | 'share'
     | 'time'
     | 'upload';
-  iconColor: 'fill-slate-white' | 'fill-pink-500';
+  iconColor: string | undefined;
   iconWidth?: string | undefined;
   iconHeight?: string | undefined;
   handleClick?: () => void;

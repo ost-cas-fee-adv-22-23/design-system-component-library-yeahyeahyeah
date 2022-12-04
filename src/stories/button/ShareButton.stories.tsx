@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button } from '../../components/buttons/Button';
+import { ShareButton as Button } from 'src/components/buttons/ShareButtons';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
@@ -11,28 +11,25 @@ export default {
       name: 'Button Label',
     },
     size: {
-      description: 'A sized version of the button',
-      control: { type: 'radio' },
-    },
-    width: {
-      description: 'A full width version of the button',
-      control: {
-        type: 'radio',
+      control: false,
+      table: {
+        disable: true,
       },
     },
-    variant: {
-      control: {
-        type: 'select',
+    iconName: {
+      control: false,
+      table: {
+        disable: true,
       },
-    },
-    handleClick: {
-      action: () => 'handleClick',
     },
     iconColor: {
       control: false,
       table: {
         disable: true,
       },
+    },
+    handleClick: {
+      action: () => 'handleClick',
     },
     iconWidth: {
       control: false,
@@ -57,11 +54,7 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const ButtonVariants = Template.bind({});
 
 ButtonVariants.args = {
-  label: 'Button Label',
-  variant: 'slate',
-  width: 'default',
-  size: 'small',
-  iconColor: 'fill-slate-white',
+  label: 'Copy Link',
 };
 
 ButtonVariants.parameters = {
@@ -70,4 +63,4 @@ ButtonVariants.parameters = {
   },
 };
 
-ButtonVariants.storyName = 'Button';
+ButtonVariants.storyName = 'Share Button';
