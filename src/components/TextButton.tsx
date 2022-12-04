@@ -23,6 +23,7 @@ export const TextButton: React.FC<IButtonProps> = ({
  * @desc Button styles
  */
 const buttonFont = tw`
+  text-xs
   font-semibold
   leading-normal
 `;
