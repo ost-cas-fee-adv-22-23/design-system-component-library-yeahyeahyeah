@@ -76,6 +76,9 @@ const variantIcon = css`
 `;
 
 const variantLabel = css`
+  width: 54px;
+  height: 56px;
+
   svg {
     margin-left: 0;
     margin-bottom: 4px;
@@ -90,8 +93,6 @@ const ButtonStyles = styled.button(({ variant }: ButtonProps) => [
   variant === 'icon' && variantIcon,
   variant === 'label' && variantLabel,
   css`
-    width: 54px;
-    height: 56px;
     svg {
       margin-left: 0;
     }
