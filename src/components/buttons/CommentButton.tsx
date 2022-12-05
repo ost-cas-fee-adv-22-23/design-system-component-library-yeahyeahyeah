@@ -35,7 +35,11 @@ export const CommentButton: React.FC<IButtonProps & IIcon> = ({
 
   return (
     <>
-      <ButtonStyles className={fontColor} onClick={handleClick}>
+      <ButtonStyles
+        className={fontColor}
+        onClick={handleClick}
+        comment={comment}
+      >
         <Icon iconName={iconChange} iconColor={iconColorChange} />
         {comment === 0 ? false : `${comment}`} {labelChange}
       </ButtonStyles>
@@ -47,8 +51,11 @@ export const CommentButton: React.FC<IButtonProps & IIcon> = ({
  * @Button
  * @desc Button styles
  */
+interface IButtonStyles {
+  comment: number;
+}
 
-const ButtonStyles = styled.button(() => [
+const ButtonStyles = styled.button(({ comment }: IButtonStyles) => [
   tw`
     font-semibold
     leading-normal
@@ -66,6 +73,7 @@ const ButtonStyles = styled.button(() => [
     hover:(text-violet-600 bg-violet-50)
     active:(bg-none text-violet-900)
 `,
+  comment === 1 && tw`text-violet-600`,
   css`
     &.hasAction {
       color: #7c3aed;

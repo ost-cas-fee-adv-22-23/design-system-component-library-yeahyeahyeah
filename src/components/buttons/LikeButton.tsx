@@ -35,9 +35,9 @@ export const LikeButton: React.FC<IButtonProps & IIcon> = ({
 
   return (
     <>
-      <ButtonStyles className={fontColor} onClick={handleClick}>
+      <ButtonStyles className={fontColor} onClick={handleClick} likes={likes}>
         <Icon iconName={iconChange} iconColor={iconColorChange} />
-        {likes === 0 ? false : `${likes}`} {labelChange}
+        {likes > 0 && `${likes}`} {labelChange}
       </ButtonStyles>
     </>
   );
@@ -47,33 +47,35 @@ export const LikeButton: React.FC<IButtonProps & IIcon> = ({
  * @Button
  * @desc Button styles
  */
-
-const ButtonStyles = styled.button(() => [
+interface IButtonStyles {
+  likes: number;
+}
+const ButtonStyles = styled.button(({ likes }: IButtonStyles) => [
   tw`
-    font-semibold
-    leading-normal
-    text-slate-500
-    text-sm
-    flex
-    grow-0
-    justify-center
-    items-center
-    p-12
-    rounded-full
-    w-auto
-    outline-none
-    bg-none
-    hover:(text-pink-600 bg-pink-50)
-    active:(bg-none text-pink-900)
-`,
+  font-semibold
+  leading-normal
+  text-slate-500
+  text-sm
+  flex
+  grow-0
+  justify-center
+  items-center
+  p-12
+  rounded-full
+  w-auto
+  outline-none
+  bg-none
+  hover:(text-pink-600 bg-pink-50)
+  active:(bg-none text-pink-900)
+  `,
+  likes === 1 && tw`text-pink-900`,
   css`
     &.hasAction {
       color: #831843;
     }
 
     svg {
-      margin-left: 0;
-      margin-right: 8px;
+      margin: 0 8px 0 0;
     }
 
     :hover svg {
