@@ -22,7 +22,12 @@ export const IconLink: React.FC<IIconLinkProps & IIcon> = ({
 
   return (
     <>
-      <IconLinkStyles variant={variant} onClick={handleClick}>
+      <IconLinkStyles
+        variant={variant}
+        onClick={handleClick}
+        target="_self"
+        title={label}
+      >
         <Icon
           iconName={iconName}
           iconColor={iconColor}

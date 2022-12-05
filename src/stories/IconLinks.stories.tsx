@@ -49,6 +49,7 @@ IconLinkVariants.args = {
   label: 'username',
   iconName: 'profile',
   iconColor: 'fill-slate-400',
+  variant: 'slate',
 };
 
 IconLinkVariants.parameters = {
