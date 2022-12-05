@@ -125,6 +125,15 @@ module.exports = {
         900: '#831843',
       },
     },
+    width: {
+      0: '0',
+      40: '2.5rem',
+      44: '2.75rem',
+      64: '4rem',
+      70: '4.375rem',
+      96: '6rem',
+      160: '10rem',
+    },
     container: {
       center: true,
     },
