@@ -49,6 +49,7 @@ export const LikeButton: React.FC<IButtonProps & IIcon> = ({
  */
 const buttonFont = tw`
   text-pink-600
+  text-sm
   font-semibold
   leading-normal
 `;
@@ -65,7 +66,7 @@ const buttonDefaults = tw`
   outline-none
   bg-none
   hover:(text-pink-600 bg-pink-50)
-  active:(bg-none text-pink-500)
+  active:(bg-none text-pink-900)
 `;
 
 const ButtonStyles = styled.button(({}) => [
