@@ -52,6 +52,7 @@ interface IStyleProps {
 const defaultStyles = tw`
   flex
   flex-row
+  text-xs
   font-semibold
   leading-normal
   cursor-pointer

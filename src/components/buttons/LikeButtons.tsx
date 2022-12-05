@@ -49,13 +49,13 @@ export const LikeButton: React.FC<IButtonProps & IIcon> = ({
  */
 const buttonFont = tw`
   text-pink-600
-  text-sm
   font-semibold
   leading-normal
-`;
+  `;
 
 const buttonDefaults = tw`
   text-slate-500
+  text-sm
   flex
   grow-0
   justify-center
@@ -74,13 +74,14 @@ const ButtonStyles = styled.button(({}) => [
   buttonDefaults,
   css`
     &.hasLike {
-      color: #db2777;
+      color: #831843;
     }
 
     svg {
       margin-left: 0;
       margin-right: 8px;
     }
+
     :hover svg {
       fill: #db2777;
     }
