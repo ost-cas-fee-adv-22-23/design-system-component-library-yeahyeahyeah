@@ -39,12 +39,14 @@ interface StyledProfilePictureProps {
 
 const sizeSmall = tw`
   w-40
+  h-40
   bg-violet-200
   rounded-full
 `;
 
 const sizeMedium = tw`
   w-64
+  h-64
   bg-violet-200
   rounded-full
   border-white
@@ -53,6 +55,7 @@ const sizeMedium = tw`
 
 const sizeLarge = tw`
   w-96
+  h-96
   bg-violet-200
   rounded-full
   border-white
@@ -61,6 +64,7 @@ const sizeLarge = tw`
 
 const sizeXLarge = tw`
   w-160
+  h-160
   bg-violet-200
   rounded-full
   border-white
