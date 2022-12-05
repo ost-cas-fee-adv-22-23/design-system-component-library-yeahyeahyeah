@@ -47,18 +47,24 @@ const sizeMedium = tw`
   w-64
   bg-violet-200
   rounded-full
+  border-white
+  border-6
 `;
 
 const sizeLarge = tw`
   w-96
   bg-violet-200
   rounded-full
+  border-white
+  border-6
 `;
 
 const sizeXLarge = tw`
   w-160
   bg-violet-200
   rounded-full
+  border-white
+  border-6
 `;
 
 const StyledProfilePicture = styled.img(

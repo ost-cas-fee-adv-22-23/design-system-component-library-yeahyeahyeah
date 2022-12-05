@@ -25,7 +25,11 @@ module.exports = {
       borderWidth: {
         DEFAULT: '3px',
         4: '4px',
+        6: '6px',
         none: 'transparent',
+      },
+      borderColor: {
+        white: 'var(--color-border-light)',
       },
       outlineWidth: {
         3: '3px',
