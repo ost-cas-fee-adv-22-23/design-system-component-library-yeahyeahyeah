@@ -70,15 +70,14 @@ const buttonDefaults = tw`
   rounded
   w-auto
   outline-none
-  outline-offset-0
 `;
 
 const buttonHover = tw`
-  hover:(outline-3)
+  hover:(outline-3 outline-offset-0)
 `;
 
 const buttonFocus = tw`
-  focus:(outline-4)
+  focus:(outline-4 outline-offset-0)
 `;
 
 const variantSlate = tw`

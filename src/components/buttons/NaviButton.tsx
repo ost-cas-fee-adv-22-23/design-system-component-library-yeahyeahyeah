@@ -15,7 +15,7 @@ export const NaviButton: React.FC<IButtonProps & IIcon> = ({
   variant = 'label',
   disabled = false,
   handleClick,
-  iconName = 'heart-filled',
+  iconName = 'settings',
   iconHeight = '16px',
   iconWidth,
   iconColor,
