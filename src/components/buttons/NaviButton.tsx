@@ -59,7 +59,6 @@ const buttonDefaults = tw`
   items-center
   p-12
   rounded
-  w-auto
   border-hidden
   outline-none
 `;
@@ -91,6 +90,8 @@ const ButtonStyles = styled.button(({ variant }: ButtonProps) => [
   variant === 'icon' && variantIcon,
   variant === 'label' && variantLabel,
   css`
+    width: 54px;
+    height: 56px;
     svg {
       margin-left: 0;
     }
