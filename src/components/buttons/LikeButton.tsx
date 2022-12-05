@@ -17,15 +17,15 @@ export const LikeButton: React.FC<IButtonProps & IIcon> = ({
   const [iconChange, setIconChange] = useState(iconName);
   const [labelChange, setLabelChange] = useState<string>(label);
   const [iconColorChange, setIconColorChange] = useState(iconColor);
-  let [comment, setComment] = useState<number>(0);
+  let [likes, setLikes] = useState<number>(0);
   const [fontColor, setFontColor] = useState('text-slate-500');
 
   const handleClick = () => {
     setIconChange('heart-filled');
     setIconColorChange('fill-pink-500');
-    setComment(comment + 1);
+    setLikes(likes + 1);
 
-    if (comment >= 1) {
+    if (likes >= 1) {
       setFontColor('hasAction');
       setLabelChange('Likes');
     } else {
@@ -37,7 +37,7 @@ export const LikeButton: React.FC<IButtonProps & IIcon> = ({
     <>
       <ButtonStyles className={fontColor} onClick={handleClick}>
         <Icon iconName={iconChange} iconColor={iconColorChange} />
-        {comment < 1 ? false : `${comment}`} {labelChange}
+        {likes === 0 ? false : `${likes}`} {labelChange}
       </ButtonStyles>
     </>
   );
@@ -48,7 +48,7 @@ export const LikeButton: React.FC<IButtonProps & IIcon> = ({
  * @desc Button styles
  */
 
-const ButtonStyles = styled.button(({}) => [
+const ButtonStyles = styled.button(() => [
   tw`
     font-semibold
     leading-normal

@@ -17,15 +17,15 @@ export const CommentButton: React.FC<IButtonProps & IIcon> = ({
   const [iconChange, setIconChange] = useState(iconName);
   const [labelChange, setLabelChange] = useState<string>(label);
   const [iconColorChange, setIconColorChange] = useState(iconColor);
-  let [likes, setLikes] = useState<number>(0);
+  let [comment, setComment] = useState<number>(0);
   const [fontColor, setFontColor] = useState('text-slate-500');
 
   const handleClick = () => {
     setIconChange('reply-filled');
     setIconColorChange('fill-violet-600');
-    setLikes(likes + 1);
+    setComment(comment + 1);
 
-    if (likes >= 1) {
+    if (comment >= 1) {
       setFontColor('hasAction');
       setLabelChange('Comments');
     } else {
@@ -37,7 +37,7 @@ export const CommentButton: React.FC<IButtonProps & IIcon> = ({
     <>
       <ButtonStyles className={fontColor} onClick={handleClick}>
         <Icon iconName={iconChange} iconColor={iconColorChange} />
-        {likes === 0 ? false : `${likes}`} {labelChange}
+        {comment === 0 ? false : `${comment}`} {labelChange}
       </ButtonStyles>
     </>
   );
@@ -48,7 +48,7 @@ export const CommentButton: React.FC<IButtonProps & IIcon> = ({
  * @desc Button styles
  */
 
-const ButtonStyles = styled.button(({}) => [
+const ButtonStyles = styled.button(() => [
   tw`
     font-semibold
     leading-normal
