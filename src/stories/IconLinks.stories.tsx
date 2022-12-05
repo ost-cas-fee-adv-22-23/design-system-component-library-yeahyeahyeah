@@ -47,8 +47,8 @@ export const IconLinkVariants = Template.bind({});
 
 IconLinkVariants.args = {
   label: 'username',
-  variant: 'violet',
   iconName: 'profile',
+  iconColor: 'fill-slate-400',
 };
 
 IconLinkVariants.parameters = {

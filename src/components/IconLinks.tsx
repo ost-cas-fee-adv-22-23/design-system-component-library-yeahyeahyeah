@@ -5,33 +5,31 @@ import React from 'react';
 
 interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
   label: string;
-  variant?: 'slate' | 'violet' | undefined;
+  variant?: 'slate' | 'violet';
   handleClick?: () => void;
 }
 
 export const IconLink: React.FC<IIconLinkProps & IIcon> = ({
   label = 'username',
-  variant = 'violet',
+  variant = 'slate',
   handleClick,
   iconColor,
   iconName = 'profile',
   iconHeight,
   iconWidth,
 }) => {
+  console.log(variant);
+
   return (
     <>
       <IconLinkStyles variant={variant} onClick={handleClick}>
-        <SpanStyle>
-          <Icon
-            iconName={iconName}
-            iconColor={
-              variant === 'slate' ? 'fill-slate-400' : 'fill-slate-500'
-            }
-            iconHeight={iconHeight}
-            iconWidth={iconWidth}
-          />
-          {label}
-        </SpanStyle>
+        <Icon
+          iconName={iconName}
+          iconColor={iconColor}
+          iconHeight={iconHeight}
+          iconWidth={iconWidth}
+        />
+        {label}
       </IconLinkStyles>
     </>
   );
@@ -45,30 +43,39 @@ interface IStyleProps {
  * @Button
  * @desc Button styles
  */
-const defaultStyles = tw`
-  font-semibold
-  text-slate-400
-  leading
-  cursor-pointer
-  hover:(text-slate-600)
-`;
 
-const SpanStyle = styled.span`
-  display: flex;
+const defaultStyles = tw`
+  flex
+  flex-row
+  font-semibold
+  leading-normal
+  cursor-pointer
 `;
 
 const IconLinkStyles = styled.a(({ variant }: IStyleProps) => [
   defaultStyles,
+  variant === 'slate' && tw`text-slate-400 hover:(text-slate-600)`,
   variant === 'slate' &&
-    tw`text-slate-400 hover:(text-slate-600)` &&
     css`
+      svg {
+        fill: var(--color-slate-icon);
+      }
       :hover {
-          svg {
-            fill: #475569;
-          }
+        svg {
+          fill: var(--color-slate-icon-hover);
         }
-      } 
+      }
     `,
   variant === 'violet' && tw`text-violet-600 hover:(text-violet-900)`,
-  css``,
+  variant === 'violet' &&
+    css`
+      svg {
+        fill: var(--color-violet-icon);
+      }
+      :hover {
+        svg {
+          fill: var(--color-violet-icon-hover);
+        }
+      }
+    `,
 ]);
