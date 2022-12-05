@@ -17,16 +17,16 @@ export const LikeButton: React.FC<IButtonProps & IIcon> = ({
   const [iconChange, setIconChange] = useState(iconName);
   const [labelChange, setLabelChange] = useState<string>(label);
   const [iconColorChange, setIconColorChange] = useState(iconColor);
-  let [likes, setLikes] = useState<number>(0);
+  let [comment, setComment] = useState<number>(0);
   const [fontColor, setFontColor] = useState('text-slate-500');
 
   const handleClick = () => {
     setIconChange('heart-filled');
     setIconColorChange('fill-pink-500');
-    setLikes(likes + 1);
+    setComment(comment + 1);
 
-    if (likes >= 1) {
-      setFontColor('hasLike');
+    if (comment >= 1) {
+      setFontColor('hasAction');
       setLabelChange('Likes');
     } else {
       setLabelChange('Like');
@@ -37,7 +37,7 @@ export const LikeButton: React.FC<IButtonProps & IIcon> = ({
     <>
       <ButtonStyles className={fontColor} onClick={handleClick}>
         <Icon iconName={iconChange} iconColor={iconColorChange} />
-        {likes === 0 ? false : `${likes}`} {labelChange}
+        {comment < 1 ? false : `${comment}`} {labelChange}
       </ButtonStyles>
     </>
   );
@@ -47,33 +47,27 @@ export const LikeButton: React.FC<IButtonProps & IIcon> = ({
  * @Button
  * @desc Button styles
  */
-const buttonFont = tw`
-  text-pink-600
-  font-semibold
-  leading-normal
-  `;
-
-const buttonDefaults = tw`
-  text-slate-500
-  text-sm
-  flex
-  grow-0
-  justify-center
-  items-center
-  p-12
-  rounded-full
-  w-auto
-  outline-none
-  bg-none
-  hover:(text-pink-600 bg-pink-50)
-  active:(bg-none text-pink-900)
-`;
 
 const ButtonStyles = styled.button(({}) => [
-  buttonFont,
-  buttonDefaults,
+  tw`
+    font-semibold
+    leading-normal
+    text-slate-500
+    text-sm
+    flex
+    grow-0
+    justify-center
+    items-center
+    p-12
+    rounded-full
+    w-auto
+    outline-none
+    bg-none
+    hover:(text-pink-600 bg-pink-50)
+    active:(bg-none text-pink-900)
+`,
   css`
-    &.hasLike {
+    &.hasAction {
       color: #831843;
     }
 

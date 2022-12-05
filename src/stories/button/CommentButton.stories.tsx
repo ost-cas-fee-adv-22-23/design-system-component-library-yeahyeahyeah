@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ShareButton } from 'src/components/buttons/ShareButton';
+import { CommentButton } from 'src/components/buttons/CommentButton';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
-  title: 'Interactions',
-  component: ShareButton,
+  title: 'Interactions/Interaction Button',
+  component: CommentButton,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
@@ -29,7 +29,9 @@ export default {
       },
     },
     handleClick: {
-      action: () => 'handleClick',
+      action: () => {
+        console.log('handleClick');
+      },
     },
     iconWidth: {
       control: false,
@@ -44,25 +46,25 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof ShareButton>;
+} as ComponentMeta<typeof CommentButton>;
 
-const Template: ComponentStory<typeof ShareButton> = (args) => (
-  <ShareButton {...args} />
+const Template: ComponentStory<typeof CommentButton> = (args) => (
+  <CommentButton {...args} />
 );
 /**
  * @button
  * @desc button standard slate
  */
-export const ShareButtonStory = Template.bind({});
+export const CommentButtonStory = Template.bind({});
 
-ShareButtonStory.args = {
-  label: 'Copy Link',
+CommentButtonStory.args = {
+  label: 'Comment',
 };
 
-ShareButtonStory.parameters = {
+CommentButtonStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
   },
 };
 
-ShareButtonStory.storyName = 'Share Button';
+CommentButtonStory.storyName = 'Comment';

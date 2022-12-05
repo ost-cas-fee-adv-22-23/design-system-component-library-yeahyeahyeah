@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { LikeButton } from 'src/components/buttons/LikeButtons';
+import { LikeButton } from 'src/components/buttons/LikeButton';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
-  title: 'Interactions',
+  title: 'Interactions/Interaction Button',
   component: LikeButton,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
@@ -65,4 +65,4 @@ LikeButtonStory.parameters = {
   },
 };
 
-LikeButtonStory.storyName = 'Like Button';
+LikeButtonStory.storyName = 'Like';
