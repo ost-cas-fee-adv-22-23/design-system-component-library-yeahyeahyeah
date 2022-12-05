@@ -52,9 +52,9 @@ const buttonDefaults = tw`
   h-48
   rounded-full
   border-hidden
-  outline-offset-0
-  hover:(bg-slate-700 outline-slate-100)
-  focus:(outline-slate-200)
+  outline-none
+  hover:(bg-slate-700 outline-offset-0 outline-slate-100)
+  focus:(outline-offset-0 outline-slate-200)
   disabled:bg-slate-300
 `;
 
