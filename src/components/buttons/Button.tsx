@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import tw from 'twin.macro';
 import { Icon, IIcon } from 'src/components/Icon';
 
@@ -119,4 +119,9 @@ const ButtonStyles = styled.button(({ variant, width, size }: ButtonProps) => [
   variant === 'slate' && variantSlate,
   variant === 'violet' && variantViolet,
   variant === 'pink' && variantPink,
+  css`
+    svg {
+      margin-left: 12px;
+    }
+  `
 ]);
