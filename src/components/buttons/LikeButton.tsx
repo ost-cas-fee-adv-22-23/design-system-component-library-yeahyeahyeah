@@ -10,15 +10,16 @@ interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
 }
 
 export const LikeButton: React.FC<IButtonProps & IIcon> = ({
-  label,
+  label = 'Like',
   iconColor = 'fill-slate-500',
   iconName = 'heart-outlined',
 }) => {
   const [iconChange, setIconChange] = useState(iconName);
   const [labelChange, setLabelChange] = useState<string>(label);
   const [iconColorChange, setIconColorChange] = useState(iconColor);
-  let [likes, setLikes] = useState<number>(0);
   const [fontColor, setFontColor] = useState('text-slate-500');
+
+  let [likes, setLikes] = useState<number>(0);
 
   const handleClick = () => {
     setIconChange('heart-filled');
@@ -50,6 +51,7 @@ export const LikeButton: React.FC<IButtonProps & IIcon> = ({
 interface IButtonStyles {
   likes: number;
 }
+
 const ButtonStyles = styled.button(({ likes }: IButtonStyles) => [
   tw`
   font-semibold

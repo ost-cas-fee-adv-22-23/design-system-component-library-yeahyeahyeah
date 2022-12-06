@@ -8,7 +8,10 @@ export default {
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
-      name: 'Button Label',
+      control: false,
+      table: {
+        disable: true,
+      },
     },
     size: {
       control: false,
@@ -56,10 +59,6 @@ const Template: ComponentStory<typeof CommentButton> = (args) => (
  * @desc button standard slate
  */
 export const CommentButtonStory = Template.bind({});
-
-CommentButtonStory.args = {
-  label: 'Comment',
-};
 
 CommentButtonStory.parameters = {
   docs: {

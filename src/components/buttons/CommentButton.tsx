@@ -10,7 +10,7 @@ interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
 }
 
 export const CommentButton: React.FC<IButtonProps & IIcon> = ({
-  label,
+  label = 'Comment',
   iconColor = 'fill-slate-500',
   iconName = 'reply-outlined',
 }) => {
