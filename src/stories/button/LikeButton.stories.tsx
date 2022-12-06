@@ -9,9 +9,6 @@ export default {
   argTypes: {
     label: {
       control: false,
-      table: {
-        disable: true,
-      },
     },
     size: {
       control: false,
@@ -57,6 +54,10 @@ const Template: ComponentStory<typeof LikeButton> = (args) => (
  * @desc button standard slate
  */
 export const LikeButtonStory = Template.bind({});
+
+LikeButtonStory.args = {
+  label: 'Like',
+};
 
 LikeButtonStory.parameters = {
   docs: {

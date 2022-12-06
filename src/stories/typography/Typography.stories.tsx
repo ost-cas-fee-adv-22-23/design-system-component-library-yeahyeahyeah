@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Typography } from '../../components/typography/Typography';
 
 export default {
-  title: 'Typography/Typography',
+  title: 'Typography/All Font Styles',
   component: Typography,
   argTypes: {
     label: {
@@ -30,12 +30,8 @@ const Template: ComponentStory<typeof Typography> = (args) => (
 
 export const Heading = Template.bind({});
 
-Heading.storyName = 'Overview';
+Heading.storyName = 'All Font Styles';
 
 Heading.decorators = [
-  (Story) => (
-    <div className="flex justify-center items-start w-full">
-      <div className="sm:container mx-auto">{Story()}</div>
-    </div>
-  ),
+  (Story) => <div className="sm:container mx-auto">{Story()}</div>,
 ];

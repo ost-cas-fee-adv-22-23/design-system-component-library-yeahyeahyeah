@@ -27,4 +27,4 @@ ParagraphVariants.args = {
   color: 'dark',
 };
 
-ParagraphVariants.storyName = 'Variants';
+ParagraphVariants.storyName = 'Paragraph';

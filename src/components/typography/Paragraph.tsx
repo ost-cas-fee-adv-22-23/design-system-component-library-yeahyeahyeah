@@ -13,7 +13,13 @@ export const Paragraph: React.FC<IParagraphProps> = ({
 }) => {
   return (
     <>
-      <h3>Paragraph {variant}</h3>
+      <ParagraphStyles variant={variant} color={color}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+        assumenda ratione amet maiores aspernatur molestias unde, totam illo
+        alias magnam ea cum repellat quibusdam quam. Officia voluptatem odit ex
+        mollitia?
+      </ParagraphStyles>
+
       <ParagraphStyles variant={variant} color={color}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
         assumenda ratione amet maiores aspernatur molestias unde, totam illo
@@ -37,6 +43,9 @@ const paragraphColorLight = tw`text-slate-500`;
 
 const ParagraphStyles = styled.p(
   ({ variant, color }: IParagraphStylesProps) => [
+    tw`
+      mb-24
+    `,
     paragraphDefaults,
     variant === 'large' && paragraphLarge,
     variant === 'medium' && paragraphMedium,

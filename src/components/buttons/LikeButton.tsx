@@ -4,7 +4,7 @@ import tw from 'twin.macro';
 import { Icon, IIcon } from 'src/components/Icon';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
-  label: string;
+  label: 'Like';
   iconName: string;
   handleClick?: () => void;
 }
