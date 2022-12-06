@@ -70,21 +70,21 @@ interface StyledProfilePictureProps {
   hover?: boolean;
 }
 
-const sizeSmall = tw`
+const small = tw`
   w-40
   h-40
   bg-violet-200
   rounded-full
 `;
 
-const sizeSmallHover = tw`
+const smallHover = tw`
   w-44
   h-44
   bg-violet-200
   rounded-full
 `;
 
-const sizeMedium = tw`
+const medium = tw`
   w-64
   h-64
   bg-violet-200
@@ -93,7 +93,7 @@ const sizeMedium = tw`
   border-6
 `;
 
-const sizeMediumHover = tw`
+const mediumHover = tw`
   w-70
   h-70
   bg-violet-200
@@ -102,7 +102,7 @@ const sizeMediumHover = tw`
   border-6
 `;
 
-const sizeLarge = tw`
+const large = tw`
   w-96
   h-96
   bg-violet-200
@@ -111,7 +111,7 @@ const sizeLarge = tw`
   border-6
 `;
 
-const sizeXLarge = tw`
+const xLarge = tw`
   w-160
   h-160
   bg-violet-200
@@ -122,19 +122,19 @@ const sizeXLarge = tw`
 
 const getStyle = (size?: string, hover?: boolean) => {
   if (size === 'small' && hover === true) {
-    return sizeSmallHover;
+    return smallHover;
   } else if (size === 'small' && hover === false) {
-    return sizeSmall;
+    return small;
   }
   if (size === 'medium' && hover === true) {
-    return sizeMediumHover;
+    return mediumHover;
   } else if (size === 'medium' && hover === false) {
-    return sizeMedium;
+    return medium;
   }
   if (size === 'large') {
-    return sizeLarge;
+    return large;
   } else if (size === 'xlarge') {
-    return sizeXLarge;
+    return xLarge;
   }
 };
 
