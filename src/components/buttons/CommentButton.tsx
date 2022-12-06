@@ -1,28 +1,23 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { Icon, IIcon } from 'src/components/Icon';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
-  iconName: string;
   handleClick?: () => void;
+  children?: React.ReactNode;
 }
 
-export const CommentButton: React.FC<IButtonProps & IIcon> = ({
+export const CommentButton: React.FC<IButtonProps> = ({
   label = 'Comment',
-  iconColor = 'fill-slate-500',
-  iconName = 'reply-outlined',
+  children,
 }) => {
-  const [iconChange, setIconChange] = useState(iconName);
   const [labelChange, setLabelChange] = useState<string>(label);
-  const [iconColorChange, setIconColorChange] = useState(iconColor);
+
   let [comment, setComment] = useState<number>(0);
   const [fontColor, setFontColor] = useState('text-slate-500');
 
   const handleClick = () => {
-    setIconChange('reply-filled');
-    setIconColorChange('fill-violet-600');
     setComment(comment + 1);
 
     if (comment >= 1) {
@@ -40,7 +35,7 @@ export const CommentButton: React.FC<IButtonProps & IIcon> = ({
         onClick={handleClick}
         comment={comment}
       >
-        <Icon iconName={iconChange} iconColor={iconColorChange} />
+        <>{children}</>
         {comment === 0 ? false : `${comment}`} {labelChange}
       </ButtonStyles>
     </>

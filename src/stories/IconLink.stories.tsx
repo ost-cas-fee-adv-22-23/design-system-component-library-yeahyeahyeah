@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { IconLink } from 'src/components/IconLinks';
+import { IconLink } from 'src/components/IconLink';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
+import { Icons } from 'src/components/icons/IconMap';
 
 export default {
   title: 'Interactions',
@@ -14,6 +15,12 @@ export default {
       control: {
         type: 'select',
       },
+    },
+    children: {
+      control: 'select',
+      options: Object.keys(Icons),
+      mapping: Icons,
+      name: 'Icon',
     },
     handleClick: {
       action: () => 'handleClick',
@@ -47,9 +54,8 @@ export const IconLinkVariants = Template.bind({});
 
 IconLinkVariants.args = {
   label: 'username',
-  iconName: 'profile',
-  iconColor: 'fill-slate-400',
   variant: 'slate',
+  children: Icons.Mumble,
 };
 
 IconLinkVariants.parameters = {

@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { Icon, IIcon } from 'src/components/Icon';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   handleClick?: () => void;
+  children?: React.ReactNode;
 }
 
-export const ShareButton: React.FC<IButtonProps & IIcon> = ({
+export const ShareButton: React.FC<IButtonProps> = ({
   label = 'Copy Link',
-  iconName = 'share',
-  iconColor = 'fill-slate-600',
+  children,
 }) => {
   const [labelText, setLabelText] = useState<string>(label);
 
@@ -26,7 +25,7 @@ export const ShareButton: React.FC<IButtonProps & IIcon> = ({
   return (
     <>
       <ButtonStyles onClick={handleClick}>
-        <Icon iconName={iconName} iconColor={iconColor} />
+        {children}
         {labelText}
       </ButtonStyles>
     </>

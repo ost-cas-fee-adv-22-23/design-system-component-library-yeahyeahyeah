@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { Icon, IIcon } from 'src/components/Icon';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
@@ -10,19 +9,17 @@ interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   width?: 'default' | 'full';
   disabled?: boolean;
   handleClick?: () => void;
+  children?: React.ReactNode;
 }
 
-export const Button: React.FC<IButtonProps & IIcon> = ({
+export const Button: React.FC<IButtonProps> = ({
   label = 'Button Label',
   variant = 'slate',
   size = 'small',
   width = 'default',
   disabled = false,
   handleClick,
-  iconName,
-  iconHeight = '16px',
-  iconWidth,
-  iconColor,
+  children,
 }) => {
   return (
     <>
@@ -34,12 +31,7 @@ export const Button: React.FC<IButtonProps & IIcon> = ({
         onClick={handleClick}
       >
         {label}
-        <Icon
-          iconName={iconName}
-          iconColor={iconColor}
-          iconHeight={iconHeight}
-          iconWidth={iconWidth}
-        />
+        {children}
       </ButtonStyles>
     </>
   );

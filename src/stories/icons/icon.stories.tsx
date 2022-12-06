@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
-import { Icon, IIcon } from '../../components/Icon';
+import { Icon, IIcon } from '../../components/icons/Icon';
 
 let tailWindColors: string[] = [
   'fill-slate-500',

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { Icon, IIcon } from 'src/components/Icon';
+import { Icon, IIcon } from 'src/components/icons/Icon';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;

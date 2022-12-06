@@ -23,7 +23,7 @@ import {
   Share,
   Time,
   Upload,
-} from '../stories/assets/icons';
+} from '../../stories/assets/icons';
 
 export interface IIcon extends React.HTMLAttributes<HTMLElement> {
   iconName:

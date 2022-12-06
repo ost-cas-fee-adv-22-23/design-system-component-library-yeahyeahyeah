@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { CommentButton } from 'src/components/buttons/CommentButton';
+import { Icons } from 'src/components/icons/IconMap';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
@@ -19,34 +20,17 @@ export default {
         disable: true,
       },
     },
-    iconName: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    iconColor: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
     handleClick: {
       action: () => {
         console.log('handleClick');
       },
     },
-    iconWidth: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    iconHeight: {
-      control: false,
-      table: {
-        disable: true,
-      },
+    children: {
+      control: 'select',
+      options: Object.keys(Icons),
+      mapping: Icons,
+      name: 'Icon',
+      defaultValue: Icons.Repost,
     },
   },
 } as ComponentMeta<typeof CommentButton>;

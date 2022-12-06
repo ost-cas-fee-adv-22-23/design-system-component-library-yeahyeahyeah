@@ -1,29 +1,22 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { Icon, IIcon } from 'src/components/Icon';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: 'Like';
-  iconName: string;
   handleClick?: () => void;
+  children?: React.ReactNode;
 }
 
-export const LikeButton: React.FC<IButtonProps & IIcon> = ({
+export const LikeButton: React.FC<IButtonProps> = ({
   label = 'Like',
-  iconColor = 'fill-slate-500',
-  iconName = 'heart-outlined',
+  children,
 }) => {
-  const [iconChange, setIconChange] = useState(iconName);
   const [labelChange, setLabelChange] = useState<string>(label);
-  const [iconColorChange, setIconColorChange] = useState(iconColor);
   const [fontColor, setFontColor] = useState('text-slate-500');
-
   let [likes, setLikes] = useState<number>(0);
 
   const handleClick = () => {
-    setIconChange('heart-filled');
-    setIconColorChange('fill-pink-500');
     setLikes(likes + 1);
 
     if (likes >= 1) {
@@ -37,7 +30,7 @@ export const LikeButton: React.FC<IButtonProps & IIcon> = ({
   return (
     <>
       <ButtonStyles className={fontColor} onClick={handleClick} likes={likes}>
-        <Icon iconName={iconChange} iconColor={iconColorChange} />
+        {children}
         {likes > 0 && `${likes}`} {labelChange}
       </ButtonStyles>
     </>

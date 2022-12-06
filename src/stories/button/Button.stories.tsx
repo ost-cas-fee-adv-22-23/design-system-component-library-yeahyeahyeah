@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from 'src/components/buttons/Button';
+import { Icons } from 'src/components/icons/IconMap';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
@@ -25,26 +26,14 @@ export default {
         type: 'select',
       },
     },
+    children: {
+      control: 'select',
+      options: Object.keys(Icons),
+      mapping: Icons,
+      name: 'Icon',
+    },
     handleClick: {
       action: () => 'handleClick',
-    },
-    iconColor: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    iconWidth: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    iconHeight: {
-      control: false,
-      table: {
-        disable: true,
-      },
     },
   },
 } as ComponentMeta<typeof Button>;
@@ -61,8 +50,7 @@ ButtonVariants.args = {
   variant: 'slate',
   width: 'default',
   size: 'small',
-  iconColor: 'fill-slate-white',
-  iconName: 'mumble',
+  children: Icons.Mumble,
 };
 
 ButtonVariants.parameters = {
