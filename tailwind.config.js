@@ -25,7 +25,11 @@ module.exports = {
       borderWidth: {
         DEFAULT: '3px',
         4: '4px',
+        6: '6px',
         none: 'transparent',
+      },
+      borderColor: {
+        white: 'var(--color-border-light)',
       },
       outlineWidth: {
         3: '3px',
@@ -124,6 +128,33 @@ module.exports = {
         800: '#9d174d',
         900: '#831843',
       },
+    },
+    width: {
+      0: '0',
+      40: '2.5rem',
+      44: '2.75rem',
+      64: '4rem',
+      70: '4.375rem',
+      96: '6rem',
+      160: '10rem',
+    },
+    height: {
+      0: '0',
+      40: '2.5rem',
+      44: '2.75rem',
+      64: '4rem',
+      70: '4.375rem',
+      96: '6rem',
+      160: '10rem',
+    },
+    maxWidth: {
+      0: '0',
+      40: '2.5rem',
+      44: '2.75rem',
+      64: '4rem',
+      70: '4.375rem',
+      96: '6rem',
+      160: '10rem',
     },
     container: {
       center: true,

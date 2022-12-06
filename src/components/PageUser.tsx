@@ -2,6 +2,7 @@ import { ReactElement, useContext, useEffect, useState } from 'react';
 import InputField from './Input';
 import { GlobalContext } from '../context/context';
 import { Icon } from './Icon';
+import { ProfilePicture } from './ProfilePicture';
 
 const PageUser = (): ReactElement => {
   const { user, setUser } = useContext(GlobalContext);
@@ -99,6 +100,29 @@ const PageUser = (): ReactElement => {
           iconWidth="50px"
           iconHeight="50px"
         />
+        <ProfilePicture
+          alt="Here comes a small profile pic"
+          src="https://bs1.eseug.com/enhanced-2/65d/4e3/65d4e3752660172b7c2f24841119ed08.jpg"
+        />
+        <ProfilePicture
+          size="medium"
+          alt="Here comes a medium profile pic"
+          src="https://bs1.eseug.com/enhanced-2/65d/4e3/65d4e3752660172b7c2f24841119ed08.jpg"
+        />
+        <ProfilePicture
+          size="large"
+          alt="Here comes a large profile pic"
+          src="https://bs1.eseug.com/enhanced-2/65d/4e3/65d4e3752660172b7c2f24841119ed08.jpg"
+        />
+        <ProfilePicture
+          size="xlarge"
+          alt="Here comes a xlarge profile pic"
+          src="https://bs1.eseug.com/enhanced-2/65d/4e3/65d4e3752660172b7c2f24841119ed08.jpg"
+        />
+        <ProfilePicture alt="Here comes a small profile pic" />
+        <ProfilePicture size="medium" alt="Here comes a medium profile pic" />
+        <ProfilePicture size="large" alt="Here comes a large profile pic" />
+        <ProfilePicture size="xlarge" alt="Here comes a xlarge profile pic" />
       </p>
     </div>
   );
