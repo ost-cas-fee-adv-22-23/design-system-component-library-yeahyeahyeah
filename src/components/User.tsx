@@ -17,7 +17,7 @@ export const User: React.FC<IUserProps> = ({
     <>
       {variant === 'small' && 
         <UserStyles>
-        <h4>{label}</h4>
+        <h4 className='text-sm font-semibold mb-8'>{label}</h4>
         <div className="flex flex-row justify-between max-w-lg gap-16 mt-8">
           <IconLink label="username" iconName='profile' iconColor='slate-500' variant="violet" />
           <IconLink label="Timestamp" iconName='time' iconColor='text-slate-500' />
@@ -27,7 +27,7 @@ export const User: React.FC<IUserProps> = ({
       
       {variant === 'medium' && 
         <UserStyles>
-        <h4 tw='font-semibold text-md'>{label}</h4>
+        <h4 className='text-md font-semibold mb-8'>{label}</h4>
         <div className="flex flex-row justify-between max-w-lg gap-16 mt-8">
           <IconLink label="username" iconName='profile' iconColor="fill-pink-500" variant="violet" />
           <IconLink label="Timestamp" iconName='time' iconColor='text-slate-500' />
@@ -37,7 +37,7 @@ export const User: React.FC<IUserProps> = ({
 
       {variant === 'large' && 
         <UserStyles>
-        <h4 tw='font-semibold text-lg'>{label}</h4>
+        <h4 className='text-lg font-semibold'>{label}</h4>
         <div className="flex flex-row justify-between max-w-lg gap-16 mt-8">
           <IconLink label="username" iconName='profile' iconColor="fill-pink-500" variant="violet" />
           <IconLink label="Timestamp" iconName='time' iconColor='text-slate-500' />
@@ -47,7 +47,7 @@ export const User: React.FC<IUserProps> = ({
 
       {variant === 'xlarge' && 
         <UserStyles>
-        <h3>{label}</h3>
+        <h4 className='text-2xl font-semibold mb-8'>{label}</h4>
         <div className="flex flex-row justify-between max-w-lg gap-16 mt-8">
           <IconLink label="username" iconName='profile' iconColor="fill-pink-500" variant="violet" />
           <IconLink label="Timestamp" iconName='time' iconColor='text-slate-500' />
