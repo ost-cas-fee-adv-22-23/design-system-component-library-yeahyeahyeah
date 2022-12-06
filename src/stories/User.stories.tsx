@@ -3,13 +3,18 @@ import { User } from 'src/components/User';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
-  title: 'User',
+  title: 'User/User',
   component: User,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
       name: 'User',
     },
+    variant: {
+      control: {
+        type: 'select'
+      }
+    }
   },
 } as ComponentMeta<typeof User>;
 
