@@ -102,22 +102,22 @@ const PageUser = (): ReactElement => {
         />
         <ProfilePicture
           alt="Here comes a small profile pic"
-          src="https://bs1.eseug.com/enhanced-2/65d/4e3/65d4e3752660172b7c2f24841119ed08.jpg"
+          src="https://cdn.unitycms.io/images/AGldBqK4qne8kxrx_ovKtu.png?op=ocroped&val=1200,1200,1000,1000,0,0&sum=ATBpuG0Cxeg"
         />
         <ProfilePicture
           size="medium"
           alt="Here comes a medium profile pic"
-          src="https://bs1.eseug.com/enhanced-2/65d/4e3/65d4e3752660172b7c2f24841119ed08.jpg"
+          src="https://cdn.unitycms.io/images/AGldBqK4qne8kxrx_ovKtu.png?op=ocroped&val=1200,1200,1000,1000,0,0&sum=ATBpuG0Cxeg"
         />
         <ProfilePicture
           size="large"
           alt="Here comes a large profile pic"
-          src="https://bs1.eseug.com/enhanced-2/65d/4e3/65d4e3752660172b7c2f24841119ed08.jpg"
+          src="https://cdn.unitycms.io/images/AGldBqK4qne8kxrx_ovKtu.png?op=ocroped&val=1200,1200,1000,1000,0,0&sum=ATBpuG0Cxeg"
         />
         <ProfilePicture
           size="xlarge"
           alt="Here comes a xlarge profile pic"
-          src="https://bs1.eseug.com/enhanced-2/65d/4e3/65d4e3752660172b7c2f24841119ed08.jpg"
+          src="https://cdn.unitycms.io/images/AGldBqK4qne8kxrx_ovKtu.png?op=ocroped&val=1200,1200,1000,1000,0,0&sum=ATBpuG0Cxeg"
         />
         <ProfilePicture alt="Here comes a small profile pic" />
         <ProfilePicture size="medium" alt="Here comes a medium profile pic" />

@@ -24,7 +24,6 @@ const TemplateProfilePicture: ComponentStory<typeof ProfilePicture> = (
 
 export const Primary = TemplateProfilePicture.bind({});
 Primary.args = {
-  src: '',
-  alt: 'test',
-  size: 'small',
+  src: 'https://cdn.unitycms.io/images/AGldBqK4qne8kxrx_ovKtu.png?op=ocroped&val=1200,1200,1000,1000,0,0&sum=ATBpuG0Cxeg',
+  alt: 'This is a profile picture!',
 };
