@@ -2,7 +2,7 @@ import { ReactElement, useContext, useEffect, useState } from 'react';
 import InputField from './Input';
 import { GlobalContext } from '../context/context';
 import { Icon } from './Icon';
-import ProfilePicture from './ProfilePicture';
+import { ProfilePicture } from './ProfilePicture';
 
 const PageUser = (): ReactElement => {
   const { user, setUser } = useContext(GlobalContext);

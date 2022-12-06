@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import PPSmall from '../stories/assets/profile/pp_small.png';
 import PPSmallHover from '../stories/assets/profile/pp_small_hov.png';
@@ -8,7 +8,7 @@ import PPMediumHover from '../stories/assets/profile/pp_medium_hov.png';
 import PPLarge from '../stories/assets/profile/pp_large.png';
 import PPXLarge from '../stories/assets/profile/pp_xlarge.png';
 
-interface IProfilePictureProps
+export interface IProfilePicture
   extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   src?: string;
   alt: string;
@@ -16,7 +16,7 @@ interface IProfilePictureProps
   fCallBack?: () => void;
 }
 
-const ProfilePicture: React.FC<IProfilePictureProps> = ({
+export const ProfilePicture: React.FC<IProfilePicture> = ({
   src = '',
   alt = '',
   size = 'small',
@@ -139,7 +139,10 @@ const getStyle = (size?: string, hover?: boolean) => {
 };
 
 const StyledProfilePicture = styled.img(
-  ({ size, hover }: StyledProfilePictureProps) => [getStyle(size, hover)],
+  ({ size, hover }: StyledProfilePictureProps) => [
+    getStyle(size, hover),
+    css`
+      object-fit: cover;
+    `,
+  ],
 );
-
-export default ProfilePicture;
