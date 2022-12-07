@@ -101,6 +101,19 @@ const buttonWidth = (width: string | undefined) =>
 const buttonSize = (size: string | undefined) =>
   size === 'large' ? tw`py-16 px-24` : null;
 
+const getVariant = (variant: string | undefined) => {
+  switch (variant) {
+    case 'slate':
+      return variantSlate;
+    case 'violet':
+      return variantViolet;
+    case 'pink':
+      return variantPink;
+    default:
+      return variantSlate;
+  }
+};
+
 const ButtonStyles = styled.button(({ variant, width, size }: ButtonProps) => [
   buttonFont,
   buttonDefaults,
@@ -108,7 +121,5 @@ const ButtonStyles = styled.button(({ variant, width, size }: ButtonProps) => [
   buttonFocus,
   buttonWidth(width),
   buttonSize(size),
-  variant === 'slate' && variantSlate,
-  variant === 'violet' && variantViolet,
-  variant === 'pink' && variantPink,
+  getVariant(variant),
 ]);

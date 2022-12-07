@@ -26,54 +26,60 @@ import {
 } from '../../stories/assets/icons';
 
 export const Icons = {
-  Calendar: <Calendar className={'fill-pink-500'} width="16px" height="16px" />,
-  Cancel: <Cancel className={'fill-pink-500'} width="16px" height="16px" />,
+  Calendar: (
+    <Calendar className={'fill-slate-500'} width="16px" height="16px" />
+  ),
+  Cancel: <Cancel className={'fill-slate-500'} width="16px" height="16px" />,
   Checkmark: (
-    <Checkmark className={'fill-pink-500'} width="16px" height="16px" />
+    <Checkmark className={'fill-slate-500'} width="16px" height="16px" />
   ),
   ChevronUp: (
-    <ChevronUp className={'fill-pink-500'} width="16px" height="16px" />
+    <ChevronUp className={'fill-slate-500'} width="16px" height="16px" />
   ),
   ChevronDown: (
-    <ChevronDown className={'fill-pink-500'} width="16px" height="16px" />
+    <ChevronDown className={'fill-slate-500'} width="16px" height="16px" />
   ),
   ChevronLeft: (
-    <ChevronLeft className={'fill-pink-500'} width="16px" height="16px" />
+    <ChevronLeft className={'fill-slate-500'} width="16px" height="16px" />
   ),
   ChevronRight: (
-    <ChevronRight className={'fill-pink-500'} width="16px" height="16px" />
+    <ChevronRight className={'fill-slate-500'} width="16px" height="16px" />
   ),
   Edit: (
     <Edit
-      className={'fill-pink-500 hover:(fill-green-500)'}
+      className={'fill-slate-500 hover:(fill-green-500)'}
       width="16px"
       height="16px"
     />
   ),
-  Eye: <Eye className={'fill-pink-500'} width="16px" height="16px" />,
+  Eye: <Eye className={'fill-slate-500'} width="16px" height="16px" />,
   Fullscreen: (
-    <Fullscreen className={'fill-pink-500'} width="16px" height="16px" />
+    <Fullscreen className={'fill-slate-500'} width="16px" height="16px" />
   ),
   HeartFilled: (
-    <HeartFilled className={'fill-pink-500'} width="16px" height="16px" />
+    <HeartFilled className={'fill-slate-500'} width="16px" height="16px" />
   ),
   HeartOutlined: (
-    <HeartOutlined className={'fill-pink-500'} width="16px" height="16px" />
+    <HeartOutlined className={'fill-slate-500'} width="16px" height="16px" />
   ),
-  Location: <Location className={'fill-pink-500'} width="16px" height="16px" />,
-  Logout: <Logout className={'fill-pink-500'} width="16px" height="16px" />,
-  Mumble: <Mumble className={'fill-pink-500'} width="16px" height="16px" />,
-  Profile: <Profile className={'fill-pink-500'} width="16px" height="16px" />,
+  Location: (
+    <Location className={'fill-slate-500'} width="16px" height="16px" />
+  ),
+  Logout: <Logout className={'fill-slate-500'} width="16px" height="16px" />,
+  Mumble: <Mumble className={'fill-slate-500'} width="16px" height="16px" />,
+  Profile: <Profile className={'fill-slate-500'} width="16px" height="16px" />,
   ReplyFilled: (
-    <ReplyFilled className={'fill-pink-500'} width="16px" height="16px" />
+    <ReplyFilled className={'fill-slate-500'} width="16px" height="16px" />
   ),
   ReplyOutlined: (
-    <ReplyOutlined className={'fill-pink-500'} width="16px" height="16px" />
+    <ReplyOutlined className={'fill-slate-500'} width="16px" height="16px" />
   ),
-  Repost: <Repost className={'fill-pink-500'} width="16px" height="16px" />,
-  Send: <Send className={'fill-pink-500'} width="16px" height="16px" />,
-  Settings: <Settings className={'fill-pink-500'} width="16px" height="16px" />,
-  Share: <Share className={'fill-pink-500'} width="16px" height="16px" />,
-  Time: <Time className={'fill-pink-500'} width="16px" height="16px" />,
-  Upload: <Upload className={'fill-pink-500'} width="16px" height="16px" />,
+  Repost: <Repost className={'fill-slate-500'} width="16px" height="16px" />,
+  Send: <Send className={'fill-slate-500'} width="16px" height="16px" />,
+  Settings: (
+    <Settings className={'fill-slate-500'} width="16px" height="16px" />
+  ),
+  Share: <Share className={'fill-slate-500'} width="16px" height="16px" />,
+  Time: <Time className={'fill-slate-500'} width="16px" height="16px" />,
+  Upload: <Upload className={'fill-slate-500'} width="16px" height="16px" />,
 };
