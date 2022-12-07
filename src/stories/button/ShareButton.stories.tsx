@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ShareButton } from 'src/components/buttons/ShareButton';
+import { Icons } from 'src/components/icons/IconMap';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
@@ -16,32 +17,15 @@ export default {
         disable: true,
       },
     },
-    iconName: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    iconColor: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
     handleClick: {
       action: () => 'handleClick',
     },
-    iconWidth: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    iconHeight: {
-      control: false,
-      table: {
-        disable: true,
-      },
+    children: {
+      control: 'select',
+      options: Object.keys(Icons),
+      mapping: Icons,
+      defaultValue: Icons.Share,
+      name: 'Icon',
     },
   },
 } as ComponentMeta<typeof ShareButton>;

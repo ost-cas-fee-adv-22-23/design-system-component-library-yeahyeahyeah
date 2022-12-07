@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { NaviButton } from 'src/components/buttons/NaviButton';
+import { Icons } from 'src/components/icons/IconMap';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
@@ -30,23 +31,12 @@ export default {
         disable: true,
       },
     },
-    iconColor: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    iconWidth: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    iconHeight: {
-      control: false,
-      table: {
-        disable: true,
-      },
+    children: {
+      control: 'select',
+      options: Object.keys(Icons),
+      mapping: Icons,
+      name: 'Icon',
+      defaultValue: Icons.Settings,
     },
   },
 } as ComponentMeta<typeof NaviButton>;
@@ -63,8 +53,6 @@ export const NaviButtonStory = Template.bind({});
 NaviButtonStory.args = {
   label: 'Label',
   variant: 'label',
-  iconColor: 'fill-slate-white',
-  iconName: 'settings',
 };
 
 NaviButtonStory.parameters = {

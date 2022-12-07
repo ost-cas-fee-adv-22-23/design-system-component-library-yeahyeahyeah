@@ -1,37 +1,27 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { Icon, IIcon } from 'src/components/Icon';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   variant?: 'icon' | 'label';
   disabled?: boolean;
   handleClick?: () => void;
+  children: React.ReactNode;
 }
 
-export const NaviButton: React.FC<IButtonProps & IIcon> = ({
+export const NaviButton: React.FC<IButtonProps> = ({
   label,
   variant = 'label',
   disabled = false,
   handleClick,
-  iconName = 'settings',
-  iconHeight = '16px',
-  iconWidth,
-  iconColor,
+  children,
 }) => {
   return (
-    <>
-      <ButtonStyles variant={variant} disabled={disabled} onClick={handleClick}>
-        <Icon
-          iconName={iconName}
-          iconColor={iconColor}
-          iconHeight={iconHeight}
-          iconWidth={iconWidth}
-        />
-        {variant === 'label' ? label : false}
-      </ButtonStyles>
-    </>
+    <ButtonStyles variant={variant} disabled={disabled} onClick={handleClick}>
+      {children}
+      {variant === 'label' ? label : false}
+    </ButtonStyles>
   );
 };
 

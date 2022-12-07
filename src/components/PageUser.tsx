@@ -1,8 +1,33 @@
 import { ReactElement, useContext, useEffect, useState } from 'react';
 import InputField from './Input';
 import { GlobalContext } from '../context/context';
-import { Icon } from './Icon';
 import { ProfilePicture } from './ProfilePicture';
+import {
+  Calendar,
+  Cancel,
+  Checkmark,
+  ChevronUp,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Edit,
+  Eye,
+  Fullscreen,
+  HeartFilled,
+  HeartOutlined,
+  Location,
+  Logout,
+  Mumble,
+  Profile,
+  ReplyFilled,
+  ReplyOutlined,
+  Repost,
+  Send,
+  Settings,
+  Share,
+  Time,
+  Upload,
+} from '../stories/assets/icons';
 
 const PageUser = (): ReactElement => {
   const { user, setUser } = useContext(GlobalContext);
@@ -45,60 +70,150 @@ const PageUser = (): ReactElement => {
         </div>
       </form>
       <p>
-        <Icon
-          iconName={'cancel'}
-          iconColor={'fill-pink-500'}
-          iconWidth="50px"
-          iconHeight="50px"
-          onClick={(data: any) => setSurName(data.target.value)}
+        <Cancel
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked cancel')}
         />
-        <Icon
-          iconName={'calendar'}
-          iconColor={'fill-pink-500'}
-          iconWidth="50px"
-          iconHeight="50px"
+        <Calendar
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked calendar')}
         />
-        <Icon
-          iconName={'checkmark'}
-          iconColor={'fill-slate-white'}
-          iconWidth="50px"
-          iconHeight="50px"
+        <Checkmark
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked checkmark')}
         />
-        <Icon
-          iconName={'heart-filled'}
-          iconColor={'fill-pink-500'}
-          iconWidth="50px"
-          iconHeight="50px"
+        <ChevronUp
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked chevron up')}
         />
-        <Icon
-          iconName={'heart-outlined'}
-          iconColor={'fill-slate-white'}
-          iconWidth="50px"
-          iconHeight="50px"
+        <ChevronDown
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked chevron down')}
         />
-        <Icon
-          iconName={'reply-filled'}
-          iconColor={'fill-pink-500'}
-          iconWidth="50px"
-          iconHeight="50px"
+        <ChevronLeft
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked chevron left')}
         />
-        <Icon
-          iconName={'reply-outlined'}
-          iconColor={'fill-slate-white'}
-          iconWidth="50px"
-          iconHeight="50px"
+        <ChevronRight
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked chevron right')}
         />
-        <Icon
-          iconName={'chevron-left'}
-          iconColor={'fill-pink-500'}
-          iconWidth="50px"
-          iconHeight="50px"
+        <Edit
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked edit')}
         />
-        <Icon
-          iconName={'location'}
-          iconColor={'fill-slate-white'}
-          iconWidth="50px"
-          iconHeight="50px"
+        <Eye
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked eye')}
+        />
+        <Fullscreen
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked fullscreen')}
+        />
+
+        <HeartFilled
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked heart filled')}
+        />
+        <HeartOutlined
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked heart outlined')}
+        />
+        <Location
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked location')}
+        />
+        <Logout
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked logout')}
+        />
+        <Mumble
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked mumble')}
+        />
+        <Profile
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked profile')}
+        />
+        <ReplyFilled
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked reply filled')}
+        />
+        <ReplyOutlined
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked reply outlined')}
+        />
+        <Repost
+          className={'fill-pink-500'}
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked repost')}
+        />
+        <Send
+          className="fill-pink-500"
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked send')}
+        />
+        <Settings
+          className="fill-pink-500"
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked settings')}
+        />
+        <Share
+          className="fill-pink-500"
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked share')}
+        />
+        <Time
+          className="fill-pink-500"
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked time')}
+        />
+        <Upload
+          className="fill-pink-500"
+          width="50px"
+          height="50px"
+          onClick={() => console.log('clicked upload')}
         />
         <ProfilePicture
           alt="Here comes a small profile pic"

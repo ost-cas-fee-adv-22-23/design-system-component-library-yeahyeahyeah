@@ -1,22 +1,19 @@
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { Icon, IIcon } from 'src/components/Icon';
 import React from 'react';
 
 interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
   label: string;
   variant?: 'slate' | 'violet';
   handleClick?: () => void;
+  children: React.ReactNode;
 }
 
-export const IconLink: React.FC<IIconLinkProps & IIcon> = ({
+export const IconLink: React.FC<IIconLinkProps> = ({
   label = 'username',
   variant = 'slate',
   handleClick,
-  iconColor,
-  iconName = 'profile',
-  iconHeight,
-  iconWidth,
+  children,
 }) => {
   console.log(variant);
 
@@ -28,12 +25,7 @@ export const IconLink: React.FC<IIconLinkProps & IIcon> = ({
         target="_self"
         title={label}
       >
-        <Icon
-          iconName={iconName}
-          iconColor={iconColor}
-          iconHeight={iconHeight}
-          iconWidth={iconWidth}
-        />
+        {children}
         {label}
       </IconLinkStyles>
     </>
