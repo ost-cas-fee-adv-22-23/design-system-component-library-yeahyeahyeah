@@ -1,7 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React from 'react';
 import { NaviButton } from 'src/components/buttons/NaviButton';
 import { Icons } from 'src/components/icons/IconMap';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
+import { ISVGProps } from 'src/interfaces/SVG';
 
 export default {
   title: 'Interactions',
@@ -38,12 +40,29 @@ export default {
       name: 'Icon',
       defaultValue: Icons.Settings,
     },
+    className: {
+      control: 'select',
+      options: ['fill-slate-white'],
+      defaultValue: 'fill-slate-white',
+    },
   },
 } as ComponentMeta<typeof NaviButton>;
 
-const Template: ComponentStory<typeof NaviButton> = (args) => (
-  <NaviButton {...args} />
-);
+const Template: ComponentStory<typeof NaviButton> = (args) => {
+  const props: ISVGProps = {
+    className: `${args.className}`,
+    width: '16px',
+    height: '16px',
+  };
+  const childrenWithProps = React.Children.map(args.children, (child) => {
+    if (React.isValidElement<ISVGProps>(child)) {
+      return React.cloneElement(child, props);
+    }
+    return child;
+  });
+
+  return <NaviButton {...args}>{childrenWithProps}</NaviButton>;
+};
 /**
  * @button
  * @desc button standard slate

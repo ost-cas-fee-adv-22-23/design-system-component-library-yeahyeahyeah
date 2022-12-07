@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ShareButton } from 'src/components/buttons/ShareButton';
-import { Icons } from 'src/components/icons/IconMap';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
+import { Share } from '../assets/icons';
 
 export default {
   title: 'Interactions',
@@ -9,7 +9,7 @@ export default {
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
-      name: 'Button Label',
+      name: 'Copy Link',
     },
     size: {
       control: false,
@@ -20,28 +20,22 @@ export default {
     handleClick: {
       action: () => 'handleClick',
     },
-    children: {
-      control: 'select',
-      options: Object.keys(Icons),
-      mapping: Icons,
-      defaultValue: Icons.Share,
-      name: 'Icon',
-    },
   },
 } as ComponentMeta<typeof ShareButton>;
 
 const Template: ComponentStory<typeof ShareButton> = (args) => (
-  <ShareButton {...args} />
+  <ShareButton {...args}>
+    <Share
+      className="fill-slate-600"
+      onClick={() => console.log('clicked share')}
+    />
+  </ShareButton>
 );
 /**
  * @button
  * @desc button standard slate
  */
 export const ShareButtonStory = Template.bind({});
-
-ShareButtonStory.args = {
-  label: 'Copy Link',
-};
 
 ShareButtonStory.parameters = {
   docs: {

@@ -1,33 +1,23 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import tw from 'twin.macro';
-import { Icon, IIcon } from 'src/components/icons/Icon';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   handleClick?: () => void;
+  children: React.ReactNode;
 }
 
-export const IconButton: React.FC<IButtonProps & IIcon> = ({
-  label = 'Button Label',
+export const IconButton: React.FC<IButtonProps> = ({
+  label,
   handleClick,
-  iconName = 'mumble',
-  iconHeight = '16px',
-  iconWidth,
-  iconColor,
+  children,
 }) => {
   return (
-    <>
-      <ButtonStyles onClick={handleClick}>
-        <Icon
-          iconName={iconName}
-          iconColor={iconColor}
-          iconHeight={iconHeight}
-          iconWidth={iconWidth}
-        />
-        {label}
-      </ButtonStyles>
-    </>
+    <ButtonStyles onClick={handleClick}>
+      {children}
+      {label}
+    </ButtonStyles>
   );
 };
 
@@ -71,11 +61,4 @@ const ButtonStyles = styled.button((undefinded) => [
   buttonDefaults,
   buttonHover,
   buttonFocus,
-  css`
-    svg {
-      position: relative;
-      top: -8px;
-      margin-left: 0;
-    }
-  `,
 ]);

@@ -82,9 +82,4 @@ const ButtonStyles = styled.button(({ variant }: ButtonProps) => [
   buttonFocus,
   variant === 'icon' && variantIcon,
   variant === 'label' && variantLabel,
-  css`
-    svg {
-      margin-left: 0;
-    }
-  `,
 ]);

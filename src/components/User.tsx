@@ -1,7 +1,7 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { IconLink } from 'src/components/IconLinks';
+import { IconLink } from 'src/components/IconLink';
 interface IUserProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   variant?: 'small' | 'medium' | 'large' | 'xlarge';
@@ -15,10 +15,15 @@ export const User: React.FC<IUserProps> = ({
   return (
     <>
       <UserWrapper>
-      <DisplayNameStyles variant={variant}>{label}</DisplayNameStyles>
+        <DisplayNameStyles variant={variant}>{label}</DisplayNameStyles>
         <UserInlineWrapper>
-          <IconLink label="username" iconName='profile' iconColor='{}' variant="violet" />
-          <IconLink label="Timestamp" iconName='time' iconColor='{}' />
+          <IconLink
+            label="username"
+            iconName="profile"
+            iconColor="{}"
+            variant="violet"
+          />
+          <IconLink label="Timestamp" iconName="time" iconColor="{}" />
         </UserInlineWrapper>
       </UserWrapper>
     </>
@@ -38,12 +43,12 @@ const UserWrapper = styled.div(() => [
     flex
     flex-col
     mb-2
-  ` && 
-  css`
-    svg {
-      margin-right: 4px;
-    }
-  `,
+  ` &&
+    css`
+      svg {
+        margin-right: 4px;
+      }
+    `,
 ]);
 
 const UserInlineWrapper = styled.div(() => [
@@ -53,10 +58,8 @@ const UserInlineWrapper = styled.div(() => [
     justify-between
     max-w-lg
     gap-16
-  `
+  `,
 ]);
-
-
 
 const DisplayNameStyles = styled.h4(({ variant }: IUserStyles) => [
   tw`
