@@ -83,3 +83,12 @@ export const Icons = {
   Time: <Time className={'fill-slate-500'} width="16px" height="16px" />,
   Upload: <Upload className={'fill-slate-500'} width="16px" height="16px" />,
 };
+
+export const LikeRepostIcons = {
+  HeartFilled: (
+    <HeartFilled className={'fill-slate-500'} width="16px" height="16px" />
+  ),
+  ReplyFilled: (
+    <ReplyFilled className={'fill-slate-500'} width="16px" height="16px" />
+  ),
+};

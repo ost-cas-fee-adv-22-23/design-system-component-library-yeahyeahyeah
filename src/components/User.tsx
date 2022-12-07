@@ -16,15 +16,7 @@ export const User: React.FC<IUserProps> = ({
     <>
       <UserWrapper>
         <DisplayNameStyles variant={variant}>{label}</DisplayNameStyles>
-        <UserInlineWrapper>
-          <IconLink
-            label="username"
-            iconName="profile"
-            iconColor="{}"
-            variant="violet"
-          />
-          <IconLink label="Timestamp" iconName="time" iconColor="{}" />
-        </UserInlineWrapper>
+        <UserInlineWrapper></UserInlineWrapper>
       </UserWrapper>
     </>
   );
