@@ -67,12 +67,12 @@ h4 {
 }
 
 /*
-  @links
+  @SVG's
 */
 button svg {
-  @apply relative -top-1 ml-8;
+  @apply relative -top-1;
 }
 
 a svg {
-  @apply relative -top-1 mr-4;
+  @apply relative -top-1;
 }
