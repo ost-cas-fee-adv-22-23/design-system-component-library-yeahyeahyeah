@@ -25,6 +25,7 @@ export const InteractionButton: React.FC<IButtonProps> = ({
   const [fontColor, setFontColor] = useState('text-slate-500');
   let [count, setCount] = useState<number>(quantity || 0);
   let [isFavourite, setIsFavourite] = useState<boolean>(favourite || false);
+  const [hover, setHover] = useState(false);
 
   const setLabels = useCallback(() => {
     if (type === 'comment') {
@@ -70,16 +71,24 @@ export const InteractionButton: React.FC<IButtonProps> = ({
 
   if (type === 'comment') {
     return (
-      <CommentStyles className={fontColor} onClick={fCallBack} count={count}>
+      <CommentStyles
+        className={fontColor}
+        onClick={fCallBack}
+        count={count}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      >
         {count === 0 ? (
           <ReplyOutlined
-            className={'fill-slate-500'}
+            className={
+              count === 0 && !hover ? 'fill-slate-600' : 'fill-violet-500'
+            }
             width="16px"
             height="16px"
           />
         ) : (
           <ReplyFilled
-            className={'fill-slate-500'}
+            className={'fill-violet-500'}
             width="16px"
             height="16px"
           />
@@ -91,16 +100,20 @@ export const InteractionButton: React.FC<IButtonProps> = ({
 
   if (type === 'like') {
     return (
-      <LikeStyles className={fontColor} onClick={handleClickLike} count={count}>
+      <LikeStyles
+        className={fontColor}
+        onClick={handleClickLike}
+        count={count}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      >
         {isFavourite ? (
-          <HeartFilled
-            className={'fill-slate-500'}
-            width="16px"
-            height="16px"
-          />
+          <HeartFilled className={'fill-pink-500'} width="16px" height="16px" />
         ) : (
           <HeartOutlined
-            className={'fill-slate-500'}
+            className={
+              count === 0 && !hover ? 'fill-slate-600' : 'fill-pink-500'
+            }
             width="16px"
             height="16px"
           />
@@ -126,7 +139,7 @@ const CommentStyles = styled.button(({ count }: IButtonStyles) => [
   tw`
     font-semibold
     leading-normal
-    text-slate-500
+    text-slate-600
     text-sm
     flex
     grow-0
@@ -138,25 +151,12 @@ const CommentStyles = styled.button(({ count }: IButtonStyles) => [
     outline-none
     bg-none
     hover:(text-violet-600 bg-violet-50)
-    active:(bg-none text-violet-900)
+    
 `,
-  count === 1 && tw`text-violet-600`,
+  count === 0 && tw`text-slate-600 hover:(text-violet-600 bg-violet-50)`,
   css`
-    &.hasAction {
-      color: #7c3aed;
-    }
-
     svg {
-      margin-left: 0;
-      margin-right: 8px;
-    }
-
-    :hover svg {
-      fill: #7c3aed;
-    }
-
-    :active svg {
-      fill: #7c3aed;
+      margin: 0 8px 0 0;
     }
   `,
 ]);
@@ -165,7 +165,7 @@ const LikeStyles = styled.button(({ count }: IButtonStyles) => [
   tw`
   font-semibold
   leading-normal
-  text-slate-500
+  text-pink-600
   text-sm
   flex
   grow-0
@@ -176,25 +176,13 @@ const LikeStyles = styled.button(({ count }: IButtonStyles) => [
   w-auto
   outline-none
   bg-none
-  hover:(text-pink-600 bg-pink-50)
-  active:(bg-none text-pink-900)
+  hover:(text-pink-900 bg-pink-50)
   `,
-  count === 1 && tw`text-pink-900`,
+  count >= 1 && tw`text-pink-900`,
+  count === 0 && tw`text-slate-600 hover:(text-pink-600 bg-pink-50)`,
   css`
-    &.hasAction {
-      color: #831843;
-    }
-
     svg {
       margin: 0 8px 0 0;
-    }
-
-    :hover svg {
-      fill: #db2777;
-    }
-
-    :active svg {
-      fill: #831844;
     }
   `,
 ]);
