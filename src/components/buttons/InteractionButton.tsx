@@ -1,61 +1,112 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { HeartFilled, ReplyFilled } from '../../stories/assets/icons';
+import {
+  HeartFilled,
+  HeartOutlined,
+  ReplyFilled,
+  ReplyOutlined,
+} from '../../stories/assets/icons';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   type: 'like' | 'comment';
-  children?: React.ReactNode;
-  initCount?: number;
+  quantity?: number;
+  favourite?: boolean;
+  fCallBack?: () => void;
 }
 
 export const InteractionButton: React.FC<IButtonProps> = ({
   type,
-  children,
-  initCount,
+  quantity,
+  favourite,
+  fCallBack,
 }) => {
-  const [labelChange, setLabelChange] = useState<string>('');
+  const [label, setLabel] = useState<string>('');
   const [fontColor, setFontColor] = useState('text-slate-500');
-  let [count, setCount] = useState<number>(initCount || 0);
+  let [count, setCount] = useState<number>(quantity || 0);
+  let [isFavourite, setIsFavourite] = useState<boolean>(favourite || false);
 
-  useEffect(() => {
-    type === 'like' ? setLabelChange('Like') : setLabelChange('Comment');
+  const setLabels = useCallback(() => {
     if (type === 'comment') {
-      if (count >= 1) {
+      if (count >= 2) {
         setFontColor('hasAction');
-        setLabelChange('Comments');
+        setLabel('Comments');
       } else {
-        setLabelChange('Comment');
+        setLabel('Comment');
       }
     } else if (type === 'like') {
-      if (count >= 1) {
+      if (count > 1) {
         setFontColor('hasAction');
-        setLabelChange('Likes');
-      } else {
-        setLabelChange('Like');
+        setLabel('Likes');
+      } else if (count === 1 && isFavourite === true) {
+        setLabel('Liked');
+      } else if (
+        (count === 0 && !isFavourite) ||
+        (count === 1 && !isFavourite)
+      ) {
+        setLabel('Like');
       }
     }
-    console.log('type', type);
-  }, [type, count]);
+  }, [type, count, isFavourite]);
 
-  const handleClick = () => {
-    setCount(count + 1);
+  useEffect(() => {
+    type === 'like' ? setLabel('Like') : setLabel('Comment');
+    setLabels();
+  }, [type, count, isFavourite, setLabels]);
+
+  useEffect(() => {
+    setCount(quantity || 0);
+  }, [quantity]);
+
+  useEffect(() => {
+    setIsFavourite(favourite || false);
+  }, [favourite]);
+
+  const handleClickLike = () => {
+    setIsFavourite(!isFavourite);
+    setCount((count) => (isFavourite ? count - 1 : count + 1));
+    fCallBack && fCallBack();
   };
 
   if (type === 'comment') {
     return (
-      <CommentStyles className={fontColor} onClick={handleClick} count={count}>
-        <ReplyFilled className={'fill-slate-500'} width="16px" height="16px" />
-        {count === 0 ? false : `${count}`} {labelChange}
+      <CommentStyles className={fontColor} onClick={fCallBack} count={count}>
+        {count === 0 ? (
+          <ReplyOutlined
+            className={'fill-slate-500'}
+            width="16px"
+            height="16px"
+          />
+        ) : (
+          <ReplyFilled
+            className={'fill-slate-500'}
+            width="16px"
+            height="16px"
+          />
+        )}
+        {count === 0 ? false : `${count}`} {label}
       </CommentStyles>
     );
   }
 
   if (type === 'like') {
     return (
-      <LikeStyles className={fontColor} onClick={handleClick} count={count}>
-        <HeartFilled className={'fill-slate-500'} width="16px" height="16px" />
-        {count === 0 ? false : `${count}`} {labelChange}
+      <LikeStyles className={fontColor} onClick={handleClickLike} count={count}>
+        {isFavourite ? (
+          <HeartFilled
+            className={'fill-slate-500'}
+            width="16px"
+            height="16px"
+          />
+        ) : (
+          <HeartOutlined
+            className={'fill-slate-500'}
+            width="16px"
+            height="16px"
+          />
+        )}
+        {(count === 1 && isFavourite === true) || count === 0 ? '' : count}{' '}
+        {label}
       </LikeStyles>
     );
   }

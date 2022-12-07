@@ -10,8 +10,14 @@ export default {
     type: {
       defaultValue: 'like',
     },
-    initCount: {
-      defaultValue: 99999,
+    quantity: {
+      defaultValue: 0,
+    },
+    favourite: {
+      defaultValue: false,
+    },
+    fCallBack: {
+      action: () => 'handleClick',
     },
   },
 } as ComponentMeta<typeof InteractionButton>;

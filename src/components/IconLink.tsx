@@ -4,6 +4,7 @@ import React from 'react';
 
 interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
   label: string;
+  type?: 'username' | 'timestamp' | 'location' | 'joined';
   variant?: 'slate' | 'violet';
   handleClick?: () => void;
   children: React.ReactNode;
@@ -11,6 +12,7 @@ interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
 
 export const IconLink: React.FC<IIconLinkProps> = ({
   label = 'username',
+  type,
   variant = 'slate',
   handleClick,
   children,
