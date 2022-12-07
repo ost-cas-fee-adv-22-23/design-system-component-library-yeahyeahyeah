@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import tw from 'twin.macro';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
@@ -61,4 +61,11 @@ const ButtonStyles = styled.button((undefinded) => [
   buttonDefaults,
   buttonHover,
   buttonFocus,
+  css`
+    svg {
+      position: relative;
+      top: -8px;
+      margin-left: 0;
+    }
+  `,
 ]);
