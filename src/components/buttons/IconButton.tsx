@@ -16,7 +16,7 @@ export const IconButton: React.FC<IButtonProps> = ({
   return (
     <ButtonStyles onClick={handleClick}>
       {children}
-      {label}
+      <p>{label}</p>
     </ButtonStyles>
   );
 };
@@ -41,6 +41,7 @@ const buttonDefaults = tw`
   w-48
   h-48
   rounded-full
+  text-left
   border-hidden
   outline-none
   hover:(bg-slate-700 outline-offset-0 outline-slate-100)
@@ -62,6 +63,7 @@ const ButtonStyles = styled.button((undefinded) => [
   buttonHover,
   buttonFocus,
   css`
+    overflow: hidden;
     svg {
       position: relative;
       top: -8px;
