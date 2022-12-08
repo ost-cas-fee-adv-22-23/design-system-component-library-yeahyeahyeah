@@ -1,36 +1,91 @@
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import React from 'react';
+import React, { useState } from 'react';
+import { Profile, Time, Location, Calendar } from '../stories/assets/icons';
 
 interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
-  label: string;
   type?: 'username' | 'timestamp' | 'location' | 'joined';
   variant?: 'slate' | 'violet';
   handleClick?: () => void;
-  children: React.ReactNode;
 }
 
 export const IconLink: React.FC<IIconLinkProps> = ({
-  label = 'username',
   type,
   variant = 'slate',
   handleClick,
-  children,
 }) => {
-  console.log(variant);
+  const [hover, setHover] = useState(false);
+
+  const iconColor = () => {
+    if (variant === 'slate') {
+      return hover ? 'fill-slate-600' : 'fill-slate-400';
+    } else if (variant === 'violet') {
+      return hover ? 'fill-violet-900' : 'fill-violet-600';
+    }
+  };
+
+  const getIcon = () => {
+    switch (type) {
+      case 'username':
+        return (
+          <Profile
+            className={`${iconColor()} mr-6 mt-1`}
+            width="12px"
+            height="12px"
+          />
+        );
+      case 'timestamp':
+        return (
+          <Time
+            className={`${iconColor()} mr-6 mt-1`}
+            width="12px"
+            height="12px"
+          />
+        );
+      case 'location':
+        return (
+          <Location
+            className={`${iconColor()} mr-6 mt-1`}
+            width="12px"
+            height="12px"
+          />
+        );
+      case 'joined':
+        return (
+          <Calendar
+            className={`${iconColor()} mr-6 mt-1`}
+            width="12px"
+            height="12px"
+          />
+        );
+    }
+  };
+
+  const getLabel = () => {
+    switch (type) {
+      case 'username':
+        return 'Username';
+      case 'timestamp':
+        return 'Timestamp';
+      case 'location':
+        return 'Location';
+      case 'joined':
+        return 'Joined';
+    }
+  };
 
   return (
-    <>
-      <IconLinkStyles
-        variant={variant}
-        onClick={handleClick}
-        target="_self"
-        title={label}
-      >
-        {children}
-        {label}
-      </IconLinkStyles>
-    </>
+    <IconLinkStyles
+      variant={variant}
+      onClick={handleClick}
+      target="_self"
+      title={getLabel()}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      {getIcon()}
+      {getLabel()}
+    </IconLinkStyles>
   );
 };
 
@@ -55,21 +110,5 @@ const defaultStyles = tw`
 const IconLinkStyles = styled.a(({ variant }: IStyleProps) => [
   defaultStyles,
   variant === 'slate' && tw`text-slate-400 hover:(text-slate-600)`,
-  variant === 'slate' &&
-    css`
-      :hover {
-        svg {
-          fill: var(--color-slate-icon-hover);
-        }
-      }
-    `,
   variant === 'violet' && tw`text-violet-600 hover:(text-violet-900)`,
-  variant === 'violet' &&
-    css`
-      :hover {
-        svg {
-          fill: var(--color-violet-icon-hover);
-        }
-      }
-    `,
 ]);
