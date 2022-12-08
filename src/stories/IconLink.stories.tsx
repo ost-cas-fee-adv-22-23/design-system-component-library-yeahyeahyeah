@@ -11,12 +11,16 @@ export default {
   argTypes: {
     label: {
       name: 'Button Label',
+      defaultValue: 'username',
     },
     variant: {
       control: {
         type: 'select',
       },
       defaultValue: 'slate',
+    },
+    href: {
+      defaultValue: '',
     },
     handleClick: {
       action: () => 'handleClick',

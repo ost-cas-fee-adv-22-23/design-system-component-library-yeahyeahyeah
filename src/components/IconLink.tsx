@@ -1,17 +1,21 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import tw from 'twin.macro';
 import React, { useState } from 'react';
 import { Profile, Time, Location, Calendar } from '../stories/assets/icons';
 
 interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
+  label: string;
   type?: 'username' | 'timestamp' | 'location' | 'joined';
   variant?: 'slate' | 'violet';
+  href?: string;
   handleClick?: () => void;
 }
 
 export const IconLink: React.FC<IIconLinkProps> = ({
-  type,
+  label,
+  type = 'username',
   variant = 'slate',
+  href,
   handleClick,
 }) => {
   const [hover, setHover] = useState(false);
@@ -61,30 +65,18 @@ export const IconLink: React.FC<IIconLinkProps> = ({
     }
   };
 
-  const getLabel = () => {
-    switch (type) {
-      case 'username':
-        return 'Username';
-      case 'timestamp':
-        return 'Timestamp';
-      case 'location':
-        return 'Location';
-      case 'joined':
-        return 'Joined';
-    }
-  };
-
   return (
     <IconLinkStyles
       variant={variant}
       onClick={handleClick}
-      target="_self"
-      title={getLabel()}
+      target="_new"
+      title={label}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      href={href}
     >
       {getIcon()}
-      {getLabel()}
+      {label}
     </IconLinkStyles>
   );
 };
