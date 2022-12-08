@@ -11,7 +11,7 @@ export default {
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
-      name: 'Button Label',
+      name: 'label',
       defaultValue: 'Label',
     },
     handleClick: {

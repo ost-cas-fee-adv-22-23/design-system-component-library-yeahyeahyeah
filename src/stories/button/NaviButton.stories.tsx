@@ -11,7 +11,8 @@ export default {
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
-      name: 'Button Label',
+      name: 'label',
+      defaultValue: 'Label',
     },
     variant: {
       control: {
@@ -44,6 +45,12 @@ export default {
       control: 'select',
       options: ['fill-slate-white'],
       defaultValue: 'fill-slate-white',
+    },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
     },
   },
 } as ComponentMeta<typeof NaviButton>;

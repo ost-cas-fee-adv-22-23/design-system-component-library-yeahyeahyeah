@@ -11,7 +11,20 @@ export default {
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
-      name: 'Button Label',
+      name: 'label',
+      defaultValue: 'Button Label',
+    },
+    type: {
+      control: {
+        type: 'select',
+      },
+      defaultValue: 'button',
+    },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
     },
     size: {
       description: 'A sized version of the button',
@@ -29,7 +42,7 @@ export default {
       control: {
         type: 'select',
       },
-      defaultValue: 'pink',
+      defaultValue: 'slate',
     },
     handleClick: {
       action: () => 'handleClick',

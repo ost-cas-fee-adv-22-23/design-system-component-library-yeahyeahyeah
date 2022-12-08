@@ -7,6 +7,7 @@ interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   variant?: 'slate' | 'violet' | 'pink';
   size?: 'small' | 'large';
   width?: 'default' | 'full';
+  type?: 'button' | 'reset' | 'submit';
   disabled?: boolean;
   handleClick?: () => void;
   children?: React.ReactNode;
@@ -15,6 +16,7 @@ interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
 export const Button: React.FC<IButtonProps> = ({
   label = 'Button Label',
   variant = 'slate',
+  type = 'button',
   size = 'small',
   width = 'default',
   disabled = false,
@@ -27,6 +29,7 @@ export const Button: React.FC<IButtonProps> = ({
         variant={variant}
         size={size}
         width={width}
+        type={type}
         disabled={disabled}
         onClick={handleClick}
       >

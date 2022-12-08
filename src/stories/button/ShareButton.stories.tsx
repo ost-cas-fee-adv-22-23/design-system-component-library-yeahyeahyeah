@@ -9,7 +9,8 @@ export default {
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
-      name: 'Copy Link',
+      name: 'label',
+      defaultValue: 'Copy Link',
     },
     size: {
       control: false,
