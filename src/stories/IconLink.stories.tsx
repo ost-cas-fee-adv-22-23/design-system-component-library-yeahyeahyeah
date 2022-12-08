@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconLink } from 'src/components/IconLink';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
-import { Icons } from 'src/components/icons/IconMap';
 import { ISVGProps } from 'src/interfaces/SVG';
 import React from 'react';
 
@@ -12,6 +11,7 @@ export default {
   argTypes: {
     label: {
       name: 'Button Label',
+      defaultValue: 'username',
     },
     variant: {
       control: {
@@ -19,20 +19,11 @@ export default {
       },
       defaultValue: 'slate',
     },
+    href: {
+      defaultValue: '',
+    },
     handleClick: {
       action: () => 'handleClick',
-    },
-    children: {
-      control: 'select',
-      options: Object.keys(Icons),
-      mapping: Icons,
-      name: 'Icon',
-      defaultValue: Icons.Settings,
-    },
-    className: {
-      control: 'select',
-      options: ['fill-slate-400'],
-      defaultValue: 'fill-slate-400',
     },
   },
 } as ComponentMeta<typeof IconLink>;
