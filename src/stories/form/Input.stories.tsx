@@ -11,12 +11,16 @@ export default {
       control: {
         type: 'select',
       },
-      name: 'Input Type',
+      name: 'type',
       defaultValue: 'text',
     },
     placeholder: {
       name: 'placeholder',
       defaultValue: 'Placeholder',
+    },
+    required: {
+      name: 'required',
+      defaultValue: false,
     },
   },
 } as ComponentMeta<typeof InputForm>;

@@ -5,13 +5,17 @@ import { Eye } from 'src/stories/assets/icons';
 
 interface IFormInput extends React.HtmlHTMLAttributes<HTMLFormElement> {
   label: string;
-  type?: 'text' | 'password';
-  placeholder?: string;
+  editType: 'input' | 'textarea';
+  required: boolean;
+  type?: 'text' | 'password' | 'email' | 'search' | 'tel' | 'url' | 'file';
+  placeholder: string;
   handleClick?: () => void;
 }
 
 export const InputForm: React.FC<IFormInput> = ({
   label = 'Label',
+  editType = 'textarea',
+  required = true,
   type = 'icon',
   placeholder = 'Placeholder',
 }) => {
@@ -20,40 +24,60 @@ export const InputForm: React.FC<IFormInput> = ({
   console.log({ type });
 
   useEffect(() => {
-    type === 'password' ? setbuttonType('password') : setbuttonType('text');
+    type === 'password' ? setbuttonType('password') : setbuttonType(type);
   }, [type]);
 
-  const handleClick = () => {
+  const showPassword = () => {
     buttonType === type ? setbuttonType('text') : setbuttonType(type);
   };
 
   return (
     <>
-      <LabelStyles>
-        {label}
-        <InputIconWrapper>
-          <InputStyles placeholder={placeholder} type={buttonType} />
-          {type === 'password' && (
-            <Eye
-              className="absolute right-16 cursor-pointer"
-              onClick={handleClick}
+      {editType === ('input' || '') && (
+        <FormLabelStyles htmlFor={label}>
+          {label}
+          <FormInlineWrapperStyles>
+            <InputStyles
+              id={label}
+              placeholder={placeholder}
+              type={buttonType}
+              required={required}
+              maxLength={3}
             />
-          )}
-        </InputIconWrapper>
-      </LabelStyles>
+            {type === 'password' && (
+              <Eye
+                className="absolute right-16 cursor-pointer"
+                onClick={showPassword}
+              />
+            )}
+            <p className="invisible peer-invalid:visible text-pink-700">
+              Please enter your name
+            </p>
+          </FormInlineWrapperStyles>
+        </FormLabelStyles>
+      )}
+
+      {editType === 'textarea' && (
+        <FormLabelStyles>
+          {label}
+          <TextareaStyles
+            rows={20}
+            cols={30}
+            aria-colspan={10}
+            maxLength={500}
+            required={required}
+          />
+        </FormLabelStyles>
+      )}
     </>
   );
 };
 
-interface IStyleProps {
-  variant?: string;
-}
-
 /**
- * @Button
+ * @Form: Input, Textarea, Label
  * @desc Button styles
  */
-const LabelStyles = styled.div(() => [
+const FormLabelStyles = styled.label(() => [
   tw`
     block
     text-slate-900 
@@ -63,7 +87,8 @@ const LabelStyles = styled.div(() => [
   `,
 ]);
 
-const InputIconWrapper = styled.div(() => [
+// LABEL/INPUT WRAPPER
+const FormInlineWrapperStyles = styled.div(() => [
   tw`
     relative
     flex
@@ -72,10 +97,42 @@ const InputIconWrapper = styled.div(() => [
   `,
 ]);
 
+// TEXTAREA
+const TextareaStyles = styled.textarea(() => [
+  tw`
+  text-slate-500
+    font-medium
+    text-md
+    leading
+
+    flex
+    flex-row
+    justify-start
+    items-start
+    p-12
+    rounded
+    w-full
+    h-[calc(4.375rem)]
+    
+  bg-slate-100
+    border-1
+    border-slate-200
+    outline-none
+  
+    hover:(border-2 border-spacing-0)
+    active:(border-2 border-violet-600)
+    focus:(border-2 border-violet-600)
+    placeholder:(font-normal text-slate-300)
+  `,
+]);
+
+// INPUT
 const InputStyles = styled.input(() => [
   tw`
-  text-slate-700
-    font-semibold
+    peer-invalid:border-pink-700
+  text-slate-500
+    font-medium
+    text-sm
     leading
 
     flex
