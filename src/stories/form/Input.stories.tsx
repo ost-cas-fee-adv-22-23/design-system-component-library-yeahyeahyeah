@@ -18,9 +18,20 @@ export default {
       name: 'placeholder',
       defaultValue: 'Placeholder',
     },
+    editType: {
+      control: {
+        type: 'select',
+      },
+      defaultValue: 'input',
+      name: 'Input Type',
+    },
     required: {
       name: 'required',
       defaultValue: false,
+    },
+    errorMessage: {
+      name: 'errorMessage',
+      defaultValue: 'Error Message',
     },
   },
 } as ComponentMeta<typeof InputForm>;

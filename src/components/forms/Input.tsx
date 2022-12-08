@@ -9,6 +9,7 @@ interface IFormInput extends React.HtmlHTMLAttributes<HTMLFormElement> {
   required: boolean;
   type?: 'text' | 'password' | 'email' | 'search' | 'tel' | 'url' | 'file';
   placeholder: string;
+  errorMessage: string;
   handleClick?: () => void;
 }
 
@@ -18,6 +19,7 @@ export const InputForm: React.FC<IFormInput> = ({
   required = true,
   type = 'icon',
   placeholder = 'Placeholder',
+  errorMessage,
 }) => {
   const [buttonType, setbuttonType] = useState(type);
 
@@ -50,10 +52,8 @@ export const InputForm: React.FC<IFormInput> = ({
                 onClick={showPassword}
               />
             )}
-            <p className="invisible peer-invalid:visible text-pink-700">
-              Please enter your name
-            </p>
           </FormInlineWrapperStyles>
+          <FormFieldErrorStyles>{errorMessage}</FormFieldErrorStyles>
         </FormLabelStyles>
       )}
 
@@ -77,6 +77,21 @@ export const InputForm: React.FC<IFormInput> = ({
  * @Form: Input, Textarea, Label
  * @desc Button styles
  */
+const FormFieldErrorStyles = styled.p(() => [
+  tw`
+    flex
+    flex-row
+    justify-end
+    items-center
+    // invisible
+    // peer-invalid:visible
+    text-xxs
+    font-medium
+    text-pink-700
+    mt-4
+  `,
+]);
+
 const FormLabelStyles = styled.label(() => [
   tw`
     block
@@ -92,6 +107,7 @@ const FormInlineWrapperStyles = styled.div(() => [
   tw`
     relative
     flex
+    flex-row
     justify-end
     items-center
   `,

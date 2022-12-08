@@ -49,6 +49,7 @@ module.exports = {
       bold: '700',
     },
     fontSize: {
+      xxs: ['0.75rem', { lineHeight: '0.75rem' }], // 12px / 14px Label S
       xs: ['0.875rem', { lineHeight: '0.875rem' }], // 14px / 14px Label S
       sm: ['1rem', { lineHeight: '1rem' }], // 16px / 16px
       base: ['1.125rem', { lineHeight: '1.575rem' }], // 18px / 25px
