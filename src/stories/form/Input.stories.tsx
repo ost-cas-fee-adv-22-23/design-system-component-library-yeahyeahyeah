@@ -11,14 +11,14 @@ export default {
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
-      name: 'Input',
+      name: 'Label',
     },
   },
 } as ComponentMeta<typeof InputForm>;
 
 const Template: ComponentStory<typeof InputForm> = (args) => {
   const props: ISVGProps = {
-    className: `${args.className} mr-8`,
+    className: `${args.className}`,
     width: '16px',
     height: '16px',
   };
@@ -29,7 +29,7 @@ const Template: ComponentStory<typeof InputForm> = (args) => {
     return child;
   });
 
-  return <InputForm {...args}>{childrenWithProps}</InputForm>;
+  return <InputForm {...args} />;
 };
 
 /**
