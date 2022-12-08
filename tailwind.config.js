@@ -24,6 +24,7 @@ module.exports = {
       },
       borderWidth: {
         DEFAULT: '3px',
+        1: '1px',
         4: '4px',
         6: '6px',
         none: 'transparent',
@@ -138,5 +139,9 @@ module.exports = {
       center: true,
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms')({
+      strategy: 'class', // only generate global styles
+    }),
+  ],
 };
