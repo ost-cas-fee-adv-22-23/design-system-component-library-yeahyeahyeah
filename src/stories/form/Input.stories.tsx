@@ -1,42 +1,39 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 import { InputForm } from 'src/components/forms/Input';
-import { Icons } from 'src/components/icons/IconMap';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
-import { ISVGProps } from 'src/interfaces/SVG';
 
 export default {
   title: 'Form',
   component: InputForm,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
-    label: {
-      name: 'Label',
+    type: {
+      control: {
+        type: 'select',
+      },
+      name: 'Input Type',
+      defaultValue: 'text',
+    },
+    placeholder: {
+      name: 'placeholder',
+      defaultValue: 'Placeholder',
     },
   },
 } as ComponentMeta<typeof InputForm>;
 
-const Template: ComponentStory<typeof InputForm> = (args) => {
-  const props: ISVGProps = {
-    className: `${args.className}`,
-    width: '16px',
-    height: '16px',
-  };
-  const childrenWithProps = React.Children.map(args.children, (child) => {
-    if (React.isValidElement<ISVGProps>(child)) {
-      return React.cloneElement(child, props);
-    }
-    return child;
-  });
-
-  return <InputForm {...args} />;
-};
+const Template: ComponentStory<typeof InputForm> = (args) => (
+  <InputForm {...args} />
+);
 
 /**
  * @button
  * @desc button standard slate
  */
 export const FormInput = Template.bind({});
+
+FormInput.args = {
+  label: 'Label',
+};
 
 FormInput.parameters = {
   docs: {
