@@ -44,7 +44,7 @@ export const InputForm: React.FC<IFormInput> = ({
               placeholder={placeholder}
               type={buttonType}
               required={required}
-              maxLength={3}
+              maxLength={150}
             />
             {type === 'password' && (
               <Eye
