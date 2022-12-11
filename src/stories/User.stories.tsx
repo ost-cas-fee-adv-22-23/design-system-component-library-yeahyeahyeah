@@ -8,28 +8,34 @@ export default {
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
-      name: 'User',
+      defaultValue: 'Display Name',
     },
     variant: {
       control: {
-        type: 'select'
-      }
-    }
+        type: 'select',
+      },
+    },
+    username: {
+      defaultValue: 'Username',
+    },
+    timestamp: {
+      defaultValue: 'Timestamp',
+    },
+    location: {
+      defaultValue: 'Location',
+    },
+    joined: {
+      defaultValue: 'Joined',
+    },
   },
 } as ComponentMeta<typeof User>;
 
-const Template: ComponentStory<typeof User> = (args) => (
-  <User {...args} />
-);
+const Template: ComponentStory<typeof User> = (args) => <User {...args} />;
 /**
  * @button
  * @desc button standard slate
  */
 export const UserStory = Template.bind({});
-
-UserStory.args = {
-  label: 'Display Name',
-};
 
 UserStory.parameters = {
   docs: {
