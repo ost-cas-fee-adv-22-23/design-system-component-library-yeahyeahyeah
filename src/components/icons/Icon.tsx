@@ -15,6 +15,7 @@ import {
   Logout,
   Mumble,
   MumbleLogo,
+  MumbleGradient,
   Profile,
   ReplyFilled,
   ReplyOutlined,
@@ -44,6 +45,7 @@ export interface IIcon extends React.HTMLAttributes<HTMLElement> {
     | 'logout'
     | 'mumble'
     | 'mumble-logo'
+    | 'mumble-gradient'
     | 'profile'
     | 'reply-filled'
     | 'reply-outlined'
@@ -198,6 +200,15 @@ export const Icon: React.FC<IIcon> = ({
         />
       );
     case 'mumble-logo':
+      return (
+        <MumbleLogo
+          className={iconColor}
+          width={iconWidth}
+          height={iconHeight}
+          onClick={handleClick}
+        />
+      );
+    case 'mumble-gradient':
       return (
         <MumbleLogo
           className={iconColor}

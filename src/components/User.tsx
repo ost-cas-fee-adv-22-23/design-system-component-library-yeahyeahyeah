@@ -6,7 +6,7 @@ import { ProfilePicture } from './ProfilePicture';
 import { Button } from './buttons/Button';
 import { Mumble } from 'src/stories/assets/icons';
 interface IUserProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
-  name: string;
+  label: string;
   variant?: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended';
   username: string;
   timestamp?: string;
@@ -15,8 +15,8 @@ interface IUserProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
 }
 
 export const User: React.FC<IUserProps> = ({
-  name = 'Display Name',
-  variant = 'small',
+  label = 'Display Name',
+  variant,
   username,
   timestamp = 'Timestamp',
   location = 'Location',
@@ -33,7 +33,7 @@ export const User: React.FC<IUserProps> = ({
             src="https://cdn.unitycms.io/images/AGldBqK4qne8kxrx_ovKtu.png?op=ocroped&val=1200,1200,1000,1000,0,0&sum=ATBpuG0Cxeg"
           />
           <Column variant={variant}>
-            <Name variant={variant}>{name}</Name>
+            <Name variant={variant}>{label}</Name>
             <Row>
               <IconLink
                 label={username}
@@ -53,7 +53,7 @@ export const User: React.FC<IUserProps> = ({
       )}
       {(variant === 'large' || variant === 'medium') && (
         <Column>
-          <Name variant={variant}>{name}</Name>
+          <Name variant={variant}>{label}</Name>
           <Row>
             <IconLink
               label={username}
@@ -72,7 +72,7 @@ export const User: React.FC<IUserProps> = ({
       )}
       {variant === 'xlarge' && (
         <Column>
-          <Name variant={variant}>{name}</Name>
+          <Name variant={variant}>{label}</Name>
           <Row>
             <IconLink
               label={username}
@@ -105,7 +105,7 @@ export const User: React.FC<IUserProps> = ({
             size="large"
             src="https://cdn.unitycms.io/images/AGldBqK4qne8kxrx_ovKtu.png?op=ocroped&val=1200,1200,1000,1000,0,0&sum=ATBpuG0Cxeg"
           />
-          <Name variant={variant}>{name}</Name>
+          <Name variant={variant}>{label}</Name>
           <IconLink
             label={username}
             type="username"

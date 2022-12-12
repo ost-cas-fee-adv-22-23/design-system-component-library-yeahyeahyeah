@@ -9,9 +9,13 @@ export default {
   component: MumbleLogo,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
-    label: {
-      name: 'label',
-      defaultValue: 'Mumble Logo',
+    title: {
+      name: 'title',
+      defaultValue: 'Homepage',
+    },
+    href: {
+      name: 'href',
+      defaultValue: '#',
     },
     alignment: {
       control: {
@@ -51,10 +55,7 @@ export default {
       table: {
         disable: true,
       },
-      defaultValue: 'fill-violet-600',
-    },
-    href: {
-      defaultValue: '',
+      defaultValue: 'fill-violet-600 hover:fill-violet-700',
     },
     handleClick: {
       action: () => 'handleClick',
@@ -89,4 +90,4 @@ LogoVariants.parameters = {
   },
 };
 
-LogoVariants.storyName = 'Mumble';
+LogoVariants.storyName = 'Logo';

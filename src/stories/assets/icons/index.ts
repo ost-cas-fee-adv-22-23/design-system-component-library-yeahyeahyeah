@@ -22,8 +22,9 @@ import { ReactComponent as Settings } from './settings.svg';
 import { ReactComponent as Share } from './share.svg';
 import { ReactComponent as Time } from './time.svg';
 import { ReactComponent as Upload } from './upload.svg';
-import { ReactComponent as MumbleLogo } from './mumble-logo.svg';
+import { ReactComponent as LogoMumble } from './logo-mumble.svg';
 import { ReactComponent as MumbleText } from './mumble-text.svg';
+import { ReactComponent as MumbleGradient } from './mumble-gradient.svg';
 
 export {
   Calendar,
@@ -41,8 +42,9 @@ export {
   Location,
   Logout,
   Mumble,
-  MumbleLogo,
+  LogoMumble,
   MumbleText,
+  MumbleGradient,
   Profile,
   ReplyFilled,
   ReplyOutlined,

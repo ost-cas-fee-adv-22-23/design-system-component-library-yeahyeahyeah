@@ -8,12 +8,14 @@ export default {
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
+      name: 'label',
       defaultValue: 'Display Name',
     },
     variant: {
       control: {
         type: 'select',
       },
+      defaultValue: 'small',
     },
     username: {
       defaultValue: 'Username',

@@ -1,8 +1,14 @@
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { MumbleText, Mumble } from '../../stories/assets/icons';
+import {
+  MumbleText,
+  LogoMumble,
+  MumbleGradient,
+} from '../../stories/assets/icons';
 
 export interface IIcon extends React.HTMLAttributes<HTMLOrSVGImageElement> {
+  title: string;
+  href: string;
   variant: 'violet' | 'gradient';
   alignment: 'horizontal' | 'vertical';
   iconColor: string | undefined;
@@ -12,9 +18,11 @@ export interface IIcon extends React.HTMLAttributes<HTMLOrSVGImageElement> {
 }
 
 export const MumbleLogo: React.FC<IIcon> = ({
-  variant = 'violet',
-  alignment = 'vertical',
-  iconColor = 'fill-violet-600 hover:fill-violet-700',
+  title,
+  href,
+  variant,
+  alignment,
+  iconColor,
   iconWidth = 'auto',
   iconHeight = '26.03px',
   handleClick,
@@ -22,16 +30,28 @@ export const MumbleLogo: React.FC<IIcon> = ({
   return (
     <>
       <MumbleLogoStyled
+        title={title}
+        href={href}
         variant={variant}
         alignment={alignment}
+        target={'_self'}
         onClick={() => 'handleClick'}
       >
-        <Mumble className={iconColor} width={'64px'} height={'64px'} />
-        <MumbleText
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-        />
+        <LogoMumble className={iconColor} width={'64px'} height={'64px'} />
+        {variant === 'violet' && (
+          <MumbleText
+            className={iconColor}
+            width={iconWidth}
+            height={iconHeight}
+          />
+        )}
+        {variant === 'gradient' && (
+          <MumbleGradient
+            className={iconColor}
+            width={iconWidth}
+            height={iconHeight}
+          />
+        )}
       </MumbleLogoStyled>
     </>
   );
@@ -43,7 +63,7 @@ interface IMumbleLogoStyled {
 }
 
 const MumbleLogoStyled = styled.a(
-  ({ variant, alignment }: IMumbleLogoStyled) => [
+  ({ alignment, variant }: IMumbleLogoStyled) => [
     tw`
     flex
     justify-center
@@ -52,19 +72,14 @@ const MumbleLogoStyled = styled.a(
 
     cursor-pointer
   `,
-    css`
-      &:hover {
-        > svg {
-          fill: white;
-        }
-      }
-    `,
     alignment === 'vertical' && tw`flex-col gap-16`,
     alignment === 'horizontal' && tw`flex-row gap-24`,
-    variant === 'gradient' &&
+    variant === 'violet' &&
       css`
-        svg:nth-of-type(2n) {
-          background: linear-gradient(90deg, #ec4899 0%, #7c3aed 100%);
+        &:hover {
+          > svg {
+            fill: white;
+          }
         }
       `,
   ],
