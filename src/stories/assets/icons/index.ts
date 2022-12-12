@@ -22,6 +22,8 @@ import { ReactComponent as Settings } from './settings.svg';
 import { ReactComponent as Share } from './share.svg';
 import { ReactComponent as Time } from './time.svg';
 import { ReactComponent as Upload } from './upload.svg';
+import { ReactComponent as MumbleLogo } from './mumble-logo.svg';
+import { ReactComponent as MumbleText } from './mumble-text.svg';
 
 export {
   Calendar,
@@ -39,6 +41,8 @@ export {
   Location,
   Logout,
   Mumble,
+  MumbleLogo,
+  MumbleText,
   Profile,
   ReplyFilled,
   ReplyOutlined,

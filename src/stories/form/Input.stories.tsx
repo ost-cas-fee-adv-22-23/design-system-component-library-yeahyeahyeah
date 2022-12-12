@@ -3,7 +3,7 @@ import { InputForm } from 'src/components/forms/Input';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
-  title: 'Form',
+  title: 'Form/Input',
   component: InputForm,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
