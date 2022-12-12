@@ -23,6 +23,12 @@ export default {
       },
       defaultValue: 'vertical',
     },
+    width: {
+      control: {
+        type: 'select',
+      },
+      defaultValue: 'w-full',
+    },
     variant: {
       control: {
         type: 'select',
@@ -55,10 +61,7 @@ export default {
       table: {
         disable: true,
       },
-      defaultValue: 'fill-violet-600 hover:fill-violet-700',
-    },
-    handleClick: {
-      action: () => 'handleClick',
+      defaultValue: 'fill-violet-600',
     },
   },
 } as ComponentMeta<typeof MumbleLogo>;

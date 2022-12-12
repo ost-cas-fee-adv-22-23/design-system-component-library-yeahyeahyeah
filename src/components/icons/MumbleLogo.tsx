@@ -11,10 +11,11 @@ export interface IIcon extends React.HTMLAttributes<HTMLOrSVGImageElement> {
   href: string;
   variant: 'violet' | 'gradient';
   alignment: 'horizontal' | 'vertical';
+  width: 'w-full' | 'w-1/2';
   iconColor: string | undefined;
   iconWidth?: string | undefined;
   iconHeight?: string | undefined;
-  handleClick?: () => void;
+  fCallBack?: () => void;
 }
 
 export const MumbleLogo: React.FC<IIcon> = ({
@@ -22,8 +23,9 @@ export const MumbleLogo: React.FC<IIcon> = ({
   href,
   variant,
   alignment,
+  width,
   iconColor,
-  handleClick,
+  fCallBack,
 }: IIcon) => {
   return (
     <>
@@ -32,8 +34,9 @@ export const MumbleLogo: React.FC<IIcon> = ({
         href={href}
         variant={variant}
         alignment={alignment}
+        className={width}
         target={'_self'}
-        onClick={() => 'handleClick'}
+        onClick={fCallBack}
       >
         <LogoMumble className={iconColor} width={'64px'} height={'auto'} />
         {variant === 'violet' && (
@@ -53,17 +56,17 @@ export const MumbleLogo: React.FC<IIcon> = ({
 
 interface IMumbleLogoStyled {
   alignment: string;
+  className: string;
   variant: string;
 }
 
 const MumbleLogoStyled = styled.a(
-  ({ alignment, variant }: IMumbleLogoStyled) => [
+  ({ alignment, variant, width }: IMumbleLogoStyled) => [
     tw`
     flex
     justify-between
     items-center
     p-8
-    w-3/4
     cursor-pointer
   `,
     alignment === 'vertical' && tw`flex-col`,
