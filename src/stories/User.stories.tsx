@@ -8,6 +8,9 @@ export default {
   component: User,
   decorators: [(story) => <div className={'bg-slate-100 p-40'}>{story()}</div>],
   argTypes: {
+    name: {
+      defaultValue: 'Display Name',
+    },
     variant: {
       control: {
         type: 'select',
