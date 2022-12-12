@@ -61,7 +61,7 @@ interface IMumbleLogoStyled {
 }
 
 const MumbleLogoStyled = styled.a(
-  ({ alignment, variant, width }: IMumbleLogoStyled) => [
+  ({ alignment, variant, className }: IMumbleLogoStyled) => [
     tw`
     flex
     justify-between
