@@ -23,8 +23,6 @@ export const MumbleLogo: React.FC<IIcon> = ({
   variant,
   alignment,
   iconColor,
-  iconWidth = 'auto',
-  iconHeight = '26.03px',
   handleClick,
 }: IIcon) => {
   return (
@@ -37,19 +35,15 @@ export const MumbleLogo: React.FC<IIcon> = ({
         target={'_self'}
         onClick={() => 'handleClick'}
       >
-        <LogoMumble className={iconColor} width={'64px'} height={'64px'} />
+        <LogoMumble className={iconColor} width={'64px'} height={'auto'} />
         {variant === 'violet' && (
-          <MumbleText
-            className={iconColor}
-            width={iconWidth}
-            height={iconHeight}
-          />
+          <MumbleText className={iconColor} width={'246px'} height={'auto'} />
         )}
         {variant === 'gradient' && (
           <MumbleGradient
             className={iconColor}
-            width={iconWidth}
-            height={iconHeight}
+            width={'246px'}
+            height={'auto'}
           />
         )}
       </MumbleLogoStyled>
@@ -66,14 +60,24 @@ const MumbleLogoStyled = styled.a(
   ({ alignment, variant }: IMumbleLogoStyled) => [
     tw`
     flex
-    justify-center
+    justify-between
     items-center
     p-8
-
+    w-3/4
     cursor-pointer
   `,
-    alignment === 'vertical' && tw`flex-col gap-16`,
-    alignment === 'horizontal' && tw`flex-row gap-24`,
+    alignment === 'vertical' && tw`flex-col`,
+    css`
+      svg {
+        margin-bottom: calc(1vh - 4px);
+      }
+    `,
+    alignment === 'horizontal' && tw`flex-row`,
+    css`
+      svg {
+        margin-right: 3vw;
+      }
+    `,
     variant === 'violet' &&
       css`
         &:hover {
@@ -82,5 +86,13 @@ const MumbleLogoStyled = styled.a(
           }
         }
       `,
+    css`
+      svg {
+        width: 100%;
+      }
+      svg:first-of-type {
+        width: 30%;
+      }
+    `,
   ],
 );
