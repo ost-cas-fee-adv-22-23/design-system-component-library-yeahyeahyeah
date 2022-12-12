@@ -4,13 +4,14 @@ import tw from 'twin.macro';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
-  handleClick?: () => void;
+  fCallBack?: () => void;
   children?: React.ReactNode;
 }
 
 export const ShareButton: React.FC<IButtonProps> = ({
   label = 'Copy Link',
   children,
+  fCallBack,
 }) => {
   const [labelText, setLabelText] = useState<string>(label);
 
@@ -20,6 +21,8 @@ export const ShareButton: React.FC<IButtonProps> = ({
     window.setTimeout(() => {
       setLabelText(label);
     }, 1000);
+
+    fCallBack && fCallBack();
   };
 
   return (

@@ -18,7 +18,7 @@ export default {
         disable: true,
       },
     },
-    handleClick: {
+    fCallBack: {
       action: () => 'handleClick',
     },
   },
