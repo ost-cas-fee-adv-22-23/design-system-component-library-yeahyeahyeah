@@ -23,8 +23,6 @@ export const InputForm: React.FC<IFormInput> = ({
 }) => {
   const [buttonType, setbuttonType] = useState(type);
 
-  console.log({ type });
-
   useEffect(() => {
     type === 'password' ? setbuttonType('password') : setbuttonType(type);
   }, [type]);
@@ -119,16 +117,19 @@ const TextareaStyles = styled.textarea(() => [
   text-slate-500
     font-medium
     text-md
-    leading
+    leading-6
 
     flex
     flex-row
     justify-start
     items-start
-    p-12
+    py-32
+    px-16
     rounded
+    
     w-full
-    h-[calc(4.375rem)]
+    h-[80px]
+    min-h-[calc(4.375rem)]
     
   bg-slate-100
     border-1
@@ -156,9 +157,9 @@ const InputStyles = styled.input(() => [
     justify-start
     items-start
     form-input
-    rounded
     w-full
     
+    rounded
     border-1
     border-slate-200
     hover:border-violet-700

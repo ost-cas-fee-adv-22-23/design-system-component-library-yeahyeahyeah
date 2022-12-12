@@ -12,6 +12,7 @@ export default {
       control: {
         type: 'select',
       },
+      defaultValue: 'small',
     },
     username: {
       control: {

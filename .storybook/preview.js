@@ -8,7 +8,7 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Typography', 'Interactions', 'Icons'],
+      order: ['Branding', 'Typography', 'Interactions', 'Icons', 'Form'],
     },
   },
   layout: 'centered',

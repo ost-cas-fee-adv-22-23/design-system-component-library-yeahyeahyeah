@@ -7,7 +7,7 @@ import { Button } from './buttons/Button';
 import { Mumble } from 'src/stories/assets/icons';
 
 interface IUserProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
-  name: string;
+  label: string;
   variant?: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended';
   username: IIconLinkProps;
   timestamp?: IIconLinkProps;
@@ -44,7 +44,7 @@ export const User: React.FC<IUserProps> = ({
             src={pic.src}
           />
           <Column variant={variant}>
-            <Name variant={variant}>{name}</Name>
+            <Name variant={variant}>{label}</Name>
             <Row>
               <IconLink
                 label={username.label}
@@ -64,7 +64,7 @@ export const User: React.FC<IUserProps> = ({
       )}
       {(variant === 'large' || variant === 'medium') && (
         <Column>
-          <Name variant={variant}>{name}</Name>
+          <Name variant={variant}>{label}</Name>
           <Row>
             <IconLink
               label={username.label}
@@ -83,7 +83,7 @@ export const User: React.FC<IUserProps> = ({
       )}
       {variant === 'xlarge' && (
         <Column>
-          <Name variant={variant}>{name}</Name>
+          <Name variant={variant}>{label}</Name>
           <Row>
             <IconLink
               label={username.label}
