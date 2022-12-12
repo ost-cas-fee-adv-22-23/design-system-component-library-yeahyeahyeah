@@ -14,7 +14,7 @@ import {
   Location,
   Logout,
   Mumble,
-  MumbleLogo,
+  LogoMumble,
   MumbleGradient,
   Profile,
   ReplyFilled,
@@ -201,7 +201,7 @@ export const Icon: React.FC<IIcon> = ({
       );
     case 'mumble-logo':
       return (
-        <MumbleLogo
+        <LogoMumble
           className={iconColor}
           width={iconWidth}
           height={iconHeight}
@@ -210,7 +210,7 @@ export const Icon: React.FC<IIcon> = ({
       );
     case 'mumble-gradient':
       return (
-        <MumbleLogo
+        <MumbleGradient
           className={iconColor}
           width={iconWidth}
           height={iconHeight}

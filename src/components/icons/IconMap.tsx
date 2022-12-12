@@ -15,7 +15,7 @@ import {
   Logout,
   Mumble,
   MumbleText,
-  MumbleLogo,
+  LogoMumble,
   Profile,
   ReplyFilled,
   ReplyOutlined,
@@ -69,8 +69,8 @@ export const Icons = {
   ),
   Logout: <Logout className={'fill-slate-500'} width="16px" height="16px" />,
   Mumble: <Mumble className={'fill-slate-500'} width="16px" height="16px" />,
-  MumbleLogo: (
-    <MumbleLogo className={'fill-violet-600'} width="246px" height="auto" />
+  LogoMumble: (
+    <LogoMumble className={'fill-violet-600'} width="246px" height="auto" />
   ),
   MumbleText: (
     <MumbleText className={'fill-violet-600'} width="246px" height="auto" />
