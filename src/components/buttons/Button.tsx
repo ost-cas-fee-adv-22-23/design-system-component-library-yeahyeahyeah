@@ -6,7 +6,7 @@ interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   variant?: 'slate' | 'violet' | 'pink';
   size?: 'small' | 'large';
-  width?: 'default' | 'full';
+  width?: 'default' | 'large' | 'full';
   type?: 'button' | 'reset' | 'submit';
   disabled?: boolean;
   handleClick?: () => void;
@@ -98,8 +98,10 @@ const variantPink = tw`
   disabled:(bg-gradient-to-r from-pink-300 to-violet-300)
 `;
 
-const buttonWidth = (width: string | undefined) =>
-  width === 'default' ? null : tw`w-full`;
+const buttonWidth = (width: string | undefined) => [
+  width === 'default' ? null : tw`w-full`,
+  width === 'large' && tw`w-[184px] h-[40px]`,
+];
 
 const buttonSize = (size: string | undefined) =>
   size === 'large' ? tw`py-16 px-24` : null;

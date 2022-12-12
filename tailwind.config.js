@@ -20,6 +20,7 @@ module.exports = {
       },
       borderRadius: {
         DEFAULT: '0.5rem',
+        16: '1rem',
         full: '9999px',
       },
       borderWidth: {
@@ -78,8 +79,12 @@ module.exports = {
       48: '3rem',
       64: '4rem',
       70: '4.375rem',
+      76: '4.75rem',
+      82: '5.125rem',
       96: '6rem',
+      108: '6.75rem',
       160: '10rem',
+      172: '10.75rem',
     },
     lineHeight: {
       DEFAULT: '100%',

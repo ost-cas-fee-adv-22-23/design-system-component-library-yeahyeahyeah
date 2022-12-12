@@ -85,8 +85,8 @@ const smallHover = tw`
 `;
 
 const medium = tw`
-  w-64
-  h-64
+  w-76
+  h-76
   bg-violet-200
   rounded-full
   border-white
@@ -94,8 +94,8 @@ const medium = tw`
 `;
 
 const mediumHover = tw`
-  w-70
-  h-70
+  w-82
+  h-82
   bg-violet-200
   rounded-full
   border-white
@@ -103,17 +103,19 @@ const mediumHover = tw`
 `;
 
 const large = tw`
-  w-96
-  h-96
+  w-108
+  h-108
   bg-violet-200
   rounded-full
   border-white
   border-6
+  mb-[8px] 
+  mt-[12px]
 `;
 
 const xLarge = tw`
-  w-160
-  h-160
+  w-172
+  h-172
   bg-violet-200
   rounded-full
   border-white

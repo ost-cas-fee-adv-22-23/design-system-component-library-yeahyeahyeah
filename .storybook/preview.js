@@ -11,4 +11,5 @@ export const parameters = {
       order: ['Typography', 'Interactions', 'Icons'],
     },
   },
+  layout: 'centered',
 };

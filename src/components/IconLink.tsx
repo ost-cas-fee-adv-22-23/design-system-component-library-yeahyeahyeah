@@ -3,7 +3,8 @@ import tw from 'twin.macro';
 import React, { useState } from 'react';
 import { Profile, Time, Location, Calendar } from '../stories/assets/icons';
 
-interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
+export interface IIconLinkProps
+  extends React.HtmlHTMLAttributes<HTMLLinkElement> {
   label: string;
   type?: 'username' | 'timestamp' | 'location' | 'joined';
   variant?: 'slate' | 'violet';
