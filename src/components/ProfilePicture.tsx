@@ -9,7 +9,7 @@ import PPLarge from '../stories/assets/profile/pp_large.png';
 import PPXLarge from '../stories/assets/profile/pp_xlarge.png';
 
 export interface IProfilePicture
-  extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+  extends React.HtmlHTMLAttributes<HTMLImageElement> {
   src?: string;
   alt: string;
   size?: 'small' | 'medium' | 'large' | 'xlarge';

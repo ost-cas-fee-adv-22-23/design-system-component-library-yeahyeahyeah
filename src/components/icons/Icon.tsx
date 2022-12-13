@@ -27,7 +27,7 @@ import {
   Upload,
 } from '../../stories/assets/icons';
 
-export interface IIcon extends React.HTMLAttributes<HTMLElement> {
+export interface IIcon extends React.HTMLAttributes<SVGAElement> {
   iconName:
     | 'calendar'
     | 'cancel'

@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { User } from 'src/components/User';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
-import Roli from './assets/roli.png';
+import Roli from './assets/user.png';
 
 export default {
   title: 'User/User',

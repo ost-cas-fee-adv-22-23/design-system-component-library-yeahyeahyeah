@@ -17,8 +17,7 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue:
-        'https://cdn.unitycms.io/images/AGldBqK4qne8kxrx_ovKtu.png?op=ocroped&val=1200,1200,1000,1000,0,0&sum=ATBpuG0Cxeg',
+      defaultValue: 'https://i.stack.imgur.com/5xd5n.png?s=256&g=1',
     },
     alt: {
       control: {
