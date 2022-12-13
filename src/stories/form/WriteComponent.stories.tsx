@@ -14,13 +14,6 @@ export default {
       },
       defaultValue: 'Display Name',
     },
-    username: {
-      name: 'username',
-      control: {
-        type: 'text',
-      },
-      defaultValue: 'username',
-    },
   },
 } as ComponentMeta<typeof WriteComponent>;
 
