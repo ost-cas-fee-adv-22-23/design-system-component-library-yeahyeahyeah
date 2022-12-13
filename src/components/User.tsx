@@ -6,7 +6,7 @@ import { ProfilePicture } from './ProfilePicture';
 import { Button } from './buttons/Button';
 import { Mumble } from 'src/stories/assets/icons';
 
-interface IUserProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+export interface IUserProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   name: string;
   variant?: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended';
   username: IIconLinkProps;
@@ -174,7 +174,7 @@ const Row = styled.div(({ gap }: IRowStyles) => [
   tw`
     flex
     flex-row
-    justify-between
+    justify-start
     max-w-lg
     gap-16
   `,

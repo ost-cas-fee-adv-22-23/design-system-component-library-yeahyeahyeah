@@ -40,6 +40,12 @@ export default {
         disable: true,
       },
     },
+    autoComplete: {
+      control: {
+        type: 'select',
+      },
+      defaultValue: 'off',
+    },
   },
 } as ComponentMeta<typeof InputForm>;
 

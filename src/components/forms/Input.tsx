@@ -3,23 +3,26 @@ import tw from 'twin.macro';
 import React, { useState, useEffect } from 'react';
 import { Eye } from 'src/stories/assets/icons';
 
-interface IFormInput extends React.HtmlHTMLAttributes<HTMLFormElement> {
-  label: string;
+export interface IFormInputProps
+  extends React.HtmlHTMLAttributes<HTMLFormElement> {
+  label?: string;
   editType: 'input' | 'textarea';
   required: boolean;
   type?: 'text' | 'password' | 'email' | 'search' | 'tel' | 'url' | 'file';
-  placeholder: string;
+  placeholder?: string;
   errorMessage: string;
+  autoComplete: 'off' | 'on';
   handleClick?: () => void;
 }
 
-export const InputForm: React.FC<IFormInput> = ({
+export const InputForm: React.FC<IFormInputProps> = ({
   label = 'Label',
   editType = 'textarea',
   required = true,
   type = 'icon',
   placeholder = 'Placeholder',
   errorMessage,
+  autoComplete = 'off',
 }) => {
   const [buttonType, setbuttonType] = useState(type);
 
@@ -43,6 +46,7 @@ export const InputForm: React.FC<IFormInput> = ({
               type={buttonType}
               required={required}
               maxLength={150}
+              autoComplete={autoComplete}
             />
             {type === 'password' && (
               <Eye
@@ -66,9 +70,8 @@ export const InputForm: React.FC<IFormInput> = ({
               aria-colspan={10}
               maxLength={500}
               required={required}
-              placeholder={'Was gibt es neues?'}
+              placeholder={placeholder}
             />
-            <FormFieldErrorStyles>{errorMessage}</FormFieldErrorStyles>
           </FormLabelStyles>
         </>
       )}
@@ -101,6 +104,7 @@ const FormLabelStyles = styled.label(() => [
     text-slate-900 
     font-semibold 
     w-full 
+    mt-24
     mb-24
   `,
 ]);
@@ -128,8 +132,7 @@ const TextareaStyles = styled.textarea(() => [
     flex-row
     justify-start
     items-start
-    py-32
-    px-16
+    p-16
     rounded
     
     w-full

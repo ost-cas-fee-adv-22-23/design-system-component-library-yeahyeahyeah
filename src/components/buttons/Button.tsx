@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProps
+  extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   variant?: 'slate' | 'violet' | 'pink';
   size?: 'small' | 'large';
