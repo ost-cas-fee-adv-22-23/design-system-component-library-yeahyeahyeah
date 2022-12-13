@@ -64,6 +64,7 @@ export const InputForm: React.FC<IFormInput> = ({
             aria-colspan={10}
             maxLength={500}
             required={required}
+            placeholder={'Was gibt es neues?'}
           />
         </FormLabelStyles>
       )}
@@ -114,7 +115,7 @@ const FormInlineWrapperStyles = styled.div(() => [
 // TEXTAREA
 const TextareaStyles = styled.textarea(() => [
   tw`
-  text-slate-500
+  text-slate-900
     font-medium
     text-md
     leading-6
@@ -128,7 +129,7 @@ const TextareaStyles = styled.textarea(() => [
     rounded
     
     w-full
-    h-[80px]
+    h-[160px]
     min-h-[calc(4.375rem)]
     
   bg-slate-100
@@ -139,7 +140,7 @@ const TextareaStyles = styled.textarea(() => [
     hover:(border-2 border-spacing-0)
     active:(border-2 border-violet-600)
     focus:(border-2 border-violet-600)
-    placeholder:(font-normal text-slate-300)
+    placeholder:(font-normal text-slate-500)
   `,
 ]);
 

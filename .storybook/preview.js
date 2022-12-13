@@ -11,4 +11,5 @@ export const parameters = {
       order: ['Branding', 'Typography', 'Interactions', 'Icons', 'Form'],
     },
   },
+  layout: 'fullscreen',
 };
