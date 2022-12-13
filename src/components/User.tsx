@@ -118,7 +118,7 @@ export const User: React.FC<IUserProps> = ({
             <div className="mb-8">
               <Name variant={variant}>{name}</Name>
             </div>
-            <div className="mb-[10px]">
+            <div className="mb-16">
               <IconLink
                 label={username.label}
                 type="username"

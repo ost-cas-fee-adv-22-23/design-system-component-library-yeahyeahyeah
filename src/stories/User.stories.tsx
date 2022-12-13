@@ -6,7 +6,7 @@ import Roli from './assets/roli.png';
 export default {
   title: 'User/User',
   component: User,
-  decorators: [(story) => <div className={'bg-slate-100 p-40'}>{story()}</div>],
+  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     name: {
       defaultValue: 'Display Name',

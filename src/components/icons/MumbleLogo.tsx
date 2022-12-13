@@ -77,7 +77,7 @@ const MumbleLogoStyled = styled.a(
     `,
     alignment === 'horizontal' && tw`flex-row`,
     css`
-      svg {
+      svg:first-of-type {
         margin-right: 3vw;
       }
     `,
