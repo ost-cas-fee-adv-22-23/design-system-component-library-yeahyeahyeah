@@ -3,7 +3,7 @@ import { InteractionButton } from 'src/components/buttons/InteractionButton';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
-  title: 'Interactions/Interaction Button',
+  title: 'Interactions',
   component: InteractionButton,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
@@ -37,4 +37,4 @@ InteractionButtonStory.parameters = {
   },
 };
 
-InteractionButtonStory.storyName = 'Comment';
+InteractionButtonStory.storyName = 'Comment/Like Button';
