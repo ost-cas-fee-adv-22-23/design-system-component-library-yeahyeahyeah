@@ -55,6 +55,7 @@ const buttonFont = tw`
   text-skin-light
   font-semibold
   leading-normal
+  whitespace-nowrap
 `;
 
 const buttonDefaults = tw`

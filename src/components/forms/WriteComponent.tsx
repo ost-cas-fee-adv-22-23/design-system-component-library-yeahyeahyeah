@@ -65,11 +65,9 @@ const BoxStyled = styled.div(() => [
   tw`
     flex
     flex-col
-    rounded-16
     bg-slate-white
     py-32
     px-48
-    min-w-[680px]
   `,
 ]);
 
