@@ -56,17 +56,21 @@ export const InputForm: React.FC<IFormInput> = ({
       )}
 
       {editType === 'textarea' && (
-        <FormLabelStyles>
-          {label}
-          <TextareaStyles
-            rows={20}
-            cols={30}
-            aria-colspan={10}
-            maxLength={500}
-            required={required}
-            placeholder={'Was gibt es neues?'}
-          />
-        </FormLabelStyles>
+        <>
+          <FormLabelStyles htmlFor={label}>
+            {label}
+            <TextareaStyles
+              id={label}
+              rows={20}
+              cols={30}
+              aria-colspan={10}
+              maxLength={500}
+              required={required}
+              placeholder={'Was gibt es neues?'}
+            />
+            <FormFieldErrorStyles>{errorMessage}</FormFieldErrorStyles>
+          </FormLabelStyles>
+        </>
       )}
     </>
   );

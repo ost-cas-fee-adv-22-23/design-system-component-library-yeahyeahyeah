@@ -83,6 +83,10 @@ const Template: ComponentStory<typeof User> = (args) => <User {...args} />;
  */
 export const UserStory = Template.bind({});
 
+UserStory.args = {
+  variant: 'recommended',
+};
+
 UserStory.parameters = {
   docs: {
     source: { type: 'dynamic' },

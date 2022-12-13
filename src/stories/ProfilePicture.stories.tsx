@@ -11,6 +11,7 @@ export default {
       control: {
         type: 'select',
       },
+      defaultValue: 'xlarge',
     },
     src: {
       control: {
