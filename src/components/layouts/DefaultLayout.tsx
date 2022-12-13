@@ -21,7 +21,4 @@ const StyledDefaultLayout = styled.div(() => [
      p-16
      pt-32
   `,
-  css`
-    background-color: var(--color-background-base);
-  `,
 ]);

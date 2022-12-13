@@ -12,4 +12,17 @@ export const parameters = {
     },
   },
   layout: 'fullscreen',
+  backgrounds: {
+    default: 'default',
+    values: [
+      {
+        name: 'default',
+        value: '#e5e5e5',
+      },
+      {
+        name: 'dark',
+        value: '#475569',
+      },
+    ],
+  },
 };
