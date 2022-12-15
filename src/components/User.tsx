@@ -149,20 +149,16 @@ export const User: React.FC<IUserProps> = ({
               ></IconLink>
             </div>
             <Button
-              className="fill-slate-white"
-              handleClick={btn?.fCallBack}
-              label="Follow"
+              handleClick={() => {
+                console.log('button clicked');
+              }}
+              icon={<Mumble />}
+              label="Button Label"
               size="small"
               type="button"
               variant="violet"
               width="large"
-            >
-              <Mumble
-                className="fill-slate-white ml-8"
-                height="16px"
-                width="16px"
-              />
-            </Button>
+            />
           </Column>
         </article>
       )}

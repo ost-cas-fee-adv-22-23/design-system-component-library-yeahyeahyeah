@@ -34,17 +34,12 @@ export default {
         disable: true,
       },
     },
-    children: {
+    icon: {
       control: 'select',
       options: Object.keys(Icons),
       mapping: Icons,
       name: 'Icon',
-      defaultValue: Icons.Settings,
-    },
-    className: {
-      control: 'select',
-      options: ['fill-slate-white'],
-      defaultValue: 'fill-slate-white',
+      defaultValue: Icons.settings,
     },
     disabled: {
       control: {
@@ -56,19 +51,7 @@ export default {
 } as ComponentMeta<typeof NaviButton>;
 
 const Template: ComponentStory<typeof NaviButton> = (args) => {
-  const props: ISVGProps = {
-    className: `${args.className}`,
-    width: '16px',
-    height: '16px',
-  };
-  const childrenWithProps = React.Children.map(args.children, (child) => {
-    if (React.isValidElement<ISVGProps>(child)) {
-      return React.cloneElement(child, props);
-    }
-    return child;
-  });
-
-  return <NaviButton {...args}>{childrenWithProps}</NaviButton>;
+  return <NaviButton {...args} />;
 };
 /**
  * @button

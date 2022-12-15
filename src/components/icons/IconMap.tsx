@@ -25,71 +25,69 @@ import {
   Share,
   Time,
   Upload,
-} from '../../stories/assets/icons';
+} from './icons';
 
 export const Icons = {
-  Calendar: (
-    <Calendar className={'fill-slate-500'} width="16px" height="16px" />
-  ),
-  Cancel: <Cancel className={'fill-slate-500'} width="16px" height="16px" />,
-  Checkmark: (
+  joined: <Calendar className={'fill-slate-500'} width="16px" height="16px" />,
+  cancel: <Cancel className={'fill-slate-500'} width="16px" height="16px" />,
+  checkmark: (
     <Checkmark className={'fill-slate-500'} width="16px" height="16px" />
   ),
-  ChevronUp: (
+  chevronUp: (
     <ChevronUp className={'fill-slate-500'} width="16px" height="16px" />
   ),
-  ChevronDown: (
+  chevronDown: (
     <ChevronDown className={'fill-slate-500'} width="16px" height="16px" />
   ),
-  ChevronLeft: (
+  chevronLeft: (
     <ChevronLeft className={'fill-slate-500'} width="16px" height="16px" />
   ),
-  ChevronRight: (
+  chevronRight: (
     <ChevronRight className={'fill-slate-500'} width="16px" height="16px" />
   ),
-  Edit: (
+  edit: (
     <Edit
       className={'fill-slate-500 hover:(fill-green-500)'}
       width="16px"
       height="16px"
     />
   ),
-  Eye: <Eye className={'fill-slate-500'} width="16px" height="16px" />,
-  Fullscreen: (
+  eye: <Eye className={'fill-slate-500'} width="16px" height="16px" />,
+  fullscreen: (
     <Fullscreen className={'fill-slate-500'} width="16px" height="16px" />
   ),
-  HeartFilled: (
+  heartFilled: (
     <HeartFilled className={'fill-slate-500'} width="16px" height="16px" />
   ),
-  HeartOutlined: (
+  heartOutlined: (
     <HeartOutlined className={'fill-slate-500'} width="16px" height="16px" />
   ),
-  Location: (
+  location: (
     <Location className={'fill-slate-500'} width="16px" height="16px" />
   ),
-  Logout: <Logout className={'fill-slate-500'} width="16px" height="16px" />,
-  Mumble: <Mumble className={'fill-slate-500'} width="16px" height="16px" />,
-  LogoMumble: (
+  logout: <Logout className={'fill-slate-500'} width="16px" height="16px" />,
+  mumble: <Mumble className={'fill-slate-500'} width="16px" height="16px" />,
+  logoMumble: (
     <LogoMumble className={'fill-violet-600'} width="246px" height="auto" />
   ),
-  MumbleText: (
+  mumbleText: (
     <MumbleText className={'fill-violet-600'} width="246px" height="auto" />
   ),
-  Profile: <Profile className={'fill-slate-500'} width="16px" height="16px" />,
-  ReplyFilled: (
+  username: <Profile className={'fill-slate-500'} width="16px" height="16px" />,
+  replyFilled: (
     <ReplyFilled className={'fill-slate-500'} width="16px" height="16px" />
   ),
-  ReplyOutlined: (
+  replyOutlined: (
     <ReplyOutlined className={'fill-slate-500'} width="16px" height="16px" />
   ),
-  Repost: <Repost className={'fill-slate-500'} width="16px" height="16px" />,
-  Send: <Send className={'fill-slate-500'} width="16px" height="16px" />,
-  Settings: (
+  repost: <Repost className={'fill-slate-500'} width="16px" height="16px" />,
+  send: <Send className={'fill-slate-500'} width="16px" height="16px" />,
+  settings: (
     <Settings className={'fill-slate-500'} width="16px" height="16px" />
   ),
-  Share: <Share className={'fill-slate-500'} width="16px" height="16px" />,
-  Time: <Time className={'fill-slate-500'} width="16px" height="16px" />,
-  Upload: <Upload className={'fill-slate-500'} width="16px" height="16px" />,
+  share: <Share className={'fill-slate-500'} width="16px" height="16px" />,
+  timestamp: <Time className={'fill-slate-500'} width="16px" height="16px" />,
+  upload: <Upload className={'fill-slate-500'} width="16px" height="16px" />,
 };
 
 export const LikeRepostIcons = {

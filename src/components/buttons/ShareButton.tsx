@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
+import { Share } from 'src/stories/assets/icons';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   fCallBack?: () => void;
-  children?: React.ReactNode;
 }
 
 export const ShareButton: React.FC<IButtonProps> = ({
   label = 'Copy Link',
-  children,
   fCallBack,
 }) => {
   const [labelText, setLabelText] = useState<string>(label);
@@ -28,7 +27,7 @@ export const ShareButton: React.FC<IButtonProps> = ({
   return (
     <>
       <ButtonStyles onClick={handleClick}>
-        {children}
+        <Share className="fill-slate-600 mr-6" width="16px" height="16px" />
         {labelText}
       </ButtonStyles>
     </>

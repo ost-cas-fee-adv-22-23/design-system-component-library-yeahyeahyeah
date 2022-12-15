@@ -1,21 +1,28 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import { ISVGProps } from 'src/interfaces/SVG';
+import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   handleClick?: () => void;
-  children: React.ReactNode;
+  icon: string;
 }
 
 export const IconButton: React.FC<IButtonProps> = ({
   label,
   handleClick,
-  children,
+  icon = 'timestamp',
 }) => {
+  const Icon = React.cloneElement(Object(icon), {
+    className: 'fill-slate-white',
+    width: '16px',
+    height: '16px',
+  } as ISVGProps);
+
   return (
     <ButtonStyles onClick={handleClick}>
-      {children}
+      {Icon}
       <p>{label}</p>
     </ButtonStyles>
   );

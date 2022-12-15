@@ -25,12 +25,7 @@ export default {
 } as ComponentMeta<typeof ShareButton>;
 
 const Template: ComponentStory<typeof ShareButton> = (args) => (
-  <ShareButton {...args}>
-    <Share
-      className="fill-slate-600"
-      onClick={() => console.log('clicked share')}
-    />
-  </ShareButton>
+  <ShareButton {...args} />
 );
 /**
  * @button
