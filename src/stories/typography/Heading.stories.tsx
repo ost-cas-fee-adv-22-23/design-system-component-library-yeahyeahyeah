@@ -14,10 +14,17 @@ export default {
     variant: {
       control: { type: 'select' },
       description: 'Lorem ipsum',
+      defaultValue: 'default',
+    },
+    tag: {
+      control: { type: 'select' },
+      description: 'Set diffrent font-size than default',
+      defaultValue: 'h1',
     },
     color: {
       control: { type: 'select' },
       description: 'Choose your font color',
+      defaultValue: 'medium',
     },
   },
 } as ComponentMeta<typeof Heading>;

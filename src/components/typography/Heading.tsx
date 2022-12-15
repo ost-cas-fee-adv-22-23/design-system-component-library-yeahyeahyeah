@@ -4,35 +4,98 @@ import tw from 'twin.macro';
 
 interface IHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   label: string;
-  variant: 'h1' | 'h2' | 'h3' | 'h4';
-  color: 'slate-500' | 'slate-600' | 'violet-600' | 'pink-900';
+  tag: 'h1' | 'h2' | 'h3' | 'h4';
+  color: 'light' | 'medium' | 'dark' | 'violet' | 'pink';
+  variant: 'default' | 'xlarge' | 'large' | 'medium' | 'small';
 }
 
-export const Heading: React.FC<IHeadingProps> = ({ label, variant, color }) => {
+export const Heading: React.FC<IHeadingProps> = ({
+  label,
+  tag = 'h1',
+  color = 'medium',
+  variant = 'default',
+}) => {
   return (
     <>
-      <HeadingStyles variant={variant} color={color}>
-        {label}
-      </HeadingStyles>
+      {tag === 'h1' && (
+        <H1Styles color={color} variant={variant} tag={tag}>
+          {label}
+        </H1Styles>
+      )}
+      {tag === 'h2' && (
+        <H2Styles color={color} variant={variant} tag={tag}>
+          {label}
+        </H2Styles>
+      )}
+      {tag === 'h3' && (
+        <H3Styles color={color} variant={variant} tag={tag}>
+          {label}
+        </H3Styles>
+      )}
+      {tag === 'h4' && (
+        <H4Styles color={color} variant={variant} tag={tag}>
+          {label}
+        </H4Styles>
+      )}
     </>
   );
 };
 
 interface IHeadingStylesProps {
-  variant: string;
   color: string;
+  variant: string;
+  tag: string;
 }
 
-const HeadingStyles = styled.h1(({ variant, color }: IHeadingStylesProps) => [
+const HeadingVariant = ({ variant, tag }: IHeadingStylesProps) => [
   tw`
-		m-0
+    font-bold
+    m-0
+  `,
+  variant === 'xlarge' && tw`text-lg`,
+  variant === 'large' && tw`text-md`,
+  variant === 'medium' && tw`text-sm`,
+  variant === 'small' && tw`text-xs`,
+  tag === 'h3' && tw`font-semibold`,
+  tag === 'h4' && tw`font-semibold`,
+];
+
+const HeadingColor = ({ color }: IHeadingStylesProps) => [
+  color === 'light' && tw`text-slate-500`,
+  color === 'medium' && tw`text-slate-600`,
+  color === 'dark' && tw`text-slate-900`,
+  color === 'violet' && tw`text-violet-600`,
+  color === 'pink' && tw`text-pink-900`,
+];
+
+const H1Styles = styled.h1(() => [
+  tw`
+    text-4xl font-bold
 	`,
-  variant === 'h1' && tw`text-4xl font-bold`,
-  variant === 'h2' && tw`text-3xl font-bold`,
-  variant === 'h3' && tw`text-2xl font-semibold`,
-  variant === 'h4' && tw`text-xl font-semibold`,
-  color === 'slate-500' && tw`text-slate-500`,
-  color === 'slate-600' && tw`text-slate-600`,
-  color === 'violet-600' && tw`text-violet-600`,
-  color === 'pink-900' && tw`text-pink-900`,
+  HeadingColor,
+  HeadingVariant,
+]);
+
+const H2Styles = styled.h2(() => [
+  tw`
+    text-3xl font-bold
+	`,
+  HeadingColor,
+  HeadingVariant,
+]);
+
+const H3Styles = styled.h3(() => [
+  tw`
+    text-2xl
+	`,
+  HeadingColor,
+  HeadingVariant,
+]);
+
+const H4Styles = styled.h4(() => [
+  tw`
+    text-xl
+	`,
+  HeadingColor,
+  HeadingVariant,
 ]);
