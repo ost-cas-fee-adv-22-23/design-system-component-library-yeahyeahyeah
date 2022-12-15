@@ -45,7 +45,7 @@ export const User: React.FC<IUserProps> = ({
             src={pic.src}
           />
           <Column variant={variant}>
-            <Name variant={variant}>{label}</Name>
+            <Heading tag="h4" color="dark" variant={'default'} label={label} />
             <Row>
               <IconLink
                 label={username.label}
@@ -84,9 +84,28 @@ export const User: React.FC<IUserProps> = ({
           </Column>
         </Row>
       )}
-      {(variant === 'large' || variant === 'medium') && (
+      {variant === 'medium' && (
         <Column>
-          <Name variant={variant}>{label}</Name>
+          <Heading tag="h4" color="dark" variant={'large'} label={label} />
+          <Row>
+            <IconLink
+              label={username.label}
+              type="username"
+              variant="violet"
+              href={username.href}
+            ></IconLink>
+            <IconLink
+              label={timestamp.label}
+              type="timestamp"
+              variant="slate"
+              href={timestamp.href}
+            ></IconLink>
+          </Row>
+        </Column>
+      )}
+      {variant === 'large' && (
+        <Column>
+          <Heading tag="h4" color="dark" variant={'xlarge'} label={label} />
           <Row>
             <IconLink
               label={username.label}
@@ -105,7 +124,7 @@ export const User: React.FC<IUserProps> = ({
       )}
       {variant === 'xlarge' && (
         <Column>
-          <Name variant={variant}>{label}</Name>
+          <Heading tag="h4" color="dark" variant={'xlarge'} label={label} />
           <Row>
             <IconLink
               label={username.label}
@@ -137,9 +156,14 @@ export const User: React.FC<IUserProps> = ({
               size="large"
               src={pic.src}
             />
-            <div className="mb-8">
-              <Name variant={variant}>{label}</Name>
-            </div>
+            <Row className="mb-8">
+              <Heading
+                tag="h4"
+                color="dark"
+                variant={'default'}
+                label={label}
+              />
+            </Row>
             <div className="mb-16">
               <IconLink
                 label={username.label}

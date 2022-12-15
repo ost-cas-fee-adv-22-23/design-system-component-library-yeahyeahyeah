@@ -13,17 +13,17 @@ export default {
     },
     variant: {
       control: { type: 'select' },
-      description: 'Lorem ipsum',
+      description: 'Lable style variants.',
       defaultValue: 'default',
     },
     tag: {
       control: { type: 'select' },
-      description: 'Set diffrent font-size than default',
+      description: 'Choose your HTML-Tag',
       defaultValue: 'h1',
     },
     color: {
       control: { type: 'select' },
-      description: 'Choose your font color',
+      description: 'Color variants',
       defaultValue: 'medium',
     },
   },
