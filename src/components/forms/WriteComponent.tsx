@@ -17,14 +17,29 @@ interface IWriteComponent {
 }
 
 export const WriteComponent: React.FC<IWriteComponent> = ({
-  name,
+  label,
   username,
   placeholder = 'Na, was meinste dazu ...',
 }) => {
   return (
     <>
       <BoxStyled>
-        <User variant="small" username={username} name={name} />
+        <User
+          btn={{
+            fCallBack: function noRefCheck() {},
+          }}
+          label="Display Name"
+          pic={{
+            alt: 'This is a picture of Roli Rollinger',
+            fCallBack: function noRefCheck() {},
+            src: '3911aaec7c2685bf1059.png',
+          }}
+          username={{
+            href: '',
+            label: 'Username',
+          }}
+          variant="write"
+        />
         <InputForm
           className="mt-16"
           editType="textarea"
@@ -34,7 +49,7 @@ export const WriteComponent: React.FC<IWriteComponent> = ({
           errorMessage={'error'}
           autoComplete={'off'}
         />
-        <div className="flex flex-row justify-between gap-16">
+        <Row>
           <Button
             handleClick={() => {}}
             label="Bild hochladen"
@@ -55,7 +70,7 @@ export const WriteComponent: React.FC<IWriteComponent> = ({
           >
             <Icon iconName="send" iconColor="fill-slate-white ml-8" />
           </Button>
-        </div>
+        </Row>
       </BoxStyled>
     </>
   );
@@ -67,7 +82,23 @@ const BoxStyled = styled.div(() => [
     flex-col
     bg-slate-white
     py-32
-    px-48
+    px-16
+    w-full
+
+    sm:(px-16)
+    md:(px-32)
+    lg:(px-48)
+  `,
+]);
+
+const Row = styled.div(() => [
+  tw`
+    flex
+    justify-between
+    gap-16
+    flex-col
+
+    sm:(flex-row)
   `,
 ]);
 

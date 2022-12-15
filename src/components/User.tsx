@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import { Heading } from 'src/components/typography/Heading';
 import { IconLink, IIconLinkProps } from 'src/components/IconLink';
 import { ProfilePicture } from './ProfilePicture';
 import { Button } from './buttons/Button';
 import { Mumble } from 'src/stories/assets/icons';
 
 export interface IUserProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
-  name: string;
-  variant?: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended';
+  label: string;
+  variant?: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended' | 'write';
   username: IIconLinkProps;
   timestamp?: IIconLinkProps;
   location?: IIconLinkProps;
@@ -18,7 +19,7 @@ export interface IUserProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
 }
 
 export const User: React.FC<IUserProps> = ({
-  name = 'Display Name',
+  label = 'Display Name',
   variant = 'small',
   username = { label: 'Username', href: '#' },
   timestamp = { label: 'TimeStamp', href: '#' },
@@ -44,7 +45,7 @@ export const User: React.FC<IUserProps> = ({
             src={pic.src}
           />
           <Column variant={variant}>
-            <Name variant={variant}>{name}</Name>
+            <Name variant={variant}>{label}</Name>
             <Row>
               <IconLink
                 label={username.label}
@@ -62,9 +63,30 @@ export const User: React.FC<IUserProps> = ({
           </Column>
         </Row>
       )}
+      {variant === 'write' && (
+        <Row gap="small">
+          <ProfilePicture
+            alt={pic.alt}
+            fCallBack={pic.fCallBack}
+            size="small"
+            src={pic.src}
+          />
+          <Column variant={variant}>
+            <Heading tag="h4" color="dark" variant={'default'} label={label} />
+            <Row>
+              <IconLink
+                label={username.label}
+                type="username"
+                variant="violet"
+                href={username.href}
+              />
+            </Row>
+          </Column>
+        </Row>
+      )}
       {(variant === 'large' || variant === 'medium') && (
         <Column>
-          <Name variant={variant}>{name}</Name>
+          <Name variant={variant}>{label}</Name>
           <Row>
             <IconLink
               label={username.label}
@@ -83,7 +105,7 @@ export const User: React.FC<IUserProps> = ({
       )}
       {variant === 'xlarge' && (
         <Column>
-          <Name variant={variant}>{name}</Name>
+          <Name variant={variant}>{label}</Name>
           <Row>
             <IconLink
               label={username.label}
@@ -116,7 +138,7 @@ export const User: React.FC<IUserProps> = ({
               src={pic.src}
             />
             <div className="mb-8">
-              <Name variant={variant}>{name}</Name>
+              <Name variant={variant}>{label}</Name>
             </div>
             <div className="mb-16">
               <IconLink
@@ -175,6 +197,7 @@ const Row = styled.div(({ gap }: IRowStyles) => [
     flex
     flex-row
     justify-start
+    items-center
     max-w-lg
     gap-16
   `,
