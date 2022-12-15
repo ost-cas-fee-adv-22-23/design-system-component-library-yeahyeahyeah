@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { User } from 'src/components/User';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
-import Roli from './assets/user.png';
+import UserImage from './assets/user.png';
 
 export default {
   title: 'User/User',
@@ -58,7 +58,7 @@ export default {
         type: 'object',
       },
       defaultValue: {
-        src: Roli,
+        src: UserImage,
         alt: 'This is a picture of Roli Rollinger',
         fCallBack: () => console.log('Clicked on the picture'),
       },
@@ -73,8 +73,6 @@ export default {
     },
   },
 } as ComponentMeta<typeof User>;
-
-console.log('Roli', Roli);
 
 const Template: ComponentStory<typeof User> = (args) => <User {...args} />;
 /**

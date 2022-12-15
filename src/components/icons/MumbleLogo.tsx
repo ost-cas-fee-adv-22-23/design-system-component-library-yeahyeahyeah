@@ -9,9 +9,8 @@ import {
 export interface IIcon extends React.HTMLAttributes<HTMLOrSVGImageElement> {
   title: string;
   href: string;
-  variant: 'violet' | 'gradient';
+  variant: 'violet' | 'gradient' | 'white';
   alignment: 'horizontal' | 'vertical';
-  width: 'w-full' | 'w-1/2';
   iconColor: string | undefined;
   iconWidth?: string | undefined;
   iconHeight?: string | undefined;
@@ -23,7 +22,6 @@ export const MumbleLogo: React.FC<IIcon> = ({
   href,
   variant,
   alignment,
-  width,
   iconColor,
   fCallBack,
 }: IIcon) => {
@@ -34,21 +32,13 @@ export const MumbleLogo: React.FC<IIcon> = ({
         href={href}
         variant={variant}
         alignment={alignment}
-        className={width}
         target={'_self'}
         onClick={fCallBack}
       >
-        <LogoMumble className={iconColor} width={'64px'} height={'auto'} />
-        {variant === 'violet' && (
-          <MumbleText className={iconColor} width={'246px'} height={'auto'} />
-        )}
-        {variant === 'gradient' && (
-          <MumbleGradient
-            className={iconColor}
-            width={'246px'}
-            height={'auto'}
-          />
-        )}
+        <LogoMumble className={iconColor} />
+        {variant === 'violet' && <MumbleText className={iconColor} />}
+        {variant === 'white' && <MumbleText className={iconColor} />}
+        {variant === 'gradient' && <MumbleGradient className={iconColor} />}
       </MumbleLogoStyled>
     </>
   );
@@ -56,31 +46,33 @@ export const MumbleLogo: React.FC<IIcon> = ({
 
 interface IMumbleLogoStyled {
   alignment: string;
-  className: string;
   variant: string;
 }
 
 const MumbleLogoStyled = styled.a(
-  ({ alignment, variant, className }: IMumbleLogoStyled) => [
+  ({ alignment, variant }: IMumbleLogoStyled) => [
     tw`
     flex
     justify-between
     items-center
-    p-8
+    p-0
     cursor-pointer
+    w-[200px]
   `,
     alignment === 'vertical' && tw`flex-col`,
-    css`
-      svg {
-        margin-bottom: calc(1vh - 4px);
-      }
-    `,
+    alignment === 'vertical' &&
+      css`
+        svg {
+          margin-bottom: 16px;
+        }
+      `,
     alignment === 'horizontal' && tw`flex-row`,
-    css`
-      svg:first-of-type {
-        margin-right: 3vw;
-      }
-    `,
+    alignment === 'horizontal' &&
+      css`
+        svg:first-of-type {
+          margin-right: 16px;
+        }
+      `,
     variant === 'violet' &&
       css`
         &:hover {
@@ -89,9 +81,15 @@ const MumbleLogoStyled = styled.a(
           }
         }
       `,
+    variant === 'white' &&
+      css`
+        > svg {
+          fill: white;
+        }
+      `,
     css`
       svg {
-        width: 100%;
+        width: auto;
       }
       svg:first-of-type {
         width: 30%;
