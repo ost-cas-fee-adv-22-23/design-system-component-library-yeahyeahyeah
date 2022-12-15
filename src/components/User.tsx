@@ -223,14 +223,3 @@ const Row = styled.div(({ gap }: IRowStyles) => [
   `,
   gap === 'small' && tw`gap-8`,
 ]);
-
-const Name = styled.h4(({ variant }: IUserStyles) => [
-  tw`
-    text-slate-900
-  `,
-  variant === 'small' && tw`text-sm font-semibold mb-4`,
-  (variant === 'medium' || variant === 'recommended') &&
-    tw`text-md font-semibold`,
-  variant === 'large' && tw`text-xl font-semibold`,
-  variant === 'xlarge' && tw`text-2xl font-semibold`,
-]);
