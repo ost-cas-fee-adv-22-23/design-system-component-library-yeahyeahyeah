@@ -1,9 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 import { Paragraph } from 'src/components/typography/Paragraph';
 
 export default {
   title: 'Typography/Paragraph',
   component: Paragraph,
+  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     variant: {
       description: 'Add description here ...',
