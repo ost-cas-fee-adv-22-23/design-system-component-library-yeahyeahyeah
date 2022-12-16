@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import React, { useState } from 'react';
-import { Profile, Time, Location, Calendar } from '../stories/assets/icons';
+import { Profile, Time, Location, Calendar } from './icons/icons';
 
 export interface IIconLinkProps
   extends React.HtmlHTMLAttributes<HTMLLinkElement> {

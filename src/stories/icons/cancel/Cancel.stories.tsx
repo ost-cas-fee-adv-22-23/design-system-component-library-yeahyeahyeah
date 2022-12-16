@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ReactComponent as Cancel } from '../../assets/icons/cancel.svg';
+import { Cancel } from '../../../components/icons/icons';
 
 export default {
   title: 'Icons/Cancel',

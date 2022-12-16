@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React from 'react';
 import { Button } from 'src/components/buttons/Button';
-import { Icons } from 'src/components/icons/IconMap';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
@@ -47,10 +47,38 @@ export default {
     },
     icon: {
       control: 'select',
-      options: Object.keys(Icons),
-      mapping: Icons,
+      options: [
+        'calendar',
+        'cancel',
+        'checkmark',
+        'down',
+        'edit',
+        'eye',
+        'fullscreen',
+        'heart-filled',
+        'heart-outlined',
+        'left',
+        'location',
+        'logo-mumble',
+        'logout',
+        'mumble-gradient',
+        'mumble-logo',
+        'mumble-text',
+        'mumble',
+        'profile',
+        'reply-filled',
+        'reply-outlined',
+        'repost',
+        'right',
+        'send',
+        'settings',
+        'share',
+        'time',
+        'up',
+        'upload',
+      ],
       name: 'Icon',
-      defaultValue: Icons.mumble,
+      defaultValue: 'settings',
     },
   },
 } as ComponentMeta<typeof Button>;

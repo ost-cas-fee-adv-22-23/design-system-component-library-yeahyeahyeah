@@ -2,58 +2,60 @@ import {
   Calendar,
   Cancel,
   Checkmark,
-  ChevronUp,
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
+  Down,
   Edit,
   Eye,
   Fullscreen,
   HeartFilled,
   HeartOutlined,
+  Left,
   Location,
-  Logout,
-  Mumble,
   LogoMumble,
+  Logout,
   MumbleGradient,
+  MumbleText,
+  Mumble,
   Profile,
   ReplyFilled,
   ReplyOutlined,
   Repost,
+  Right,
   Send,
   Settings,
   Share,
   Time,
+  Up,
   Upload,
-} from '../../stories/assets/icons';
+} from './icons';
 
 export interface IIcon extends React.HTMLAttributes<SVGAElement> {
   iconName:
     | 'calendar'
     | 'cancel'
     | 'checkmark'
-    | 'chevron-up'
-    | 'chevron-down'
-    | 'chevron-left'
-    | 'chevron-right'
+    | 'down'
     | 'edit'
     | 'eye'
     | 'fullscreen'
     | 'heart-filled'
     | 'heart-outlined'
+    | 'left'
     | 'location'
+    | 'logo-mumble'
     | 'logout'
-    | 'mumble'
-    | 'mumble-logo'
     | 'mumble-gradient'
+    | 'mumble-text'
+    | 'mumble'
     | 'profile'
     | 'reply-filled'
     | 'reply-outlined'
     | 'repost'
+    | 'right'
     | 'send'
     | 'settings'
     | 'share'
     | 'time'
+    | 'up'
     | 'upload';
   iconColor?: string | undefined;
   iconWidth?: string | undefined;
@@ -72,14 +74,8 @@ export const Icon: React.FC<IIcon> = ({
       return <Cancel />;
     case 'checkmark':
       return <Checkmark onClick={handleClick} />;
-    case 'chevron-up':
-      return <ChevronUp onClick={handleClick} />;
-    case 'chevron-down':
-      return <ChevronDown onClick={handleClick} />;
-    case 'chevron-left':
-      return <ChevronLeft onClick={handleClick} />;
-    case 'chevron-right':
-      return <ChevronRight onClick={handleClick} />;
+    case 'down':
+      return <Down onClick={handleClick} />;
     case 'edit':
       return <Edit onClick={handleClick} />;
     case 'eye':
@@ -90,16 +86,20 @@ export const Icon: React.FC<IIcon> = ({
       return <HeartFilled onClick={handleClick} />;
     case 'heart-outlined':
       return <HeartOutlined onClick={handleClick} />;
+    case 'left':
+      return <Left onClick={handleClick} />;
     case 'location':
       return <Location onClick={handleClick} />;
+    case 'logo-mumble':
+      return <LogoMumble onClick={handleClick} />;
     case 'logout':
       return <Logout onClick={handleClick} />;
-    case 'mumble':
-      return <Mumble onClick={handleClick} />;
-    case 'mumble-logo':
-      return <LogoMumble onClick={handleClick} />;
     case 'mumble-gradient':
       return <MumbleGradient onClick={handleClick} />;
+    case 'mumble-text':
+      return <MumbleText onClick={handleClick} />;
+    case 'mumble':
+      return <Mumble onClick={handleClick} />;
     case 'profile':
       return <Profile onClick={handleClick} />;
     case 'reply-filled':
@@ -108,6 +108,8 @@ export const Icon: React.FC<IIcon> = ({
       return <ReplyOutlined onClick={handleClick} />;
     case 'repost':
       return <Repost onClick={handleClick} />;
+    case 'right':
+      return <Right onClick={handleClick} />;
     case 'send':
       return <Send onClick={handleClick} />;
     case 'settings':
@@ -116,6 +118,8 @@ export const Icon: React.FC<IIcon> = ({
       return <Share onClick={handleClick} />;
     case 'time':
       return <Time onClick={handleClick} />;
+    case 'up':
+      return <Up onClick={handleClick} />;
     case 'upload':
       return <Upload onClick={handleClick} />;
     default:

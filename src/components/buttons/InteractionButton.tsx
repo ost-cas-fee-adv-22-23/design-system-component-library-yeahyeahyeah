@@ -6,7 +6,7 @@ import {
   HeartOutlined,
   ReplyFilled,
   ReplyOutlined,
-} from '../../stories/assets/icons';
+} from '../icons/icons';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   type: 'like' | 'comment';

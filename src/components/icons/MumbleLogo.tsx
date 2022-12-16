@@ -1,10 +1,6 @@
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import {
-  MumbleText,
-  LogoMumble,
-  MumbleGradient,
-} from '../../stories/assets/icons';
+import { MumbleText, LogoMumble, MumbleGradient } from './icons';
 
 export interface IIcon extends React.HTMLAttributes<HTMLOrSVGImageElement> {
   title: string;

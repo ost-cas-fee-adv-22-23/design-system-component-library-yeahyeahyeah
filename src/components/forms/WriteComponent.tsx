@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
-
-import { Icon } from 'src/components/icons/Icon';
 import { User } from 'src/components/User';
 import { IIconLinkProps } from '../IconLink';
 import { InputForm, IFormInputProps } from 'src/components/forms/Input';
 import { Button, IButtonProps } from 'src/components/buttons/Button';
-import { Send, Upload } from '../../stories/assets/icons';
 
 interface IWriteComponent {
   name: string;
@@ -58,7 +55,7 @@ export const WriteComponent: React.FC<IWriteComponent> = ({
             type="button"
             variant="slate"
             width="full"
-            icon={<Upload />}
+            icon="upload"
           />
           <Button
             handleClick={() => {}}
@@ -67,7 +64,7 @@ export const WriteComponent: React.FC<IWriteComponent> = ({
             type="button"
             variant="violet"
             width="full"
-            icon={<Send />}
+            icon="send"
           />
         </Row>
       </BoxStyled>

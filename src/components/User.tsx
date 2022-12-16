@@ -5,7 +5,6 @@ import { Heading } from 'src/components/typography/Heading';
 import { IconLink, IIconLinkProps } from 'src/components/IconLink';
 import { ProfilePicture } from './ProfilePicture';
 import { Button } from './buttons/Button';
-import { Mumble } from 'src/stories/assets/icons';
 
 export interface IUserProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   label: string;
@@ -176,7 +175,7 @@ export const User: React.FC<IUserProps> = ({
               handleClick={() => {
                 console.log('button clicked');
               }}
-              icon={<Mumble />}
+              icon="mumble"
               label="Button Label"
               size="small"
               type="button"

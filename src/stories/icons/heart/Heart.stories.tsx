@@ -1,8 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ReactComponent as HeartFilled } from '../../assets/icons/heart_filled.svg';
-import { ReactComponent as HeartOutlined } from '../../assets/icons/heart_outlined.svg';
+import { HeartFilled, HeartOutlined } from '../../../components/icons/icons';
 
 export default {
   title: 'Icons/Heart',

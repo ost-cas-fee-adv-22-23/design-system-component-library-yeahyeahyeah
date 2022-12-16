@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import React, { useState, useEffect } from 'react';
-import { Eye } from 'src/stories/assets/icons';
+import { Eye } from '../icons/icons';
 
 export interface IFormInputProps
   extends React.HtmlHTMLAttributes<HTMLFormElement> {
