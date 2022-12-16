@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 import { Button } from 'src/components/buttons/Button';
 import { Icons } from 'src/components/icons/IconMap';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
@@ -51,7 +50,7 @@ export default {
       options: Object.keys(Icons),
       mapping: Icons,
       name: 'Icon',
-      defaultValue: Icons.settings,
+      defaultValue: Icons.mumble,
     },
   },
 } as ComponentMeta<typeof Button>;

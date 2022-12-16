@@ -55,7 +55,7 @@ export interface IIcon extends React.HTMLAttributes<SVGAElement> {
     | 'share'
     | 'time'
     | 'upload';
-  iconColor: string | undefined;
+  iconColor?: string | undefined;
   iconWidth?: string | undefined;
   iconHeight?: string | undefined;
   handleClick?: () => void;
@@ -63,241 +63,61 @@ export interface IIcon extends React.HTMLAttributes<SVGAElement> {
 
 export const Icon: React.FC<IIcon> = ({
   iconName = 'mumble',
-  iconColor = 'fill-pink-500',
-  iconWidth = '16px',
-  iconHeight = '16px',
   handleClick,
 }: IIcon) => {
   switch (iconName) {
     case 'calendar':
-      return (
-        <Calendar
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Calendar onClick={handleClick} />;
     case 'cancel':
-      return (
-        <Cancel className={iconColor} width={iconWidth} height={iconHeight} />
-      );
+      return <Cancel />;
     case 'checkmark':
-      return (
-        <Checkmark
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Checkmark onClick={handleClick} />;
     case 'chevron-up':
-      return (
-        <ChevronUp
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <ChevronUp onClick={handleClick} />;
     case 'chevron-down':
-      return (
-        <ChevronDown
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <ChevronDown onClick={handleClick} />;
     case 'chevron-left':
-      return (
-        <ChevronLeft
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <ChevronLeft onClick={handleClick} />;
     case 'chevron-right':
-      return (
-        <ChevronRight
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <ChevronRight onClick={handleClick} />;
     case 'edit':
-      return (
-        <Edit
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Edit onClick={handleClick} />;
     case 'eye':
-      return (
-        <Eye
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Eye onClick={handleClick} />;
     case 'fullscreen':
-      return (
-        <Fullscreen
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Fullscreen onClick={handleClick} />;
     case 'heart-filled':
-      return (
-        <HeartFilled
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <HeartFilled onClick={handleClick} />;
     case 'heart-outlined':
-      return (
-        <HeartOutlined
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <HeartOutlined onClick={handleClick} />;
     case 'location':
-      return (
-        <Location
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Location onClick={handleClick} />;
     case 'logout':
-      return (
-        <Logout
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Logout onClick={handleClick} />;
     case 'mumble':
-      return (
-        <Mumble
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Mumble onClick={handleClick} />;
     case 'mumble-logo':
-      return (
-        <LogoMumble
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <LogoMumble onClick={handleClick} />;
     case 'mumble-gradient':
-      return (
-        <MumbleGradient
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <MumbleGradient onClick={handleClick} />;
     case 'profile':
-      return (
-        <Profile
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Profile onClick={handleClick} />;
     case 'reply-filled':
-      return (
-        <ReplyFilled
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <ReplyFilled onClick={handleClick} />;
     case 'reply-outlined':
-      return (
-        <ReplyOutlined
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <ReplyOutlined onClick={handleClick} />;
     case 'repost':
-      return (
-        <Repost
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Repost onClick={handleClick} />;
     case 'send':
-      return (
-        <Send
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Send onClick={handleClick} />;
     case 'settings':
-      return (
-        <Settings
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Settings onClick={handleClick} />;
     case 'share':
-      return (
-        <Share
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Share onClick={handleClick} />;
     case 'time':
-      return (
-        <Time
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Time onClick={handleClick} />;
     case 'upload':
-      return (
-        <Upload
-          className={iconColor}
-          width={iconWidth}
-          height={iconHeight}
-          onClick={handleClick}
-        />
-      );
+      return <Upload onClick={handleClick} />;
     default:
       return <></>;
   }

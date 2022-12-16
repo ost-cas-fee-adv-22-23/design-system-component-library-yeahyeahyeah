@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { ISVGProps } from 'src/interfaces/SVG';
+import { ISVGProps as Icon } from 'src/interfaces/SVG';
 
 export interface IButtonProps
   extends React.HtmlHTMLAttributes<HTMLButtonElement> {
@@ -12,7 +12,7 @@ export interface IButtonProps
   type?: 'button' | 'reset' | 'submit';
   disabled?: boolean;
   handleClick?: () => void;
-  icon?: any;
+  icon?: Icon;
 }
 
 export const Button: React.FC<IButtonProps> = ({
@@ -23,13 +23,11 @@ export const Button: React.FC<IButtonProps> = ({
   width = 'default',
   disabled = false,
   handleClick,
-  icon,
+  icon = 'mumble',
 }) => {
   const Icon = React.cloneElement(Object(icon), {
-    className: 'fill-slate-white ml-8',
-    width: '16px',
-    height: '16px',
-  } as ISVGProps);
+    className: 'fill-slate-white',
+  } as Icon);
 
   return (
     <>
@@ -126,6 +124,12 @@ const getVariant = (variant: string | undefined) => {
   }
 };
 
+const IconMargin = css`
+  svg {
+    margin-left: 8px;
+  }
+`;
+
 const ButtonStyles = styled.button(({ variant, width, size }: ButtonProps) => [
   buttonFont,
   buttonDefaults,
@@ -134,4 +138,5 @@ const ButtonStyles = styled.button(({ variant, width, size }: ButtonProps) => [
   buttonWidth(width),
   buttonSize(size),
   getVariant(variant),
+  IconMargin,
 ]);
