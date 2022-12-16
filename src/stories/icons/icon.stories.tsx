@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 import { Settings } from '../../components/icons/icons';
-import { Icons } from '../../components/icons/IconMap';
+import { Icons, IconTypes } from '../../components/icons/IconMap';
 import React from 'react';
 
 let tailWindColors: string[] = [
@@ -33,8 +33,6 @@ export default {
   },
 } as ComponentMeta<typeof Settings>;
 
-type Keys = keyof typeof Icons;
-
 const TemplateIcon: ComponentStory<typeof Settings | any> = () => (
   <>
     <div>
@@ -45,7 +43,7 @@ const TemplateIcon: ComponentStory<typeof Settings | any> = () => (
       tailWindColorsElement = tailWindColors.shift() || '';
 
       const Icon = React.cloneElement(
-        Icons[iconType as Keys] || Icons['settings'],
+        Icons[iconType as IconTypes] || Icons['settings'],
         {
           className: tailWindColorsElement,
           width: '50px',
@@ -60,7 +58,7 @@ const TemplateIcon: ComponentStory<typeof Settings | any> = () => (
 );
 
 const TemplateIconSingle: ComponentStory<any> = (args) => {
-  const Icon = React.cloneElement(Icons[args.iconName as Keys], {
+  const Icon = React.cloneElement(Icons[args.iconName as IconTypes], {
     className: args.iconColor,
     width: args.iconWidth,
     height: args.iconHeight,

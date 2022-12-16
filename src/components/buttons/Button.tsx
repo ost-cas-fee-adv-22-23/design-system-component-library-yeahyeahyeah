@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { Icons } from '../icons/IconMap';
+import { Icons, IconTypes } from '../icons/IconMap';
 
 export interface IButtonProps
   extends React.HtmlHTMLAttributes<HTMLButtonElement> {
@@ -12,34 +12,7 @@ export interface IButtonProps
   type?: 'button' | 'reset' | 'submit';
   disabled?: boolean;
   handleClick?: () => void;
-  icon:
-    | 'calendar'
-    | 'cancel'
-    | 'checkmark'
-    | 'down'
-    | 'edit'
-    | 'eye'
-    | 'fullscreen'
-    | 'heart-filled'
-    | 'heart-outlined'
-    | 'left'
-    | 'location'
-    | 'logo-mumble'
-    | 'logout'
-    | 'mumble-gradient'
-    | 'mumble-text'
-    | 'mumble'
-    | 'profile'
-    | 'reply-filled'
-    | 'reply-outlined'
-    | 'repost'
-    | 'right'
-    | 'send'
-    | 'settings'
-    | 'share'
-    | 'time'
-    | 'up'
-    | 'upload';
+  icon: IconTypes;
 }
 
 export const Button: React.FC<IButtonProps> = ({

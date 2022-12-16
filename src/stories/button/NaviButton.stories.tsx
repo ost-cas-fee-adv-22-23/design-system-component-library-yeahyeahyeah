@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { NaviButton } from 'src/components/buttons/NaviButton';
-import { IButtonProps } from 'src/components/buttons/Button';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
+import { Icons } from 'src/components/icons/IconMap';
 
 export default {
   title: 'Navigation',
@@ -40,36 +40,7 @@ export default {
     },
     icon: {
       control: 'select',
-      options: [
-        'calendar',
-        'cancel',
-        'checkmark',
-        'down',
-        'edit',
-        'eye',
-        'fullscreen',
-        'heart-filled',
-        'heart-outlined',
-        'left',
-        'location',
-        'logo-mumble',
-        'logout',
-        'mumble-gradient',
-        'mumble-logo',
-        'mumble-text',
-        'mumble',
-        'profile',
-        'reply-filled',
-        'reply-outlined',
-        'repost',
-        'right',
-        'send',
-        'settings',
-        'share',
-        'time',
-        'up',
-        'upload',
-      ],
+      options: Object.keys(Icons),
       name: 'Icon',
       defaultValue: 'settings',
     },

@@ -72,6 +72,15 @@ export default {
         fCallBack: () => console.log('Clicked on the button'),
       },
     },
+    avatar: {
+      control: {
+        type: 'object',
+      },
+      defaultValue: {
+        src: 'https://i.stack.imgur.com/5xd5n.png',
+        alt: 'Alter Tag',
+      },
+    },
   },
 } as ComponentMeta<typeof User>;
 

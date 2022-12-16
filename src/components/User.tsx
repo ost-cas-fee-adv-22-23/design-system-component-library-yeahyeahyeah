@@ -15,6 +15,7 @@ export interface IUserProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   joined?: IIconLinkProps;
   pic?: { src: string; alt: string; fCallBack?: () => void };
   btn?: { fCallBack?: () => void };
+  avatar?: { src: string; alt: string };
 }
 
 export const User: React.FC<IUserProps> = ({
@@ -24,16 +25,13 @@ export const User: React.FC<IUserProps> = ({
   timestamp = { label: 'TimeStamp', href: '#' },
   location = { label: 'Location', href: '#' },
   joined = { label: 'Joined', href: '#' },
+  avatar = { src: 'https://i.stack.imgur.com/5xd5n.png', alt: 'Alter Tag' },
 }) => {
   return (
     <>
       {variant === 'small' && (
         <Row gap="small">
-          <Avatar
-            alt={'Alter Tag'}
-            src="https://i.stack.imgur.com/5xd5n.png"
-            variant={'small'}
-          />
+          <Avatar alt={avatar.alt} src={avatar.src} variant={'small'} />
           <Column variant={variant}>
             <Heading tag="h4" color="dark" variant={'default'} label={label} />
             <Row>
@@ -55,11 +53,7 @@ export const User: React.FC<IUserProps> = ({
       )}
       {variant === 'write' && (
         <Row gap="small">
-          <Avatar
-            alt={'Alter Tag'}
-            src="https://i.stack.imgur.com/5xd5n.png"
-            variant={'small'}
-          />
+          <Avatar alt={avatar.alt} src={avatar.src} variant={'small'} />
           <Column variant={variant}>
             <Heading tag="h4" color="dark" variant={'default'} label={label} />
             <Row>
@@ -139,11 +133,7 @@ export const User: React.FC<IUserProps> = ({
       {variant === 'recommended' && (
         <article className="flex flex-col p-16 bg-slate-white rounded-16">
           <Column variant="recommended">
-            <Avatar
-              alt={'Alter Tag'}
-              src="https://i.stack.imgur.com/5xd5n.png"
-              variant={'large'}
-            />
+            <Avatar alt={avatar.alt} src={avatar.src} variant={'large'} />
             <Row className="mb-8">
               <Heading tag="h4" color="dark" variant={'large'} label={label} />
             </Row>

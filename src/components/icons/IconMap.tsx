@@ -62,3 +62,5 @@ export const LikeRepostIcons = {
   HeartFilled: <HeartFilled />,
   ReplyFilled: <ReplyFilled />,
 };
+
+export type IconTypes = keyof typeof Icons;

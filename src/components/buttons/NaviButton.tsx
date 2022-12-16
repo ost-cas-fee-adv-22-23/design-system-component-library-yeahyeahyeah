@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { Icons } from '../icons/IconMap';
+import { Icons, IconTypes } from '../icons/IconMap';
 import { Avatar } from 'src/components/Avatar';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
@@ -9,34 +9,7 @@ interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   variant?: 'icon' | 'label' | 'profile';
   disabled?: boolean;
   fCallBack?: () => void;
-  icon?:
-    | 'calendar'
-    | 'cancel'
-    | 'checkmark'
-    | 'down'
-    | 'edit'
-    | 'eye'
-    | 'fullscreen'
-    | 'heart-filled'
-    | 'heart-outlined'
-    | 'left'
-    | 'location'
-    | 'logo-mumble'
-    | 'logout'
-    | 'mumble-gradient'
-    | 'mumble-text'
-    | 'mumble'
-    | 'profile'
-    | 'reply-filled'
-    | 'reply-outlined'
-    | 'repost'
-    | 'right'
-    | 'send'
-    | 'settings'
-    | 'share'
-    | 'time'
-    | 'up'
-    | 'upload';
+  icon?: IconTypes;
 }
 
 export const NaviButton: React.FC<IButtonProps> = ({
