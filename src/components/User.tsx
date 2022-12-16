@@ -24,14 +24,6 @@ export const User: React.FC<IUserProps> = ({
   timestamp = { label: 'TimeStamp', href: '#' },
   location = { label: 'Location', href: '#' },
   joined = { label: 'Joined', href: '#' },
-  pic = {
-    src: '',
-    alt: 'This is a profile picture!',
-    fCallBack: () => {
-      console.log('picture clicked');
-    },
-  },
-  btn,
 }) => {
   return (
     <>
@@ -153,12 +145,7 @@ export const User: React.FC<IUserProps> = ({
               variant={'large'}
             />
             <Row className="mb-8">
-              <Heading
-                tag="h4"
-                color="dark"
-                variant={'default'}
-                label={label}
-              />
+              <Heading tag="h4" color="dark" variant={'large'} label={label} />
             </Row>
             <div className="mb-16">
               <IconLink
@@ -173,7 +160,7 @@ export const User: React.FC<IUserProps> = ({
                 console.log('button clicked');
               }}
               icon="mumble"
-              label="Button Label"
+              label="Follow"
               size="small"
               type="button"
               variant="violet"

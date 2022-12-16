@@ -68,6 +68,7 @@ export default {
         type: 'object',
       },
       defaultValue: {
+        label: 'Follow',
         fCallBack: () => console.log('Clicked on the button'),
       },
     },
