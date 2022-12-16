@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-import { Icon } from 'src/components/icons/Icon';
 import { User } from 'src/components/User';
 import { IIconLinkProps } from '../IconLink';
 import { InputForm, IFormInputProps } from 'src/components/forms/Input';

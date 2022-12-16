@@ -143,6 +143,10 @@ module.exports = {
     },
     container: {
       center: true,
+      screens: {
+        mobile: '100%',
+        desktop: '680px',
+      },
     },
   },
   plugins: [
