@@ -61,7 +61,7 @@ export const NaviButton: React.FC<IButtonProps> = ({
       {variant === 'label' && (
         <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack}>
           {Icon}
-          {label}
+          <Span>{label}</Span>
         </ButtonStyles>
       )}
 
@@ -97,7 +97,6 @@ const buttonDefaults = tw`
   bg-violet-600
   flex
   flex-col
-  // grow-0
   justify-center
   items-center
   p-12
@@ -105,6 +104,13 @@ const buttonDefaults = tw`
   border-hidden
   outline-none
 `;
+
+const Span = styled.span(() => [
+  tw`
+    hidden
+    sm:(block mt-6)
+  `,
+]);
 
 const buttonHover = tw`
   hover:(text-skin-light bg-violet-700)
@@ -114,14 +120,13 @@ const buttonFocus = tw`
   focus:(bg-violet-700)
 `;
 
-const variantIcon = css`
-  padding: 7.5px 8px;
+const variantIcon = tw`
+  p-8
 `;
 
 const variantLabel = css`
   svg {
     margin-left: 0;
-    margin-bottom: 4px;
   }
 `;
 

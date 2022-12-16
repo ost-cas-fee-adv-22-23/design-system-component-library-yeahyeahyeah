@@ -22,7 +22,7 @@ export const Avatar: React.FC<IAvatarProps> = ({
         <>
           <div className="flex flex-row justify-center items-end">
             <Image variant={variant} src={src} alt={alt} />
-            <IconButton className="bg-pink-900" icon="edit" label="Label" />
+            <IconButton icon="edit" label="Label" />
           </div>
         </>
       )}
@@ -45,7 +45,7 @@ const ImageAnim = tw`
 `;
 
 const Image = styled.img(({ variant }: IImageProps) => [
-  variant === 'small' && tw`h-40 w-40`,
+  variant === 'small' && tw`h-40 w-40 min-w-[40px]`,
   variant === 'small' && ImageAnim,
 
   variant === 'medium' && tw`h-64 w-64 border-4 border-slate-100`,

@@ -3,7 +3,7 @@ import { NaviButton } from 'src/components/buttons/NaviButton';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
-  title: 'Interactions',
+  title: 'Navigation',
   component: NaviButton,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {

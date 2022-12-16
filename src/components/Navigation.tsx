@@ -12,8 +12,8 @@ export const Navigation: React.FC<INavigationProps> = () => {
   return (
     <>
       <NavigationStyles>
-        <div className="flex flex-col sm:flex-row justify-center items-center container px-16">
-          <div className="flex justify-between w-full">
+        <Container>
+          <Column>
             <MumbleLogo
               alignment="horizontal"
               href="#"
@@ -22,17 +22,43 @@ export const Navigation: React.FC<INavigationProps> = () => {
               title="Homepage"
               variant="violet"
             />
-            <div className="flex flex-col sm:flex-row gap-16 justify-between items-center">
+            <Row>
               <NaviButton variant="profile" label="Profile" />
               <NaviButton icon="settings" label="Settings" variant="label" />
               <NaviButton icon="logout" label="Logout" variant="label" />
-            </div>
-          </div>
-        </div>
+            </Row>
+          </Column>
+        </Container>
       </NavigationStyles>
     </>
   );
 };
+
+const Container = tw.div`
+  flex
+  flex-col
+  sm:flex-row
+  justify-center
+  items-center
+  container
+  px-16
+`;
+
+const Column = tw.div`
+flex
+  justify-between
+   w-full
+`;
+
+const Row = tw.div`
+  flex
+  flex-row
+  justify-between
+  items-center
+
+  gap-0
+  sm:gap-16
+`;
 
 const NavigationStyles = styled.nav(() => [
   tw`

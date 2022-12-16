@@ -54,6 +54,7 @@ const MumbleLogoStyled = styled.a(
     p-0
     cursor-pointer
     w-[200px]
+    min-w-[100px]
   `,
     alignment === 'vertical' && tw`flex-col`,
     alignment === 'vertical' &&
@@ -66,7 +67,7 @@ const MumbleLogoStyled = styled.a(
     alignment === 'horizontal' &&
       css`
         svg:first-of-type {
-          margin-right: 16px;
+          margin-right: 10%;
         }
       `,
     variant === 'violet' &&
@@ -88,7 +89,8 @@ const MumbleLogoStyled = styled.a(
         width: auto;
       }
       svg:first-of-type {
-        width: 30%;
+        width: 64px;
+        min-width: 10%;
       }
     `,
   ],
