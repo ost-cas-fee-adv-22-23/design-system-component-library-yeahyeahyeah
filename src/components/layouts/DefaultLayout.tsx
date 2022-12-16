@@ -16,9 +16,9 @@ const StyledDefaultLayout = styled.div(() => [
     flex-wrap
     justify-center
     items-start
-     w-full
-     h-screen
-     p-16
-     pt-32
+    w-full
+    h-full
+    p-16
+    pt-32
   `,
 ]);

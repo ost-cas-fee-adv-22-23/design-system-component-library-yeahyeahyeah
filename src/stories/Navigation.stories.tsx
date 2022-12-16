@@ -1,13 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
-import { ImageContainer } from 'src/components/ImageContainer';
-
-const dummyImage = './assets/image-dummy.png';
+import { Navigation } from 'src/components/Navigation';
 
 export default {
-  title: 'Mumble/Image',
+  title: 'Navigation/Navigation',
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
-  component: ImageContainer,
+  component: Navigation,
   argTypes: {
     size: {
       control: {
@@ -19,7 +17,6 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: dummyImage,
     },
     alt: {
       control: {
@@ -31,12 +28,12 @@ export default {
       action: () => 'handleClick',
     },
   },
-} as ComponentMeta<typeof ImageContainer>;
+} as ComponentMeta<typeof Navigation>;
 
-const Template: ComponentStory<typeof ImageContainer> = (args) => (
-  <ImageContainer {...args} />
+const Template: ComponentStory<typeof Navigation> = (args) => (
+  <Navigation {...args} />
 );
 
-export const ImageContainerStory = Template.bind({});
+export const NavigationStory = Template.bind({});
 
-ImageContainerStory.storyName = 'Image';
+NavigationStory.storyName = 'Navigation';

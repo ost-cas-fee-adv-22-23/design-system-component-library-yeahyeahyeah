@@ -17,7 +17,7 @@ export const ImageContainer: React.FC<IProfilePicture> = ({
   return <StyledImageContainer src={src} alt={alt} onClick={fCallBack} />;
 };
 
-interface IStyledImageContainerProps {}
+// interface IStyledImageContainerProps {}
 
 const StyledImageContainer = styled.img(() => [
   tw`
@@ -26,6 +26,7 @@ const StyledImageContainer = styled.img(() => [
 		rounded-16
 		border-1
 		border-slate-white
-		aspect-auto
+		aspect-video
+		object-cover
 	`,
 ]);
