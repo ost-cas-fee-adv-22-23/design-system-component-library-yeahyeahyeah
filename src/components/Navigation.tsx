@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { IIcon } from 'src/components/icons/Icon';
 import { MumbleLogo } from 'src/components/icons/MumbleLogo';
 import { NaviButton } from 'src/components/buttons/NaviButton';
 import { ProfilePicture } from 'src/components/ProfilePicture';
-import { Logout, Settings } from 'src/components/icons/icons';
 
 export interface INavigationProps extends React.ReactElement<HTMLDivElement> {
   children?: React.ReactNode;
   title: string;
-  iconName: IIcon;
   fCallBack?: () => void;
 }
 
@@ -34,12 +31,8 @@ export const Navigation: React.FC<INavigationProps> = () => {
                 size="small"
                 src="https://i.stack.imgur.com/5xd5n.png?s=256&g=1"
               />
-              <NaviButton
-                icon={<Settings />}
-                label="Settings"
-                variant="label"
-              />
-              <NaviButton icon={<Logout />} label="Logout" variant="label" />
+              <NaviButton icon="settings" label="Settings" variant="label" />
+              <NaviButton icon="logout" label="Logout" variant="label" />
             </div>
           </div>
         </div>

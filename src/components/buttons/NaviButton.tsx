@@ -1,14 +1,41 @@
 import React from 'react';
-import { ISVGProps } from 'src/interfaces/SVG';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
+import { Icons } from '../icons/IconMap';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   variant?: 'icon' | 'label';
   disabled?: boolean;
   fCallBack?: () => void;
-  icon?: any;
+  icon?:
+    | 'calendar'
+    | 'cancel'
+    | 'checkmark'
+    | 'down'
+    | 'edit'
+    | 'eye'
+    | 'fullscreen'
+    | 'heart-filled'
+    | 'heart-outlined'
+    | 'left'
+    | 'location'
+    | 'logo-mumble'
+    | 'logout'
+    | 'mumble-gradient'
+    | 'mumble-text'
+    | 'mumble'
+    | 'profile'
+    | 'reply-filled'
+    | 'reply-outlined'
+    | 'repost'
+    | 'right'
+    | 'send'
+    | 'settings'
+    | 'share'
+    | 'time'
+    | 'up'
+    | 'upload';
 }
 
 export const NaviButton: React.FC<IButtonProps> = ({
@@ -16,11 +43,11 @@ export const NaviButton: React.FC<IButtonProps> = ({
   variant = 'label',
   disabled = false,
   fCallBack,
-  icon,
+  icon = 'mumble',
 }) => {
-  const Icon = React.cloneElement(Object(icon), {
+  const Icon = React.cloneElement(Object(Icons[icon]), {
     className: 'fill-slate-white',
-  } as ISVGProps);
+  });
 
   return (
     <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack}>

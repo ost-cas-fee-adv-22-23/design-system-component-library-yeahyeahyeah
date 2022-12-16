@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { ISVGProps } from 'src/interfaces/SVG';
 import { Icons } from '../icons/IconMap';
 
 export interface IButtonProps
