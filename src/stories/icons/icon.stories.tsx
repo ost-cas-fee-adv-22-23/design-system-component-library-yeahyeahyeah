@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
-import { Icon, IIcon } from '../../components/icons/Icon';
+import { Icon } from '../../components/icons/Icon';
 
 let tailWindColors: string[] = [
   'fill-slate-500',
@@ -65,7 +65,7 @@ const TemplateIcon: ComponentStory<typeof Icon> = (args) => (
     </div>
     {iconTypes.map((iconType, index) => {
       tailWindColorsElement = tailWindColors.shift() || '';
-      let icon = <Icon {...args} iconName={iconType as IIcon['iconName']} />;
+      let icon = <Icon {...args} iconName={iconType as any} />;
       tailWindColors.push(tailWindColorsElement);
       return <div key={index}>{icon}</div>;
     })}
