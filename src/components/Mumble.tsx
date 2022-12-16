@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import { IUserProps, User } from './User';
 import { IParagraphProps, Paragraph } from './typography/Paragraph';
+import { IconLink } from './IconLink';
+import { InteractionButton } from './buttons/InteractionButton';
+import { ShareButton } from './buttons/ShareButton';
 
 export interface IMumbleProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   variant?: 'detailpage' | 'timeline' | 'response';
@@ -39,7 +42,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
       label: 'Username',
     },
   },
-  text = 'here comes a mumble',
+  text = '',
 }) => {
   return (
     <>
@@ -63,6 +66,15 @@ export const Mumble: React.FC<IMumbleProps> = ({
               text={text}
             />
           </DivStyled>
+          <Row>
+            <InteractionButton
+              fCallBack={() => {}}
+              quantity={0}
+              type="comment"
+            />
+            <InteractionButton fCallBack={() => {}} quantity={0} type="like" />
+            <ShareButton fCallBack={() => {}} label="Copy Link" />
+          </Row>
         </ArticleStyled>
       )}
       {variant === 'timeline' && (
@@ -85,6 +97,15 @@ export const Mumble: React.FC<IMumbleProps> = ({
               text={text}
             />
           </DivStyled>
+          <Row>
+            <InteractionButton
+              fCallBack={() => {}}
+              quantity={0}
+              type="comment"
+            />
+            <InteractionButton fCallBack={() => {}} quantity={0} type="like" />
+            <ShareButton fCallBack={() => {}} label="Copy Link" />
+          </Row>
         </ArticleStyled>
       )}
       {variant === 'response' && (
@@ -107,6 +128,15 @@ export const Mumble: React.FC<IMumbleProps> = ({
               text={text}
             />
           </DivStyled>
+          <Row>
+            <InteractionButton
+              fCallBack={() => {}}
+              quantity={0}
+              type="comment"
+            />
+            <InteractionButton fCallBack={() => {}} quantity={0} type="like" />
+            <ShareButton fCallBack={() => {}} label="Copy Link" />
+          </Row>
         </ArticleStyled>
       )}
     </>
@@ -129,7 +159,7 @@ const Row = styled.div(({ gap }: IRowStyles) => [
   tw`
     flex
     flex-row
-    justify-start
+    justify-between
     items-center
     max-w-lg
     gap-16
