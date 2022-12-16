@@ -7,7 +7,7 @@ interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   variant?: 'icon' | 'label';
   disabled?: boolean;
-  handleClick?: () => void;
+  fCallBack?: () => void;
   icon?: any;
 }
 
@@ -15,17 +15,15 @@ export const NaviButton: React.FC<IButtonProps> = ({
   label,
   variant = 'label',
   disabled = false,
-  handleClick,
+  fCallBack,
   icon,
 }) => {
   const Icon = React.cloneElement(Object(icon), {
     className: 'fill-slate-white',
-    width: '16px',
-    height: '16px',
   } as ISVGProps);
 
   return (
-    <ButtonStyles variant={variant} disabled={disabled} onClick={handleClick}>
+    <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack}>
       {Icon}
       {variant === 'label' ? label : false}
     </ButtonStyles>
@@ -51,7 +49,7 @@ const buttonDefaults = tw`
   bg-violet-600
   flex
   flex-col
-  grow-0
+  // grow-0
   justify-center
   items-center
   p-12
@@ -73,9 +71,6 @@ const variantIcon = css`
 `;
 
 const variantLabel = css`
-  width: 54px;
-  height: 56px;
-
   svg {
     margin-left: 0;
     margin-bottom: 4px;
