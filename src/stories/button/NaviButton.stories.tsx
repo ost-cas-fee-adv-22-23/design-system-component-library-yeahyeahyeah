@@ -1,9 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 import { NaviButton } from 'src/components/buttons/NaviButton';
-import { Icons } from 'src/components/icons/IconMap';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
-import { ISVGProps } from 'src/interfaces/SVG';
 
 export default {
   title: 'Interactions',

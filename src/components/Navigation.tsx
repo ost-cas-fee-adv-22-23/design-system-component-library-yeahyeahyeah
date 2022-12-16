@@ -5,7 +5,6 @@ import { NaviButton } from 'src/components/buttons/NaviButton';
 import { ProfilePicture } from 'src/components/ProfilePicture';
 
 export interface INavigationProps extends React.ReactElement<HTMLDivElement> {
-  children?: React.ReactNode;
   title: string;
   fCallBack?: () => void;
 }
