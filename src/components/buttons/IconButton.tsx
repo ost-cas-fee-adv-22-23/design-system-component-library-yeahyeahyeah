@@ -1,24 +1,49 @@
 import React from 'react';
-import { ISVGProps } from 'src/interfaces/SVG';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
+import { Icons } from '../icons/IconMap';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   handleClick?: () => void;
-  icon: string;
+  icon:
+    | 'calendar'
+    | 'cancel'
+    | 'checkmark'
+    | 'down'
+    | 'edit'
+    | 'eye'
+    | 'fullscreen'
+    | 'heart-filled'
+    | 'heart-outlined'
+    | 'left'
+    | 'location'
+    | 'logo-mumble'
+    | 'logout'
+    | 'mumble-gradient'
+    | 'mumble-text'
+    | 'mumble'
+    | 'profile'
+    | 'reply-filled'
+    | 'reply-outlined'
+    | 'repost'
+    | 'right'
+    | 'send'
+    | 'settings'
+    | 'share'
+    | 'time'
+    | 'up'
+    | 'upload';
 }
 
 export const IconButton: React.FC<IButtonProps> = ({
   label,
   handleClick,
-  icon = 'timestamp',
+  icon = 'time',
 }) => {
-  const Icon = React.cloneElement(Object(icon), {
+  const Icon = React.cloneElement(Object(Icons[icon]), {
     className: 'fill-slate-white',
-    width: '16px',
-    height: '16px',
-  } as ISVGProps);
+  });
 
   return (
     <ButtonStyles onClick={handleClick}>
