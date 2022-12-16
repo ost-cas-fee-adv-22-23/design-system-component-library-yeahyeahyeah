@@ -34,7 +34,7 @@ export const WriteComponent: React.FC<IWriteComponent> = ({
             href: '',
             label: 'Location',
           }}
-          name="Display Name"
+          label="Display Name"
           pic={{
             alt: 'This is a picture of Roli Rollinger',
             fCallBack: function noRefCheck() {},
