@@ -20,10 +20,10 @@ export const Avatar: React.FC<IAvatarProps> = ({
         <Image variant={variant} src={src} alt={alt} />
       ) : (
         <>
-          <div className="flex flex-row justify-center items-end">
+          <Row>
             <Image variant={variant} src={src} alt={alt} />
             <IconButton icon="edit" label="Label" />
-          </div>
+          </Row>
         </>
       )}
     </>
@@ -33,6 +33,13 @@ export const Avatar: React.FC<IAvatarProps> = ({
 interface IImageProps {
   variant: string;
 }
+
+const Row = tw.div`
+  flex
+  flex-row
+  justify-center
+  items-end
+`;
 
 const ImageAnim = tw`
 	relative

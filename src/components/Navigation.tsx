@@ -5,22 +5,28 @@ import { NaviButton } from 'src/components/buttons/NaviButton';
 
 export interface INavigationProps extends React.ReactElement<HTMLDivElement> {
   title: string;
+  href: string;
   fCallBack?: () => void;
 }
 
-export const Navigation: React.FC<INavigationProps> = () => {
+export const Navigation: React.FC<INavigationProps> = ({
+  title,
+  href,
+  fCallBack,
+}) => {
   return (
     <>
       <NavigationStyles>
         <Container>
           <Column>
             <MumbleLogo
+              title={title}
+              href={href}
               alignment="horizontal"
-              href="#"
               iconColor="fill-slate-white"
               iconWidth="auto"
-              title="Homepage"
               variant="violet"
+              onClick={fCallBack}
             />
             <Row>
               <NaviButton variant="profile" label="Profile" />

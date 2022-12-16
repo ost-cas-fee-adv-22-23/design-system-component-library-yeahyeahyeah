@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { NaviButton } from 'src/components/buttons/NaviButton';
+import { IButtonProps } from 'src/components/buttons/Button';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {

@@ -140,11 +140,11 @@ const TextareaStyles = styled.textarea(() => [
     min-h-[calc(4.375rem)]
     
   bg-slate-100
-    border-1
-    border-slate-200
+    border-2
+    border-slate-100
     outline-none
   
-    hover:(border-2 border-spacing-0)
+    hover:(border-2 border-slate-200)
     active:(border-2 border-violet-600)
     focus:(border-2 border-violet-600)
     placeholder:(font-normal text-slate-500)

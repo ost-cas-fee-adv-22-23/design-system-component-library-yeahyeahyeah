@@ -7,22 +7,15 @@ export default {
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   component: Navigation,
   argTypes: {
-    size: {
-      control: {
-        type: 'select',
-      },
-      defaultValue: 'xlarge',
+    title: {
+      control: 'text',
+      description: 'The name of logo link.',
+      defaultValue: 'Startpage',
     },
-    src: {
-      control: {
-        type: 'text',
-      },
-    },
-    alt: {
-      control: {
-        type: 'text',
-      },
-      defaultValue: 'This is a profile picture!',
+    href: {
+      control: 'text',
+      description: 'Link to startpage. Should be /',
+      defaultValue: '#',
     },
     fCallBack: {
       action: () => 'handleClick',

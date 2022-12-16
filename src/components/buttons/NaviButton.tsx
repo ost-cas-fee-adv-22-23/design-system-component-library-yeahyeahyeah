@@ -124,17 +124,10 @@ const variantIcon = tw`
   p-8
 `;
 
-const variantLabel = css`
-  svg {
-    margin-left: 0;
-  }
-`;
-
 const ButtonStyles = styled.button(({ variant }: ButtonProps) => [
   buttonFont,
   buttonDefaults,
   buttonHover,
   buttonFocus,
   variant === 'icon' && variantIcon,
-  variant === 'label' && variantLabel,
 ]);
