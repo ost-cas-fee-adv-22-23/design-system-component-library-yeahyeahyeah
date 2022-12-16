@@ -8,14 +8,13 @@ import { Avatar } from 'src/components/Avatar';
 
 export interface IUserProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   label: string;
-  variant?: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended' | 'write';
+  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended' | 'write';
   username: IIconLinkProps;
   timestamp?: IIconLinkProps;
   location?: IIconLinkProps;
   joined?: IIconLinkProps;
-  pic?: { src: string; alt: string; fCallBack?: () => void };
-  btn?: { fCallBack?: () => void };
-  avatar?: { src: string; alt: string };
+  avatar?: { src: string; alt: string; fCallBack?: () => void };
+  btn?: { fCallBack?: () => void; label: string };
 }
 
 export const User: React.FC<IUserProps> = ({
@@ -26,6 +25,7 @@ export const User: React.FC<IUserProps> = ({
   location = { label: 'Location', href: '#' },
   joined = { label: 'Joined', href: '#' },
   avatar = { src: 'https://i.stack.imgur.com/5xd5n.png', alt: 'Alter Tag' },
+  btn = { label: 'Follow' },
 }) => {
   return (
     <>
@@ -146,11 +146,9 @@ export const User: React.FC<IUserProps> = ({
               ></IconLink>
             </div>
             <Button
-              handleClick={() => {
-                console.log('button clicked');
-              }}
+              handleClick={btn?.fCallBack}
               icon="mumble"
-              label="Follow"
+              label={btn?.label}
               size="small"
               type="button"
               variant="violet"

@@ -1,14 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { User } from 'src/components/User';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
-import UserImage from './assets/user.png';
 
 export default {
   title: 'User/User',
   component: User,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
-    name: {
+    label: {
       defaultValue: 'Display Name',
     },
     variant: {
@@ -51,16 +50,6 @@ export default {
       defaultValue: {
         label: 'Joined',
         href: '',
-      },
-    },
-    pic: {
-      control: {
-        type: 'object',
-      },
-      defaultValue: {
-        src: UserImage,
-        alt: 'This is a picture of Roli Rollinger',
-        fCallBack: () => console.log('Clicked on the picture'),
       },
     },
     btn: {

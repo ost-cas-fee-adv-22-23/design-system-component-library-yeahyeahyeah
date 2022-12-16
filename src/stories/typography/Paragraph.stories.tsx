@@ -15,6 +15,9 @@ export default {
       description: 'The color of paragraph',
       control: { type: 'select' },
     },
+    text: {
+      defaultValue: 'This is a paragraph',
+    },
   },
 } as ComponentMeta<typeof Paragraph>;
 

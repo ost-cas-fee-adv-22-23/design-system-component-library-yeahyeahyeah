@@ -5,7 +5,7 @@ import { ImageContainer } from 'src/components/ImageContainer';
 const dummyImage = './assets/image-dummy.png';
 
 export default {
-  title: 'Mumble/Image',
+  title: 'Image/ImageContainer',
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   component: ImageContainer,
   argTypes: {

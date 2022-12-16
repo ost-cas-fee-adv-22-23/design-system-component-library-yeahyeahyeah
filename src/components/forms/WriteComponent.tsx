@@ -24,6 +24,7 @@ export const WriteComponent: React.FC<IWriteComponent> = ({
       <BoxStyled>
         <User
           btn={{
+            label: 'Follow',
             fCallBack: () => {},
           }}
           joined={{
@@ -35,7 +36,7 @@ export const WriteComponent: React.FC<IWriteComponent> = ({
             label: 'Location',
           }}
           label="Display Name"
-          pic={{
+          avatar={{
             alt: 'This is a picture of Roli Rollinger',
             fCallBack: function noRefCheck() {},
             src: '3911aaec7c2685bf1059.png',

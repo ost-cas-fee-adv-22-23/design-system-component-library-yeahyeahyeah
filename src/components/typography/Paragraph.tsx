@@ -2,31 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-interface IParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
+export interface IParagraphProps
+  extends React.HTMLAttributes<HTMLParagraphElement> {
   variant?: 'default' | 'medium' | 'large';
   color?: 'default' | 'dark' | 'light';
+  text: string;
 }
 
 export const Paragraph: React.FC<IParagraphProps> = ({
   variant = 'medium',
   color = 'default',
+  text,
 }) => {
   return (
-    <>
-      <ParagraphStyles variant={variant} color={color}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-        assumenda ratione amet maiores aspernatur molestias unde, totam illo
-        alias magnam ea cum repellat quibusdam quam. Officia voluptatem odit ex
-        mollitia?
-      </ParagraphStyles>
-
-      <ParagraphStyles variant={variant} color={color}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-        assumenda ratione amet maiores aspernatur molestias unde, totam illo
-        alias magnam ea cum repellat quibusdam quam. Officia voluptatem odit ex
-        mollitia?
-      </ParagraphStyles>
-    </>
+    <ParagraphStyles variant={variant} color={color}>
+      {text}
+    </ParagraphStyles>
   );
 };
 
