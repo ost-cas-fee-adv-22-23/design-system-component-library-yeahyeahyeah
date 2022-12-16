@@ -1,6 +1,5 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import { HeartFilled, HeartOutlined } from '../../../components/icons/icons';
 
 export default {
@@ -18,12 +17,16 @@ const TemplateHeartOutlined: ComponentStory<typeof HeartOutlined> = (args) => (
 
 export const Filled = TemplateHeartFilled.bind({});
 Filled.args = {
-  className: 'fill-slate-500',
+  className: 'fill-pink-500',
+  width: '300px',
+  height: '300px',
   onClick: () => console.log('icon clicked'),
 };
 
 export const Outlined = TemplateHeartOutlined.bind({});
 Outlined.args = {
-  className: 'fill-slate-300',
+  className: 'fill-pink-500',
+  width: '300px',
+  height: '300px',
   onClick: () => console.log('icon clicked'),
 };

@@ -1,6 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
-import { Icon } from '../../components/icons/Icon';
+import { Settings } from '../../components/icons/icons';
+import { Icons } from '../../components/icons/IconMap';
+import React from 'react';
 
 let tailWindColors: string[] = [
   'fill-slate-500',
@@ -10,37 +12,10 @@ let tailWindColors: string[] = [
 
 let tailWindColorsElement: string = '';
 
-const iconTypes = [
-  'calendar',
-  'cancel',
-  'checkmark',
-  'chevron-up',
-  'chevron-down',
-  'chevron-left',
-  'chevron-right',
-  'edit',
-  'eye',
-  'fullscreen',
-  'heart-filled',
-  'heart-outlined',
-  'location',
-  'logout',
-  'mumble',
-  'profile',
-  'reply-filled',
-  'reply-outlined',
-  'repost',
-  'send',
-  'settings',
-  'share',
-  'time',
-  'upload',
-];
-
 export default {
   title: 'Icons/Collection',
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
-  component: Icon,
+  component: Settings,
   argTypes: {
     iconColor: {
       control: {
@@ -56,38 +31,49 @@ export default {
       action: () => 'handleClick',
     },
   },
-} as ComponentMeta<typeof Icon>;
+} as ComponentMeta<typeof Settings>;
 
-const TemplateIcon: ComponentStory<typeof Icon> = (args) => (
+type Keys = keyof typeof Icons;
+
+const TemplateIcon: ComponentStory<typeof Settings | any> = () => (
   <>
     <div>
-      <Icon {...args} />
+      <Settings className="fill-pink-500" width="50px" height="50px" />
     </div>
-    {iconTypes.map((iconType, index) => {
+
+    {Object.keys(Icons).map((iconType, index) => {
       tailWindColorsElement = tailWindColors.shift() || '';
-      let icon = <Icon {...args} iconName={iconType as any} />;
+
+      const Icon = React.cloneElement(
+        Icons[iconType as Keys] || Icons['settings'],
+        {
+          className: tailWindColorsElement,
+          width: '50px',
+          height: '50px',
+        },
+      );
+
       tailWindColors.push(tailWindColorsElement);
-      return <div key={index}>{icon}</div>;
+      return <div key={index}>{Icon}</div>;
     })}
   </>
 );
 
-const TemplateIconSingle: ComponentStory<typeof Icon | any> = (args) => (
-  <Icon {...args} />
-);
+const TemplateIconSingle: ComponentStory<any> = (args) => {
+  const Icon = React.cloneElement(Icons[args.iconName as Keys], {
+    className: args.iconColor,
+    width: args.iconWidth,
+    height: args.iconHeight,
+  });
+  return <div>{Icon}</div>;
+};
 
 export const All = TemplateIcon.bind({});
-All.args = {
-  iconName: 'time',
-  iconColor: 'fill-pink-500',
-  iconWidth: '100px',
-  iconHeight: '100px',
-};
 
 export const Single = TemplateIconSingle.bind({});
 Single.args = {
   iconName: 'heart-outlined',
   iconColor: 'fill-pink-500',
-  iconWidth: '16px',
-  iconHeight: '16px',
+  iconWidth: '300px',
+  iconHeight: '300px',
 };

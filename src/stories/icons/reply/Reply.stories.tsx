@@ -17,12 +17,16 @@ const TemplateReplyEmpty: ComponentStory<typeof ReplyOutlined> = (args) => (
 
 export const Filled = TemplateReplyFilled.bind({});
 Filled.args = {
-  className: 'fill-slate-300',
+  className: 'fill-pink-500',
+  width: '300px',
+  height: '300px',
   onClick: () => console.log('icon clicked'),
 };
 
 export const Empty = TemplateReplyEmpty.bind({});
 Empty.args = {
-  className: 'fill-slate-500',
+  className: 'fill-pink-500',
+  width: '300px',
+  height: '300px',
   onClick: () => console.log('icon clicked'),
 };
