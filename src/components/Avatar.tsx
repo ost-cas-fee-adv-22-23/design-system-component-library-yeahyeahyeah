@@ -25,7 +25,7 @@ interface IImageProps {
 }
 
 const ImageAnim = tw`
-	overflow-hidden
+	relative
 	scale-100
 	hover:scale-110
 

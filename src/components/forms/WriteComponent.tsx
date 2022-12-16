@@ -24,19 +24,31 @@ export const WriteComponent: React.FC<IWriteComponent> = ({
       <BoxStyled>
         <User
           btn={{
-            fCallBack: function noRefCheck() {},
+            fCallBack: () => {},
           }}
-          label="Display Name"
+          joined={{
+            href: '',
+            label: 'Joined',
+          }}
+          location={{
+            href: '',
+            label: 'Location',
+          }}
+          name="Display Name"
           pic={{
             alt: 'This is a picture of Roli Rollinger',
             fCallBack: function noRefCheck() {},
             src: '3911aaec7c2685bf1059.png',
           }}
+          timestamp={{
+            href: '',
+            label: 'Timestamp',
+          }}
           username={{
             href: '',
             label: 'Username',
           }}
-          variant="write"
+          variant="small"
         />
         <InputForm
           className="mt-16"

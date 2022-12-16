@@ -5,6 +5,7 @@ import { Heading } from 'src/components/typography/Heading';
 import { IconLink, IIconLinkProps } from 'src/components/IconLink';
 import { ProfilePicture } from './ProfilePicture';
 import { Button } from './buttons/Button';
+import { Avatar } from 'src/components/Avatar';
 
 export interface IUserProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   label: string;
@@ -37,11 +38,10 @@ export const User: React.FC<IUserProps> = ({
     <>
       {variant === 'small' && (
         <Row gap="small">
-          <ProfilePicture
-            alt={pic.alt}
-            fCallBack={pic.fCallBack}
-            size="small"
-            src={pic.src}
+          <Avatar
+            alt={'Alter Tag'}
+            src="https://i.stack.imgur.com/5xd5n.png"
+            variant={'small'}
           />
           <Column variant={variant}>
             <Heading tag="h4" color="dark" variant={'default'} label={label} />
