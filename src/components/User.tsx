@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import { Heading } from 'src/components/typography/Heading';
 import { IconLink, IIconLinkProps } from 'src/components/IconLink';
-import { ProfilePicture } from './ProfilePicture';
 import { Button } from './buttons/Button';
 import { Avatar } from 'src/components/Avatar';
 
@@ -64,11 +63,10 @@ export const User: React.FC<IUserProps> = ({
       )}
       {variant === 'write' && (
         <Row gap="small">
-          <ProfilePicture
-            alt={pic.alt}
-            fCallBack={pic.fCallBack}
-            size="small"
-            src={pic.src}
+          <Avatar
+            alt={'Alter Tag'}
+            src="https://i.stack.imgur.com/5xd5n.png"
+            variant={'small'}
           />
           <Column variant={variant}>
             <Heading tag="h4" color="dark" variant={'default'} label={label} />
@@ -147,13 +145,12 @@ export const User: React.FC<IUserProps> = ({
         </Column>
       )}
       {variant === 'recommended' && (
-        <article className="w-[216px] h-[242px] bg-slate-white rounded-16">
+        <article className="flex flex-col p-16 bg-slate-white rounded-16">
           <Column variant="recommended">
-            <ProfilePicture
-              alt={pic.alt}
-              fCallBack={pic.fCallBack}
-              size="large"
-              src={pic.src}
+            <Avatar
+              alt={'Alter Tag'}
+              src="https://i.stack.imgur.com/5xd5n.png"
+              variant={'large'}
             />
             <Row className="mb-8">
               <Heading
@@ -208,7 +205,7 @@ const Column = styled.div(({ variant }: IUserStyles) => [
     gap-4
   `,
   variant === 'small' && tw`mt-2`,
-  variant === 'recommended' && tw`items-center gap-0`,
+  variant === 'recommended' && tw`items-center`,
 ]);
 
 const Row = styled.div(({ gap }: IRowStyles) => [

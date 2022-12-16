@@ -48,11 +48,13 @@ const Image = styled.img(({ variant }: IImageProps) => [
   variant === 'small' && tw`h-40 w-40`,
   variant === 'small' && ImageAnim,
 
-  variant === 'medium' && tw`h-64 w-64 border-4 border-slate-white`,
+  variant === 'medium' && tw`h-64 w-64 border-4 border-slate-100`,
   variant === 'medium' && ImageAnim,
 
-  variant === 'large' && tw`h-96 w-96 border-4 border-slate-white`,
-  variant === 'xlarge' && tw`h-160 w-160 border-4 border-slate-white`,
+  variant === 'large' && tw`h-96 w-96 border-4 border-slate-100`,
+  variant === 'large' && ImageAnim,
+
+  variant === 'xlarge' && tw`h-160 w-160 border-4 border-slate-100`,
 
   variant === 'edit' &&
     tw`
@@ -62,7 +64,7 @@ const Image = styled.img(({ variant }: IImageProps) => [
 		h-160
 		w-160
 		border-4
-		border-slate-white
+		border-slate-100
 	`,
   variant === 'edit' &&
     css`
