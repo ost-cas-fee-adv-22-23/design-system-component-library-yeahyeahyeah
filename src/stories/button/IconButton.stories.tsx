@@ -2,8 +2,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconButton } from '../../components/buttons/IconButton';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 import { Icons } from 'src/components/icons/IconMap';
-import { ISVGProps } from 'src/interfaces/SVG';
-import React from 'react';
 
 export default {
   title: 'Interactions/IconButton',
@@ -20,15 +18,14 @@ export default {
     icon: {
       control: 'select',
       options: Object.keys(Icons),
-      mapping: Icons,
       name: 'Icon',
-      defaultValue: Icons.settings,
+      defaultValue: 'settings',
     },
   },
 } as ComponentMeta<typeof IconButton>;
 
 const Template: ComponentStory<typeof IconButton> = (args) => {
-  return <IconButton {...args}>{args.children}</IconButton>;
+  return <IconButton {...args} />;
 };
 /**
  * @button

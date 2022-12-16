@@ -16,7 +16,7 @@ export default {
         type: 'select',
       },
     },
-    handleClick: {
+    fCallBack: {
       action: () => 'handleClick',
     },
     width: {
