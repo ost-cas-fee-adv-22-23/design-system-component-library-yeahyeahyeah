@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import { MumbleLogo } from 'src/components/icons/MumbleLogo';
 import { NaviButton } from 'src/components/buttons/NaviButton';
-import { ProfilePicture } from 'src/components/ProfilePicture';
 
 export interface INavigationProps extends React.ReactElement<HTMLDivElement> {
   title: string;

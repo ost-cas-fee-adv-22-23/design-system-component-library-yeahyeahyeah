@@ -2,13 +2,12 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import { Icons } from '../icons/IconMap';
-import { ProfilePicture } from '../ProfilePicture';
+import { Avatar } from 'src/components/Avatar';
 
 interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   variant?: 'icon' | 'label' | 'profile';
   disabled?: boolean;
-  src?: string;
   fCallBack?: () => void;
   icon?:
     | 'calendar'
@@ -68,10 +67,10 @@ export const NaviButton: React.FC<IButtonProps> = ({
 
       {variant === 'profile' && (
         <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack}>
-          <ProfilePicture
-            alt="alt tag"
-            size="small"
-            src={'https://i.stack.imgur.com/5xd5n.png?s=256&g=1'}
+          <Avatar
+            alt={'Alter Tag'}
+            src="https://i.stack.imgur.com/5xd5n.png"
+            variant={'small'}
           />
         </ButtonStyles>
       )}

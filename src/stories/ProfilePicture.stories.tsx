@@ -3,7 +3,7 @@ import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 import { ProfilePicture } from '../components/ProfilePicture';
 
 export default {
-  title: 'User/Avatar',
+  title: 'User/ProfileImage',
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   component: ProfilePicture,
   argTypes: {
