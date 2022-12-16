@@ -14,7 +14,7 @@ export const Navigation: React.FC<INavigationProps> = () => {
   return (
     <>
       <NavigationStyles>
-        <div className="flex flex-col sm:flex-row justify-center items-center container">
+        <div className="flex flex-col sm:flex-row justify-center items-center container px-16">
           <div className="flex justify-between w-full">
             <MumbleLogo
               alignment="horizontal"
@@ -24,13 +24,8 @@ export const Navigation: React.FC<INavigationProps> = () => {
               title="Homepage"
               variant="violet"
             />
-            <div className="flex flex-col sm:flex-row gap-32 justify-between items-center">
-              <ProfilePicture
-                alt="This is a profile picture!"
-                fCallBack={() => {}}
-                size="small"
-                src="https://i.stack.imgur.com/5xd5n.png?s=256&g=1"
-              />
+            <div className="flex flex-col sm:flex-row gap-16 justify-between items-center">
+              <NaviButton variant="profile" label="Profile" />
               <NaviButton icon="settings" label="Settings" variant="label" />
               <NaviButton icon="logout" label="Logout" variant="label" />
             </div>
