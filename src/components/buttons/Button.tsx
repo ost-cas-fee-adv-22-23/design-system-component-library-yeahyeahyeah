@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import { ISVGProps } from 'src/interfaces/SVG';
 
 export interface IButtonProps
   extends React.HtmlHTMLAttributes<HTMLButtonElement> {
@@ -11,7 +12,7 @@ export interface IButtonProps
   type?: 'button' | 'reset' | 'submit';
   disabled?: boolean;
   handleClick?: () => void;
-  children?: React.ReactNode;
+  icon?: any;
 }
 
 export const Button: React.FC<IButtonProps> = ({
@@ -22,8 +23,14 @@ export const Button: React.FC<IButtonProps> = ({
   width = 'default',
   disabled = false,
   handleClick,
-  children,
+  icon,
 }) => {
+  const Icon = React.cloneElement(Object(icon), {
+    className: 'fill-slate-white ml-8',
+    width: '16px',
+    height: '16px',
+  } as ISVGProps);
+
   return (
     <>
       <ButtonStyles
@@ -35,7 +42,7 @@ export const Button: React.FC<IButtonProps> = ({
         onClick={handleClick}
       >
         {label}
-        {children}
+        {Icon}
       </ButtonStyles>
     </>
   );

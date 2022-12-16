@@ -6,6 +6,7 @@ import { User } from 'src/components/User';
 import { IIconLinkProps } from '../IconLink';
 import { InputForm, IFormInputProps } from 'src/components/forms/Input';
 import { Button, IButtonProps } from 'src/components/buttons/Button';
+import { Send, Upload } from '../../stories/assets/icons';
 
 interface IWriteComponent {
   name: string;
@@ -57,9 +58,8 @@ export const WriteComponent: React.FC<IWriteComponent> = ({
             type="button"
             variant="slate"
             width="full"
-          >
-            <Icon iconName="upload" iconColor="fill-slate-white ml-8" />
-          </Button>
+            icon={<Upload />}
+          />
           <Button
             handleClick={() => {}}
             label="Absenden"
@@ -67,9 +67,8 @@ export const WriteComponent: React.FC<IWriteComponent> = ({
             type="button"
             variant="violet"
             width="full"
-          >
-            <Icon iconName="send" iconColor="fill-slate-white ml-8" />
-          </Button>
+            icon={<Send />}
+          />
         </Row>
       </BoxStyled>
     </>

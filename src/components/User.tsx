@@ -173,20 +173,16 @@ export const User: React.FC<IUserProps> = ({
               ></IconLink>
             </div>
             <Button
-              className="fill-slate-white"
-              handleClick={btn?.fCallBack}
-              label="Follow"
+              handleClick={() => {
+                console.log('button clicked');
+              }}
+              icon={<Mumble />}
+              label="Button Label"
               size="small"
               type="button"
               variant="violet"
               width="large"
-            >
-              <Mumble
-                className="fill-slate-white ml-8"
-                height="16px"
-                width="16px"
-              />
-            </Button>
+            />
           </Column>
         </article>
       )}
@@ -226,15 +222,4 @@ const Row = styled.div(({ gap }: IRowStyles) => [
     gap-16
   `,
   gap === 'small' && tw`gap-8`,
-]);
-
-const Name = styled.h4(({ variant }: IUserStyles) => [
-  tw`
-    text-slate-900
-  `,
-  variant === 'small' && tw`text-sm font-semibold mb-4`,
-  (variant === 'medium' || variant === 'recommended') &&
-    tw`text-md font-semibold`,
-  variant === 'large' && tw`text-xl font-semibold`,
-  variant === 'xlarge' && tw`text-2xl font-semibold`,
 ]);

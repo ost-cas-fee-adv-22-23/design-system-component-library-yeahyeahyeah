@@ -29,19 +29,7 @@ export default {
 } as ComponentMeta<typeof IconLink>;
 
 const Template: ComponentStory<typeof IconLink> = (args) => {
-  const props: ISVGProps = {
-    className: `${args.className} mr-4`,
-    width: '16px',
-    height: '16px',
-  };
-  const childrenWithProps = React.Children.map(args.children, (child) => {
-    if (React.isValidElement<ISVGProps>(child)) {
-      return React.cloneElement(child, props);
-    }
-    return child;
-  });
-
-  return <IconLink {...args}>{childrenWithProps}</IconLink>;
+  return <IconLink {...args} />;
 };
 /**
  * @button

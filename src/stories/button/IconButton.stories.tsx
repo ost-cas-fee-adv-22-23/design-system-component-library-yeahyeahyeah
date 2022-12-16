@@ -17,35 +17,18 @@ export default {
     handleClick: {
       action: () => 'handleClick',
     },
-    children: {
+    icon: {
       control: 'select',
       options: Object.keys(Icons),
       mapping: Icons,
       name: 'Icon',
-      defaultValue: Icons.Settings,
-    },
-    className: {
-      control: 'select',
-      options: ['fill-slate-white'],
-      defaultValue: 'fill-slate-white',
+      defaultValue: Icons.settings,
     },
   },
 } as ComponentMeta<typeof IconButton>;
 
 const Template: ComponentStory<typeof IconButton> = (args) => {
-  const props: ISVGProps = {
-    className: `${args.className}`,
-    width: '16px',
-    height: '16px',
-  };
-  const childrenWithProps = React.Children.map(args.children, (child) => {
-    if (React.isValidElement<ISVGProps>(child)) {
-      return React.cloneElement(child, props);
-    }
-    return child;
-  });
-
-  return <IconButton {...args}>{childrenWithProps}</IconButton>;
+  return <IconButton {...args}>{args.children}</IconButton>;
 };
 /**
  * @button

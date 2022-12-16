@@ -1,4 +1,5 @@
 import React from 'react';
+import { ISVGProps } from 'src/interfaces/SVG';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 
@@ -7,7 +8,7 @@ interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   variant?: 'icon' | 'label';
   disabled?: boolean;
   handleClick?: () => void;
-  children: React.ReactNode;
+  icon?: any;
 }
 
 export const NaviButton: React.FC<IButtonProps> = ({
@@ -15,11 +16,17 @@ export const NaviButton: React.FC<IButtonProps> = ({
   variant = 'label',
   disabled = false,
   handleClick,
-  children,
+  icon,
 }) => {
+  const Icon = React.cloneElement(Object(icon), {
+    className: 'fill-slate-white',
+    width: '16px',
+    height: '16px',
+  } as ISVGProps);
+
   return (
     <ButtonStyles variant={variant} disabled={disabled} onClick={handleClick}>
-      {children}
+      {Icon}
       {variant === 'label' ? label : false}
     </ButtonStyles>
   );
