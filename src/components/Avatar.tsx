@@ -1,10 +1,11 @@
 import tw from 'twin.macro';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { IconButton } from 'src/components/buttons/IconButton';
 
 interface IAvatarProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string;
-  variant: 'small' | 'medium' | 'large' | 'xlarge';
+  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'edit';
   fCallBack?: () => void;
 }
 
@@ -15,7 +16,16 @@ export const Avatar: React.FC<IAvatarProps> = ({
 }) => {
   return (
     <>
-      <Image variant={variant} src={src} alt={alt} />
+      {variant !== 'edit' ? (
+        <Image variant={variant} src={src} alt={alt} />
+      ) : (
+        <>
+          <div className="flex flex-row justify-center items-end">
+            <Image variant={variant} src={src} alt={alt} />
+            <IconButton className="bg-pink-900" icon="edit" label="Label" />
+          </div>
+        </>
+      )}
     </>
   );
 };
@@ -44,9 +54,26 @@ const Image = styled.img(({ variant }: IImageProps) => [
   variant === 'large' && tw`h-96 w-96 border-4 border-slate-white`,
   variant === 'xlarge' && tw`h-160 w-160 border-4 border-slate-white`,
 
+  variant === 'edit' &&
+    tw`
+		flex
+		items-end
+		justify-end
+		h-160
+		w-160
+		border-4
+		border-slate-white
+	`,
+  variant === 'edit' &&
+    css`
+      + button {
+        position: relative;
+        right: 48px;
+      }
+    `,
   tw`
 	bg-violet-200
-	rounded-full
-	cursor-pointer
+		rounded-full
+		cursor-pointer
 	`,
 ]);
