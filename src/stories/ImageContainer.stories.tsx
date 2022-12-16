@@ -9,17 +9,11 @@ export default {
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   component: ImageContainer,
   argTypes: {
-    size: {
-      control: {
-        type: 'select',
-      },
-      defaultValue: 'xlarge',
-    },
     src: {
       control: {
         type: 'text',
       },
-      defaultValue: dummyImage,
+      defaultValue: 'https://shorturl.at/lzTV6',
     },
     alt: {
       control: {

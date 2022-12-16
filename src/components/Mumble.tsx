@@ -6,6 +6,7 @@ import { IParagraphProps, Paragraph } from './typography/Paragraph';
 import { IconLink } from './IconLink';
 import { InteractionButton } from './buttons/InteractionButton';
 import { ShareButton } from './buttons/ShareButton';
+import { ImageContainer } from './ImageContainer';
 
 export interface IMumbleProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   variant?: 'detailpage' | 'timeline' | 'response';
@@ -67,6 +68,13 @@ export const Mumble: React.FC<IMumbleProps> = ({
             />
           </DivStyled>
           <Row>
+            <ImageContainer
+              alt="This is a profile picture!"
+              fCallBack={() => {}}
+              src="https://shorturl.at/lzTV6"
+            />
+          </Row>
+          <Row>
             <InteractionButton
               fCallBack={() => {}}
               quantity={0}
@@ -98,6 +106,13 @@ export const Mumble: React.FC<IMumbleProps> = ({
             />
           </DivStyled>
           <Row>
+            <ImageContainer
+              alt="This is a profile picture!"
+              fCallBack={() => {}}
+              src="https://shorturl.at/lzTV6"
+            />
+          </Row>
+          <Row>
             <InteractionButton
               fCallBack={() => {}}
               quantity={0}
@@ -128,6 +143,13 @@ export const Mumble: React.FC<IMumbleProps> = ({
               text={text}
             />
           </DivStyled>
+          <Row>
+            <ImageContainer
+              alt="This is a profile picture!"
+              fCallBack={() => {}}
+              src="https://shorturl.at/lzTV6"
+            />
+          </Row>
           <Row>
             <InteractionButton
               fCallBack={() => {}}
