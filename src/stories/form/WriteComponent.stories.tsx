@@ -7,12 +7,49 @@ export default {
   component: WriteComponent,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
-    name: {
-      name: 'name',
-      control: {
-        type: 'text',
-      },
+    label: {
       defaultValue: 'Display Name',
+    },
+    avatar: {
+      control: {
+        type: 'object',
+      },
+      defaultValue: {
+        src: 'https://i.stack.imgur.com/5xd5n.png',
+        alt: 'Image Alt-Tag',
+      },
+    },
+    username: {
+      control: {
+        type: 'object',
+      },
+      defaultValue: {
+        label: 'Username',
+        href: '#',
+      },
+    },
+    variant: {
+      control: false,
+      table: {
+        disable: true,
+      },
+      defaultValue: 'write',
+    },
+    user: {
+      table: {
+        disable: true,
+      },
+      defaultValue: 'textarea',
+    },
+    form: {
+      control: {
+        type: 'object',
+      },
+      defaultValue: {
+        editType: 'textarea',
+        placeholder: 'Na, was meinste dazu ...?',
+        errorMessage: 'Da ist etwas schief gelaufen',
+      },
     },
   },
 } as ComponentMeta<typeof WriteComponent>;

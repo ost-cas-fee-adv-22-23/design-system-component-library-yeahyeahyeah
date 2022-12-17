@@ -1,63 +1,45 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { User } from 'src/components/User';
+import { User, IUserProps } from 'src/components/User';
 import { IIconLinkProps } from '../IconLink';
 import { InputForm, IFormInputProps } from 'src/components/forms/Input';
-import { Button, IButtonProps } from 'src/components/buttons/Button';
+import { Button } from 'src/components/buttons/Button';
 
-interface IWriteComponent {
-  name: string;
+interface IWriteComponentProps {
+  label: string;
+  avatar?: { src: string; alt: string; fCallBack?: () => void };
   username: IIconLinkProps;
-  location: IIconLinkProps;
-  editType: IFormInputProps;
-  placeholder: string;
-  label: IButtonProps;
+  user: IUserProps;
+  form: { editType: 'textarea'; placeholder: string; errorMessage: string };
 }
 
-export const WriteComponent: React.FC<IWriteComponent> = ({
-  label,
-  username,
-  placeholder = 'Na, was meinste dazu ...',
+export const WriteComponent: React.FC<IWriteComponentProps> = ({
+  label = 'Display Name',
+  avatar = { src: 'https://i.stack.imgur.com/5xd5n.png', alt: 'Alter Tag' },
+  user = { variant: 'write' },
+  username = { label: 'Username', href: '#' },
+  form = {
+    editType: 'textarea',
+    placeholder: 'Na, was meinste dazu ...?',
+    errorMessage: 'Da ist etwas schief gelaufen',
+  },
 }) => {
   return (
     <>
       <BoxStyled>
         <User
-          btn={{
-            label: 'Follow',
-            fCallBack: () => {},
-          }}
-          joined={{
-            href: '',
-            label: 'Joined',
-          }}
-          location={{
-            href: '',
-            label: 'Location',
-          }}
-          label="Display Name"
-          avatar={{
-            alt: 'This is a picture of Roli Rollinger',
-            fCallBack: function noRefCheck() {},
-            src: '3911aaec7c2685bf1059.png',
-          }}
-          timestamp={{
-            href: '',
-            label: 'Timestamp',
-          }}
-          username={{
-            href: '',
-            label: 'Username',
-          }}
-          variant="small"
+          avatar={avatar}
+          label={label}
+          username={username}
+          variant={user.variant}
         />
         <InputForm
           className="mt-16"
-          editType="textarea"
+          editType={form.editType}
           label={''}
           required={false}
-          placeholder={placeholder}
-          errorMessage={'error'}
+          placeholder={form.placeholder}
+          errorMessage={form.errorMessage}
           autoComplete={'off'}
         />
         <Row>
