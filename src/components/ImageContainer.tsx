@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import { ReactComponent as ImageDefault } from './icons/icons/image-default.svg';
 
-export interface IProfilePicture
+export interface IImageContainer
   extends React.HtmlHTMLAttributes<HTMLImageElement> {
   src?: string;
   alt: string;
   fCallBack?: () => void;
 }
 
-export const ImageContainer: React.FC<IProfilePicture> = ({
+export const ImageContainer: React.FC<IImageContainer> = ({
   src = '',
   alt = '',
   fCallBack,

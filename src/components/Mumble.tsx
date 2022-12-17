@@ -2,16 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { IUserProps, User } from './User';
-import { IParagraphProps, Paragraph } from './typography/Paragraph';
-import { IconLink } from './IconLink';
-import { InteractionButton } from './buttons/InteractionButton';
-import { ShareButton } from './buttons/ShareButton';
-import { ImageContainer } from './ImageContainer';
+import { Paragraph } from './typography/Paragraph';
+import {
+  IInteractionButton,
+  InteractionButton,
+} from './buttons/InteractionButton';
+import { IShareButton, ShareButton } from './buttons/ShareButton';
+import { IImageContainer, ImageContainer } from './ImageContainer';
 
 export interface IMumbleProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   variant?: 'detailpage' | 'timeline' | 'response';
   user: IUserProps;
   text: string;
+  img: IImageContainer;
+  comment: IInteractionButton;
+  like: IInteractionButton;
+  share: IShareButton;
 }
 
 export const Mumble: React.FC<IMumbleProps> = ({
@@ -44,6 +50,23 @@ export const Mumble: React.FC<IMumbleProps> = ({
     },
   },
   text = '',
+  img = {
+    alt: 'This is a profile picture!',
+    fCallBack: () => {},
+    src: '',
+  },
+  comment = {
+    fCallBack: () => {},
+    quantity: 0,
+  },
+  like = {
+    fCallBack: () => {},
+    quantity: 0,
+  },
+  share = {
+    fCallBack: () => {},
+    label: 'Share',
+  },
 }) => {
   return (
     <>
@@ -69,19 +92,23 @@ export const Mumble: React.FC<IMumbleProps> = ({
           </DivStyled>
           <Row>
             <ImageContainer
-              alt="This is a profile picture!"
-              fCallBack={() => {}}
-              src="https://shorturl.at/lzTV6"
+              alt={img.alt}
+              fCallBack={img.fCallBack}
+              src={img.src}
             />
           </Row>
           <Row>
             <InteractionButton
-              fCallBack={() => {}}
-              quantity={0}
+              fCallBack={comment.fCallBack}
+              quantity={comment.quantity}
               type="comment"
             />
-            <InteractionButton fCallBack={() => {}} quantity={0} type="like" />
-            <ShareButton fCallBack={() => {}} label="Copy Link" />
+            <InteractionButton
+              fCallBack={like.fCallBack}
+              quantity={like.quantity}
+              type="like"
+            />
+            <ShareButton fCallBack={share.fCallBack} label={share.label} />
           </Row>
         </ArticleStyled>
       )}
@@ -107,19 +134,23 @@ export const Mumble: React.FC<IMumbleProps> = ({
           </DivStyled>
           <Row>
             <ImageContainer
-              alt="This is a profile picture!"
-              fCallBack={() => {}}
-              src="https://shorturl.at/lzTV6"
+              alt={img.alt}
+              fCallBack={img.fCallBack}
+              src={img.src}
             />
           </Row>
           <Row>
             <InteractionButton
-              fCallBack={() => {}}
-              quantity={0}
+              fCallBack={comment.fCallBack}
+              quantity={comment.quantity}
               type="comment"
             />
-            <InteractionButton fCallBack={() => {}} quantity={0} type="like" />
-            <ShareButton fCallBack={() => {}} label="Copy Link" />
+            <InteractionButton
+              fCallBack={like.fCallBack}
+              quantity={like.quantity}
+              type="like"
+            />
+            <ShareButton fCallBack={share.fCallBack} label={share.label} />
           </Row>
         </ArticleStyled>
       )}
@@ -145,19 +176,23 @@ export const Mumble: React.FC<IMumbleProps> = ({
           </DivStyled>
           <Row>
             <ImageContainer
-              alt="This is a profile picture!"
-              fCallBack={() => {}}
-              src="https://shorturl.at/lzTV6"
+              alt={img.alt}
+              fCallBack={img.fCallBack}
+              src={img.src}
             />
           </Row>
           <Row>
             <InteractionButton
-              fCallBack={() => {}}
-              quantity={0}
+              fCallBack={comment.fCallBack}
+              quantity={comment.quantity}
               type="comment"
             />
-            <InteractionButton fCallBack={() => {}} quantity={0} type="like" />
-            <ShareButton fCallBack={() => {}} label="Copy Link" />
+            <InteractionButton
+              fCallBack={like.fCallBack}
+              quantity={like.quantity}
+              type="like"
+            />
+            <ShareButton fCallBack={share.fCallBack} label={share.label} />
           </Row>
         </ArticleStyled>
       )}

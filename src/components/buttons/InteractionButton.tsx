@@ -8,14 +8,15 @@ import {
   ReplyOutlined,
 } from '../icons/icons';
 
-interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+export interface IInteractionButton
+  extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   type: 'like' | 'comment';
   quantity?: number;
   favourite?: boolean;
   fCallBack?: () => void;
 }
 
-export const InteractionButton: React.FC<IButtonProps> = ({
+export const InteractionButton: React.FC<IInteractionButton> = ({
   type,
   quantity,
   favourite,

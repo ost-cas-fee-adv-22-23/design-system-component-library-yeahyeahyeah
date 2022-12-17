@@ -3,12 +3,13 @@ import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import { Share } from '../icons/icons';
 
-interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+export interface IShareButton
+  extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   fCallBack?: () => void;
 }
 
-export const ShareButton: React.FC<IButtonProps> = ({
+export const ShareButton: React.FC<IShareButton> = ({
   label = 'Copy Link',
   fCallBack,
 }) => {
