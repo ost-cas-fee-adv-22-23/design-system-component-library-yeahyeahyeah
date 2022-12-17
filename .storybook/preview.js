@@ -10,11 +10,13 @@ export const parameters = {
     storySort: {
       order: [
         'Branding',
-        'Navigation',
+        'Mumble',
+        'Write-Component',
         'Typography',
+        'Navigation',
+        'Form',
         'Interactions',
         'Icons',
-        'Form',
       ],
     },
   },
