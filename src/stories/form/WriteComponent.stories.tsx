@@ -3,7 +3,7 @@ import { WriteComponent } from 'src/components/forms/WriteComponent';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 
 export default {
-  title: 'Form',
+  title: 'Write-Component/Inline',
   component: WriteComponent,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
@@ -45,7 +45,7 @@ const Template: ComponentStory<typeof WriteComponent> = (args) => (
  */
 export const ComponentWrite = Template.bind({});
 
-ComponentWrite.storyName = 'Write-Component';
+ComponentWrite.storyName = 'Inline';
 
 ComponentWrite.parameters = {
   docs: {
