@@ -7,46 +7,27 @@ export default {
   component: WriteComponent,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
-    label: {
-      defaultValue: 'Display Name',
-    },
-    avatar: {
-      control: {
-        type: 'object',
-      },
-      defaultValue: {
-        src: 'https://i.stack.imgur.com/5xd5n.png',
-        alt: 'Image Alt-Tag',
-      },
-    },
-    username: {
-      control: {
-        type: 'object',
-      },
-      defaultValue: {
-        label: 'Username',
-        href: '#',
-      },
-    },
-    variant: {
-      control: false,
-      table: {
-        disable: true,
-      },
-      defaultValue: 'write',
-    },
     user: {
-      table: {
-        disable: true,
+      control: {
+        type: 'object',
       },
-      defaultValue: 'textarea',
+      defaultValue: {
+        label: 'Display Name',
+        username: {
+          label: 'Username',
+          href: '#',
+        },
+        avatar: {
+          src: 'https://www.liveabout.com/thmb/H9V_z_oYhbKldDJJUL53tVN36cQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/peter_2008_v2F_hires1-56a00f083df78cafda9fdcb6.jpg',
+          alt: 'Family Guy goes Mumble',
+        },
+      },
     },
     form: {
       control: {
         type: 'object',
       },
       defaultValue: {
-        editType: 'textarea',
         placeholder: 'Na, was meinste dazu ...?',
         errorMessage: 'Da ist etwas schief gelaufen',
       },

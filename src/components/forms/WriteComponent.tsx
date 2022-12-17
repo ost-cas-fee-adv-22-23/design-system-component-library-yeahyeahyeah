@@ -1,25 +1,27 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { User, IUserProps } from 'src/components/User';
-import { IIconLinkProps } from '../IconLink';
-import { InputForm } from 'src/components/forms/Input';
+import { InputForm, IFormInputProps } from 'src/components/forms/Input';
 import { Button } from 'src/components/buttons/Button';
 
 interface IWriteComponentProps {
-  label: string;
-  avatar?: { src: string; alt: string; fCallBack?: () => void };
-  username: IIconLinkProps;
   user: IUserProps;
-  form: { editType: 'textarea'; placeholder: string; errorMessage: string };
+  form: IFormInputProps;
 }
 
 export const WriteComponent: React.FC<IWriteComponentProps> = ({
-  label = 'Display Name',
-  avatar = { src: 'https://i.stack.imgur.com/5xd5n.png', alt: 'Alter Tag' },
-  user = { variant: 'write' },
-  username = { label: 'Username', href: '#' },
+  user = {
+    label: 'Display Name',
+    username: {
+      label: 'Username',
+      href: '#',
+    },
+    avatar: {
+      src: 'https://i.stack.imgur.com/5xd5n.png',
+      alt: 'Alter Tag',
+    },
+  },
   form = {
-    editType: 'textarea',
     placeholder: 'Na, was meinste dazu ...?',
     errorMessage: 'Da ist etwas schief gelaufen',
   },
@@ -28,14 +30,14 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
     <>
       <BoxStyled>
         <User
-          avatar={avatar}
-          label={label}
-          username={username}
-          variant={user.variant}
+          avatar={user.avatar}
+          label={user.label}
+          username={user.username}
+          variant={'write'}
         />
         <InputForm
           className="mt-16"
-          editType={form.editType}
+          editType={'textarea'}
           label={''}
           required={false}
           placeholder={form.placeholder}
