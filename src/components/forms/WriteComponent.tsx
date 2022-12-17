@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import { User, IUserProps } from 'src/components/User';
 import { IIconLinkProps } from '../IconLink';
-import { InputForm, IFormInputProps } from 'src/components/forms/Input';
+import { InputForm } from 'src/components/forms/Input';
 import { Button } from 'src/components/buttons/Button';
 
 interface IWriteComponentProps {
