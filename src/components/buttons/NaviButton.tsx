@@ -1,20 +1,21 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import tw from 'twin.macro';
 import { Icons, IconTypes } from '../icons/IconMap';
 import { Avatar } from 'src/components/Avatar';
 
-interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+export interface INaviButtonProps
+  extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
-  variant?: 'icon' | 'label' | 'profile';
+  variant?: 'icon' | 'default' | 'profile';
   disabled?: boolean;
   fCallBack?: () => void;
   icon?: IconTypes;
 }
 
-export const NaviButton: React.FC<IButtonProps> = ({
+export const NaviButton: React.FC<INaviButtonProps> = ({
   label,
-  variant = 'label',
+  variant = 'default',
   disabled = false,
   fCallBack,
   icon = 'mumble',
@@ -25,16 +26,16 @@ export const NaviButton: React.FC<IButtonProps> = ({
 
   return (
     <>
-      {variant === 'icon' && (
-        <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack}>
-          {Icon}
-        </ButtonStyles>
-      )}
-
-      {variant === 'label' && (
+      {variant === 'default' && (
         <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack}>
           {Icon}
           <Span>{label}</Span>
+        </ButtonStyles>
+      )}
+
+      {variant === 'icon' && (
+        <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack}>
+          {Icon}
         </ButtonStyles>
       )}
 

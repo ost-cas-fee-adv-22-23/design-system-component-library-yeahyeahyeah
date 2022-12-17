@@ -1,18 +1,41 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { MumbleLogo } from 'src/components/icons/MumbleLogo';
-import { NaviButton } from 'src/components/buttons/NaviButton';
+import { MumbleLogo, IMumbleLogoProps } from 'src/components/icons/MumbleLogo';
+import {
+  NaviButton,
+  INaviButtonProps,
+} from 'src/components/buttons/NaviButton';
 
 export interface INavigationProps extends React.ReactElement<HTMLDivElement> {
-  title: string;
-  href: string;
-  fCallBack?: () => void;
+  logo: IMumbleLogoProps;
+  avatar: INaviButtonProps;
+  settings: INaviButtonProps;
+  logout: INaviButtonProps;
 }
 
 export const Navigation: React.FC<INavigationProps> = ({
-  title,
-  href,
-  fCallBack,
+  logo = {
+    title: 'Mumble Logo',
+    href: '#',
+    fCallBack: () => {},
+  },
+  avatar = {
+    variant: 'profile',
+    label: 'Profile',
+    fCallBack: () => {},
+  },
+  settings = {
+    icon: 'settings',
+    label: 'Settings',
+    variant: 'default',
+    fCallBack: () => {},
+  },
+  logout = {
+    icon: 'logout',
+    label: 'Logout',
+    variant: 'default',
+    fCallBack: () => {},
+  },
 }) => {
   return (
     <>
@@ -20,18 +43,32 @@ export const Navigation: React.FC<INavigationProps> = ({
         <Container>
           <Column>
             <MumbleLogo
-              title={title}
-              href={href}
+              title={logo.title}
+              href={logo.href}
               alignment="horizontal"
               iconColor="fill-slate-white"
               iconWidth="auto"
               variant="violet"
-              onClick={fCallBack}
+              fCallBack={logo.fCallBack}
             />
             <Row>
-              <NaviButton variant="profile" label="Profile" />
-              <NaviButton icon="settings" label="Settings" variant="label" />
-              <NaviButton icon="logout" label="Logout" variant="label" />
+              <NaviButton
+                variant={avatar.variant}
+                label={avatar.label}
+                fCallBack={avatar.fCallBack}
+              />
+              <NaviButton
+                icon={settings.icon}
+                label={settings.label}
+                variant={settings.variant}
+                fCallBack={settings.fCallBack}
+              />
+              <NaviButton
+                icon={logout.icon}
+                label={logout.label}
+                variant={logout.variant}
+                fCallBack={logout.fCallBack}
+              />
             </Row>
           </Column>
         </Container>

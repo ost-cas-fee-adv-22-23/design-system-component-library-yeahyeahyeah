@@ -58,7 +58,7 @@ export const NaviButtonStory = Template.bind({});
 
 NaviButtonStory.args = {
   label: 'Label',
-  variant: 'label',
+  variant: 'default',
 };
 
 NaviButtonStory.parameters = {

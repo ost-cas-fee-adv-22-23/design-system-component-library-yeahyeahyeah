@@ -2,7 +2,8 @@ import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import { MumbleText, LogoMumble, MumbleGradient } from './icons';
 
-export interface IIcon extends React.HTMLAttributes<HTMLOrSVGImageElement> {
+export interface IMumbleLogoProps
+  extends React.HTMLAttributes<HTMLOrSVGImageElement> {
   title: string;
   href: string;
   variant: 'violet' | 'gradient' | 'white';
@@ -13,14 +14,14 @@ export interface IIcon extends React.HTMLAttributes<HTMLOrSVGImageElement> {
   fCallBack?: () => void;
 }
 
-export const MumbleLogo: React.FC<IIcon> = ({
+export const MumbleLogo: React.FC<IMumbleLogoProps> = ({
   title,
   href,
   variant,
   alignment,
   iconColor,
   fCallBack,
-}: IIcon) => {
+}: IMumbleLogoProps) => {
   return (
     <>
       <MumbleLogoStyled

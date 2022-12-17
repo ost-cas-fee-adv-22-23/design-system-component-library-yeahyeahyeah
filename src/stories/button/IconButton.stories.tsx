@@ -12,8 +12,8 @@ export default {
       name: 'label',
       defaultValue: 'Label',
     },
-    handleClick: {
-      action: () => 'handleClick',
+    fCallBack: {
+      action: () => {},
     },
     icon: {
       control: 'select',

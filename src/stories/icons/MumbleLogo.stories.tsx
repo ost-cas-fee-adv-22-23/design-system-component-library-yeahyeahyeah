@@ -23,12 +23,6 @@ export default {
       },
       defaultValue: 'vertical',
     },
-    width: {
-      control: {
-        type: 'select',
-      },
-      defaultValue: 'w-full',
-    },
     variant: {
       control: {
         type: 'select',

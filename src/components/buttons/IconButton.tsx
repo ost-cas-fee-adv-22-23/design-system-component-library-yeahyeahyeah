@@ -3,23 +3,24 @@ import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import { Icons, IconTypes } from '../icons/IconMap';
 
-interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProps
+  extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
-  handleClick?: () => void;
   icon: IconTypes;
+  fCallBack?: () => void;
 }
 
 export const IconButton: React.FC<IButtonProps> = ({
   label,
-  handleClick,
   icon = 'time',
+  fCallBack,
 }) => {
   const Icon = React.cloneElement(Object(Icons[icon]), {
     className: 'fill-slate-white',
   });
 
   return (
-    <ButtonStyles onClick={handleClick}>
+    <ButtonStyles onClick={fCallBack}>
       {Icon}
       <p>{label}</p>
     </ButtonStyles>
@@ -62,7 +63,7 @@ const buttonFocus = tw`
   focus:(outline-4)
 `;
 
-const ButtonStyles = styled.button((undefinded) => [
+const ButtonStyles = styled.button(() => [
   buttonFont,
   buttonDefaults,
   buttonHover,
