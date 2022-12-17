@@ -9,6 +9,7 @@ import {
 } from './buttons/InteractionButton';
 import { IShareButton, ShareButton } from './buttons/ShareButton';
 import { IImageContainer, ImageContainer } from './ImageContainer';
+import { Avatar, IAvatarProps } from './Avatar';
 
 export interface IMumbleProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   variant?: 'detailpage' | 'timeline' | 'response';
@@ -18,6 +19,7 @@ export interface IMumbleProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   comment: IInteractionButton;
   like: IInteractionButton;
   share: IShareButton;
+  avatar: IAvatarProps;
 }
 
 export const Mumble: React.FC<IMumbleProps> = ({
@@ -26,6 +28,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
     avatar: {
       alt: 'avatar',
       src: 'https://i.stack.imgur.com/5xd5n.png',
+      fCallBack: () => {},
     },
     btn: {
       fCallBack: () => {},
@@ -48,6 +51,12 @@ export const Mumble: React.FC<IMumbleProps> = ({
       href: '',
       label: 'Username',
     },
+  },
+  avatar = {
+    alt: 'Alter Tag',
+    src: 'https://i.stack.imgur.com/5xd5n.png',
+    variant: 'medium',
+    fCallBack: () => {},
   },
   text = '',
   img = {
@@ -82,13 +91,16 @@ export const Mumble: React.FC<IMumbleProps> = ({
             username={user.username}
             variant="xlarge"
           />
-          <DivStyled>
-            <Paragraph
-              className={'pt-24'}
-              variant={'large'}
-              color={'dark'}
-              text={text}
+          <StyledAvatarWrapper>
+            <Avatar
+              alt={avatar.alt}
+              src={avatar.src}
+              variant={'medium'}
+              fCallBack={avatar.fCallBack}
             />
+          </StyledAvatarWrapper>
+          <DivStyled>
+            <Paragraph variant={'large'} color={'dark'} text={text} />
           </DivStyled>
           <Row>
             <ImageContainer
@@ -124,13 +136,16 @@ export const Mumble: React.FC<IMumbleProps> = ({
             username={user.username}
             variant="large"
           />
-          <DivStyled>
-            <Paragraph
-              className={'pt-24'}
+          <StyledAvatarWrapper>
+            <Avatar
+              alt={avatar.alt}
+              src={avatar.src}
               variant={'medium'}
-              color={'dark'}
-              text={text}
+              fCallBack={avatar.fCallBack}
             />
+          </StyledAvatarWrapper>
+          <DivStyled>
+            <Paragraph variant={'medium'} color={'dark'} text={text} />
           </DivStyled>
           <Row>
             <ImageContainer
@@ -164,15 +179,10 @@ export const Mumble: React.FC<IMumbleProps> = ({
             location={user.location}
             timestamp={user.timestamp}
             username={user.username}
-            variant="medium"
+            variant="small"
           />
           <DivStyled>
-            <Paragraph
-              className={'pt-24'}
-              variant={'medium'}
-              color={'dark'}
-              text={text}
-            />
+            <Paragraph variant={'medium'} color={'dark'} text={text} />
           </DivStyled>
           <Row>
             <ImageContainer
@@ -216,7 +226,7 @@ const Row = styled.div(({ gap }: IRowStyles) => [
   tw`
     flex
     flex-row
-    justify-between
+    justify-start
     items-center
     max-w-lg
     gap-16
@@ -226,21 +236,26 @@ const Row = styled.div(({ gap }: IRowStyles) => [
 
 const ArticleStyled = styled.article(() => [
   tw`
+    relative
     flex
     flex-col
     bg-slate-white
     py-32
-    px-16
+    px-48
     w-615
-
-    sm:(px-16)
-    md:(px-32)
-    lg:(px-48)
   `,
 ]);
 
 const DivStyled = styled.div(({ variant }: IUserStyles) => [
   tw`
-    pt-24
+    pt-16
+  `,
+]);
+
+const StyledAvatarWrapper = styled.div(() => [
+  tw`
+    absolute
+    top-32
+    left-[-32px]
   `,
 ]);

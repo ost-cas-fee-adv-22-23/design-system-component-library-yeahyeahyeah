@@ -31,7 +31,12 @@ export const User: React.FC<IUserProps> = ({
     <>
       {variant === 'small' && (
         <Row gap="small">
-          <Avatar alt={avatar.alt} src={avatar.src} variant={'small'} />
+          <Avatar
+            alt={avatar.alt}
+            src={avatar.src}
+            variant={'small'}
+            fCallBack={avatar.fCallBack}
+          />
           <Column variant={variant}>
             <Heading tag="h4" color="dark" variant={'default'} label={label} />
             <Row>

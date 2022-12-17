@@ -18,6 +18,9 @@ export default {
         avatar: {
           alt: 'avatar',
           src: 'https://i.stack.imgur.com/5xd5n.png',
+          fCallBack: () => {
+            console.log('user avatar clicked');
+          },
         },
         btn: {
           fCallBack: () => {},
@@ -41,6 +44,18 @@ export default {
           label: 'Username',
         },
         variant: 'xlarge',
+      },
+    },
+    avatar: {
+      control: {
+        type: 'object',
+      },
+      defaultValue: {
+        alt: 'Alter Tag',
+        src: 'https://i.stack.imgur.com/5xd5n.png',
+        fCallBack: () => {
+          console.log('avatar clicked');
+        },
       },
     },
     text: {
