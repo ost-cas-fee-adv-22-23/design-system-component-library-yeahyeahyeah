@@ -2,8 +2,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
 import { ImageContainer } from 'src/components/ImageContainer';
 
-const dummyImage = './assets/image-dummy.png';
-
 export default {
   title: 'Assets/Image',
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
