@@ -117,5 +117,6 @@ const Figure = styled.figure(() => [
     cursor-pointer
     rounded-16
     relative
+    mb-24
   `,
 ]);

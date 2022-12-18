@@ -219,13 +219,9 @@ const Row = styled.div(({ gap }: IRowStyles) => [
     flex
     flex-row
     flex-wrap
-
     justify-start
     items-center
     w-full
-    
-    py-4
-    sm:(py-16)
   `,
   gap === 'small' && tw`gap-8`,
 ]);
@@ -237,14 +233,13 @@ const Article = styled.article(() => [
     flex-col
     justify-center
     items-start
+    w-full
 
     bg-slate-white
 
     py-32
     px-16
     sm:px-48
-
-    w-full
   `,
 ]);
 
