@@ -5,7 +5,7 @@ import tw from 'twin.macro';
 export interface IParagraphProps
   extends React.HTMLAttributes<HTMLParagraphElement> {
   variant?: 'default' | 'medium' | 'large';
-  color?: 'default' | 'dark' | 'light';
+  color?: 'default' | 'dark' | 'light' | 'white';
   text: string;
 }
 
@@ -31,6 +31,7 @@ const paragraphMedium = tw`text-base font-medium leading-loose`;
 const paragraphLarge = tw`text-lg font-medium`;
 const paragraphColorDark = tw`text-slate-900`;
 const paragraphColorLight = tw`text-slate-500`;
+const paragraphColorWhite = tw`text-slate-white`;
 
 const ParagraphStyles = styled.p(
   ({ variant, color }: IParagraphStylesProps) => [
@@ -42,5 +43,6 @@ const ParagraphStyles = styled.p(
     variant === 'medium' && paragraphMedium,
     color === 'dark' && paragraphColorDark,
     color === 'light' && paragraphColorLight,
+    color === 'white' && paragraphColorWhite,
   ],
 );

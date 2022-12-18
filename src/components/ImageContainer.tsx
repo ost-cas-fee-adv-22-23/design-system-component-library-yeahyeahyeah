@@ -84,10 +84,11 @@ const LoadingSpinner = tw`
   animate-spin
   flex
   justify-center
-   w-64
-   h-64
-   rounded-full
-   fill-slate-white
+  w-64
+  h-64
+  rounded-full
+  fill-slate-white
+  opacity-50
 `;
 
 const ImageIcon = styled.div(({ loading, icon }: IImageIcon) => [

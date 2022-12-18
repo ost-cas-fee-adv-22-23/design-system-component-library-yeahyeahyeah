@@ -22,15 +22,14 @@ export const parameters = {
   },
   layout: 'fullscreen',
   backgrounds: {
-    default: 'default',
     values: [
       {
         name: 'default',
-        value: '#e5e5e5',
+        value: '#0F172A',
       },
       {
-        name: 'dark',
-        value: '#0F172A',
+        name: 'standard',
+        value: '#e5e5e5',
       },
     ],
   },

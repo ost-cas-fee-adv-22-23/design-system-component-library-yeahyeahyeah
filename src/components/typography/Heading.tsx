@@ -5,7 +5,7 @@ import tw from 'twin.macro';
 interface IHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   label: string;
   tag: 'h1' | 'h2' | 'h3' | 'h4';
-  color: 'light' | 'medium' | 'dark' | 'violet' | 'pink';
+  color: 'light' | 'medium' | 'dark' | 'violet' | 'pink' | 'white';
   variant: 'default' | 'xlarge' | 'large' | 'medium' | 'small';
 }
 
@@ -62,6 +62,7 @@ const HeadingVariant = ({ variant, tag }: IHeadingStylesProps) => [
 
 const HeadingColor = ({ color }: IHeadingStylesProps) => [
   color === 'light' && tw`text-slate-500`,
+  color === 'white' && tw`text-slate-white`,
   color === 'medium' && tw`text-slate-600`,
   color === 'dark' && tw`text-slate-900`,
   color === 'violet' && tw`text-violet-600`,
