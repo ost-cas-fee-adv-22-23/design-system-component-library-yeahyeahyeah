@@ -7,12 +7,14 @@ export interface IButtonProps
   extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   icon: IconTypes;
+  variant: string;
   fCallBack?: () => void;
 }
 
 export const IconButton: React.FC<IButtonProps> = ({
   label,
   icon = 'time',
+  variant = 'edit',
   fCallBack,
 }) => {
   const Icon = React.cloneElement(Object(Icons[icon]), {
@@ -20,7 +22,7 @@ export const IconButton: React.FC<IButtonProps> = ({
   });
 
   return (
-    <ButtonStyles onClick={fCallBack}>
+    <ButtonStyles variant={variant} onClick={fCallBack}>
       {Icon}
       <p>{label}</p>
     </ButtonStyles>
@@ -42,6 +44,7 @@ const buttonDefaults = tw`
   flex
   flex-col-reverse
   justify-center
+  overflow-hidden
   place-items-center
   [text-indent: -10000px]
   w-48
@@ -63,7 +66,11 @@ const buttonFocus = tw`
   focus:(outline-4)
 `;
 
-const ButtonStyles = styled.button(() => [
+interface IButtonStyles {
+  variant: string;
+}
+
+const ButtonStyles = styled.button(({ variant }: IButtonStyles) => [
   buttonFont,
   buttonDefaults,
   buttonHover,
@@ -76,4 +83,5 @@ const ButtonStyles = styled.button(() => [
       margin-left: 0;
     }
   `,
+  variant === 'edit' && tw`relative self-end right-48`,
 ]);

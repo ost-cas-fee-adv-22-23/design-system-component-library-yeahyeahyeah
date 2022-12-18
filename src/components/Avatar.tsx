@@ -24,7 +24,7 @@ export const Avatar: React.FC<IAvatarProps> = ({
         <>
           <Row>
             <Image variant={variant} src={src} alt={alt} onClick={fCallBack} />
-            <IconButton icon="edit" label="Label" />
+            <IconButton variant="edit" icon="edit" label="Label" />
           </Row>
         </>
       )}

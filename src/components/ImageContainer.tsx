@@ -100,10 +100,12 @@ const Wrapper = styled.div(() => [
 
 const Figure = styled.figure(() => [
   tw`
-   
+    border-1
+    border-slate-white
     overflow-hidden
     aspect-video
     bg-violet-100
+    hover:bg-violet-600
     cursor-pointer
     rounded-16
     relative
