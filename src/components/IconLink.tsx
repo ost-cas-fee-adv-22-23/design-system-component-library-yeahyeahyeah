@@ -8,8 +8,13 @@ export interface IIconLinkProps
   label: string;
   type?: 'username' | 'timestamp' | 'location' | 'joined';
   variant?: 'slate' | 'violet';
-  href?: string;
+  href: string;
   handleClick?: () => void;
+  link?: React.ElementType<{
+    href: string;
+    passHref: any;
+    legacyBehavior: any;
+  }>;
 }
 
 export const IconLink: React.FC<IIconLinkProps> = ({
@@ -18,6 +23,7 @@ export const IconLink: React.FC<IIconLinkProps> = ({
   variant = 'slate',
   href,
   handleClick,
+  link: Link,
 }) => {
   const [hover, setHover] = useState(false);
 
@@ -66,7 +72,18 @@ export const IconLink: React.FC<IIconLinkProps> = ({
     }
   };
 
-  return (
+  return Link ? (
+    <Link href={href} passHref legacyBehavior>
+      <IconLinkDivStyles
+        variant={variant}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      >
+        {getIcon()}
+        {label}
+      </IconLinkDivStyles>
+    </Link>
+  ) : (
     <IconLinkStyles
       variant={variant}
       onClick={handleClick}
@@ -101,6 +118,12 @@ const defaultStyles = tw`
 `;
 
 const IconLinkStyles = styled.a(({ variant }: IStyleProps) => [
+  defaultStyles,
+  variant === 'slate' && tw`text-slate-400 hover:(text-slate-600)`,
+  variant === 'violet' && tw`text-violet-600 hover:(text-violet-900)`,
+]);
+
+const IconLinkDivStyles = styled.div(({ variant }: IStyleProps) => [
   defaultStyles,
   variant === 'slate' && tw`text-slate-400 hover:(text-slate-600)`,
   variant === 'violet' && tw`text-violet-600 hover:(text-violet-900)`,
