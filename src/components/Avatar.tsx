@@ -1,5 +1,5 @@
 import tw from 'twin.macro';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { IconButton } from 'src/components/buttons/IconButton';
 
 export interface IAvatarProps
