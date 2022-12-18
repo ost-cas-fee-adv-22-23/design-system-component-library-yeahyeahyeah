@@ -22,6 +22,10 @@ export default {
     fCallBack: {
       action: () => 'handleClick',
     },
+    icon: {
+      control: 'select',
+      defaultValue: 'fullscreen',
+    },
   },
 } as ComponentMeta<typeof ImageContainer>;
 
