@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
+import { NavigationDecorator } from 'src/components/layouts/NavigationDecorator';
 import { Navigation } from 'src/components/Navigation';
 
 export default {
   title: 'Navigation/Navigation',
-  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
+  decorators: [(story) => <NavigationDecorator>{story()}</NavigationDecorator>],
   component: Navigation,
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: {

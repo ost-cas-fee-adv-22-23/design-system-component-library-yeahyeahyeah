@@ -15,13 +15,12 @@ const StyledDefaultLayout = styled.div(() => [
     mx-auto
 
     flex
-    flex-row
+    flex-col
     flex-wrap
     justify-center
-    items-start
+    items-center
     w-full
-    h-full
-    p-16
+    p-0
     pt-32
   `,
 ]);
