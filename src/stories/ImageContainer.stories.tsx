@@ -26,6 +26,11 @@ export default {
       control: 'select',
       defaultValue: 'fullscreen',
     },
+    loading: {
+      control: 'boolean',
+      description: 'Image loading state',
+      defaultValue: false,
+    },
   },
 } as ComponentMeta<typeof ImageContainer>;
 

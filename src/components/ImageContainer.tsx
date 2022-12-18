@@ -8,7 +8,8 @@ export interface IImageContainerProps
   src?: string;
   alt: string;
   fCallBack?: () => void;
-  icon?: 'fullscreen' | 'edit';
+  icon?: 'fullscreen' | 'edit' | 'repost';
+  loading?: boolean | false;
 }
 
 export const ImageContainer: React.FC<IImageContainerProps> = ({
@@ -16,9 +17,8 @@ export const ImageContainer: React.FC<IImageContainerProps> = ({
   alt = '',
   fCallBack,
   icon = 'fullscreen',
+  loading = false,
 }) => {
-  const defaultImage = 'https://unsplash.com/photos/K2s_YE031CA';
-
   const Icon = React.cloneElement(Object(Icons[icon]), {
     className: 'fill-slate-white',
     width: 'auto',
@@ -27,15 +27,28 @@ export const ImageContainer: React.FC<IImageContainerProps> = ({
 
   return (
     <Figure className="group">
-      <Wrapper>
+      <Wrapper loading={loading} icon={icon}>
         <Container>
-          <Row onClick={fCallBack}>{Icon}</Row>
+          <ImageIcon loading={loading} onClick={fCallBack} icon={icon}>
+            {Icon}
+          </ImageIcon>
         </Container>
       </Wrapper>
-      <Image alt={alt} src={src === '' ? defaultImage : src} />
+      <Image
+        alt={alt}
+        src={src}
+        loading={'lazy'}
+        width={'680px'}
+        height={'320px'}
+      />
     </Figure>
   );
 };
+
+interface IImageIcon {
+  loading: boolean;
+  icon: string;
+}
 
 const Image = styled.img(() => [
   tw`
@@ -60,14 +73,24 @@ const Container = styled.div(() => [
   transform-gpu
   translate-y-4 
   transition
-  duration-300
+  duration-100
   ease-in-out
 
   group-hover:translate-y-0
 `,
 ]);
 
-const Row = styled.div(() => [
+const LoadingSpinner = tw`
+  animate-spin
+  flex
+  justify-center
+   w-64
+   h-64
+   rounded-full
+   fill-slate-white
+`;
+
+const ImageIcon = styled.div(({ loading, icon }: IImageIcon) => [
   tw`
     flex
     justify-center
@@ -78,14 +101,17 @@ const Row = styled.div(() => [
     transition
     duration-300
     ease-in-out
+    z-50
 `,
+  loading === true && icon === 'repost' && LoadingSpinner,
 ]);
 
-const Wrapper = styled.div(() => [
+const Wrapper = styled.div(({ loading, icon }: IImageIcon) => [
   tw`
 		rounded-xl
     z-50
     opacity-0
+
     group-hover:opacity-100
     transition
     duration-300
@@ -98,13 +124,14 @@ const Wrapper = styled.div(() => [
     -translate-x-1/2 
     -translate-y-1/2
 	`,
+  loading === true && icon === 'repost' && tw`opacity-100`,
 ]);
 
 const Figure = styled.figure(() => [
   tw`
     flex
     justify-center
-    items-start
+    items-center
     w-full
     max-h-[320px]
 
