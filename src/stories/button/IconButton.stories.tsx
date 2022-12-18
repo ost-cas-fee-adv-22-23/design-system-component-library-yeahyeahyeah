@@ -12,14 +12,14 @@ export default {
       name: 'label',
       defaultValue: 'Label',
     },
-    fCallBack: {
-      action: () => {},
-    },
     icon: {
       control: 'select',
       options: Object.keys(Icons),
       name: 'Icon',
       defaultValue: 'settings',
+    },
+    fCallBack: {
+      action: () => 'handleClick',
     },
   },
 } as ComponentMeta<typeof IconButton>;

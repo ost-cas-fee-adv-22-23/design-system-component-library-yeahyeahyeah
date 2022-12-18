@@ -7,17 +7,26 @@ export default {
   component: Avatar,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
-    avatar: {
-      control: 'object',
-      description: 'Avatar settings',
-      defaultValue: {
-        src: 'https://i.stack.imgur.com/5xd5n.png',
-        alt: 'Alter Schalter',
-        variant: 'edit',
-        fCallBack: () => {
-          console.log('Avatar');
-        },
+    variant: {
+      control: {
+        type: 'select',
       },
+      defaultValue: 'small',
+    },
+    src: {
+      control: {
+        type: 'text',
+      },
+      defaultValue: 'https://shorturl.at/DY468',
+    },
+    alt: {
+      control: {
+        type: 'text',
+      },
+      defaultValue: 'Alter Tag',
+    },
+    fCallBack: {
+      action: () => 'handleClick',
     },
   },
 } as ComponentMeta<typeof Avatar>;

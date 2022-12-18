@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import { Icons } from 'src/components/icons/IconMap';
 
-export interface IImageContainer
+export interface IImageContainerProps
   extends React.HtmlHTMLAttributes<HTMLImageElement> {
   src?: string;
   alt: string;
@@ -11,7 +11,7 @@ export interface IImageContainer
   icon?: 'fullscreen' | 'edit';
 }
 
-export const ImageContainer: React.FC<IImageContainer> = ({
+export const ImageContainer: React.FC<IImageContainerProps> = ({
   src = '',
   alt = '',
   fCallBack,

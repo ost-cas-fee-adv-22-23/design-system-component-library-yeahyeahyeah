@@ -23,8 +23,13 @@ export const Avatar: React.FC<IAvatarProps> = ({
       ) : (
         <>
           <Row>
-            <Image variant={variant} src={src} alt={alt} onClick={fCallBack} />
-            <IconButton variant="edit" icon="edit" label="Label" />
+            <Image variant={variant} src={src} alt={alt} />
+            <IconButton
+              variant="edit"
+              icon="edit"
+              label="Label"
+              fCallBack={fCallBack}
+            />
           </Row>
         </>
       )}
@@ -57,13 +62,13 @@ const Image = styled.img(({ variant }: IImageProps) => [
   variant === 'small' && tw`h-40 w-40 min-w-[40px]`,
   variant === 'small' && ImageAnim,
 
-  variant === 'medium' && tw`h-64 w-64 border-4 border-slate-100`,
+  variant === 'medium' && tw`h-64 w-64 border-4`,
   variant === 'medium' && ImageAnim,
 
-  variant === 'large' && tw`h-96 w-96 border-4 border-slate-100`,
+  variant === 'large' && tw`h-96 w-96 border-4`,
   variant === 'large' && ImageAnim,
 
-  variant === 'xlarge' && tw`h-160 w-160 border-4 border-slate-100`,
+  variant === 'xlarge' && tw`h-160 w-160 border-4`,
 
   variant === 'edit' &&
     tw`
@@ -73,18 +78,12 @@ const Image = styled.img(({ variant }: IImageProps) => [
 		h-160
 		w-160
 		border-4
-		border-slate-100
-	`,
-  variant === 'edit' &&
-    css`
-      + button {
-        position: relative;
-        right: 48px;
-      }
     `,
   tw`
+  border-slate-100
 	bg-violet-200
 		rounded-full
 		cursor-pointer
+    object-cover
 	`,
 ]);

@@ -8,14 +8,14 @@ import {
   InteractionButton,
 } from './buttons/InteractionButton';
 import { IShareButton, ShareButton } from './buttons/ShareButton';
-import { IImageContainer, ImageContainer } from './ImageContainer';
+import { IImageContainerProps, ImageContainer } from './ImageContainer';
 import { Avatar, IAvatarProps } from './Avatar';
 
 export interface IMumbleProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   variant?: 'detailpage' | 'timeline' | 'response';
   user: IUserProps;
   text: string;
-  img: IImageContainer;
+  img: IImageContainerProps;
   comment: IInteractionButton;
   like: IInteractionButton;
   share: IShareButton;
