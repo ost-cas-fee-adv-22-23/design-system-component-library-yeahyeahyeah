@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import tw from 'twin.macro';
 interface IDefaultLayout {
   children: React.ReactElement;
@@ -13,7 +13,7 @@ const StyledDefaultLayout = styled.div(() => [
   tw`
     container
     mx-auto
-    
+
     flex
     flex-row
     flex-wrap
