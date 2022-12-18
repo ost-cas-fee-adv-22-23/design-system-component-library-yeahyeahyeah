@@ -1,55 +1,112 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { ReactComponent as ImageDefault } from './icons/icons/image-default.svg';
+import { Icons } from 'src/components/icons/IconMap';
 
 export interface IImageContainer
   extends React.HtmlHTMLAttributes<HTMLImageElement> {
   src?: string;
   alt: string;
   fCallBack?: () => void;
+  icon?: 'fullscreen' | 'edit';
 }
 
 export const ImageContainer: React.FC<IImageContainer> = ({
   src = '',
   alt = '',
   fCallBack,
+  icon = 'fullscreen',
 }) => {
+  const defaultImage = 'https://unsplash.com/photos/K2s_YE031CA';
+
+  const Icon = React.cloneElement(Object(Icons[icon]), {
+    className: 'fill-slate-white',
+    width: 'auto',
+    height: 'auto',
+  });
+
   return (
-    <DivStyled>
-      {src ? (
-        <StyledImageContainer src={src} alt={alt} onClick={fCallBack} />
-      ) : (
-        <StyledSVG />
-      )}
-    </DivStyled>
+    <Figure className="group">
+      <Wrapper>
+        <Container>
+          <Row onClick={fCallBack}>{Icon}</Row>
+        </Container>
+      </Wrapper>
+      <Image alt={alt} src={src === '' ? defaultImage : src} />
+    </Figure>
   );
 };
 
-const StyledImageContainer = styled.img(() => [
+const Image = styled.img(() => [
   tw`
-		bg-violet-200
-		h-[330px]
-		rounded-16
-		border-1
-		border-slate-white
-		aspect-video
-		object-cover
+    object-cover
+    w-full
+    aspect-square
+    transition
+    duration-300
+    ease-in-out
+
+    group-hover:scale-110
+    group-hover:opacity-20
+  `,
+]);
+
+const Container = styled.div(() => [
+  tw`
+  space-y-3
+  
+  transform-gpu
+  translate-y-4 
+  transition
+  duration-300
+  ease-in-out
+
+  group-hover:translate-y-0
+`,
+]);
+
+const Row = styled.div(() => [
+  tw`
+    flex
+    justify-center
+    items-center
+    w-32
+    sm:w-64
+    hover:scale-110
+    transition
+    duration-300
+    ease-in-out
+`,
+]);
+
+const Wrapper = styled.div(() => [
+  tw`
+		rounded-xl
+    z-50
+    opacity-0
+    group-hover:opacity-100
+    transition
+    duration-300
+    ease-in-out
+    cursor-pointer
+    absolute
+    top-1/2
+    left-1/2
+    transform
+    -translate-x-1/2 
+    -translate-y-1/2
 	`,
 ]);
 
-const StyledSVG = styled(ImageDefault)(() => [
+const Figure = styled.figure(() => [
   tw`
-		rounded-16
-		border-1
-		border-slate-white
-		aspect-video
-		object-cover
-	`,
-]);
-
-const DivStyled = styled.div(() => [
-  tw`
-    pb-16
+   
+    overflow-hidden
+    aspect-video
+    bg-violet-100
+    cursor-pointer
+    rounded-16
+    relative
+    max-h-[320px]
   `,
 ]);

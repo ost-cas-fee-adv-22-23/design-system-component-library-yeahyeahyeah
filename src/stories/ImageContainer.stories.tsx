@@ -5,7 +5,7 @@ import { ImageContainer } from 'src/components/ImageContainer';
 const dummyImage = './assets/image-dummy.png';
 
 export default {
-  title: 'Image/ImageContainer',
+  title: 'Assets/Image',
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   component: ImageContainer,
   argTypes: {
@@ -13,7 +13,7 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: 'https://shorturl.at/lzTV6',
+      defaultValue: 'https://shorturl.at/uvyKU',
     },
     alt: {
       control: {
