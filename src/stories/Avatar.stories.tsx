@@ -17,7 +17,7 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: 'https://shorturl.at/DY468',
+      defaultValue: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
     },
     alt: {
       control: {

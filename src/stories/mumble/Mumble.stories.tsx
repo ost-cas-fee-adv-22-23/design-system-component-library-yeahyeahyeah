@@ -17,7 +17,7 @@ export default {
       defaultValue: {
         avatar: {
           alt: 'avatar',
-          src: 'https://i.stack.imgur.com/5xd5n.png',
+          src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
           fCallBack: () => {
             console.log('user avatar clicked');
           },
@@ -51,8 +51,8 @@ export default {
         type: 'object',
       },
       defaultValue: {
-        alt: 'Alter Tag',
-        src: 'https://i.stack.imgur.com/5xd5n.png',
+        alt: 'Alt-Tag',
+        src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
         fCallBack: () => {
           console.log('avatar clicked');
         },
@@ -69,7 +69,7 @@ export default {
       defaultValue: {
         alt: 'This is a profile picture!',
         fCallBack: () => {},
-        src: 'https://shorturl.at/lzTV6',
+        src: 'https://shorturl.at/uvyKU',
       },
     },
     comment: {

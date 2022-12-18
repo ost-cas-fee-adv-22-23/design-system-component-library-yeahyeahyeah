@@ -39,8 +39,10 @@ export const ImageContainer: React.FC<IImageContainerProps> = ({
 
 const Image = styled.img(() => [
   tw`
-    object-cover
     w-full
+    max-h-[320px]
+    object-cover
+    object-center
     aspect-square
     transition
     duration-300
@@ -100,6 +102,10 @@ const Wrapper = styled.div(() => [
 
 const Figure = styled.figure(() => [
   tw`
+
+    w-full
+    max-h-[320px]
+
     border-1
     border-slate-white
     overflow-hidden
@@ -109,6 +115,5 @@ const Figure = styled.figure(() => [
     cursor-pointer
     rounded-16
     relative
-    max-h-[320px]
   `,
 ]);

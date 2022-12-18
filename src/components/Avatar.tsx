@@ -46,6 +46,7 @@ const Row = tw.div`
   flex-row
   justify-center
   items-end
+  overflow-hidden
 `;
 
 const ImageAnim = tw`

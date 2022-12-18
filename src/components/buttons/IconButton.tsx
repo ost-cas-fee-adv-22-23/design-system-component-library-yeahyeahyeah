@@ -49,6 +49,8 @@ const buttonDefaults = tw`
   [text-indent: -10000px]
   w-48
   h-48
+  min-w-[48px]
+
   rounded-full
   text-left
   border-hidden
