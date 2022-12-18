@@ -80,7 +80,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
   return (
     <>
       {variant === 'detailpage' && (
-        <ArticleStyled>
+        <Article>
           <User
             avatar={user.avatar}
             btn={user.btn}
@@ -91,17 +91,17 @@ export const Mumble: React.FC<IMumbleProps> = ({
             username={user.username}
             variant="xlarge"
           />
-          <StyledAvatarWrapper>
+          <AvatarWrapper>
             <Avatar
               alt={avatar.alt}
               src={avatar.src}
               variant={'medium'}
               fCallBack={avatar.fCallBack}
             />
-          </StyledAvatarWrapper>
-          <DivStyled>
+          </AvatarWrapper>
+          <Div>
             <Paragraph variant={'large'} color={'dark'} text={text} />
-          </DivStyled>
+          </Div>
           <Row>
             <ImageContainer
               alt={img.alt}
@@ -122,10 +122,10 @@ export const Mumble: React.FC<IMumbleProps> = ({
             />
             <ShareButton fCallBack={share.fCallBack} label={share.label} />
           </Row>
-        </ArticleStyled>
+        </Article>
       )}
       {variant === 'timeline' && (
-        <ArticleStyled>
+        <Article>
           <User
             avatar={user.avatar}
             btn={user.btn}
@@ -136,17 +136,17 @@ export const Mumble: React.FC<IMumbleProps> = ({
             username={user.username}
             variant="large"
           />
-          <StyledAvatarWrapper>
+          <AvatarWrapper>
             <Avatar
               alt={avatar.alt}
               src={avatar.src}
               variant={'medium'}
               fCallBack={avatar.fCallBack}
             />
-          </StyledAvatarWrapper>
-          <DivStyled>
+          </AvatarWrapper>
+          <Div>
             <Paragraph variant={'medium'} color={'dark'} text={text} />
-          </DivStyled>
+          </Div>
           <Row>
             <ImageContainer
               alt={img.alt}
@@ -167,10 +167,10 @@ export const Mumble: React.FC<IMumbleProps> = ({
             />
             <ShareButton fCallBack={share.fCallBack} label={share.label} />
           </Row>
-        </ArticleStyled>
+        </Article>
       )}
       {variant === 'response' && (
-        <ArticleStyled>
+        <Article>
           <User
             avatar={user.avatar}
             btn={user.btn}
@@ -181,9 +181,9 @@ export const Mumble: React.FC<IMumbleProps> = ({
             username={user.username}
             variant="small"
           />
-          <DivStyled>
+          <Div>
             <Paragraph variant={'medium'} color={'dark'} text={text} />
-          </DivStyled>
+          </Div>
           <Row>
             <ImageContainer
               alt={img.alt}
@@ -204,19 +204,11 @@ export const Mumble: React.FC<IMumbleProps> = ({
             />
             <ShareButton fCallBack={share.fCallBack} label={share.label} />
           </Row>
-        </ArticleStyled>
+        </Article>
       )}
     </>
   );
 };
-
-/**
- * @Button
- * @desc Button styles
- */
-interface IUserStyles {
-  variant?: string;
-}
 
 interface IRowStyles {
   gap?: string;
@@ -234,7 +226,7 @@ const Row = styled.div(({ gap }: IRowStyles) => [
   gap === 'small' && tw`gap-8`,
 ]);
 
-const ArticleStyled = styled.article(() => [
+const Article = styled.article(() => [
   tw`
     relative
     flex
@@ -246,13 +238,13 @@ const ArticleStyled = styled.article(() => [
   `,
 ]);
 
-const DivStyled = styled.div(({ variant }: IUserStyles) => [
+const Div = styled.div(() => [
   tw`
     pt-16
   `,
 ]);
 
-const StyledAvatarWrapper = styled.div(() => [
+const AvatarWrapper = styled.div(() => [
   tw`
     absolute
     top-32
