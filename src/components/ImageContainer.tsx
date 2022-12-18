@@ -102,7 +102,9 @@ const Wrapper = styled.div(() => [
 
 const Figure = styled.figure(() => [
   tw`
-
+    flex
+    justify-center
+    items-start
     w-full
     max-h-[320px]
 

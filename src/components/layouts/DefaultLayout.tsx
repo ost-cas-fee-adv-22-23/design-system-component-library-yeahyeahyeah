@@ -11,6 +11,9 @@ export const DefaultLayout: React.FC<IDefaultLayout> = ({ children }) => {
 
 const StyledDefaultLayout = styled.div(() => [
   tw`
+    container
+    mx-auto
+    
     flex
     flex-row
     flex-wrap
