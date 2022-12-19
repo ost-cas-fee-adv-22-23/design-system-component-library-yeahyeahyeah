@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import { Icons, IconTypes } from '../icons/IconMap';
 
-export interface IButtonProps
+export interface IconButtonProps
   extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   icon: IconTypes;
@@ -11,7 +11,7 @@ export interface IButtonProps
   fCallBack?: () => void;
 }
 
-export const IconButton: React.FC<IButtonProps> = ({
+export const IconButton: React.FC<IconButtonProps> = ({
   label,
   icon = 'time',
   variant = 'edit',
