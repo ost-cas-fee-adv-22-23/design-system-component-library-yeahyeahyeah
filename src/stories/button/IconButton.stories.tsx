@@ -1,7 +1,8 @@
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconButton } from '../../components/buttons/IconButton';
-import { DefaultLayout } from 'src/components/layouts/DefaultLayout';
-import { Icons } from 'src/components/icons/IconMap';
+import { Icons } from '../../components/icons/IconMap';
+import { DefaultLayout } from '../../components/layouts/DefaultLayout';
 
 export default {
   title: 'Interactions/IconButton',
@@ -20,6 +21,11 @@ export default {
     },
     fCallBack: {
       action: () => 'handleClick',
+    },
+    variant: {
+      control: 'select',
+      name: 'variant',
+      defaultValue: 'none',
     },
   },
 } as ComponentMeta<typeof IconButton>;

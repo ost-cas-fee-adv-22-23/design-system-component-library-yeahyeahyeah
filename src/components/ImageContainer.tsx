@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { Icons } from 'src/components/icons/IconMap';
+import { Icons } from './icons/IconMap';
 
 export interface IImageContainerProps
   extends React.HtmlHTMLAttributes<HTMLImageElement> {
@@ -21,8 +21,8 @@ export const ImageContainer: React.FC<IImageContainerProps> = ({
 }) => {
   const Icon = React.cloneElement(Object(Icons[icon]), {
     className: 'fill-slate-white',
-    width: 'auto',
-    height: 'auto',
+    width: '32px',
+    height: '32px',
   });
 
   return (
@@ -84,8 +84,8 @@ const LoadingSpinner = tw`
   animate-spin
   flex
   justify-center
-  w-64
-  h-64
+  w-32
+  h-32
   rounded-full
   fill-slate-white
   opacity-50
@@ -98,7 +98,7 @@ const ImageIcon = styled.div(({ loading, icon }: IImageIcon) => [
     items-center
     w-32
     sm:w-64
-    hover:scale-110
+    hover:scale-150
     transition
     duration-300
     ease-in-out

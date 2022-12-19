@@ -7,14 +7,14 @@ export interface IconButtonProps
   extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   icon: IconTypes;
-  variant: string;
+  variant: 'edit' | 'none';
   fCallBack?: () => void;
 }
 
 export const IconButton: React.FC<IconButtonProps> = ({
   label,
   icon = 'time',
-  variant = 'edit',
+  variant = '',
   fCallBack,
 }) => {
   const Icon = React.cloneElement(Object(Icons[icon]), {

@@ -6,7 +6,7 @@ interface IDefaultLayout {
 }
 
 export const DefaultLayout: React.FC<IDefaultLayout> = ({ children }) => {
-  return <StyledDefaultLayout className="">{children}</StyledDefaultLayout>;
+  return <StyledDefaultLayout>{children}</StyledDefaultLayout>;
 };
 
 const StyledDefaultLayout = styled.div(() => [
@@ -16,7 +16,6 @@ const StyledDefaultLayout = styled.div(() => [
 
     flex
     flex-col
-    flex-wrap
     justify-center
     items-center
     w-full
