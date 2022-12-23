@@ -82,7 +82,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
     <>
       {variant === 'detailpage' && (
         <>
-          <div css={tw`w-96 h-96 bg-violet-700`}></div>
+          {/* <div css={tw`w-96 h-96 bg-violet-700`}></div> */}
           <Article>
             <User
               btn={user.btn}

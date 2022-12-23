@@ -20,7 +20,7 @@ const App = () => {
       <Checkmark width={100} height={100} css={tw`fill-violet-600`} />
       <p css={tw`text-pink-600 text-3xl`}>Hello World</p>
       <Mumble
-        variant="response"
+        variant="detailpage"
         avatar={{
           alt: 'Alt-Tag',
           fCallBack: () => {},
