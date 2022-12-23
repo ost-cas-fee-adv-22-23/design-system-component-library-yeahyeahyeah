@@ -1,0 +1,59 @@
+{
+  "name": "shared-ui",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com",
+    "tag": "latest"
+  },
+  "main": "components/index.tsx",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "@storybook/addon-a11y": "^6.5.13",
+    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-interactions": "^6.5.15",
+    "@storybook/addon-links": "^6.5.15",
+    "@storybook/builder-webpack5": "^6.5.15",
+    "@storybook/manager-webpack5": "^6.5.15",
+    "@storybook/node-logger": "^6.5.13",
+    "@storybook/react": "^6.5.15",
+    "@storybook/testing-library": "^0.0.13",
+    "@svgr/cli": "^6.5.1",
+    "@tailwindcss/forms": "^0.5.3",
+    "@types/node": "^16.18.3",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "@types/styled-components": "^5.1.26",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^9.1.0",
+    "babel-plugin-macros": "^3.1.0",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "babel-plugin-styled-components": "^2.0.7",
+    "cpy-cli": "^4.2.0",
+    "del-cli": "^5.0.0",
+    "postcss": "^8.4.19",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.3",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
+    "tailwindcss": "^3.2.4",
+    "twin.macro": "^3.1.0",
+    "typescript": "^4.9.3",
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.75.0"
+  },
+  "overrides": {
+    "enhanced-resolve": "5.10.0"
+  },
+  "license": "MIT"
+}
