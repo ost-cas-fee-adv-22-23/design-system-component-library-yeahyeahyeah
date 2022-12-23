@@ -1,0 +1,15 @@
+{
+  "presets": [
+    "@babel/preset-react",
+    "@babel/preset-typescript",
+    "@babel/preset-env"
+  ],
+  "plugins": [
+    [
+      "babel-plugin-twin",
+      { "debug": true, "exclude": ["node_modules/", "dist/"] }
+    ],
+    "babel-plugin-macros",
+    ["babel-plugin-styled-components", { "ssr": false }]
+  ]
+}

@@ -81,48 +81,51 @@ export const Mumble: React.FC<IMumbleProps> = ({
   return (
     <>
       {variant === 'detailpage' && (
-        <Article>
-          <User
-            btn={user.btn}
-            joined={user.joined}
-            label={user.label}
-            location={user.location}
-            username={user.username}
-            variant="xlarge"
-          />
-          <AvatarWrapper>
-            <Avatar
-              alt={avatar.alt}
-              src={avatar.src}
-              variant={'medium'}
-              fCallBack={avatar.fCallBack}
+        <>
+          <div css={tw`w-96 h-96 bg-violet-700`}></div>
+          <Article>
+            <User
+              btn={user.btn}
+              joined={user.joined}
+              label={user.label}
+              location={user.location}
+              username={user.username}
+              variant="xlarge"
             />
-          </AvatarWrapper>
-          <Div>
-            <Paragraph variant={'large'} color={'dark'} text={text} />
-          </Div>
-          <Row>
-            <ImageContainer
-              alt={img.alt}
-              fCallBack={img.fCallBack}
-              src={img.src}
-              loading={img.loading}
-            />
-          </Row>
-          <Row>
-            <InteractionButton
-              fCallBack={comment.fCallBack}
-              quantity={comment.quantity}
-              type="comment"
-            />
-            <InteractionButton
-              fCallBack={like.fCallBack}
-              quantity={like.quantity}
-              type="like"
-            />
-            <ShareButton fCallBack={share.fCallBack} label={share.label} />
-          </Row>
-        </Article>
+            <AvatarWrapper>
+              <Avatar
+                alt={avatar.alt}
+                src={avatar.src}
+                variant={'medium'}
+                fCallBack={avatar.fCallBack}
+              />
+            </AvatarWrapper>
+            <Div>
+              <Paragraph variant={'large'} color={'dark'} text={text} />
+            </Div>
+            <Row>
+              <ImageContainer
+                alt={img.alt}
+                fCallBack={img.fCallBack}
+                src={img.src}
+                loading={img.loading}
+              />
+            </Row>
+            <Row>
+              <InteractionButton
+                fCallBack={comment.fCallBack}
+                quantity={comment.quantity}
+                type="comment"
+              />
+              <InteractionButton
+                fCallBack={like.fCallBack}
+                quantity={like.quantity}
+                type="like"
+              />
+              <ShareButton fCallBack={share.fCallBack} label={share.label} />
+            </Row>
+          </Article>
+        </>
       )}
       {variant === 'timeline' && (
         <Article>

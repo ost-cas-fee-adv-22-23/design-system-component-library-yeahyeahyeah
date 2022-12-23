@@ -17,6 +17,7 @@ export const Typography: React.FC<IHeadingProps> = ({
 
   return (
     <>
+      <div css={tw`w-96 h-96 bg-violet-700`}></div>
       <div className="container">
         <div className="m-4">
           <HeadingStyles variant={variant} color={color}>
