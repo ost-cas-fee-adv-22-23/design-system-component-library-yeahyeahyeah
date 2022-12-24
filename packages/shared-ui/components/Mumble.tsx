@@ -82,7 +82,19 @@ export const Mumble: React.FC<IMumbleProps> = ({
     <>
       {variant === 'detailpage' && (
         <>
-          {/* <div css={tw`w-96 h-96 bg-violet-700`}></div> */}
+          <div tw={'w-96 h-96 bg-violet-200 text-slate-800'}>
+            this is the tw prop in a component
+          </div>
+          <div
+            css={`
+              background-color: blue;
+              color: white;
+              ${tw`text-xl`}
+            `}
+          >
+            this is the css prop mixed with plain css and twin.macro in a
+            component
+          </div>
           <Article>
             <User
               btn={user.btn}

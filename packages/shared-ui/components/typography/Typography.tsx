@@ -17,7 +17,10 @@ export const Typography: React.FC<IHeadingProps> = ({
 
   return (
     <>
-      <div css={tw`w-96 h-96 bg-violet-700`}></div>
+      <div css={tw`bg-violet-700 text-pink-200`}>
+        this is the css prop, todo: this component needs to be fixed - no
+        className when u use tailwind
+      </div>
       <div className="container">
         <div className="m-4">
           <HeadingStyles variant={variant} color={color}>

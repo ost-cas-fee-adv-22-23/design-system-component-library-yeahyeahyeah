@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Mumble } from 'shared-ui/dist';
+import { Button, Mumble } from 'shared-ui/';
 import { Logo, Cancel, Calendar, Checkmark, LogoMumble } from 'shared-ui/dist';
 import tw from 'twin.macro';
 
