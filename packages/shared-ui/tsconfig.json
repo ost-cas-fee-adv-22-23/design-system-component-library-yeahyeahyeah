@@ -21,11 +21,7 @@
     "outDir": "dist",
     "allowJs": true
   },
-  "include": [
-    "components/**/*.tsx",
-    "./../../types/**/*.d.ts",
-    "stories/Button.stories.tsx"
-  ],
-  "typeRoots": ["types", "./../../node_modules/@types"],
+  "include": ["./**/*.tsx", "./**/*.ts", "./types/*.d.ts"],
+  "typeRoots": ["./types/*.d.ts", "./../../node_modules/@types"],
   "exclude": ["node_modules", "dist"]
 }

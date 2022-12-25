@@ -9,7 +9,7 @@
   "main": "components/index.tsx",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.prod.json",
     "watch": "tsc --watch",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
