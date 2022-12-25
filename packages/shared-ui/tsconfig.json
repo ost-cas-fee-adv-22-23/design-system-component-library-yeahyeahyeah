@@ -21,7 +21,7 @@
     "outDir": "dist",
     "allowJs": true
   },
-  "include": ["./**/*.tsx", "./**/*.ts", "./types/*.d.ts"],
-  "typeRoots": ["./types/*.d.ts", "./../../node_modules/@types"],
+  "include": ["./**/*.tsx", "./**/*.ts", "./../../types/*.d.ts"],
+  "typeRoots": ["./../../types/*.d.ts", "./../../node_modules/@types"],
   "exclude": ["node_modules", "dist"]
 }
