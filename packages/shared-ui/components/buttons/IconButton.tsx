@@ -27,7 +27,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
   );
 };
 
-const createIcon = (icon: any) => {
+const createIcon = (icon: IconTypes) => {
   return styled(IconsMapped[icon as IconTypes])(() => [tw`fill-slate-white`]);
 };
 

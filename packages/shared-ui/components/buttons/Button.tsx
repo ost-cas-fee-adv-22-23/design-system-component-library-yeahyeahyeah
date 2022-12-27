@@ -47,7 +47,7 @@ interface ButtonProps {
   size?: string;
 }
 
-const createIcon = (icon: any) => {
+const createIcon = (icon: IconTypes) => {
   return styled(IconsMapped[icon as IconTypes])(() => [
     tw`ml-64 fill-slate-white`,
   ]);

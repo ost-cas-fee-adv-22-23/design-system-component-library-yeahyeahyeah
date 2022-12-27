@@ -50,9 +50,9 @@ export const NaviButton: React.FC<INaviButtonProps> = ({
   );
 };
 
-interface ButtonProps {
-  variant?: string;
-}
+const createIcon = (icon: IconTypes) => {
+  return styled(IconsMapped[icon as IconTypes])(() => [tw`fill-slate-white`]);
+};
 
 /**
  * @Button
@@ -96,6 +96,10 @@ const variantIcon = tw`
   p-8
 `;
 
+interface ButtonProps {
+  variant?: string;
+}
+
 const ButtonStyles = styled.button(({ variant }: ButtonProps) => [
   buttonFont,
   buttonDefaults,
@@ -103,7 +107,3 @@ const ButtonStyles = styled.button(({ variant }: ButtonProps) => [
   buttonFocus,
   variant === 'icon' && variantIcon,
 ]);
-
-const createIcon = (icon: any) => {
-  return styled(IconsMapped[icon as IconTypes])(() => [tw`fill-slate-white`]);
-};

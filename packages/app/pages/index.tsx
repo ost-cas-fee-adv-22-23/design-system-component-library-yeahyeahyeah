@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Mumble } from 'shared-ui/';
+import { Button, Mumble } from 'shared-ui/dist';
 import { Logo, Cancel, Calendar, Checkmark, LogoMumble } from 'shared-ui/dist';
 import tw from 'twin.macro';
 
@@ -24,7 +24,7 @@ const App = () => {
         avatar={{
           alt: 'Alt-Tag',
           fCallBack: () => {},
-          src: '',
+          src: 'https://shorturl.at/uvyKU',
         }}
         comment={{
           fCallBack: function noRefCheck() {},

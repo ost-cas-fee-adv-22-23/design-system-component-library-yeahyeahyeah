@@ -82,8 +82,8 @@ export const Mumble: React.FC<IMumbleProps> = ({
     <>
       {variant === 'detailpage' && (
         <>
-          <div tw={'w-96 h-96 bg-violet-200 text-slate-800'}>
-            this is the tw prop in a component
+          <div tw={'w-160 h-160 bg-violet-200 text-slate-800'}>
+            this is the tw prop in a component that is not bundled
           </div>
           <div
             css={`
@@ -93,7 +93,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
             `}
           >
             this is the css prop mixed with plain css and twin.macro in a
-            component
+            component that is not bundled
           </div>
           <Article>
             <User

@@ -43,6 +43,21 @@ export const ShareButton: React.FC<IShareButton> = ({
   );
 };
 
+const createIcon = (icon: IconTypes) => {
+  return styled(IconsMapped[icon as IconTypes])(
+    ({ hover }: IShareButtonStyles) => [
+      tw`
+        fill-slate-600
+        h-16
+        w-16
+        ml-0
+        mr-8
+        focus:(text-slate-700)`,
+      hover && tw`fill-slate-700`,
+    ],
+  );
+};
+
 interface IShareButtonStyles {
   hover: boolean;
 }
@@ -70,18 +85,3 @@ const ButtonStyles = styled.button(({ hover }: IShareButtonStyles) => [
   `,
   hover && tw`text-slate-700 bg-slate-100`,
 ]);
-
-const createIcon = (icon: any) => {
-  return styled(IconsMapped[icon as IconTypes])(
-    ({ hover }: IShareButtonStyles) => [
-      tw`
-        fill-slate-600
-        h-16
-        w-16
-        ml-0
-        mr-8
-        focus:(text-slate-700)`,
-      hover && tw`fill-slate-700`,
-    ],
-  );
-};

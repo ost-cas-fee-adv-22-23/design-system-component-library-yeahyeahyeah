@@ -11,11 +11,7 @@ export const TextButton: React.FC<IButtonProps> = ({
   label = 'Button Label',
   handleClick,
 }) => {
-  return (
-    <>
-      <ButtonStyles onClick={handleClick}>{label}</ButtonStyles>
-    </>
-  );
+  return <StyledTextButton onClick={handleClick}>{label}</StyledTextButton>;
 };
 
 /**
@@ -50,7 +46,7 @@ const buttonFocus = tw`
   focus:(border-b-violet-700)
 `;
 
-const ButtonStyles = styled.button(({}) => [
+const StyledTextButton = styled.button(({}) => [
   buttonFont,
   buttonDefaults,
   buttonHover,
