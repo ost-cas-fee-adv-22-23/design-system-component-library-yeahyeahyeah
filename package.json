@@ -12,7 +12,8 @@
     "build": "yarn build:types && cd packages/app && yarn build",
     "build-icons": "npx @svgr/cli --typescript --icon 16px --out-dir ./packages/shared-ui/components/icons/components -- ./packages/shared-ui/components/icons/svg",
     "build:types": "cd packages/shared-ui && yarn build",
-    "watch:types": "cd packages/shared-ui && yarn watch"
+    "watch:types": "cd packages/shared-ui && yarn watch",
+    "storybook": "cd packages/shared-ui && yarn storybook"
   },
   "private": true,
   "workspaces": {

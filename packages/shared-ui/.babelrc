@@ -1,15 +1,2 @@
-{
-  "presets": [
-    "@babel/preset-react",
-    "@babel/preset-typescript",
-    "@babel/preset-env"
-  ],
-  "plugins": [
-    [
-      "babel-plugin-twin",
-      { "debug": true, "exclude": ["node_modules/", "dist/"] }
-    ],
-    "babel-plugin-macros",
-    ["babel-plugin-styled-components", { "ssr": false }]
-  ]
-}
+// this extended config is needed to use twin.macro in storybook
+{ "extends": "../../babel.config.js" }
