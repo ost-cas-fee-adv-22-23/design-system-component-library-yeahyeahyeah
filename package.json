@@ -1,5 +1,22 @@
 {
   "name": "@smartive-education/yeahyeahyeah-mumble",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com",
+    "tag": "latest"
+  },
+  "files": [
+    "packages/shared-ui/dist",
+    "tailwind.config.js"
+  ],
+  "types": "packages/shared-ui/dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./packages/shared-ui/dist/index.js"
+    },
+    "./tailwind": "./tailwind.config.js"
+  },
   "babelMacros": {
     "twin": {
       "config": "./../../tailwind.config.js",
