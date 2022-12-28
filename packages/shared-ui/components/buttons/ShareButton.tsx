@@ -3,16 +3,12 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import { IconsMapped, IconTypes } from '../icons/IconMap';
 
-export interface IShareButton
-  extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+export interface IShareButton extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   fCallBack?: () => void;
 }
 
-export const ShareButton: React.FC<IShareButton> = ({
-  label = 'Copy Link',
-  fCallBack,
-}) => {
+export const ShareButton: React.FC<IShareButton> = ({ label = 'Copy Link', fCallBack }) => {
   const [labelText, setLabelText] = useState<string>(label);
   const [hover, setHover] = useState(false);
 
@@ -44,18 +40,16 @@ export const ShareButton: React.FC<IShareButton> = ({
 };
 
 const createIcon = (icon: IconTypes) => {
-  return styled(IconsMapped[icon as IconTypes])(
-    ({ hover }: IShareButtonStyles) => [
-      tw`
+  return styled(IconsMapped[icon as IconTypes])(({ hover }: IShareButtonStyles) => [
+    tw`
         fill-slate-600
         h-16
         w-16
         ml-0
         mr-8
         focus:(text-slate-700)`,
-      hover && tw`fill-slate-700`,
-    ],
-  );
+    hover && tw`fill-slate-700`,
+  ]);
 };
 
 interface IShareButtonStyles {

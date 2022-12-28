@@ -4,8 +4,7 @@ import tw from 'twin.macro';
 import { IconsMapped, IconTypes } from '../icons/IconMap';
 import { Avatar } from '../Avatar';
 
-export interface INaviButtonProps
-  extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+export interface INaviButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   variant?: 'icon' | 'default' | 'profile';
   disabled?: boolean;
@@ -39,11 +38,7 @@ export const NaviButton: React.FC<INaviButtonProps> = ({
 
       {variant === 'profile' && (
         <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack}>
-          <Avatar
-            alt={'Alter Tag'}
-            src="https://i.stack.imgur.com/5xd5n.png"
-            variant={'small'}
-          />
+          <Avatar alt={'Alter Tag'} src="https://i.stack.imgur.com/5xd5n.png" variant={'small'} />
         </ButtonStyles>
       )}
     </>

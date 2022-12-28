@@ -3,20 +3,14 @@ import tw from 'twin.macro';
 import styled from 'styled-components';
 import { IconButton } from '../components/buttons/IconButton';
 
-export interface IAvatarProps
-  extends React.HtmlHTMLAttributes<HTMLImageElement> {
+export interface IAvatarProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string;
   variant?: 'small' | 'medium' | 'large' | 'xlarge' | 'edit';
   fCallBack?: () => void;
 }
 
-export const Avatar: React.FC<IAvatarProps> = ({
-  variant = 'small',
-  src,
-  alt,
-  fCallBack,
-}) => {
+export const Avatar: React.FC<IAvatarProps> = ({ variant = 'small', src, alt, fCallBack }) => {
   return (
     <>
       {variant !== 'edit' ? (
@@ -25,12 +19,7 @@ export const Avatar: React.FC<IAvatarProps> = ({
         <>
           <Row>
             <Image variant={variant} src={src} alt={alt} />
-            <IconButton
-              variant="edit"
-              icon="edit"
-              label="Label"
-              fCallBack={fCallBack}
-            />
+            <IconButton variant="edit" icon="edit" label="Label" fCallBack={fCallBack} />
           </Row>
         </>
       )}

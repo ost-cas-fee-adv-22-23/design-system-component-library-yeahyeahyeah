@@ -36,9 +36,7 @@ export default {
   },
 } as ComponentMeta<typeof WriteComponent>;
 
-const Template: ComponentStory<typeof WriteComponent> = (args) => (
-  <WriteComponent {...args} />
-);
+const Template: ComponentStory<typeof WriteComponent> = (args) => <WriteComponent {...args} />;
 
 /**
  * @input

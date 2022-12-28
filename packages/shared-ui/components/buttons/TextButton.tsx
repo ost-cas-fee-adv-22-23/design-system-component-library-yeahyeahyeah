@@ -2,15 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+export interface TextButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   handleClick?: () => void;
 }
 
-export const TextButton: React.FC<IButtonProps> = ({
-  label = 'Button Label',
-  handleClick,
-}) => {
+export const TextButton: React.FC<TextButtonProps> = ({ label = 'Button Label', handleClick }) => {
   return <StyledTextButton onClick={handleClick}>{label}</StyledTextButton>;
 };
 
@@ -46,9 +43,4 @@ const buttonFocus = tw`
   focus:(border-b-violet-700)
 `;
 
-const StyledTextButton = styled.button(({}) => [
-  buttonFont,
-  buttonDefaults,
-  buttonHover,
-  buttonFocus,
-]);
+const StyledTextButton = styled.button(() => [buttonFont, buttonDefaults, buttonHover, buttonFocus]);

@@ -31,27 +31,12 @@ export const User: React.FC<IUserProps> = ({
     <>
       {variant === 'small' && (
         <Row gap="small">
-          <Avatar
-            alt={avatar.alt}
-            src={avatar.src}
-            variant={'small'}
-            fCallBack={avatar.fCallBack}
-          />
+          <Avatar alt={avatar.alt} src={avatar.src} variant={'small'} fCallBack={avatar.fCallBack} />
           <Column variant={variant}>
             <Heading tag="h4" color="dark" variant={'default'} label={label} />
             <Row>
-              <IconLink
-                label={username.label}
-                type="username"
-                variant="violet"
-                href={username.href}
-              ></IconLink>
-              <IconLink
-                label={timestamp.label}
-                type="timestamp"
-                variant="slate"
-                href={timestamp.href}
-              ></IconLink>
+              <IconLink label={username.label} type="username" variant="violet" href={username.href}></IconLink>
+              <IconLink label={timestamp.label} type="timestamp" variant="slate" href={timestamp.href}></IconLink>
             </Row>
           </Column>
         </Row>
@@ -62,12 +47,7 @@ export const User: React.FC<IUserProps> = ({
           <Column variant={variant}>
             <Heading tag="h4" color="dark" variant={'default'} label={label} />
             <Row>
-              <IconLink
-                label={username.label}
-                type="username"
-                variant="violet"
-                href={username.href}
-              />
+              <IconLink label={username.label} type="username" variant="violet" href={username.href} />
             </Row>
           </Column>
         </Row>
@@ -76,18 +56,8 @@ export const User: React.FC<IUserProps> = ({
         <Column>
           <Heading tag="h4" color="dark" variant={'large'} label={label} />
           <Row>
-            <IconLink
-              label={username.label}
-              type="username"
-              variant="violet"
-              href={username.href}
-            ></IconLink>
-            <IconLink
-              label={timestamp.label}
-              type="timestamp"
-              variant="slate"
-              href={timestamp.href}
-            ></IconLink>
+            <IconLink label={username.label} type="username" variant="violet" href={username.href}></IconLink>
+            <IconLink label={timestamp.label} type="timestamp" variant="slate" href={timestamp.href}></IconLink>
           </Row>
         </Column>
       )}
@@ -95,18 +65,8 @@ export const User: React.FC<IUserProps> = ({
         <Column>
           <Heading tag="h4" color="dark" variant={'xlarge'} label={label} />
           <Row>
-            <IconLink
-              label={username.label}
-              type="username"
-              variant="violet"
-              href={username.href}
-            ></IconLink>
-            <IconLink
-              label={timestamp.label}
-              type="timestamp"
-              variant="slate"
-              href={timestamp.href}
-            ></IconLink>
+            <IconLink label={username.label} type="username" variant="violet" href={username.href}></IconLink>
+            <IconLink label={timestamp.label} type="timestamp" variant="slate" href={timestamp.href}></IconLink>
           </Row>
         </Column>
       )}
@@ -114,24 +74,9 @@ export const User: React.FC<IUserProps> = ({
         <Column>
           <Heading tag="h4" color="dark" variant={'xlarge'} label={label} />
           <Row>
-            <IconLink
-              label={username.label}
-              type="username"
-              variant="violet"
-              href={username.href}
-            ></IconLink>
-            <IconLink
-              label={location.label}
-              type="location"
-              variant="slate"
-              href={location.href}
-            ></IconLink>
-            <IconLink
-              label={joined.label}
-              type="joined"
-              variant="slate"
-              href={joined.href}
-            ></IconLink>
+            <IconLink label={username.label} type="username" variant="violet" href={username.href}></IconLink>
+            <IconLink label={location.label} type="location" variant="slate" href={location.href}></IconLink>
+            <IconLink label={joined.label} type="joined" variant="slate" href={joined.href}></IconLink>
           </Row>
         </Column>
       )}
@@ -139,16 +84,11 @@ export const User: React.FC<IUserProps> = ({
         <article className="flex flex-col p-16 bg-slate-white rounded-16">
           <Column variant="recommended">
             <Avatar alt={avatar.alt} src={avatar.src} variant={'large'} />
-            <Row className="mb-8">
+            <Row tw="mb-8">
               <Heading tag="h4" color="dark" variant={'large'} label={label} />
             </Row>
             <div className="mb-16">
-              <IconLink
-                label={username.label}
-                type="username"
-                variant="violet"
-                href={username.href}
-              ></IconLink>
+              <IconLink label={username.label} type="username" variant="violet" href={username.href}></IconLink>
             </div>
             <Button
               handleClick={btn?.fCallBack}

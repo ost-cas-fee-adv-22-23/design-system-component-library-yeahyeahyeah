@@ -2,19 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-interface IHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
+export interface IHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   label: string;
   tag: 'h1' | 'h2' | 'h3' | 'h4';
   color: 'light' | 'medium' | 'dark' | 'violet' | 'pink' | 'white';
   variant: 'default' | 'xlarge' | 'large' | 'medium' | 'small';
 }
 
-export const Heading: React.FC<IHeadingProps> = ({
-  label,
-  tag = 'h1',
-  color = 'medium',
-  variant = 'default',
-}) => {
+export const Heading: React.FC<IHeadingProps> = ({ label, tag = 'h1', color = 'medium', variant = 'default' }) => {
   return (
     <>
       {tag === 'h1' && (

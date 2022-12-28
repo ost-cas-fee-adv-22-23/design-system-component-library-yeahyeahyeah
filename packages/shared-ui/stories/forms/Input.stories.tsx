@@ -50,9 +50,7 @@ export default {
   },
 } as ComponentMeta<typeof InputForm>;
 
-const Template: ComponentStory<typeof InputForm> = (args) => (
-  <InputForm {...args} />
-);
+const Template: ComponentStory<typeof InputForm> = (args) => <InputForm {...args} />;
 
 /**
  * @input

@@ -4,7 +4,7 @@ import { User, IUserProps } from '../User';
 import { InputForm, IFormInputProps } from './Input';
 import { Button } from '../buttons/Button';
 
-interface IWriteComponentProps {
+export interface IWriteComponentProps {
   user: IUserProps;
   form: IFormInputProps;
 }
@@ -29,14 +29,9 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
   return (
     <>
       <BoxStyled>
-        <User
-          avatar={user.avatar}
-          label={user.label}
-          username={user.username}
-          variant={'write'}
-        />
+        <User avatar={user.avatar} label={user.label} username={user.username} variant={'write'} />
         <InputForm
-          className="mt-16"
+          tw="mt-16"
           editType={'textarea'}
           label={''}
           required={false}
@@ -46,7 +41,9 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
         />
         <Row>
           <Button
-            handleClick={() => {}}
+            handleClick={() => {
+              return null;
+            }}
             label="Bild hochladen"
             size="small"
             type="button"
@@ -55,7 +52,9 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
             icon="upload"
           />
           <Button
-            handleClick={() => {}}
+            handleClick={() => {
+              return null;
+            }}
             label="Absenden"
             size="small"
             type="button"

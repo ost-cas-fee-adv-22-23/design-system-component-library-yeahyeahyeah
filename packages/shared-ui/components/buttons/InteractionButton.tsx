@@ -1,51 +1,34 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import styled, { css } from 'styled-components';
-import tw, { TwStyle } from 'twin.macro';
-import {
-  HeartFilled,
-  HeartOutlined,
-  ReplyFilled,
-  ReplyOutlined,
-} from '../icons/components';
+import styled from 'styled-components';
+import tw from 'twin.macro';
+import { HeartFilled, HeartOutlined, ReplyFilled, ReplyOutlined } from '../icons/components';
 
-export interface IInteractionButton
-  extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+export interface IInteractionButton extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   type?: 'like' | 'comment';
   quantity?: number;
   favourite?: boolean;
   fCallBack?: () => void;
 }
 
-export const InteractionButton: React.FC<IInteractionButton> = ({
-  type,
-  quantity,
-  favourite,
-  fCallBack,
-}) => {
+export const InteractionButton: React.FC<IInteractionButton> = ({ type, quantity, favourite, fCallBack }) => {
   const [label, setLabel] = useState<string>('');
-  const [fontColor, setFontColor] = useState('text-slate-500');
-  let [count, setCount] = useState<number>(quantity || 0);
-  let [isFavourite, setIsFavourite] = useState<boolean>(favourite || false);
+  const [count, setCount] = useState<number>(quantity || 0);
+  const [isFavourite, setIsFavourite] = useState<boolean>(favourite || false);
   const [hover, setHover] = useState(false);
 
   const setLabels = useCallback(() => {
     if (type === 'comment') {
       if (count >= 2) {
-        setFontColor('hasAction');
         setLabel('Comments');
       } else {
         setLabel('Comment');
       }
     } else if (type === 'like') {
       if (count > 1) {
-        setFontColor('hasAction');
         setLabel('Likes');
       } else if (count === 1 && isFavourite === true) {
         setLabel('Liked');
-      } else if (
-        (count === 0 && !isFavourite) ||
-        (count === 1 && !isFavourite)
-      ) {
+      } else if ((count === 0 && !isFavourite) || (count === 1 && !isFavourite)) {
         setLabel('Like');
       }
     }
@@ -73,7 +56,6 @@ export const InteractionButton: React.FC<IInteractionButton> = ({
   if (type === 'comment') {
     return (
       <CommentStyles
-        className={fontColor}
         onClick={fCallBack}
         count={count}
         onMouseEnter={() => setHover(true)}
@@ -92,7 +74,6 @@ export const InteractionButton: React.FC<IInteractionButton> = ({
   if (type === 'like') {
     return (
       <LikeStyles
-        className={fontColor}
         onClick={handleClickLike}
         count={count}
         onMouseEnter={() => setHover(true)}
@@ -103,8 +84,7 @@ export const InteractionButton: React.FC<IInteractionButton> = ({
         ) : (
           <StyledHeartOutlined hover={hover} count={count} />
         )}
-        {(count === 1 && isFavourite === true) || count === 0 ? '' : count}{' '}
-        {label}
+        {(count === 1 && isFavourite === true) || count === 0 ? '' : count} {label}
       </LikeStyles>
     );
   }
@@ -167,53 +147,45 @@ const LikeStyles = styled.button(({ count }: IInteractionButtonStyles) => [
   count === 0 && tw`text-slate-600 hover:(text-pink-600 bg-pink-50)`,
 ]);
 
-const StyledReplyOutlined = styled(ReplyOutlined)(
-  ({ hover }: IInteractionSvgStyles) => [
-    tw`
+const StyledReplyOutlined = styled(ReplyOutlined)(({ hover }: IInteractionSvgStyles) => [
+  tw`
       fill-slate-600
       h-16
       w-16
       mr-8
     `,
-    hover && tw`fill-violet-600`,
-  ],
-);
+  hover && tw`fill-violet-600`,
+]);
 
-const StyledReplyFilled = styled(ReplyFilled)(
-  ({ hover, count }: IInteractionSvgStyles) => [
-    tw`
+const StyledReplyFilled = styled(ReplyFilled)(({ hover, count }: IInteractionSvgStyles) => [
+  tw`
       fill-slate-600
       h-16
       w-16
       mr-8
     `,
-    hover && tw`fill-violet-600`,
-    count && count >= 1 && tw`fill-violet-600`,
-  ],
-);
+  hover && tw`fill-violet-600`,
+  count && count >= 1 && tw`fill-violet-600`,
+]);
 
-const StyledHeartOutlined = styled(HeartOutlined)(
-  ({ hover, count }: IInteractionSvgStyles) => [
-    tw`
+const StyledHeartOutlined = styled(HeartOutlined)(({ hover, count }: IInteractionSvgStyles) => [
+  tw`
       fill-slate-600
       h-16
       w-16
       mr-8
     `,
-    hover && tw`fill-pink-500`,
-    count === 0 && !hover ? tw`fill-slate-600` : tw`fill-pink-500`,
-  ],
-);
+  hover && tw`fill-pink-500`,
+  count === 0 && !hover ? tw`fill-slate-600` : tw`fill-pink-500`,
+]);
 
-const StyledHeartFilled = styled(HeartFilled)(
-  ({ hover, count }: IInteractionSvgStyles) => [
-    tw`
+const StyledHeartFilled = styled(HeartFilled)(({ hover, count }: IInteractionSvgStyles) => [
+  tw`
       fill-slate-600
       h-16
       w-16
       mr-8
     `,
-    hover && tw`fill-pink-500`,
-    count === 0 && !hover ? tw`fill-slate-600` : tw`fill-pink-500`,
-  ],
-);
+  hover && tw`fill-pink-500`,
+  count === 0 && !hover ? tw`fill-slate-600` : tw`fill-pink-500`,
+]);

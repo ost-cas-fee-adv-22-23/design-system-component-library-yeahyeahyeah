@@ -24,7 +24,9 @@ export default {
           },
         },
         btn: {
-          fCallBack: () => {},
+          fCallBack: () => {
+            return null;
+          },
           label: 'Follow',
         },
         joined: {
@@ -69,7 +71,9 @@ export default {
       },
       defaultValue: {
         alt: 'This is a profile picture!',
-        fCallBack: () => {},
+        fCallBack: () => {
+          return null;
+        },
         src: 'https://shorturl.at/uvyKU',
       },
     },

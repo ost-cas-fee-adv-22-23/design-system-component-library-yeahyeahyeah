@@ -1,18 +1,14 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconTemplate } from '../layouts/IconGrid';
 import { Settings } from '../../components/icons/components';
-import { Icons, IconsMapped, IconTypes } from '../../components/icons/IconMap';
+import { IconsMapped, IconTypes } from '../../components/icons/IconMap';
 import { Heading } from '../../components/typography/Heading';
 import { Paragraph } from '../../components/typography/Paragraph';
 import tw, { TwStyle } from 'twin.macro';
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-let tailWindColors: any[] = [
-  tw`fill-slate-500`,
-  tw`fill-violet-500`,
-  tw`fill-pink-500`,
-];
+const tailWindColors: any[] = [tw`fill-slate-500`, tw`fill-violet-500`, tw`fill-pink-500`];
 
 let tailWindColorsElement: TwStyle = tw`fill-slate-500`;
 
@@ -34,22 +30,14 @@ const Col = tw.div`flex flex-col justify-center items-center pt-24 w-full`;
 const TemplateIcon: ComponentStory<typeof Settings | any> = () => (
   <>
     <Col>
-      <Heading
-        tag="h1"
-        title={'ICONS'}
-        label={'ICONS'}
-        color={'medium'}
-        variant="default"
-      />
+      <Heading tag="h1" title={'ICONS'} label={'ICONS'} color={'medium'} variant="default" />
       <Paragraph text="THE MUMBLE ICON COLLECTION" color={'white'} />
       <GridDiv>
         {Object.keys(IconsMapped).map((iconType, index) => {
           tailWindColorsElement = tailWindColors.shift() || '';
 
           const createIcon = (icon: any) => {
-            return styled(IconsMapped[icon as IconTypes])(() => [
-              tw`w-full h-full`,
-            ]);
+            return styled(IconsMapped[icon as IconTypes])(() => [tw`w-full h-full`]);
           };
 
           const Icon = createIcon(iconType);
@@ -70,7 +58,7 @@ const TemplateIcon: ComponentStory<typeof Settings | any> = () => (
                 label={iconType}
                 color={'light'}
                 variant="small"
-                className="text-justify font-semibold hover:text-slate-white"
+                tw="text-justify font-semibold hover:text-slate-white"
               />
             </IconCol>
           );
@@ -84,9 +72,7 @@ const TemplateIconSingle: ComponentStory<any> = (args) => {
   const Div = tw.div`grid grid-rows-4 grid-flow-col gap-4`;
 
   const createIcon = (icon: any) => {
-    return styled(IconsMapped[icon as IconTypes])(() => [
-      tw`w-[200px] h-[200px] fill-violet-500`,
-    ]);
+    return styled(IconsMapped[icon as IconTypes])(() => [tw`w-[200px] h-[200px] fill-violet-500`]);
   };
 
   const Icon = createIcon('logo');

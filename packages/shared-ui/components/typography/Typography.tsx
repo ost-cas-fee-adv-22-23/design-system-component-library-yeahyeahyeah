@@ -2,48 +2,39 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-interface IHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
+export interface ITypographyProps extends React.HTMLAttributes<HTMLHeadingElement> {
   label: string;
   variant: 'h1' | 'h2' | 'h3' | 'h4';
   color: 'slate-500' | 'slate-600' | 'violet-600' | 'pink-900';
 }
 
-export const Typography: React.FC<IHeadingProps> = ({
-  label,
-  variant,
-  color,
-}) => {
+export const Typography: React.FC<ITypographyProps> = ({ label, variant, color }) => {
   console.log(variant, color);
 
   return (
     <>
       <div css={tw`bg-violet-700 text-pink-200`}>
-        this is the css prop, todo: this component needs to be fixed - no
-        className when u use tailwind
+        this is the css prop, todo: this component needs to be fixed - no className when u use tailwind
       </div>
       <div className="container">
         <div className="m-4">
           <HeadingStyles variant={variant} color={color}>
             {label}
           </HeadingStyles>
-          <h4 className="text-lg font-medium text-slate-500 mb-6">
-            Google Font “Poppins”, Medium, Semibold & Bold
-          </h4>
+          <h4 className="text-lg font-medium text-slate-500 mb-6">Google Font “Poppins”, Medium, Semibold & Bold</h4>
           <h1>{label}</h1>
           <h2 className="mb-8">{label}</h2>
           <h3 className="mb-8">{label}</h3>
           <h4 className="mb-32">{label}</h4>
           <p className="text-lg font-medium mb-32">
-            Paragraph L – Quia aut et aut. Sunt et eligendi similique enim qui
-            quo minus. optio sed quis cumque error magni. Deserunt pariatur
-            molestiae incidunt. Omnis deserunt ratione et recusandae quos
-            excepturi ut deleniti ut repellat magni.
+            Paragraph L – Quia aut et aut. Sunt et eligendi similique enim qui quo minus. optio sed quis cumque error magni.
+            Deserunt pariatur molestiae incidunt. Omnis deserunt ratione et recusandae quos excepturi ut deleniti ut repellat
+            magni.
           </p>
           <p className="text-base font-medium leading-loose mb-32">
-            Paragraph M – Quia aut et aut. Sunt et eligendi similique enim qui
-            quo minus. Aut aut error velit voluptatum optio sed quis cumque
-            error magni. Deserunt pariatur molestiae incidunt. Omnis deserunt
-            ratione et recusandae quos excepturi ut deleniti ut repellat magni.
+            Paragraph M – Quia aut et aut. Sunt et eligendi similique enim qui quo minus. Aut aut error velit voluptatum
+            optio sed quis cumque error magni. Deserunt pariatur molestiae incidunt. Omnis deserunt ratione et recusandae
+            quos excepturi ut deleniti ut repellat magni.
           </p>
           <p className="text-lg font-semibold mb-8">Label XL</p>
           <p className="text-md font-semibold mb-8">Label L</p>

@@ -3,8 +3,7 @@ import tw from 'twin.macro';
 import React, { useState, useEffect } from 'react';
 import { Eye } from '../icons/components';
 
-export interface IFormInputProps
-  extends React.HtmlHTMLAttributes<HTMLFormElement> {
+export interface IFormInputProps extends React.HtmlHTMLAttributes<HTMLFormElement> {
   label?: string;
   editType: 'input' | 'textarea';
   required: boolean;
@@ -48,12 +47,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
               maxLength={150}
               autoComplete={autoComplete}
             />
-            {type === 'password' && (
-              <Eye
-                className="absolute right-16 cursor-pointer"
-                onClick={showPassword}
-              />
-            )}
+            {type === 'password' && <Eye className="absolute right-16 cursor-pointer" onClick={showPassword} />}
           </FormInlineWrapperStyles>
           <FormFieldErrorStyles>{errorMessage}</FormFieldErrorStyles>
         </FormLabelStyles>

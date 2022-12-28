@@ -23,9 +23,7 @@ export default {
   },
 } as ComponentMeta<typeof InteractionButton>;
 
-const Template: ComponentStory<typeof InteractionButton> = (args) => (
-  <InteractionButton {...args} />
-);
+const Template: ComponentStory<typeof InteractionButton> = (args) => <InteractionButton {...args} />;
 /**
  * @button
  * @desc button standard slate

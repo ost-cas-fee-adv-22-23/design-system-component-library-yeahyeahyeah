@@ -31,9 +31,7 @@ export default {
   },
 } as ComponentMeta<typeof ImageContainer>;
 
-const Template: ComponentStory<typeof ImageContainer> = (args) => (
-  <ImageContainer {...args} />
-);
+const Template: ComponentStory<typeof ImageContainer> = (args) => <ImageContainer {...args} />;
 
 export const ImageContainerStory = Template.bind({});
 

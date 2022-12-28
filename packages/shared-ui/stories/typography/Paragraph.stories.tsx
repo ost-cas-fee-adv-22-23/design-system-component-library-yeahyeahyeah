@@ -22,9 +22,7 @@ export default {
   },
 } as ComponentMeta<typeof Paragraph>;
 
-const Template: ComponentStory<typeof Paragraph> = (args) => (
-  <Paragraph {...args} />
-);
+const Template: ComponentStory<typeof Paragraph> = (args) => <Paragraph {...args} />;
 
 export const ParagraphVariants = Template.bind({});
 

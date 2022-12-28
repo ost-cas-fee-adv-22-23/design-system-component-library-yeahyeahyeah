@@ -24,9 +24,7 @@ export default {
   },
 } as ComponentMeta<typeof ShareButton>;
 
-const Template: ComponentStory<typeof ShareButton> = (args) => (
-  <ShareButton {...args} />
-);
+const Template: ComponentStory<typeof ShareButton> = (args) => <ShareButton {...args} />;
 /**
  * @button
  * @desc button standard slate

@@ -18,9 +18,7 @@ export default {
   },
 } as ComponentMeta<typeof TextButton>;
 
-const Template: ComponentStory<typeof TextButton> = (args) => (
-  <TextButton {...args} />
-);
+const Template: ComponentStory<typeof TextButton> = (args) => <TextButton {...args} />;
 /**
  * @button
  * @desc button standard slate

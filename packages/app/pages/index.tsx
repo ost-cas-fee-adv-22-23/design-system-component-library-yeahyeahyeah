@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Mumble } from 'shared-ui/dist';
-import { Logo, Cancel, Calendar, Checkmark, LogoMumble } from 'shared-ui/dist';
+import { Button, Mumble } from 'shared-ui';
+import { Logo, Cancel, Calendar, Checkmark, LogoMumble } from 'shared-ui';
 import tw from 'twin.macro';
 
 const App = () => {
@@ -19,6 +19,7 @@ const App = () => {
       <Cancel width={100} height={100} css={tw`fill-violet-600`} />
       <Checkmark width={100} height={100} css={tw`fill-violet-600`} />
       <p css={tw`text-pink-600 text-3xl`}>Hello World</p>
+      <p tw={'text-violet-600 text-3xl'}>Hello World</p>
       <Mumble
         variant="detailpage"
         avatar={{

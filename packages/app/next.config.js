@@ -22,18 +22,13 @@ module.exports = withTranspileModules({
     const isBabelLoader = (loader) => {
       return (
         loader &&
-        (loader === 'next-babel-loader' ||
-          loader
-            .replace(/\\/g, '/')
-            .match('/next/dist/build/babel/loader/index.js$'))
+        (loader === 'next-babel-loader' || loader.replace(/\\/g, '/').match('/next/dist/build/babel/loader/index.js$'))
       );
     };
     config.module.rules.forEach((rule) => {
       if (rule.use) {
         if (Array.isArray(rule.use)) {
-          const babelLoader = rule.use.find(
-            (use) => typeof use === 'object' && isBabelLoader(use.loader),
-          );
+          const babelLoader = rule.use.find((use) => typeof use === 'object' && isBabelLoader(use.loader));
           if (babelLoader && babelLoader.options) {
             babelLoader.options.configFile = babelConfigFile;
           }

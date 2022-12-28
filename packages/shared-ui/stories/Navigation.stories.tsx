@@ -57,9 +57,7 @@ export default {
   },
 } as ComponentMeta<typeof Navigation>;
 
-const Template: ComponentStory<typeof Navigation> = (args) => (
-  <Navigation {...args} />
-);
+const Template: ComponentStory<typeof Navigation> = (args) => <Navigation {...args} />;
 
 export const NavigationStory = Template.bind({});
 

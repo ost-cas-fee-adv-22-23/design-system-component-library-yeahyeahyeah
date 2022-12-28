@@ -25,14 +25,10 @@ export default {
   },
 } as ComponentMeta<typeof Typography>;
 
-const Template: ComponentStory<typeof Typography> = (args) => (
-  <Typography {...args} />
-);
+const Template: ComponentStory<typeof Typography> = (args) => <Typography {...args} />;
 
 export const Heading = Template.bind({});
 
 Heading.storyName = 'All Font Styles';
 
-Heading.decorators = [
-  (Story) => <div className="sm:container mx-auto">{Story()}</div>,
-];
+Heading.decorators = [(Story) => <div className="sm:container mx-auto">{Story()}</div>];

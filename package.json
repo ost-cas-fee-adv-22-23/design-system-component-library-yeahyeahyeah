@@ -32,10 +32,10 @@
     "watch:types": "cd packages/shared-ui && yarn watch",
     "storybook": "cd packages/shared-ui && yarn storybook",
     "build-storybook": "cd packages/shared-ui && yarn build-storybook",
-    "format:check": "prettier --check src/**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
-    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
-    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json} --no-error-on-unmatched-pattern",
-    "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx,json} --no-error-on-unmatched-pattern"
+    "format:check": "prettier --check packages/**/*.{js,ts,tsx,css,json} --config ./.prettierrc",
+    "format": "prettier --write packages/**/*.{js,ts,tsx,css,json} --config ./.prettierrc",
+    "lint": "eslint packages/**/*.{js,ts,tsx,json} --no-error-on-unmatched-pattern",
+    "lint:fix": "eslint --fix packages/**/*.{js,ts,tsx,json} --no-error-on-unmatched-pattern"
   },
   "private": true,
   "workspaces": {

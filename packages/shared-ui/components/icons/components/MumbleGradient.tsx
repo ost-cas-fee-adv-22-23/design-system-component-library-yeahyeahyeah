@@ -1,13 +1,7 @@
 import * as React from 'react';
 import { SVGProps } from 'react';
 const SvgMumbleGradient = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 134 26.04"
-    width="16px"
-    height="16px"
-    {...props}
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 26.04" width="16px" height="16px" {...props}>
     <defs>
       <linearGradient
         id="mumble-gradient_svg__a"

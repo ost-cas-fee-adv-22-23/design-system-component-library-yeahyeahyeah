@@ -14,24 +14,32 @@ export const Navigation: React.FC<INavigationProps> = ({
   logo = {
     title: 'Mumble Logo',
     href: '#',
-    fCallBack: () => {},
+    fCallBack: () => {
+      return null;
+    },
   },
   avatar = {
     variant: 'profile',
     label: 'Profile',
-    fCallBack: () => {},
+    fCallBack: () => {
+      return null;
+    },
   },
   settings = {
     icon: 'settings',
     label: 'Settings',
     variant: 'default',
-    fCallBack: () => {},
+    fCallBack: () => {
+      return null;
+    },
   },
   logout = {
     icon: 'logout',
     label: 'Logout',
     variant: 'default',
-    fCallBack: () => {},
+    fCallBack: () => {
+      return null;
+    },
   },
 }) => {
   return (
@@ -48,23 +56,14 @@ export const Navigation: React.FC<INavigationProps> = ({
               isNavigation={true}
             />
             <Row>
-              <NaviButton
-                variant={avatar.variant}
-                label={avatar.label}
-                fCallBack={avatar.fCallBack}
-              />
+              <NaviButton variant={avatar.variant} label={avatar.label} fCallBack={avatar.fCallBack} />
               <NaviButton
                 icon={settings.icon}
                 label={settings.label}
                 variant={settings.variant}
                 fCallBack={settings.fCallBack}
               />
-              <NaviButton
-                icon={logout.icon}
-                label={logout.label}
-                variant={logout.variant}
-                fCallBack={logout.fCallBack}
-              />
+              <NaviButton icon={logout.icon} label={logout.label} variant={logout.variant} fCallBack={logout.fCallBack} />
             </Row>
           </Column>
         </Container>

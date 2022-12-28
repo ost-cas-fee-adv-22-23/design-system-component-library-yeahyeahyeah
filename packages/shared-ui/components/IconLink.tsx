@@ -3,8 +3,7 @@ import tw, { TwStyle } from 'twin.macro';
 import React, { useState } from 'react';
 import { Profile, Time, Location, Calendar } from './icons/components';
 
-export interface IIconLinkProps
-  extends React.HtmlHTMLAttributes<HTMLLinkElement> {
+export interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
   label: string;
   type?: 'username' | 'timestamp' | 'location' | 'joined';
   variant?: 'slate' | 'violet';
@@ -44,11 +43,7 @@ export const IconLink: React.FC<IIconLinkProps> = ({
 
   return Link ? (
     <Link href={href} passHref legacyBehavior>
-      <IconLinkDivStyles
-        variant={variant}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
+      <IconLinkDivStyles variant={variant} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         {getIcon()}
         {label}
       </IconLinkDivStyles>
@@ -122,10 +117,7 @@ const StyledProfile = styled(Profile)(({ variant, hover }: IStyleProps) => [
   IconColor(variant, hover),
 ]);
 
-const StyledTime = styled(Time)(({ variant, hover }: IStyleProps) => [
-  tw`w-12 h-12 mr-6 mt-1`,
-  IconColor(variant, hover),
-]);
+const StyledTime = styled(Time)(({ variant, hover }: IStyleProps) => [tw`w-12 h-12 mr-6 mt-1`, IconColor(variant, hover)]);
 
 const StyledLocaton = styled(Location)(({ variant, hover }: IStyleProps) => [
   tw`w-12 h-12 mr-6 mt-1`,

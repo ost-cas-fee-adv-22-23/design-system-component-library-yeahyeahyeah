@@ -2,8 +2,7 @@ import React from 'react';
 import tw, { css, styled } from 'twin.macro';
 import { IconsMapped, IconTypes } from '../icons/IconMap';
 
-export interface IButtonProps
-  extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   variant?: 'slate' | 'violet' | 'pink';
   size?: 'small' | 'large';
@@ -27,14 +26,7 @@ export const Button: React.FC<IButtonProps> = ({
   const Icon = createIcon(icon);
 
   return (
-    <StyledButton
-      variant={variant}
-      size={size}
-      width={width}
-      type={type}
-      disabled={disabled}
-      onClick={handleClick}
-    >
+    <StyledButton variant={variant} size={size} width={width} type={type} disabled={disabled} onClick={handleClick}>
       {label}
       <Icon />
     </StyledButton>
@@ -48,9 +40,7 @@ interface ButtonProps {
 }
 
 const createIcon = (icon: IconTypes) => {
-  return styled(IconsMapped[icon as IconTypes])(() => [
-    tw`ml-64 fill-slate-white`,
-  ]);
+  return styled(IconsMapped[icon as IconTypes])(() => [tw`ml-64 fill-slate-white`]);
 };
 
 /**
@@ -109,8 +99,7 @@ const buttonWidth = (width: string | undefined) => [
   width === 'large' && tw`w-[184px] h-[40px]`,
 ];
 
-const buttonSize = (size: string | undefined) =>
-  size === 'large' ? tw`py-16 px-24` : null;
+const buttonSize = (size: string | undefined) => (size === 'large' ? tw`py-16 px-24` : null);
 
 const getVariant = (variant: string | undefined) => {
   switch (variant) {

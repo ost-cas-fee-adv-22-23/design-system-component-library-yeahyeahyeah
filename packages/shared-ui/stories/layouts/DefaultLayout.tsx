@@ -1,7 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import tw, { GlobalStyles } from 'twin.macro';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle``;
 interface IDefaultLayout {
@@ -21,9 +20,7 @@ export const DefaultLayout: React.FC<IDefaultLayout> = ({ children }) => {
       >
         this is the css prop mixed with plain css and twin.macro
       </div>
-      <div tw={'w-96 h-96 bg-violet-700 text-slate-white'}>
-        this is the tw prop
-      </div>
+      <div tw={'w-96 h-96 bg-violet-700 text-slate-white'}>this is the tw prop</div>
       {children}
     </StyledDefaultLayout>
   );

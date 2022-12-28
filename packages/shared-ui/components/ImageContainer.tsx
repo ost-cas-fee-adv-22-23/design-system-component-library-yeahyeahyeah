@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import tw, { TwStyle } from 'twin.macro';
+import tw from 'twin.macro';
 import { Fullscreen, Edit, Repost } from './icons/components';
 
-export interface IImageContainerProps
-  extends React.HtmlHTMLAttributes<HTMLImageElement> {
+export interface IImageContainerProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
   src?: string;
   alt: string;
   fCallBack?: () => void;
@@ -144,9 +143,7 @@ const Figure = styled.figure(() => [
   `,
 ]);
 
-const StyledFullScreen = styled(Fullscreen)(() => [
-  tw`w-32 h-32 fill-slate-white`,
-]);
+const StyledFullScreen = styled(Fullscreen)(() => [tw`w-32 h-32 fill-slate-white`]);
 
 const StyledEdit = styled(Edit)(() => [tw`w-32 h-32 fill-slate-white`]);
 
