@@ -13,7 +13,7 @@
   "types": "packages/shared-ui/dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./packages/shared-ui/dist/index.js"
+      "import": "./packages/shared-ui/dist/index.jsx"
     },
     "./tailwind": "./tailwind.config.js"
   },

@@ -1,18 +1,11 @@
 import React from 'react';
-import { Button, Mumble } from 'shared-ui';
-import { Logo, Cancel, Calendar, Checkmark, LogoMumble } from 'shared-ui';
+import { Logo, Cancel, Calendar, Checkmark, LogoMumble, Button, Mumble } from 'shared-ui';
 import tw from 'twin.macro';
 
 const App = () => {
   return (
     <div>
-      <Button
-        variant="pink"
-        size="large"
-        label="Roli Chicken Fest"
-        icon="logo"
-        width="default"
-      />
+      <Button variant="pink" size="large" label="Roli Chicken Fest" icon="logo" width="default" />
       <Logo width={200} height={200} css={tw`fill-violet-600`} />
       <LogoMumble width={200} height={200} css={tw`fill-violet-600`} />
       <Calendar width={100} height={100} css={tw`fill-violet-600`} />
@@ -24,35 +17,49 @@ const App = () => {
         variant="detailpage"
         avatar={{
           alt: 'Alt-Tag',
-          fCallBack: () => {},
+          fCallBack: () => {
+            return null;
+          },
           src: 'https://shorturl.at/uvyKU',
         }}
         comment={{
-          fCallBack: function noRefCheck() {},
+          fCallBack: function noRefCheck() {
+            return null;
+          },
           quantity: 0,
         }}
         img={{
           alt: 'This is a profile picture!',
-          fCallBack: function noRefCheck() {},
+          fCallBack: function noRefCheck() {
+            return null;
+          },
           src: 'https://shorturl.at/uvyKU',
         }}
         like={{
-          fCallBack: function noRefCheck() {},
+          fCallBack: function noRefCheck() {
+            return null;
+          },
           quantity: 999,
         }}
         share={{
-          fCallBack: function noRefCheck() {},
+          fCallBack: function noRefCheck() {
+            return null;
+          },
           label: 'Share',
         }}
         text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
         user={{
           avatar: {
             alt: 'avatar',
-            fCallBack: function noRefCheck() {},
+            fCallBack: function noRefCheck() {
+              return null;
+            },
             src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
           },
           btn: {
-            fCallBack: function noRefCheck() {},
+            fCallBack: function noRefCheck() {
+              return null;
+            },
             label: 'Follow',
           },
           joined: {
