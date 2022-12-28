@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import tw from 'twin.macro';
+import tw, { styled } from 'twin.macro';
 
 export interface IHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   label: string;
@@ -10,28 +9,14 @@ export interface IHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> 
 }
 
 export const Heading: React.FC<IHeadingProps> = ({ label, tag = 'h1', color = 'medium', variant = 'default' }) => {
+  const props = { label, tag, color, variant };
+
   return (
     <>
-      {tag === 'h1' && (
-        <H1Styles color={color} variant={variant} tag={tag}>
-          {label}
-        </H1Styles>
-      )}
-      {tag === 'h2' && (
-        <H2Styles color={color} variant={variant} tag={tag}>
-          {label}
-        </H2Styles>
-      )}
-      {tag === 'h3' && (
-        <H3Styles color={color} variant={variant} tag={tag}>
-          {label}
-        </H3Styles>
-      )}
-      {tag === 'h4' && (
-        <H4Styles color={color} variant={variant} tag={tag}>
-          {label}
-        </H4Styles>
-      )}
+      {tag === 'h1' && <H1Styles {...props}>{label}</H1Styles>}
+      {tag === 'h2' && <H2Styles {...props}>{label}</H2Styles>}
+      {tag === 'h3' && <H3Styles {...props}>{label}</H3Styles>}
+      {tag === 'h4' && <H4Styles {...props}>{label}</H4Styles>}
     </>
   );
 };

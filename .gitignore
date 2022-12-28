@@ -1,2 +1,6 @@
 /node_modules
 .vscode
+dist/
+.cache
+build/
+.DS_Store

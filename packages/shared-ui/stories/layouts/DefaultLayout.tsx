@@ -11,7 +11,7 @@ export const DefaultLayout: React.FC<IDefaultLayout> = ({ children }) => {
   return (
     <StyledDefaultLayout>
       <GlobalStyles />
-      <div
+      {/* <div
         css={`
           background-color: blue;
           color: white;
@@ -19,8 +19,8 @@ export const DefaultLayout: React.FC<IDefaultLayout> = ({ children }) => {
         `}
       >
         this is the css prop mixed with plain css and twin.macro
-      </div>
-      <div tw={'w-96 h-96 bg-violet-700 text-slate-white'}>this is the tw prop</div>
+      </div> */}
+      {/* <div tw={'w-96 h-96 bg-violet-700 text-slate-white'}>this is the tw prop</div> */}
       {children}
     </StyledDefaultLayout>
   );
