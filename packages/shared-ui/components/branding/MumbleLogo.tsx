@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import styled from 'styled-components';
-import tw, { TwStyle } from 'twin.macro';
+import tw, { styled, TwStyle } from 'twin.macro';
 import { MumbleText, MumbleGradient, LogoMumble } from '../icons/components';
 
 export interface IMumbleLogoProps extends React.HTMLAttributes<HTMLOrSVGImageElement> {
@@ -96,11 +95,11 @@ const IconColor = (variant?: string, hover?: boolean) => {
   switch (variant) {
     case 'violet':
       defaultColor = tw`fill-violet-600`;
-      hoverColor = tw`fill-violet-700`;
+      hoverColor = tw`fill-slate-white`;
       return hover ? hoverColor : defaultColor;
     case 'gradient':
       defaultColor = tw`fill-violet-600`;
-      hoverColor = tw`fill-violet-700`;
+      hoverColor = tw`fill-slate-white`;
       return hover ? hoverColor : defaultColor;
     case 'white':
       defaultColor = tw`fill-slate-100`;
