@@ -8,14 +8,13 @@ import tw, { TwStyle } from 'twin.macro';
 import React from 'react';
 import styled from 'styled-components';
 
-const tailWindColors: any[] = [tw`fill-slate-500`, tw`fill-violet-500`, tw`fill-pink-500`];
+const tailWindColors: TwStyle[] = [tw`fill-slate-500`, tw`fill-violet-500`, tw`fill-pink-500`];
 
 let tailWindColorsElement: TwStyle = tw`fill-slate-500`;
 
 export default {
   title: 'Icons/Collection',
   decorators: [(story) => <IconTemplate>{story()}</IconTemplate>],
-  component: Settings,
   argTypes: {
     handleClick: {
       action: () => 'handleClick',
@@ -23,24 +22,23 @@ export default {
   },
 } as ComponentMeta<typeof Settings>;
 
-const GridDiv = tw.div`grid sm:grid-rows-6 grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-32 p-24`; // todo grid-rows-12 fehlt ??
+const GridDiv = tw.div`grid md:grid-cols-5 sm:grid-cols-3 gap-32 p-24`; // todo grid-rows-12 fehlt ??
+const Col = tw.div`flex flex-col justify-center items-center pt-24`;
 
-const Col = tw.div`flex flex-col justify-center items-center pt-24 w-full`;
+const createIcon = (icon: IconTypes) => {
+  return styled(IconsMapped[icon as IconTypes])(() => [tw`w-full h-full`]);
+};
 
-const TemplateIcon: ComponentStory<typeof Settings | any> = () => (
+const TemplateIcon: ComponentStory<(IconsMapped: React.SVGProps<SVGSVGElement>) => JSX.Element> = () => (
   <>
     <Col>
       <Heading tag="h1" title={'ICONS'} label={'ICONS'} color={'medium'} variant="default" />
       <Paragraph text="THE MUMBLE ICON COLLECTION" color={'white'} />
       <GridDiv>
         {Object.keys(IconsMapped).map((iconType, index) => {
-          tailWindColorsElement = tailWindColors.shift() || '';
+          tailWindColorsElement = (tailWindColors.shift() as TwStyle) || '';
 
-          const createIcon = (icon: any) => {
-            return styled(IconsMapped[icon as IconTypes])(() => [tw`w-full h-full`]);
-          };
-
-          const Icon = createIcon(iconType);
+          const Icon = createIcon(iconType as IconTypes);
 
           tailWindColors.push(tailWindColorsElement);
 
@@ -68,10 +66,10 @@ const TemplateIcon: ComponentStory<typeof Settings | any> = () => (
   </>
 );
 
-const TemplateIconSingle: ComponentStory<any> = (args) => {
+const TemplateIconSingle: ComponentStory<typeof IconsMapped.logo> = () => {
   const Div = tw.div`grid grid-rows-4 grid-flow-col gap-4`;
 
-  const createIcon = (icon: any) => {
+  const createIcon = (icon: IconTypes) => {
     return styled(IconsMapped[icon as IconTypes])(() => [tw`w-[200px] h-[200px] fill-violet-500`]);
   };
 
