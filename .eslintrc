@@ -2,5 +2,6 @@
   "extends": ["@smartive/eslint-config/react"],
   "rules": {
     "react/no-unknown-property": ["error", { "ignore": ["css", "tw"] }]
-  }
+  },
+  "ignorePatterns": ["packages/shared-ui/dist/**/*", "packages/shared-ui/node_modules/**/*"]
 }
