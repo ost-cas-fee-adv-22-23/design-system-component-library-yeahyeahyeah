@@ -95,7 +95,7 @@ export const User: React.FC<IUserProps> = ({
               label={btn?.label}
               size="small"
               type="button"
-              variant="violet"
+              color="violet"
               width="large"
             />
           </Column>
