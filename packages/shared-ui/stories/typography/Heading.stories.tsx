@@ -12,9 +12,9 @@ export default {
       name: 'label',
       defaultValue: 'Heading',
     },
-    variant: {
+    size: {
       control: { type: 'select' },
-      description: 'Lable style variants.',
+      description: 'Label size variants.',
       defaultValue: 'default',
     },
     tag: {
@@ -25,7 +25,13 @@ export default {
     color: {
       control: { type: 'select' },
       description: 'Color variants',
-      defaultValue: 'medium',
+      defaultValue: 'default',
+    },
+    spacing: {
+      control: {
+        type: 'select',
+      },
+      defaultValue: '',
     },
   },
 } as ComponentMeta<typeof Heading>;
