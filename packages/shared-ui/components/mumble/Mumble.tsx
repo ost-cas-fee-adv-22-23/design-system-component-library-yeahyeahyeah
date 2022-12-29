@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { IUserProps, User } from './User';
-import { Paragraph } from './typography/Paragraph';
-import { IInteractionButton, InteractionButton } from './buttons/InteractionButton';
-import { IShareButton, ShareButton } from './buttons/ShareButton';
-import { IImageContainerProps, ImageContainer } from './ImageContainer';
-import { Avatar, IAvatarProps } from './Avatar';
+import { IUserProps, User } from '../User';
+import { Paragraph } from '../typography/Paragraph';
+import { IInteractionButton, InteractionButton } from '../buttons/InteractionButton';
+import { IShareButton, ShareButton } from '../buttons/ShareButton';
+import { IImageContainerProps, ImageContainer } from '../ImageContainer';
+import { Avatar } from '../Avatar';
 
 export interface IMumbleProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   variant?: 'detailpage' | 'timeline' | 'response';
@@ -16,14 +16,13 @@ export interface IMumbleProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   comment: IInteractionButton;
   like: IInteractionButton;
   share: IShareButton;
-  avatar: IAvatarProps;
 }
 
 export const Mumble: React.FC<IMumbleProps> = ({
   variant = 'detailpage',
   user = {
     avatar: {
-      alt: 'user avatar',
+      alt: '',
       src: 'https://i.stack.imgur.com/5xd5n.png',
       fCallBack: () => {
         return null;
@@ -53,17 +52,9 @@ export const Mumble: React.FC<IMumbleProps> = ({
       label: 'Username',
     },
   },
-  avatar = {
-    alt: 'avatar',
-    src: 'https://i.stack.imgur.com/5xd5n.png',
-    variant: 'medium',
-    fCallBack: () => {
-      return null;
-    },
-  },
   text = '',
   img = {
-    alt: 'This is a profile picture!',
+    alt: '',
     fCallBack: () => {
       return null;
     },
@@ -93,16 +84,6 @@ export const Mumble: React.FC<IMumbleProps> = ({
     <>
       {variant === 'detailpage' && (
         <>
-          <div tw={'w-160 h-160 bg-violet-200 text-slate-800'}>this is the tw prop in a component that is not bundled</div>
-          <div
-            css={`
-              background-color: blue;
-              color: white;
-              ${tw`text-xl`}
-            `}
-          >
-            this is the css prop mixed with plain css and twin.macro in a component that is not bundled
-          </div>
           <Article>
             <User
               btn={user.btn}
@@ -111,9 +92,10 @@ export const Mumble: React.FC<IMumbleProps> = ({
               location={user.location}
               username={user.username}
               variant="xlarge"
+              avatar={user.avatar}
             />
             <AvatarWrapper>
-              <Avatar alt={avatar.alt} src={avatar.src} variant={'medium'} fCallBack={avatar.fCallBack} />
+              <Avatar alt={user.avatar.alt} src={user.avatar.src} variant={'medium'} fCallBack={user.avatar?.fCallBack} />
             </AvatarWrapper>
             <Div>
               <Paragraph variant={'large'} color={'dark'} text={text} />
@@ -131,9 +113,16 @@ export const Mumble: React.FC<IMumbleProps> = ({
       )}
       {variant === 'timeline' && (
         <Article>
-          <User btn={user.btn} label={user.label} timestamp={user.timestamp} username={user.username} variant="large" />
+          <User
+            avatar={user.avatar}
+            btn={user.btn}
+            label={user.label}
+            timestamp={user.timestamp}
+            username={user.username}
+            variant="large"
+          />
           <AvatarWrapper>
-            <Avatar alt={avatar.alt} src={avatar.src} variant={'medium'} fCallBack={avatar.fCallBack} />
+            <Avatar alt={user.avatar.alt} src={user.avatar.src} variant={'medium'} fCallBack={user.avatar.fCallBack} />
           </AvatarWrapper>
           <Div>
             <Paragraph variant={'medium'} color={'dark'} text={text} />
