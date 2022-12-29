@@ -8,16 +8,24 @@ export default {
   component: Paragraph,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
-    variant: {
+    size: {
       description: 'Add description here ...',
       control: { type: 'select' },
+      defaultValue: 'default',
     },
     color: {
       description: 'The color of paragraph',
       control: { type: 'select' },
+      defaultValue: 'default',
     },
     text: {
       defaultValue: 'This is a paragraph',
+    },
+    spacing: {
+      control: {
+        type: 'select',
+      },
+      defaultValue: '',
     },
   },
 } as ComponentMeta<typeof Paragraph>;
@@ -25,10 +33,5 @@ export default {
 const Template: ComponentStory<typeof Paragraph> = (args) => <Paragraph {...args} />;
 
 export const ParagraphVariants = Template.bind({});
-
-ParagraphVariants.args = {
-  variant: 'default',
-  color: 'dark',
-};
 
 ParagraphVariants.storyName = 'Paragraph';
