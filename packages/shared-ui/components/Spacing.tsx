@@ -1,8 +1,5 @@
 import tw from 'twin.macro';
-
-interface ISpacingProps {
-  spacing?: string;
-}
+import { ISpacingProps } from '../interfaces/Interfaces';
 
 export const BottomSpacing = ({ spacing }: ISpacingProps) => [
   tw`

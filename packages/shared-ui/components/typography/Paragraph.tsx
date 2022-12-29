@@ -1,13 +1,13 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
-import { Spacing } from '../../interfaces/Types';
+import { TSpacing } from '../../types/Types';
 import { BottomSpacing } from '../Spacing';
 
 export interface IParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
   size?: 'default' | 'medium' | 'large';
   color?: 'default' | 'dark' | 'light' | 'white';
   text: string;
-  spacing?: Spacing['spacing'];
+  spacing?: TSpacing;
 }
 
 export const Paragraph: React.FC<IParagraphProps> = ({ size = 'medium', color = 'default', text, spacing }) => {
@@ -22,7 +22,7 @@ export const Paragraph: React.FC<IParagraphProps> = ({ size = 'medium', color = 
 interface IParagraphStylesProps {
   size: string;
   color?: string;
-  spacing?: string;
+  spacing?: TSpacing;
 }
 
 const paragraphDefaults = tw`font-medium`;
