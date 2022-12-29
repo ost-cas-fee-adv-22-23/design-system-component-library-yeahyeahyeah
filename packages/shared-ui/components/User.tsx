@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import tw from 'twin.macro';
+import tw, { styled, TwStyle } from 'twin.macro';
 import { Heading } from './typography/Heading';
 import { IconLink, IIconLinkProps } from './IconLink';
 import { Button } from './buttons/Button';
@@ -81,10 +80,10 @@ export const User: React.FC<IUserProps> = ({
         </Column>
       )}
       {variant === 'recommended' && (
-        <article tw="flex flex-col p-16 bg-slate-white rounded-16">
+        <Article>
           <Column variant="recommended">
             <Avatar alt={avatar.alt} src={avatar.src} variant={'large'} />
-            <Row tw="mb-8">
+            <Row spacing={tw`mb-8`}>
               <Heading tag="h4" color="dark" variant={'large'} label={label} />
             </Row>
             <div tw="mb-16">
@@ -100,7 +99,7 @@ export const User: React.FC<IUserProps> = ({
               width="large"
             />
           </Column>
-        </article>
+        </Article>
       )}
     </>
   );
@@ -116,6 +115,7 @@ interface IUserStyles {
 
 interface IRowStyles {
   gap?: string;
+  spacing?: TwStyle;
 }
 
 const Column = styled.div(({ variant }: IUserStyles) => [
@@ -128,7 +128,7 @@ const Column = styled.div(({ variant }: IUserStyles) => [
   variant === 'recommended' && tw`items-center`,
 ]);
 
-const Row = styled.div(({ gap }: IRowStyles) => [
+const Row = styled.div(({ gap, spacing }: IRowStyles) => [
   tw`
     flex
     flex-row
@@ -138,4 +138,7 @@ const Row = styled.div(({ gap }: IRowStyles) => [
     gap-16
   `,
   gap === 'small' && tw`gap-8`,
+  spacing && spacing,
 ]);
+
+const Article = styled.article(() => [tw`flex flex-col p-16 bg-slate-white rounded-16`]);
