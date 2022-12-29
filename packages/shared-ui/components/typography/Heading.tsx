@@ -8,11 +8,11 @@ export interface IHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> 
   tag: 'h1' | 'h2' | 'h3' | 'h4' | 'span';
   color: 'light' | 'medium' | 'dark' | 'violet' | 'pink' | 'white';
   size: 'default' | 'xlarge' | 'large' | 'medium' | 'small';
-  spacing?: Spacing['spacing'];
+  spacing?: Spacing;
 }
 
-export const Heading: React.FC<IHeadingProps> = (props: IHeadingProps) => {
-  const { label, tag } = props;
+export const Heading: React.FC<IHeadingProps> = ({ label, tag = 'h1', color = 'default', size = 'default', spacing }) => {
+  const props = { label, tag, color, size, spacing };
 
   return (
     <>
@@ -29,7 +29,7 @@ interface IHeadingStylesProps {
   color: string;
   size: string;
   tag: string;
-  spacing?: string;
+  spacing?: Spacing;
 }
 
 const HeadingSize = ({ size, tag }: IHeadingStylesProps) => [
