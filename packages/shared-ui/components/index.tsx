@@ -14,6 +14,6 @@ export * from './typography/Typography';
 export * from './Avatar';
 export * from './IconLink';
 export * from './ImageContainer';
-export * from './Mumble';
+export * from './mumble/Mumble';
 export * from './Navigation';
 export * from './User';

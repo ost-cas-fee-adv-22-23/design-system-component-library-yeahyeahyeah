@@ -7,7 +7,7 @@ export interface IImageContainerProps extends React.HtmlHTMLAttributes<HTMLImage
   src?: string;
   alt: string;
   fCallBack?: () => void;
-  type?: 'fullscreen' | 'edit' | 'repost';
+  type?: 'container' | 'banner';
   loading?: boolean;
 }
 
@@ -15,40 +15,38 @@ export const ImageContainer: React.FC<IImageContainerProps> = ({
   src = '',
   alt = '',
   fCallBack,
-  type = 'fullscreen',
+  type = 'container',
   loading = false,
 }) => {
   const getIcon = () => {
     switch (type) {
-      case 'fullscreen':
+      case 'container':
         return <StyledFullScreen />;
-      case 'edit':
+      case 'banner':
         return <StyledEdit />;
-      case 'repost':
-        return <StyledRepost />;
     }
   };
 
   return (
-    <Figure className="group">
-      <Wrapper loading={loading} type={type}>
+    <Figure type={type}>
+      <Wrapper loading={loading}>
         <Container>
-          <ImageIcon loading={loading} onClick={fCallBack} type={type}>
-            {getIcon()}
+          <ImageIcon loading={loading} onClick={fCallBack}>
+            {loading === true ? <StyledRepost /> : getIcon()}
           </ImageIcon>
         </Container>
       </Wrapper>
-      <Image alt={alt} src={src} width={'680px'} height={'320px'} />
+      {src && <Image alt={alt} src={src} type={type} />}
     </Figure>
   );
 };
 
 interface IImageIcon {
-  loading: boolean;
-  type: string;
+  loading?: boolean;
+  type?: 'container' | 'banner';
 }
 
-const Image = styled.img(() => [
+const Image = styled.img(({ type }: IImageIcon) => [
   tw`
     w-full
     max-h-[320px]
@@ -61,12 +59,12 @@ const Image = styled.img(() => [
     group-hover:scale-110
     group-hover:opacity-20
   `,
+  type === 'banner' && tw`w-[680px] h-[320px]`,
 ]);
 
 const Container = styled.div(() => [
   tw`
   space-y-3
-  
   transform-gpu
   translate-y-4 
   transition
@@ -87,7 +85,7 @@ const LoadingSpinner = tw`
   opacity-50
 `;
 
-const ImageIcon = styled.div(({ loading, type }: IImageIcon) => [
+const ImageIcon = styled.div(({ loading }: IImageIcon) => [
   tw`
     flex
     justify-center
@@ -100,10 +98,10 @@ const ImageIcon = styled.div(({ loading, type }: IImageIcon) => [
     ease-in-out
     z-50
 `,
-  loading === true && type === 'repost' ? LoadingSpinner : ``,
+  loading === true && LoadingSpinner,
 ]);
 
-const Wrapper = styled.div(({ loading, type }: IImageIcon) => [
+const Wrapper = styled.div(({ loading }: IImageIcon) => [
   tw`
 		rounded-xl
     z-50
@@ -120,10 +118,10 @@ const Wrapper = styled.div(({ loading, type }: IImageIcon) => [
     -translate-x-1/2 
     -translate-y-1/2
 	`,
-  loading === true && type === 'repost' ? tw`opacity-100` : ``,
+  loading === true && tw`opacity-100`,
 ]);
 
-const Figure = styled.figure(() => [
+const Figure = styled.figure.attrs({ className: 'group' })(({ type }: IImageIcon) => [
   tw`
     flex
     justify-center
@@ -134,13 +132,14 @@ const Figure = styled.figure(() => [
     border-slate-white
     overflow-hidden
     aspect-video
-    bg-violet-100
+    bg-violet-200
     hover:bg-violet-600
     cursor-pointer
     rounded-16
     relative
     mb-24
   `,
+  type === 'banner' && tw`bg-violet-100 w-[680px] h-[320px]`,
 ]);
 
 const StyledFullScreen = styled(Fullscreen)(() => [tw`w-32 h-32 fill-slate-white`]);

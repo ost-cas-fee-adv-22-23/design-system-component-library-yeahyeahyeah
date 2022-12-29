@@ -17,6 +17,5 @@ const StyledDefaultLayout = styled.div(() => [
     p-32
     m-0
     bg-slate-900
-    h-screen
     `,
 ]);
