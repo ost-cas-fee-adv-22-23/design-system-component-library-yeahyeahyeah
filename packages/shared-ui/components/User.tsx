@@ -81,13 +81,13 @@ export const User: React.FC<IUserProps> = ({
         </Column>
       )}
       {variant === 'recommended' && (
-        <article className="flex flex-col p-16 bg-slate-white rounded-16">
+        <article tw="flex flex-col p-16 bg-slate-white rounded-16">
           <Column variant="recommended">
             <Avatar alt={avatar.alt} src={avatar.src} variant={'large'} />
             <Row tw="mb-8">
               <Heading tag="h4" color="dark" variant={'large'} label={label} />
             </Row>
-            <div className="mb-16">
+            <div tw="mb-16">
               <IconLink label={username.label} type="username" variant="violet" href={username.href}></IconLink>
             </div>
             <Button
