@@ -98,7 +98,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
               <Avatar alt={user.avatar.alt} src={user.avatar.src} variant={'medium'} fCallBack={user.avatar?.fCallBack} />
             </AvatarWrapper>
             <Div>
-              <Paragraph variant={'large'} color={'dark'} text={text} />
+              <Paragraph size={'large'} color={'dark'} text={text} />
             </Div>
             <Row>
               <ImageContainer alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
@@ -125,7 +125,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
             <Avatar alt={user.avatar.alt} src={user.avatar.src} variant={'medium'} fCallBack={user.avatar.fCallBack} />
           </AvatarWrapper>
           <Div>
-            <Paragraph variant={'medium'} color={'dark'} text={text} />
+            <Paragraph size={'medium'} color={'dark'} text={text} />
           </Div>
           <Row>
             <ImageContainer alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
@@ -148,7 +148,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
             variant="small"
           />
           <Div>
-            <Paragraph variant={'medium'} color={'dark'} text={text} />
+            <Paragraph size={'medium'} color={'dark'} text={text} />
           </Div>
           <Row>
             <ImageContainer alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
