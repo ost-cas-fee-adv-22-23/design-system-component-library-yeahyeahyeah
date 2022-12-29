@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Mumble } from '../../components/Mumble';
+import { Mumble } from '../../components/mumble/Mumble';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
 export default {
@@ -18,7 +18,7 @@ export default {
       defaultValue: {
         avatar: {
           alt: 'avatar',
-          src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
+          src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
           fCallBack: () => {
             console.log('user avatar clicked');
           },
@@ -47,18 +47,6 @@ export default {
           label: 'Username',
         },
         variant: 'xlarge',
-      },
-    },
-    avatar: {
-      control: {
-        type: 'object',
-      },
-      defaultValue: {
-        alt: 'Alt-Tag',
-        src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
-        fCallBack: () => {
-          console.log('avatar clicked');
-        },
       },
     },
     text: {

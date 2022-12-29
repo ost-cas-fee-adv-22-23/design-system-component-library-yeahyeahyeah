@@ -13,7 +13,7 @@ export interface IUserProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   timestamp?: IIconLinkProps;
   location?: IIconLinkProps;
   joined?: IIconLinkProps;
-  avatar?: { src: string; alt: string; fCallBack?: () => void };
+  avatar: { src: string; alt: string; fCallBack?: () => void };
   btn?: { fCallBack?: () => void; label: string };
 }
 

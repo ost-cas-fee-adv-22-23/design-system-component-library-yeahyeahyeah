@@ -6,11 +6,11 @@ import { IconButton } from '../components/buttons/IconButton';
 export interface IAvatarProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string;
-  variant?: 'small' | 'medium' | 'large' | 'xlarge' | 'edit';
+  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'edit';
   fCallBack?: () => void;
 }
 
-export const Avatar: React.FC<IAvatarProps> = ({ variant = 'small', src, alt, fCallBack }) => {
+export const Avatar: React.FC<IAvatarProps> = ({ variant = 'small', src = '', alt = '', fCallBack }) => {
   return (
     <>
       {variant !== 'edit' ? (
