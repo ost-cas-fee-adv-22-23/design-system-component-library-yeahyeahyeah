@@ -43,7 +43,7 @@ export default {
       },
       defaultValue: 'slate',
     },
-    handleClick: {
+    fCallBack: {
       action: () => 'handleClick',
     },
     icon: {

@@ -39,8 +39,8 @@ export default {
         type: 'button',
         variant: 'slate',
         width: 'full',
-        handleClick: {
-          action: () => 'handleClick',
+        fCallBack: () => {
+          console.log('upload clicked');
         },
       },
     },
@@ -55,8 +55,8 @@ export default {
         type: 'button',
         variant: 'violet',
         width: 'full',
-        handleClick: {
-          action: () => 'handleClick',
+        fCallBack: () => {
+          console.log('send clicked');
         },
       },
     },

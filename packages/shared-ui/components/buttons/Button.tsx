@@ -9,7 +9,7 @@ export interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement
   width?: 'default' | 'large' | 'full';
   type?: 'button' | 'reset' | 'submit';
   disabled?: boolean;
-  handleClick?: () => void;
+  fCallBack?: () => void;
   icon: IconTypes;
 }
 
@@ -20,13 +20,13 @@ export const Button: React.FC<IButtonProps> = ({
   size = 'small',
   width = 'default',
   disabled = false,
-  handleClick,
+  fCallBack,
   icon = 'calendar',
 }) => {
   const Icon = createIcon(icon);
 
   return (
-    <StyledButton variant={variant} size={size} width={width} type={type} disabled={disabled} onClick={handleClick}>
+    <StyledButton variant={variant} size={size} width={width} type={type} disabled={disabled} onClick={fCallBack}>
       {label}
       <Icon />
     </StyledButton>

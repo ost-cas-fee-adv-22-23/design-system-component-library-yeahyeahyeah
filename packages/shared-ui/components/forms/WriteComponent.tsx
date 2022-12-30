@@ -1,8 +1,8 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
-import { User, IUserProps } from '../../components/User';
-import { InputForm, IFormInputProps } from '../../components/forms/Input';
-import { Button, IButtonProps } from '../../components/buttons/Button';
+import { User, IUserProps } from '../User';
+import { InputForm, IFormInputProps } from './Input';
+import { Button, IButtonProps } from '../buttons/Button';
 
 export interface IWriteComponentProps {
   user: IUserProps;
@@ -37,7 +37,7 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
     type: 'button',
     variant: 'slate',
     width: 'full',
-    handleClick: () => {
+    fCallBack: () => {
       return null;
     },
   },
@@ -48,7 +48,7 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
     type: 'button',
     variant: 'violet',
     width: 'full',
-    handleClick: () => {
+    fCallBack: () => {
       return null;
     },
   },
@@ -72,7 +72,7 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
         />
         <Row>
           <Button
-            onClick={upload.handleClick}
+            fCallBack={upload.fCallBack}
             label={upload.label}
             size={upload.size}
             type={upload.type}
@@ -81,7 +81,7 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
             icon={upload.icon}
           />
           <Button
-            onClick={send.handleClick}
+            fCallBack={send.fCallBack}
             label={send.label}
             size={send.size}
             type={send.type}

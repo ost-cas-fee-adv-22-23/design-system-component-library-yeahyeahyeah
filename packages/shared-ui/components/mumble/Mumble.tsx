@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import tw from 'twin.macro';
+import tw, { styled } from 'twin.macro';
 import { IUserProps, User } from '../User';
 import { Paragraph } from '../typography/Paragraph';
 import { IInteractionButton, InteractionButton } from '../buttons/InteractionButton';
