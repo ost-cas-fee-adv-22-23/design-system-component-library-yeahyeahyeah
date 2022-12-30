@@ -1,7 +1,6 @@
 import React from 'react';
-import tw from 'twin.macro';
-import styled from 'styled-components';
-import { IconButton } from '../components/buttons/IconButton';
+import tw, { styled } from 'twin.macro';
+import { IconButton } from './buttons/IconButton';
 
 export interface IAvatarProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
   src: string;
@@ -18,7 +17,7 @@ export const Avatar: React.FC<IAvatarProps> = ({ variant = 'small', src = '', al
       ) : (
         <>
           <Row>
-            <Image variant={variant} src={src} alt={alt} />
+            <Image variant={variant} src={src} alt={alt} onClick={fCallBack} />
             <IconButton variant="edit" icon="edit" label="Label" fCallBack={fCallBack} />
           </Row>
         </>
@@ -50,6 +49,13 @@ const ImageAnim = tw`
 `;
 
 const Image = styled.img(({ variant }: IImageProps) => [
+  tw`
+    relative
+    left-0
+
+    md:(mr-4)
+    lg:(mr-8)
+  `,
   variant === 'small' && tw`h-40 w-40 min-w-[40px]`,
   variant === 'small' && ImageAnim,
 
@@ -59,7 +65,8 @@ const Image = styled.img(({ variant }: IImageProps) => [
   variant === 'large' && tw`h-96 w-96 border-4`,
   variant === 'large' && ImageAnim,
 
-  variant === 'xlarge' && tw`h-160 w-160 border-4`,
+  variant === 'xlarge' && tw`h-160 w-160 border-4 min-w-[160px]`,
+  variant === 'xlarge' && ImageAnim,
 
   variant === 'edit' &&
     tw`
@@ -68,6 +75,7 @@ const Image = styled.img(({ variant }: IImageProps) => [
 		justify-end
 		h-160
 		w-160
+    min-w-[160px]
 		border-4
     `,
   tw`

@@ -19,6 +19,11 @@ export default {
       name: 'Icon',
       defaultValue: 'settings',
     },
+    variant: {
+      control: 'select',
+      description: 'Only in use in Avatar "edit mode".',
+      defaultValue: 'none',
+    },
     fCallBack: {
       action: () => 'handleClick',
     },

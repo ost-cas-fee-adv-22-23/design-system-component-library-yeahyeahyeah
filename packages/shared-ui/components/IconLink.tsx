@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import tw, { TwStyle } from 'twin.macro';
+import tw, { styled, TwStyle } from 'twin.macro';
 import React, { useState } from 'react';
 import { Profile, Time, Location, Calendar } from './icons/components';
 
