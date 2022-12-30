@@ -17,3 +17,4 @@ export * from './ImageContainer';
 export * from './mumble/Mumble';
 export * from './Navigation';
 export * from './User';
+export * from './Spacing';

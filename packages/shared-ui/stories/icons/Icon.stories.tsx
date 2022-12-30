@@ -32,7 +32,7 @@ const createIcon = (icon: IconTypes) => {
 const TemplateIcon: ComponentStory<(IconsMapped: React.SVGProps<SVGSVGElement>) => JSX.Element> = () => (
   <>
     <Col>
-      <Heading tag="h1" title={'ICONS'} label={'ICONS'} color={'medium'} variant="default" />
+      <Heading tag="h1" title={'ICONS'} label={'ICONS'} color={'medium'} size="default" />
       <Paragraph text="THE MUMBLE ICON COLLECTION" color={'white'} />
       <GridDiv>
         {Object.keys(IconsMapped).map((iconType, index) => {
@@ -55,7 +55,7 @@ const TemplateIcon: ComponentStory<(IconsMapped: React.SVGProps<SVGSVGElement>) 
                 title={iconType}
                 label={iconType}
                 color={'light'}
-                variant="small"
+                size="small"
                 tw="text-justify font-semibold hover:text-slate-white"
               />
             </IconCol>

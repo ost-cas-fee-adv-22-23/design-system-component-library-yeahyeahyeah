@@ -5,10 +5,13 @@ export interface IColorProps {
 export interface ISizeProps {
   size?: 'small' | 'medium' | 'large' | 'xlarge' | 'default';
 }
-export type Spacing = '4' | '8' | '16' | '32' | '64';
 
 export interface ISVGProps {
   className: string;
   width: string;
   height: string;
+}
+
+export interface ISpacingProps {
+  spacing?: string;
 }
