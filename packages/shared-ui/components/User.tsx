@@ -100,7 +100,7 @@ export const User: React.FC<IUserProps> = ({
               <IconLink label={username.label} type="username" variant="violet" href={username.href}></IconLink>
             </div>
             <Button
-              handleClick={btn?.fCallBack}
+              fCallBack={btn?.fCallBack}
               icon="logo"
               label={btn?.label}
               size="small"
