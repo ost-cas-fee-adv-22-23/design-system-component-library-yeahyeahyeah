@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-import tw from 'twin.macro';
 import React, { useState, useEffect } from 'react';
+import tw, { styled } from 'twin.macro';
 import { Eye } from '../icons/components';
 
 export interface IFormInputProps extends React.HtmlHTMLAttributes<HTMLFormElement> {
@@ -36,7 +35,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
   return (
     <>
       {editType === ('input' || '') && (
-        <FormLabelStyles htmlFor={label}>
+        <FormLabel htmlFor={label}>
           {label}
           <FormInlineWrapperStyles>
             <InputStyles
@@ -47,15 +46,15 @@ export const InputForm: React.FC<IFormInputProps> = ({
               maxLength={150}
               autoComplete={autoComplete}
             />
-            {type === 'password' && <Eye className="absolute right-16 cursor-pointer" onClick={showPassword} />}
+            {type === 'password' && <Eye tw="absolute right-16 cursor-pointer" onClick={showPassword} />}
           </FormInlineWrapperStyles>
-          <FormFieldErrorStyles>{errorMessage}</FormFieldErrorStyles>
-        </FormLabelStyles>
+          <FormFieldError>{errorMessage}</FormFieldError>
+        </FormLabel>
       )}
 
       {editType === 'textarea' && (
         <>
-          <FormLabelStyles htmlFor={label}>
+          <FormLabel htmlFor={label}>
             {label}
             <TextareaStyles
               id={label}
@@ -66,7 +65,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
               required={required}
               placeholder={placeholder}
             />
-          </FormLabelStyles>
+          </FormLabel>
         </>
       )}
     </>
@@ -77,14 +76,12 @@ export const InputForm: React.FC<IFormInputProps> = ({
  * @Form: Input, Textarea, Label
  * @desc Button styles
  */
-const FormFieldErrorStyles = styled.p(() => [
+const FormFieldError = styled.p(() => [
   tw`
     flex
     flex-row
     justify-end
     items-center
-    // invisible
-    // peer-invalid:visible
     text-xxs
     font-medium
     text-pink-700
@@ -92,7 +89,7 @@ const FormFieldErrorStyles = styled.p(() => [
   `,
 ]);
 
-const FormLabelStyles = styled.label(() => [
+const FormLabel = styled.label(() => [
   tw`
     block
     text-slate-900 

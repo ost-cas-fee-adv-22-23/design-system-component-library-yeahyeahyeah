@@ -7,7 +7,7 @@ import { Avatar } from './Avatar';
 
 export interface IUserProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   label: string;
-  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended' | 'write';
+  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended' | 'write' | 'inline';
   username: IIconLinkProps;
   timestamp?: IIconLinkProps;
   location?: IIconLinkProps;
@@ -51,6 +51,16 @@ export const User: React.FC<IUserProps> = ({
           </Column>
         </Row>
       )}
+
+      {variant === 'inline' && (
+        <Row gap="small">
+          <Column variant={variant}>
+            <Avatar alt={avatar.alt} src={avatar.src} variant={'medium'} />
+            <Heading tag="h4" color="dark" size={'default'} label={label} />
+          </Column>
+        </Row>
+      )}
+
       {variant === 'medium' && (
         <Column>
           <Heading tag="h4" color="dark" size={'large'} label={label} />
@@ -126,6 +136,12 @@ const Column = styled.div(({ variant }: IUserStyles) => [
   `,
   variant === 'small' && tw`mt-2`,
   variant === 'recommended' && tw`items-center`,
+  variant === 'inline' &&
+    tw`
+    flex
+    flex-row
+    items-center
+  `,
 ]);
 
 const Row = styled.div(({ gap, spacing }: IRowStyles) => [

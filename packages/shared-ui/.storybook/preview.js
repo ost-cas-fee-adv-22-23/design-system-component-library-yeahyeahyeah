@@ -8,28 +8,20 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: [
-        'Branding',
-        'Mumble',
-        'Write-Component',
-        'Typography',
-        'Navigation',
-        'Form',
-        'Interactions',
-        'Icons',
-      ],
+      order: ['Branding', 'Mumble', 'Write-Component', 'Typography', 'Navigation', 'Form', 'Interactions', 'Icons'],
     },
   },
   layout: 'fullscreen',
   backgrounds: {
+    default: 'default',
     values: [
       {
         name: 'default',
-        value: '#0F172A',
+        value: '#e5e5e5',
       },
       {
         name: 'standard',
-        value: '#e5e5e5',
+        value: '#0F172A',
       },
     ],
   },

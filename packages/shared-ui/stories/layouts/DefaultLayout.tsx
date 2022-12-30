@@ -11,6 +11,7 @@ export const DefaultLayout: React.FC<IDefaultLayout> = ({ children }) => {
   return (
     <StyledDefaultLayout>
       <GlobalStyles />
+      <GlobalStyle />
       {children}
     </StyledDefaultLayout>
   );
@@ -25,6 +26,10 @@ const StyledDefaultLayout = styled.div(() => [
     flex-wrap
     justify-center
     items-center
-    p-32
+    p-8
+    pt-16
+
+    sm:p-16
+    md:p-32
   `,
 ]);

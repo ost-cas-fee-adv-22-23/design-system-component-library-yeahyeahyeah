@@ -4,24 +4,19 @@ import { WriteComponent } from '../../components/forms/WriteComponent';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
 export default {
-  title: 'Write-Component/Inline',
+  title: 'Write-Component/Typing',
   component: WriteComponent,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
+    mode: {
+      control: false,
+      table: {
+        disable: true,
+      },
+    },
     user: {
       control: {
         type: 'object',
-      },
-      defaultValue: {
-        label: 'Display Name',
-        username: {
-          label: 'Username',
-          href: '#',
-        },
-        avatar: {
-          src: 'https://www.liveabout.com/thmb/H9V_z_oYhbKldDJJUL53tVN36cQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/peter_2008_v2F_hires1-56a00f083df78cafda9fdcb6.jpg',
-          alt: 'Family Guy goes Mumble',
-        },
       },
     },
     form: {
@@ -33,6 +28,38 @@ export default {
         errorMessage: 'Da ist etwas schief gelaufen',
       },
     },
+    upload: {
+      control: {
+        type: 'object',
+      },
+      defaultValue: {
+        label: 'Bild hochladen',
+        icon: 'upload',
+        size: 'small',
+        type: 'button',
+        variant: 'slate',
+        width: 'full',
+        handleClick: {
+          action: () => 'handleClick',
+        },
+      },
+    },
+    send: {
+      control: {
+        type: 'object',
+      },
+      defaultValue: {
+        label: 'Absenden',
+        icon: 'send',
+        size: 'small',
+        type: 'button',
+        variant: 'violet',
+        width: 'full',
+        handleClick: {
+          action: () => 'handleClick',
+        },
+      },
+    },
   },
 } as ComponentMeta<typeof WriteComponent>;
 
@@ -42,11 +69,67 @@ const Template: ComponentStory<typeof WriteComponent> = (args) => <WriteComponen
  * @input
  * @desc form input field
  */
-export const ComponentWrite = Template.bind({});
+export const ComponentWriteStory = Template.bind({});
 
-ComponentWrite.storyName = 'Inline';
+ComponentWriteStory.argTypes = {
+  mode: {
+    control: {
+      type: 'select',
+    },
+    defaultValue: 'write',
+  },
+  user: {
+    control: {
+      type: 'object',
+    },
+    defaultValue: {
+      label: 'Display Name',
+      username: {
+        label: 'Username',
+        href: '#',
+      },
+      avatar: {
+        src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
+        alt: 'Family Guy goes Mumble',
+      },
+    },
+  },
+};
 
-ComponentWrite.parameters = {
+ComponentWriteStory.storyName = 'Inline';
+
+ComponentWriteStory.parameters = {
+  docs: {
+    source: { type: 'dynamic' },
+  },
+};
+
+export const ComponentInlineStory = Template.bind({});
+
+ComponentInlineStory.argTypes = {
+  mode: {
+    control: {
+      type: 'select',
+    },
+    defaultValue: 'inline',
+  },
+  user: {
+    control: {
+      type: 'object',
+    },
+    defaultValue: {
+      label: 'Display Name',
+      avatar: {
+        src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
+        alt: 'Family Guy goes Mumble',
+      },
+    },
+  },
+};
+
+ComponentInlineStory.storyName = 'Write';
+
+ComponentInlineStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
   },

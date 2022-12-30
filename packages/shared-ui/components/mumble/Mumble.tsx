@@ -200,6 +200,7 @@ const Article = styled.article(() => [
 const Div = styled.div(() => [
   tw`
     pt-16
+    pb-24
   `,
 ]);
 
