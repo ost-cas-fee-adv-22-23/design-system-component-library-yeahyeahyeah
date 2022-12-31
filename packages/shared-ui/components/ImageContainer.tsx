@@ -29,21 +29,21 @@ export const ImageContainer: React.FC<IImageContainerProps> = ({
 
   return (
     <Figure type={type}>
-      <Wrapper loading={loading}>
+      <Wrapper loading={loading ? 'true' : 'false'}>
         <Container>
-          <ImageIcon loading={loading} onClick={fCallBack}>
+          <ImageIcon loading={loading ? 'true' : 'false'} onClick={fCallBack}>
             {loading === true ? <StyledRepost /> : getIcon()}
           </ImageIcon>
         </Container>
       </Wrapper>
-      {src && <Image alt={alt} src={src} type={type} />}
+      {src && <Image alt={alt} src={src} />}
     </Figure>
   );
 };
 
 interface IImageIcon {
-  loading?: boolean;
-  type?: 'container' | 'banner';
+  loading?: string;
+  type?: string;
 }
 
 const Image = styled.img(({ type }: IImageIcon) => [
@@ -98,7 +98,7 @@ const ImageIcon = styled.div(({ loading }: IImageIcon) => [
     ease-in-out
     z-50
 `,
-  loading === true && LoadingSpinner,
+  loading === 'true' && LoadingSpinner,
 ]);
 
 const Wrapper = styled.div(({ loading }: IImageIcon) => [
@@ -118,7 +118,7 @@ const Wrapper = styled.div(({ loading }: IImageIcon) => [
     -translate-x-1/2 
     -translate-y-1/2
 	`,
-  loading === true && tw`opacity-100`,
+  loading === 'true' && tw`opacity-100`,
 ]);
 
 const Figure = styled.figure.attrs({ className: 'group' })(({ type }: IImageIcon) => [

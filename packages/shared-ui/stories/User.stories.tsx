@@ -72,7 +72,7 @@ export default {
         type: 'object',
       },
       defaultValue: {
-        src: 'https://i.stack.imgur.com/5xd5n.png',
+        src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
         alt: 'Alter Tag',
         fCallBack: action('avatar clicked'),
       },
