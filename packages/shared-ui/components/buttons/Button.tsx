@@ -26,7 +26,15 @@ export const Button: React.FC<IButtonProps> = ({
   const Icon = createIcon(icon);
 
   return (
-    <StyledButton variant={variant} size={size} width={width} type={type} disabled={disabled} onClick={fCallBack}>
+    <StyledButton
+      variant={variant}
+      size={size}
+      width={width}
+      type={type}
+      disabled={disabled}
+      onClick={fCallBack}
+      aria-label={label}
+    >
       {label}
       <Icon />
     </StyledButton>
