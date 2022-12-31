@@ -10,6 +10,7 @@ export interface INaviButtonProps extends React.HtmlHTMLAttributes<HTMLButtonEle
   disabled?: boolean;
   fCallBack?: () => void;
   icon?: IconTypes;
+  src?: string;
 }
 
 export const NaviButton: React.FC<INaviButtonProps> = ({
@@ -18,6 +19,7 @@ export const NaviButton: React.FC<INaviButtonProps> = ({
   disabled = false,
   fCallBack,
   icon = 'logo',
+  src = 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
 }) => {
   const Icon = createIcon(icon);
 
@@ -38,7 +40,7 @@ export const NaviButton: React.FC<INaviButtonProps> = ({
 
       {variant === 'profile' && (
         <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack}>
-          <Avatar alt={'Alter Tag'} src="https://i.stack.imgur.com/5xd5n.png" variant={'small'} />
+          <Avatar alt={'Alter Tag'} src={src} variant={'small'} />
         </ButtonStyles>
       )}
     </>

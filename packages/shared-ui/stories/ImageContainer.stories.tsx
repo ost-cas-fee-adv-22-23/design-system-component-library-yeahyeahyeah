@@ -12,7 +12,7 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: 'https://shorturl.at/uvyKU',
+      defaultValue: 'https://shorturl.at/nEO01',
     },
     alt: {
       control: {

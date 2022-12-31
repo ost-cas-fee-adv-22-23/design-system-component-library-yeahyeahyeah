@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { User } from '../components/User';
 import { DefaultLayout } from './layouts/DefaultLayout';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'User/User',
@@ -24,6 +25,7 @@ export default {
       defaultValue: {
         label: 'Username',
         href: '',
+        fCallBack: action('username clicked'),
       },
     },
     timestamp: {
@@ -33,6 +35,7 @@ export default {
       defaultValue: {
         label: 'Timestamp',
         href: '',
+        fCallBack: action('timestamp clicked'),
       },
     },
     location: {
@@ -42,6 +45,7 @@ export default {
       defaultValue: {
         label: 'Location',
         href: '',
+        fCallBack: action('location clicked'),
       },
     },
     joined: {
@@ -51,6 +55,7 @@ export default {
       defaultValue: {
         label: 'Joined',
         href: '',
+        fCallBack: action('joined clicked'),
       },
     },
     btn: {
@@ -59,7 +64,7 @@ export default {
       },
       defaultValue: {
         label: 'Follow',
-        fCallBack: () => console.log('Clicked on the button'),
+        fCallBack: action('btn clicked'),
       },
     },
     avatar: {
@@ -67,8 +72,9 @@ export default {
         type: 'object',
       },
       defaultValue: {
-        src: 'https://i.stack.imgur.com/5xd5n.png',
+        src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
         alt: 'Alter Tag',
+        fCallBack: action('avatar clicked'),
       },
     },
   },

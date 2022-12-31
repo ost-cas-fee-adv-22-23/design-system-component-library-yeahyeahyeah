@@ -1,18 +1,15 @@
 import tw, { styled, TwStyle } from 'twin.macro';
 import React, { useState } from 'react';
 import { Profile, Time, Location, Calendar } from './icons/components';
+import NextLink, { LinkProps } from 'next/link';
 
 export interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
   label: string;
   type?: 'username' | 'timestamp' | 'location' | 'joined';
   variant?: 'slate' | 'violet';
   href: string;
-  handleClick?: () => void;
-  link?: React.ElementType<{
-    href: string;
-    passHref: any;
-    legacyBehavior: any;
-  }>;
+  fCallBack?: () => void;
+  link?: LinkProps;
 }
 
 export const IconLink: React.FC<IIconLinkProps> = ({
@@ -20,37 +17,51 @@ export const IconLink: React.FC<IIconLinkProps> = ({
   type = 'username',
   variant = 'slate',
   href,
-  handleClick,
-  link: Link,
+  fCallBack,
+  link,
 }) => {
   const [hover, setHover] = useState<boolean>(false);
 
   const getIcon = () => {
     switch (type) {
       case 'username':
-        return <StyledProfile variant={variant} hover={hover} />;
+        return <StyledProfile variant={variant} hover={hover ? 'true' : 'false'} />;
       case 'timestamp':
-        return <StyledTime variant={variant} hover={hover} />;
+        return <StyledTime variant={variant} hover={hover ? 'true' : 'false'} />;
       case 'location':
-        return <StyledLocaton variant={variant} hover={hover} />;
+        return <StyledLocaton variant={variant} hover={hover ? 'true' : 'false'} />;
       case 'joined':
-        return <StyledCalendar variant={variant} hover={hover} />;
+        return <StyledCalendar variant={variant} hover={hover ? 'true' : 'false'} />;
       default:
         return null;
     }
   };
 
-  return Link ? (
-    <Link href={href} passHref legacyBehavior>
+  const handleClick = (event: React.MouseEvent) => {
+    event.preventDefault();
+    fCallBack && fCallBack();
+  };
+
+  return link ? (
+    <NextLink
+      as={link.as as string}
+      href={link.href}
+      passHref={link.passHref}
+      replace={link.replace}
+      scroll={link.scroll}
+      shallow={link.shallow}
+    >
       <IconLinkDivStyles variant={variant} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         {getIcon()}
         {label}
       </IconLinkDivStyles>
-    </Link>
+    </NextLink>
   ) : (
     <IconLinkStyles
       variant={variant}
-      onClick={handleClick}
+      onClick={(event: React.MouseEvent) => {
+        handleClick(event);
+      }}
       target="_new"
       title={label}
       onMouseEnter={() => setHover(true)}
@@ -65,7 +76,7 @@ export const IconLink: React.FC<IIconLinkProps> = ({
 
 interface IStyleProps {
   variant?: string;
-  hover?: boolean;
+  hover?: string;
 }
 
 /**
@@ -94,7 +105,7 @@ const IconLinkDivStyles = styled.div(({ variant }: IStyleProps) => [
   variant === 'violet' && tw`text-violet-600 hover:(text-violet-900)`,
 ]);
 
-const IconColor = (variant?: string, hover?: boolean) => {
+const IconColor = (variant?: string, hover?: string) => {
   let hoverColor: TwStyle;
   let defaultColor: TwStyle;
 
@@ -102,11 +113,11 @@ const IconColor = (variant?: string, hover?: boolean) => {
     case 'slate':
       hoverColor = tw`fill-slate-600`;
       defaultColor = tw`fill-slate-400`;
-      return hover ? hoverColor : defaultColor;
+      return hover === 'true' ? hoverColor : defaultColor;
     case 'violet':
       hoverColor = tw`fill-violet-900`;
       defaultColor = tw`fill-violet-600`;
-      return hover ? hoverColor : defaultColor;
+      return hover === 'true' ? hoverColor : defaultColor;
   }
   return null;
 };

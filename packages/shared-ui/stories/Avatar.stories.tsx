@@ -18,7 +18,7 @@ export default {
       control: {
         type: 'text',
       },
-      defaultValue: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
+      defaultValue: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
     },
     alt: {
       control: {

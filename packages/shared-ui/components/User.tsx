@@ -13,7 +13,7 @@ export interface IUserProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   location?: IIconLinkProps;
   joined?: IIconLinkProps;
   avatar: { src: string; alt: string; fCallBack?: () => void };
-  btn?: { fCallBack?: () => void; label: string };
+  btn?: { label: string; fCallBack?: () => void };
 }
 
 export const User: React.FC<IUserProps> = ({
@@ -34,19 +34,37 @@ export const User: React.FC<IUserProps> = ({
           <Column variant={variant}>
             <Heading tag="h4" color="dark" size={'default'} label={label} />
             <Row>
-              <IconLink label={username.label} type="username" variant="violet" href={username.href}></IconLink>
-              <IconLink label={timestamp.label} type="timestamp" variant="slate" href={timestamp.href}></IconLink>
+              <IconLink
+                label={username.label}
+                type="username"
+                variant="violet"
+                href={username.href}
+                fCallBack={username.fCallBack}
+              ></IconLink>
+              <IconLink
+                label={timestamp.label}
+                type="timestamp"
+                variant="slate"
+                href={timestamp.href}
+                fCallBack={timestamp.fCallBack}
+              ></IconLink>
             </Row>
           </Column>
         </Row>
       )}
       {variant === 'write' && (
         <Row gap="small">
-          <Avatar alt={avatar.alt} src={avatar.src} variant={'small'} />
+          <Avatar alt={avatar.alt} src={avatar.src} variant={'small'} fCallBack={avatar.fCallBack} />
           <Column variant={variant}>
             <Heading tag="h4" color="dark" size={'default'} label={label} />
             <Row>
-              <IconLink label={username.label} type="username" variant="violet" href={username.href} />
+              <IconLink
+                label={username.label}
+                type="username"
+                variant="violet"
+                href={username.href}
+                fCallBack={username.fCallBack}
+              />
             </Row>
           </Column>
         </Row>
@@ -55,7 +73,7 @@ export const User: React.FC<IUserProps> = ({
       {variant === 'inline' && (
         <Row gap="small">
           <Column variant={variant}>
-            <Avatar alt={avatar.alt} src={avatar.src} variant={'medium'} />
+            <Avatar alt={avatar.alt} src={avatar.src} variant={'medium'} fCallBack={avatar.fCallBack} />
             <Heading tag="h4" color="dark" size={'default'} label={label} />
           </Column>
         </Row>
@@ -65,8 +83,20 @@ export const User: React.FC<IUserProps> = ({
         <Column>
           <Heading tag="h4" color="dark" size={'large'} label={label} />
           <Row>
-            <IconLink label={username.label} type="username" variant="violet" href={username.href}></IconLink>
-            <IconLink label={timestamp.label} type="timestamp" variant="slate" href={timestamp.href}></IconLink>
+            <IconLink
+              label={username.label}
+              type="username"
+              variant="violet"
+              href={username.href}
+              fCallBack={username.fCallBack}
+            ></IconLink>
+            <IconLink
+              label={timestamp.label}
+              type="timestamp"
+              variant="slate"
+              href={timestamp.href}
+              fCallBack={timestamp.fCallBack}
+            ></IconLink>
           </Row>
         </Column>
       )}
@@ -74,8 +104,20 @@ export const User: React.FC<IUserProps> = ({
         <Column>
           <Heading tag="h4" color="dark" size={'xlarge'} label={label} />
           <Row>
-            <IconLink label={username.label} type="username" variant="violet" href={username.href}></IconLink>
-            <IconLink label={timestamp.label} type="timestamp" variant="slate" href={timestamp.href}></IconLink>
+            <IconLink
+              label={username.label}
+              type="username"
+              variant="violet"
+              href={username.href}
+              fCallBack={username.fCallBack}
+            ></IconLink>
+            <IconLink
+              label={timestamp.label}
+              type="timestamp"
+              variant="slate"
+              href={timestamp.href}
+              fCallBack={timestamp.fCallBack}
+            ></IconLink>
           </Row>
         </Column>
       )}
@@ -83,21 +125,45 @@ export const User: React.FC<IUserProps> = ({
         <Column>
           <Heading tag="h4" color="dark" size={'xlarge'} label={label} />
           <Row>
-            <IconLink label={username.label} type="username" variant="violet" href={username.href}></IconLink>
-            <IconLink label={location.label} type="location" variant="slate" href={location.href}></IconLink>
-            <IconLink label={joined.label} type="joined" variant="slate" href={joined.href}></IconLink>
+            <IconLink
+              label={username.label}
+              type="username"
+              variant="violet"
+              href={username.href}
+              fCallBack={username.fCallBack}
+            ></IconLink>
+            <IconLink
+              label={location.label}
+              type="location"
+              variant="slate"
+              href={location.href}
+              fCallBack={location.fCallBack}
+            ></IconLink>
+            <IconLink
+              label={joined.label}
+              type="joined"
+              variant="slate"
+              href={joined.href}
+              fCallBack={joined.fCallBack}
+            ></IconLink>
           </Row>
         </Column>
       )}
       {variant === 'recommended' && (
         <Article>
           <Column variant="recommended">
-            <Avatar alt={avatar.alt} src={avatar.src} variant={'large'} />
+            <Avatar alt={avatar.alt} src={avatar.src} variant={'large'} fCallBack={avatar.fCallBack} />
             <Row spacing={tw`mb-8`}>
               <Heading tag="h4" color="dark" size={'large'} label={label} />
             </Row>
             <div tw="mb-16">
-              <IconLink label={username.label} type="username" variant="violet" href={username.href}></IconLink>
+              <IconLink
+                label={username.label}
+                type="username"
+                variant="violet"
+                href={username.href}
+                fCallBack={username.fCallBack}
+              ></IconLink>
             </div>
             <Button
               fCallBack={btn?.fCallBack}

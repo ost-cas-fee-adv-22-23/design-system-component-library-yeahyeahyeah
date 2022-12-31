@@ -62,7 +62,7 @@ export default {
         fCallBack: () => {
           return null;
         },
-        src: 'https://shorturl.at/uvyKU',
+        src: 'https://shorturl.at/nEO01',
       },
     },
     comment: {

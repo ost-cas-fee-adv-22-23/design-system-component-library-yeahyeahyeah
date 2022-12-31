@@ -11,6 +11,7 @@ export interface IFormInputProps extends React.HtmlHTMLAttributes<HTMLFormElemen
   errorMessage: string;
   autoComplete: 'off' | 'on';
   handleClick?: () => void;
+  setText?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const InputForm: React.FC<IFormInputProps> = ({
@@ -21,6 +22,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
   placeholder = 'Placeholder',
   errorMessage,
   autoComplete = 'off',
+  setText,
 }) => {
   const [buttonType, setbuttonType] = useState(type);
 
@@ -45,6 +47,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
               required={required}
               maxLength={150}
               autoComplete={autoComplete}
+              onChange={(e) => setText && setText(e.target.value)}
             />
             {type === 'password' && <Eye tw="absolute right-16 cursor-pointer" onClick={showPassword} />}
           </FormInlineWrapperStyles>
@@ -64,6 +67,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
               maxLength={500}
               required={required}
               placeholder={placeholder}
+              onChange={(e) => setText && setText(e.target.value)}
             />
           </FormLabel>
         </>
