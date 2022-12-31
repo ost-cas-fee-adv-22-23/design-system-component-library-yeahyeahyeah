@@ -11,14 +11,15 @@ export interface IMumbleLogoProps extends React.HTMLAttributes<HTMLOrSVGImageEle
   isNavigation?: boolean;
 }
 
-export const MumbleLogo: React.FC<IMumbleLogoProps> = ({
-  title,
-  href,
-  variant,
-  alignment,
-  fCallBack,
-  isNavigation = true,
-}: IMumbleLogoProps) => {
+export const MumbleLogo: React.FC<IMumbleLogoProps> = (props: IMumbleLogoProps) => {
+  const {
+    title = 'Mumble Logo',
+    href = '#',
+    variant = 'white',
+    alignment = 'horizontal',
+    fCallBack,
+    isNavigation = true,
+  } = props;
   const [hover, setHover] = useState(false);
 
   return (
@@ -59,7 +60,8 @@ const MumbleLogoStyledDiv = styled.div(({ alignment }: IMumbleLogoStyled) => [
     items-center
     p-0
     cursor-pointer
-    h-[100%]
+    w-[130px]
+    sm:w-auto
   `,
   alignment === 'vertical' && tw`flex-col`,
   alignment === 'horizontal' && tw`flex-row`,
@@ -73,7 +75,7 @@ const MumbleLogoStyledLink = styled.a(() => [
 
 const StyledLogoMumble = styled(LogoMumble)(({ variant, hover, isNavigation }: IMumbleLogoStyled) => [
   tw`fill-violet-600`,
-  isNavigation ? tw`w-64 h-40 ` : tw`w-64 h-64 `,
+  isNavigation ? tw`w-48 h-48` : tw`w-64 h-64 `,
   IconColor(variant, hover),
 ]);
 
@@ -102,7 +104,7 @@ const IconColor = (variant?: string, hover?: boolean) => {
       hoverColor = tw`fill-slate-white`;
       return hover ? hoverColor : defaultColor;
     case 'white':
-      defaultColor = tw`fill-slate-100`;
+      defaultColor = tw`fill-slate-white`;
       hoverColor = tw`fill-slate-300`;
       return hover ? hoverColor : defaultColor;
   }
@@ -112,7 +114,7 @@ const IconColor = (variant?: string, hover?: boolean) => {
 const TextSvgStyles = (alignment?: string, isNavigation?: boolean) => {
   switch (alignment) {
     case 'horizontal':
-      return isNavigation ? (tw`ml-2 ` as TwStyle) : (tw`ml-24 ` as TwStyle);
+      return isNavigation ? (tw`ml-8 sm:ml-16` as TwStyle) : (tw`ml-8 sm:ml-16 ` as TwStyle);
     case 'vertical':
       return isNavigation ? (tw`mt-8` as TwStyle) : (tw`mt-16` as TwStyle);
   }

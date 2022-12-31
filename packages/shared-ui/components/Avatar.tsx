@@ -9,15 +9,17 @@ export interface IAvatarProps extends React.HtmlHTMLAttributes<HTMLImageElement>
   fCallBack?: () => void;
 }
 
-export const Avatar: React.FC<IAvatarProps> = ({ variant = 'small', src = '', alt = '', fCallBack }) => {
+export const Avatar: React.FC<IAvatarProps> = (props: IAvatarProps) => {
+  const { variant = 'small', fCallBack } = props;
+
   return (
     <>
       {variant !== 'edit' ? (
-        <Image variant={variant} src={src} alt={alt} onClick={fCallBack} />
+        <Image {...props} />
       ) : (
         <>
           <Row>
-            <Image variant={variant} src={src} alt={alt} onClick={fCallBack} />
+            <Image {...props} />
             <IconButton variant="edit" icon="edit" label="Label" fCallBack={fCallBack} />
           </Row>
         </>

@@ -11,13 +11,9 @@ export interface IImageContainerProps extends React.HtmlHTMLAttributes<HTMLImage
   loading?: boolean;
 }
 
-export const ImageContainer: React.FC<IImageContainerProps> = ({
-  src = '',
-  alt = '',
-  fCallBack,
-  type = 'container',
-  loading = false,
-}) => {
+export const ImageContainer: React.FC<IImageContainerProps> = (props: IImageContainerProps) => {
+  const { src = '', alt = '', fCallBack, type = 'container', loading = false } = props;
+
   const getIcon = () => {
     switch (type) {
       case 'container':

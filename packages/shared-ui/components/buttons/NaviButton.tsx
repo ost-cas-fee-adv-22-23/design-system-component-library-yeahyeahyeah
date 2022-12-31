@@ -49,10 +49,6 @@ const createIcon = (icon: IconTypes) => {
   return styled(IconsMapped[icon as IconTypes])(() => [tw`fill-slate-white`]);
 };
 
-/**
- * @Button
- * @desc Button styles
- */
 const buttonFont = tw`
   text-xs
   text-skin-light
@@ -70,6 +66,7 @@ const buttonDefaults = tw`
   rounded
   border-hidden
   outline-none
+  cursor-pointer
 `;
 
 const Span = styled.span(() => [

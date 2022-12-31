@@ -17,7 +17,7 @@ export default {
       control: 'select',
       options: Object.keys(Icons),
       name: 'Icon',
-      defaultValue: 'settings',
+      defaultValue: 'logo',
     },
     variant: {
       control: 'select',

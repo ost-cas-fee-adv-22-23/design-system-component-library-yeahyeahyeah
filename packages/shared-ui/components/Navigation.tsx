@@ -83,9 +83,10 @@ const Container = tw.div`
 `;
 
 const Column = tw.div`
-flex
+  flex
   justify-between
-   w-full
+  items-center
+  w-full
 `;
 
 const Row = tw.div`
