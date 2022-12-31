@@ -10,6 +10,7 @@ export interface IWriteComponentProps {
   mode: 'write' | 'inline';
   upload: IButtonProps;
   send: IButtonProps;
+  setText: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const WriteComponent: React.FC<IWriteComponentProps> = ({
@@ -52,6 +53,7 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
       return null;
     },
   },
+  setText,
 }) => {
   return (
     <>
@@ -69,6 +71,7 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
           placeholder={form.placeholder}
           errorMessage={form.errorMessage}
           autoComplete={'off'}
+          setText={setText}
         />
         <Row>
           <Button
