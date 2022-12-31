@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { WriteComponent } from '../../components/forms/WriteComponent';
 import { DefaultLayout } from '../layouts/DefaultLayout';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Write-Component/Typing',
@@ -39,9 +40,7 @@ export default {
         type: 'button',
         variant: 'slate',
         width: 'full',
-        fCallBack: () => {
-          console.log('upload clicked');
-        },
+        fCallBack: action('upload in write component clicked'),
       },
     },
     send: {
@@ -55,15 +54,21 @@ export default {
         type: 'button',
         variant: 'violet',
         width: 'full',
-        fCallBack: () => {
-          console.log('send clicked');
-        },
+        fCallBack: action('send in write component clicked'),
       },
     },
   },
 } as ComponentMeta<typeof WriteComponent>;
 
-const Template: ComponentStory<typeof WriteComponent> = (args) => <WriteComponent {...args} />;
+const Template: ComponentStory<typeof WriteComponent> = (args) => {
+  const [text, setText] = React.useState<string>('');
+
+  useEffect(() => {
+    console.log('text', text);
+  }, [text]);
+
+  return <WriteComponent {...args} setText={setText} />;
+};
 
 /**
  * @input
