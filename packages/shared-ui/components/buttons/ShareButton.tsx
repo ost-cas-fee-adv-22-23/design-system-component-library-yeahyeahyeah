@@ -31,8 +31,9 @@ export const ShareButton: React.FC<IShareButton> = ({ label = 'Copy Link', fCall
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         hover={hover ? 'true' : 'false'}
+        aria-label={label}
       >
-        <Share hover={hover ? 'true' : 'false'} />
+        <Share hover={hover ? 'true' : 'false'} aria-label={label} />
         {labelText}
       </ButtonStyles>
     </>

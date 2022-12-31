@@ -8,7 +8,11 @@ export interface TextButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElem
 }
 
 export const TextButton: React.FC<TextButtonProps> = ({ label = 'Button Label', handleClick }) => {
-  return <StyledTextButton onClick={handleClick}>{label}</StyledTextButton>;
+  return (
+    <StyledTextButton onClick={handleClick} aria-label={label}>
+      {label}
+    </StyledTextButton>
+  );
 };
 
 /**

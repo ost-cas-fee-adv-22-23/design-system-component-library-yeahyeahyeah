@@ -15,7 +15,7 @@ export const IconButton: React.FC<IconButtonProps> = (props: IconButtonProps) =>
   const Icon = createIcon(icon);
 
   return (
-    <ButtonStyles {...props} onClick={fCallBack}>
+    <ButtonStyles {...props} onClick={fCallBack} aria-label={label}>
       <Icon />
       <p>{label}</p>
     </ButtonStyles>

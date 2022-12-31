@@ -26,20 +26,20 @@ export const NaviButton: React.FC<INaviButtonProps> = ({
   return (
     <>
       {variant === 'default' && (
-        <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack}>
+        <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack} aria-label={label}>
           <Icon />
           <Span>{label}</Span>
         </ButtonStyles>
       )}
 
       {variant === 'icon' && (
-        <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack}>
+        <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack} aria-label={label}>
           <Icon />
         </ButtonStyles>
       )}
 
       {variant === 'profile' && (
-        <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack}>
+        <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack} aria-label={label}>
           <Avatar alt={'Alter Tag'} src={src} variant={'small'} />
         </ButtonStyles>
       )}
