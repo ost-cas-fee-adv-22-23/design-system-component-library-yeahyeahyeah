@@ -214,6 +214,7 @@ const Row = styled.div(({ gap, spacing }: IRowStyles) => [
   tw`
     flex
     flex-row
+    flex-wrap
     justify-start
     items-center
     max-w-lg
