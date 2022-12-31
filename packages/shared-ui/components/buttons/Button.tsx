@@ -20,7 +20,7 @@ export const Button: React.FC<IButtonProps> = ({
   size = 'small',
   width = 'default',
   disabled = false,
-  fCallBack,
+  fCallBack = () => null,
   icon = 'calendar',
 }) => {
   const Icon = createIcon(icon);

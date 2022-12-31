@@ -1,18 +1,15 @@
 import tw, { styled, TwStyle } from 'twin.macro';
 import React, { useState } from 'react';
 import { Profile, Time, Location, Calendar } from './icons/components';
+import NextLink, { LinkProps } from 'next/link';
 
 export interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
   label: string;
   type?: 'username' | 'timestamp' | 'location' | 'joined';
   variant?: 'slate' | 'violet';
   href: string;
-  handleClick?: () => void;
-  link?: React.ElementType<{
-    href: string;
-    passHref: any;
-    legacyBehavior: any;
-  }>;
+  fCallBack?: () => void;
+  link?: LinkProps;
 }
 
 export const IconLink: React.FC<IIconLinkProps> = ({
@@ -20,8 +17,8 @@ export const IconLink: React.FC<IIconLinkProps> = ({
   type = 'username',
   variant = 'slate',
   href,
-  handleClick,
-  link: Link,
+  fCallBack,
+  link,
 }) => {
   const [hover, setHover] = useState<boolean>(false);
 
@@ -40,17 +37,31 @@ export const IconLink: React.FC<IIconLinkProps> = ({
     }
   };
 
-  return Link ? (
-    <Link href={href} passHref legacyBehavior>
+  const handleClick = (event: React.MouseEvent) => {
+    event.preventDefault();
+    fCallBack && fCallBack();
+  };
+
+  return link ? (
+    <NextLink
+      as={link.as as string}
+      href={link.href}
+      passHref={link.passHref}
+      replace={link.replace}
+      scroll={link.scroll}
+      shallow={link.shallow}
+    >
       <IconLinkDivStyles variant={variant} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         {getIcon()}
         {label}
       </IconLinkDivStyles>
-    </Link>
+    </NextLink>
   ) : (
     <IconLinkStyles
       variant={variant}
-      onClick={handleClick}
+      onClick={(event: React.MouseEvent) => {
+        handleClick(event);
+      }}
       target="_new"
       title={label}
       onMouseEnter={() => setHover(true)}
