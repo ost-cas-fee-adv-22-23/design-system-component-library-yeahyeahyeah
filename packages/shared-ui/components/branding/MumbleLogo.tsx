@@ -88,7 +88,7 @@ const MumbleLogoStyledLink = styled.a(() => [
 
 const StyledLogoMumble = styled(LogoMumble)(({ variant, hover, navigation }: IMumbleLogoStyled) => [
   tw`fill-violet-600`,
-  navigation === 'true' ? tw`w-64 h-40 ` : tw`w-64 h-64 `,
+  navigation === 'true' ? tw`w-48 h-48` : tw`w-64 h-64 `,
   IconColor(variant, hover),
 ]);
 
@@ -127,7 +127,7 @@ const IconColor = (variant?: string, hover?: string) => {
 const TextSvgStyles = (alignment?: string, navigation?: string) => {
   switch (alignment) {
     case 'horizontal':
-      return navigation === 'true' ? (tw`ml-2 ` as TwStyle) : (tw`ml-24 ` as TwStyle);
+      return navigation === 'true' ? (tw`ml-8 sm:ml-16` as TwStyle) : (tw`ml-8 sm:ml-16 ` as TwStyle);
     case 'vertical':
       return navigation === 'true' ? (tw`mt-8` as TwStyle) : (tw`mt-16` as TwStyle);
   }
