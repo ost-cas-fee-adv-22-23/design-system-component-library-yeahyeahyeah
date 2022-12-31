@@ -20,7 +20,7 @@ export default {
       control: {
         type: 'select',
       },
-      defaultValue: 'vertical',
+      defaultValue: 'horizontal',
     },
     variant: {
       control: {
@@ -28,26 +28,8 @@ export default {
       },
       defaultValue: 'violet',
     },
-    iconName: {
-      control: false,
-      table: {
-        disable: true,
-      },
-      defaultValue: 'mumble-logo',
-    },
-    iconWidth: {
-      control: false,
-      table: {
-        disable: true,
-      },
-      defaultValue: '246px',
-    },
-    iconHeight: {
-      control: false,
-      table: {
-        disable: true,
-      },
-      defaultValue: '100%',
+    fCallBack: {
+      action: () => 'handleClick',
     },
   },
 } as ComponentMeta<typeof MumbleLogo>;
@@ -55,10 +37,7 @@ export default {
 const Template: ComponentStory<typeof MumbleLogo> = (args) => {
   return <MumbleLogo {...args} />;
 };
-/**
- * @button
- * @desc button standard slate
- */
+
 export const LogoVariants = Template.bind({});
 
 LogoVariants.parameters = {

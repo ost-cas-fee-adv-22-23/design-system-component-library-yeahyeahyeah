@@ -6,15 +6,16 @@ import { IconsMapped, IconTypes } from '../icons/IconMap';
 export interface IconButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label: string;
   icon: IconTypes;
-  variant?: 'default' | 'edit';
+  variant: 'default' | 'edit';
   fCallBack?: () => void;
 }
 
-export const IconButton: React.FC<IconButtonProps> = ({ label, icon = 'time', variant = 'default', fCallBack }) => {
+export const IconButton: React.FC<IconButtonProps> = (props: IconButtonProps) => {
+  const { label, icon, fCallBack } = props;
   const Icon = createIcon(icon);
 
   return (
-    <ButtonStyles variant={variant} onClick={fCallBack}>
+    <ButtonStyles {...props} onClick={fCallBack}>
       <Icon />
       <p>{label}</p>
     </ButtonStyles>

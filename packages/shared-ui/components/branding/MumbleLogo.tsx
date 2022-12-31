@@ -11,14 +11,15 @@ export interface IMumbleLogoProps extends React.HTMLAttributes<HTMLOrSVGImageEle
   isNavigation?: boolean;
 }
 
-export const MumbleLogo: React.FC<IMumbleLogoProps> = ({
-  title,
-  href,
-  variant,
-  alignment,
-  fCallBack,
-  isNavigation = true,
-}: IMumbleLogoProps) => {
+export const MumbleLogo: React.FC<IMumbleLogoProps> = (props: IMumbleLogoProps) => {
+  const {
+    title = 'Mumble Logo',
+    href = '#',
+    variant = 'white',
+    alignment = 'horizontal',
+    fCallBack,
+    isNavigation = true,
+  } = props;
   const [hover, setHover] = useState(false);
 
   return (
@@ -72,7 +73,8 @@ const MumbleLogoStyledDiv = styled.div(({ alignment }: IMumbleLogoStyled) => [
     items-center
     p-0
     cursor-pointer
-    h-[100%]
+    w-[130px]
+    sm:w-auto
   `,
   alignment === 'vertical' && tw`flex-col`,
   alignment === 'horizontal' && tw`flex-row`,
@@ -86,7 +88,7 @@ const MumbleLogoStyledLink = styled.a(() => [
 
 const StyledLogoMumble = styled(LogoMumble)(({ variant, hover, navigation }: IMumbleLogoStyled) => [
   tw`fill-violet-600`,
-  navigation === 'true' ? tw`w-64 h-40 ` : tw`w-64 h-64 `,
+  navigation === 'true' ? tw`w-48 h-48` : tw`w-64 h-64 `,
   IconColor(variant, hover),
 ]);
 
@@ -115,7 +117,7 @@ const IconColor = (variant?: string, hover?: string) => {
       hoverColor = tw`fill-slate-white`;
       return hover === 'true' ? hoverColor : defaultColor;
     case 'white':
-      defaultColor = tw`fill-slate-100`;
+      defaultColor = tw`fill-slate-white`;
       hoverColor = tw`fill-slate-300`;
       return hover === 'true' ? hoverColor : defaultColor;
   }
@@ -125,7 +127,7 @@ const IconColor = (variant?: string, hover?: string) => {
 const TextSvgStyles = (alignment?: string, navigation?: string) => {
   switch (alignment) {
     case 'horizontal':
-      return navigation === 'true' ? (tw`ml-2 ` as TwStyle) : (tw`ml-24 ` as TwStyle);
+      return navigation === 'true' ? (tw`ml-8 sm:ml-16` as TwStyle) : (tw`ml-8 sm:ml-16 ` as TwStyle);
     case 'vertical':
       return navigation === 'true' ? (tw`mt-8` as TwStyle) : (tw`mt-16` as TwStyle);
   }
