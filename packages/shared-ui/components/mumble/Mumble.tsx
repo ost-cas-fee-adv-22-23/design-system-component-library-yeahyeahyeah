@@ -84,18 +84,20 @@ export const Mumble: React.FC<IMumbleProps> = ({
       {variant === 'detailpage' && (
         <>
           <Article>
-            <User
-              btn={user.btn}
-              joined={user.joined}
-              label={user.label}
-              location={user.location}
-              username={user.username}
-              variant="xlarge"
-              avatar={user.avatar}
-            />
-            <AvatarWrapper>
-              <Avatar alt={user.avatar.alt} src={user.avatar.src} variant={'medium'} fCallBack={user.avatar?.fCallBack} />
-            </AvatarWrapper>
+            <UserWrapper>
+              <User
+                btn={user.btn}
+                joined={user.joined}
+                label={user.label}
+                location={user.location}
+                username={user.username}
+                variant="xlarge"
+                avatar={user.avatar}
+              />
+              <AvatarWrapper>
+                <Avatar alt={user.avatar.alt} src={user.avatar.src} variant={'medium'} fCallBack={user.avatar?.fCallBack} />
+              </AvatarWrapper>
+            </UserWrapper>
             <Div>
               <Paragraph size={'large'} color={'dark'} text={text} />
             </Div>
@@ -112,17 +114,19 @@ export const Mumble: React.FC<IMumbleProps> = ({
       )}
       {variant === 'timeline' && (
         <Article>
-          <User
-            avatar={user.avatar}
-            btn={user.btn}
-            label={user.label}
-            timestamp={user.timestamp}
-            username={user.username}
-            variant="large"
-          />
-          <AvatarWrapper>
-            <Avatar alt={user.avatar.alt} src={user.avatar.src} variant={'medium'} fCallBack={user.avatar.fCallBack} />
-          </AvatarWrapper>
+          <UserWrapper>
+            <User
+              avatar={user.avatar}
+              btn={user.btn}
+              label={user.label}
+              timestamp={user.timestamp}
+              username={user.username}
+              variant="large"
+            />
+            <AvatarWrapper>
+              <Avatar alt={user.avatar.alt} src={user.avatar.src} variant={'medium'} fCallBack={user.avatar.fCallBack} />
+            </AvatarWrapper>
+          </UserWrapper>
           <Div>
             <Paragraph size={'medium'} color={'dark'} text={text} />
           </Div>
@@ -205,8 +209,17 @@ const Div = styled.div(() => [
 
 const AvatarWrapper = styled.div(() => [
   tw`
-    absolute
-    top-32
-    left-[-32px]
+   mr-8   
+  `,
+]);
+
+const UserWrapper = styled.div(() => [
+  tw`
+    flex
+    flex-row-reverse
+    relative
+    left-0
+
+    sm:(-left-76)
   `,
 ]);
