@@ -28,6 +28,7 @@ export default {
         fCallBack: () => {
           console.log('Avatar');
         },
+        src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
       },
     },
     settings: {

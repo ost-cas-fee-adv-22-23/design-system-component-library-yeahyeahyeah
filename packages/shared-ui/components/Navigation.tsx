@@ -24,6 +24,7 @@ export const Navigation: React.FC<INavigationProps> = ({
     fCallBack: () => {
       return null;
     },
+    src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
   },
   settings = {
     icon: 'settings',
@@ -56,7 +57,7 @@ export const Navigation: React.FC<INavigationProps> = ({
               isNavigation={true}
             />
             <Row>
-              <NaviButton variant={avatar.variant} label={avatar.label} fCallBack={avatar.fCallBack} />
+              <NaviButton variant={avatar.variant} label={avatar.label} fCallBack={avatar.fCallBack} src={avatar.src} />
               <NaviButton
                 icon={settings.icon}
                 label={settings.label}
