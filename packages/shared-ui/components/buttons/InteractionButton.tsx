@@ -58,7 +58,7 @@ export const InteractionButton: React.FC<IInteractionButton> = (props: IInteract
   };
 
   const handleComment = () => {
-    console.log('comment clicked, update to be continued');
+    console.log(`Total comments: ${quantity}`);
   };
 
   if (type === 'comment') {
