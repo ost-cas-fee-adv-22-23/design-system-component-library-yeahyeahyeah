@@ -10,7 +10,8 @@ export interface IInteractionButton extends React.HtmlHTMLAttributes<HTMLButtonE
   fCallBack?: () => void;
 }
 
-export const InteractionButton: React.FC<IInteractionButton> = ({ type, quantity, favourite, fCallBack }) => {
+export const InteractionButton: React.FC<IInteractionButton> = (props: IInteractionButton) => {
+  const { type, quantity, favourite, fCallBack } = props;
   const [label, setLabel] = useState<string>('');
   const [count, setCount] = useState<number>(quantity || 0);
   const [isFavourite, setIsFavourite] = useState<boolean>(favourite || false);
@@ -30,6 +31,9 @@ export const InteractionButton: React.FC<IInteractionButton> = ({ type, quantity
         setLabel('Liked');
       } else if ((count === 0 && !isFavourite) || (count === 1 && !isFavourite)) {
         setLabel('Like');
+      }
+      if (count === 0) {
+        return;
       }
     }
   }, [type, count, isFavourite]);
@@ -53,10 +57,14 @@ export const InteractionButton: React.FC<IInteractionButton> = ({ type, quantity
     fCallBack && fCallBack();
   };
 
+  const handleComment = () => {
+    console.log('comment clicked, update to be continued');
+  };
+
   if (type === 'comment') {
     return (
       <CommentStyles
-        onClick={fCallBack}
+        onClick={handleComment}
         count={count}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
@@ -78,6 +86,7 @@ export const InteractionButton: React.FC<IInteractionButton> = ({ type, quantity
         count={count}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
+        aria-pressed={isFavourite}
       >
         {isFavourite ? (
           <StyledHeartFilled hover={hover ? 'true' : 'false'} count={count} />
