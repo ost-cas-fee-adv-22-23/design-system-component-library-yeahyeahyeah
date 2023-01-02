@@ -34,7 +34,9 @@ const Span = tw`
     text-md
     font-semibold
     text-slate-600
-    
+
+    w-full
+    sm:w-auto
     p-6
     px-[11px]
     rounded  
@@ -44,23 +46,27 @@ const Span = tw`
 const FormSpanMumble = styled.span(({ selection }: IFormSpanStyles) => [
   Span,
   selection === 'yourMumbles' && tw`bg-slate-white text-violet-600 hover:grow`,
-  selection === 'yourLikes' && tw`hover:(text-slate-800)`,
+  selection === 'yourLikes' && tw`text-left hover:(sm:text-right text-slate-800)`,
 ]);
 
 const FormSpanLike = styled.span(({ selection }: IFormSpanStyles) => [
   Span,
-  selection === 'yourLikes' && tw`bg-slate-white text-violet-600 text-right hover:grow`,
+  selection === 'yourLikes' && tw`bg-slate-white text-violet-600 text-center sm:text-right hover:grow`,
   selection === 'yourMumbles' && tw`hover:(text-slate-800)`,
 ]);
 
 const FormLabel = styled.label(() => [
   tw`
     flex
+    flex-col
+    sm:flex-row
     justify-between
     items-center
 
-    w-[336px]
-    h-[48px]
+    w-auto
+    h-auto
+    sm:w-[336px]
+    sm:h-[48px]
     py-4
     px-[5px]
     
@@ -72,7 +78,6 @@ const FormLabel = styled.label(() => [
 
 const FormInput = styled.input(() => [
   tw`
-    peer-first:block
     hidden
   `,
 ]);

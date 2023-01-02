@@ -28,7 +28,7 @@ const Template: ComponentStory<typeof Checkbox> = (args) => {
   const [isType, setIsType] = useState<string>(selection);
 
   const fCallBack = () => {
-    isType === 'yourMumbles' ? setIsType('yourLikes') : setIsType('yourMumbles');
+    isType === 'yourLikes' ? setIsType('yourMumbles') : setIsType('yourLikes');
     updateArgs({ selection: isType });
     console.log({ selection, isType });
   };
