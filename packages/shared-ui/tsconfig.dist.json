@@ -1,5 +1,4 @@
 {
-  "rootDir": "./components",
   "extends": "./tsconfig.json",
-  "include": ["./components/*.tsx", "./../../types/*.d.ts"]
+  "include": ["./components/**/*.tsx", "./../../types/**/*.d.ts"]
 }

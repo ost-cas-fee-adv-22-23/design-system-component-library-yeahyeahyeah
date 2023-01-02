@@ -4,7 +4,7 @@
   "main": "components/index.tsx",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "del ./dist && ctix create --overwrite --noBackup --useRootDir --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json",
+    "build": "del ./dist && ctix create --overwrite --noBackup --startAt ./components --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json",
     "watch": "tsc --watch",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
