@@ -1,6 +1,5 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
-import { TSpacing } from '../../types/Types';
 import { BottomSpacing } from '../Spacing';
 
 export interface IParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
