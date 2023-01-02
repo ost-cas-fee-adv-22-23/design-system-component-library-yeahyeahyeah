@@ -4,7 +4,7 @@
   "main": "components/index.tsx",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "del ./dist && tsc -p tsconfig.prod.json",
+    "build": "del ./dist && ctix create --overwrite --noBackup --useRootDir --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json",
     "watch": "tsc --watch",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -55,5 +55,8 @@
   "overrides": {
     "enhanced-resolve": "5.10.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ctix": "^1.8.1"
+  }
 }
