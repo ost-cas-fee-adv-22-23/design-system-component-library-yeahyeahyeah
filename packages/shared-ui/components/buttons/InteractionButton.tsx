@@ -32,9 +32,6 @@ export const InteractionButton: React.FC<IInteractionButton> = (props: IInteract
       } else if ((count === 0 && !isFavourite) || (count === 1 && !isFavourite)) {
         setLabel('Like');
       }
-      if (count === 0) {
-        return;
-      }
     }
   }, [type, count, isFavourite]);
 
@@ -57,14 +54,10 @@ export const InteractionButton: React.FC<IInteractionButton> = (props: IInteract
     fCallBack && fCallBack();
   };
 
-  const handleComment = () => {
-    console.log(`Total comments: ${quantity}`);
-  };
-
   if (type === 'comment') {
     return (
       <CommentStyles
-        onClick={handleComment}
+        onClick={fCallBack}
         count={count}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}

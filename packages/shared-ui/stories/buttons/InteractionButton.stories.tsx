@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { InteractionButton } from '../../components/buttons/InteractionButton';
 import { useArgs } from '@storybook/client-api';
@@ -28,21 +28,9 @@ export default {
 
 const Template: ComponentStory<typeof InteractionButton> = (args) => {
   const [{ favourite, quantity }, updateArgs] = useArgs();
-  const [liked, setLiked] = useState<boolean>(favourite);
-  const [updateQuantity, setUpdateQuantity] = useState<number>(quantity);
-
-  useEffect(() => {
-    setLiked(favourite);
-    if (liked === true) {
-      setUpdateQuantity(quantity - 1);
-    } else {
-      setUpdateQuantity(quantity + 1);
-    }
-  });
 
   const fCallBack = () => {
-    console.log({ favourite, quantity, updateQuantity });
-    updateArgs({ favourite: !favourite, quantity: updateQuantity });
+    updateArgs({ favourite: !favourite, quantity: favourite ? quantity - 1 : quantity + 1 });
   };
 
   return <InteractionButton {...args} fCallBack={fCallBack} />;
