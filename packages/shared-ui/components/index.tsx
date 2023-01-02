@@ -5,6 +5,7 @@ export * from './buttons/NaviButton';
 export * from './buttons/ShareButton';
 export * from './buttons/TextButton';
 export * from './forms/Input';
+export * from './forms/Checkbox';
 export * from './forms/WriteComponent';
 export * from './icons/components';
 export * from './branding/MumbleLogo';
