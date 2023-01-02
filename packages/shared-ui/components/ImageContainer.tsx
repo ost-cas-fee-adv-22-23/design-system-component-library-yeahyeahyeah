@@ -45,7 +45,6 @@ interface IImageIcon {
 const Image = styled.img(({ type }: IImageIcon) => [
   tw`
     w-full
-    // max-h-[320px]
     object-cover
     transition
     duration-300
@@ -53,7 +52,8 @@ const Image = styled.img(({ type }: IImageIcon) => [
     group-hover:scale-110
     group-hover:opacity-20
   `,
-  type === 'banner' && tw`w-full`,
+
+  type === 'banner' && tw`w-full h-auto`,
 ]);
 
 const Container = styled.div(() => [
@@ -121,19 +121,20 @@ const Figure = styled.figure.attrs({ className: 'group' })(({ type }: IImageIcon
     justify-center
     items-center
     w-full
-    // max-h-[320px]
     border-1
     border-slate-white
     overflow-hidden
-    // aspect-video
     bg-violet-200
     hover:bg-violet-600
     cursor-pointer
     rounded-16
     relative
+    
+    mt-4
     mb-24
   `,
-  type === 'banner' && tw`bg-violet-100 w-full`,
+  type === 'container' && tw`max-h-[320px]`,
+  type === 'banner' && tw`absolute top-0 bg-violet-100 w-full h-auto`,
 ]);
 
 const StyledFullScreen = styled(Fullscreen)(() => [tw`w-32 h-32 fill-slate-white`]);

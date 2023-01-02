@@ -9,16 +9,20 @@ export default {
   component: ImageContainer,
   argTypes: {
     src: {
-      control: {
-        type: 'text',
+      control: 'text',
+      table: {
+        defaultValue: {
+          summary: 'https://shorturl.at/nEO01',
+        },
       },
-      defaultValue: 'https://shorturl.at/nEO01',
     },
     alt: {
-      control: {
-        type: 'text',
+      control: 'text',
+      table: {
+        defaultValue: {
+          summary: 'Profile picture',
+        },
       },
-      defaultValue: 'This is a profile picture!',
     },
     fCallBack: {
       action: () => 'handleClick',
@@ -26,8 +30,25 @@ export default {
     loading: {
       control: 'boolean',
       description: 'Image loading state',
-      defaultValue: false,
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
+    type: {
+      control: 'select',
+      table: {
+        defaultValue: {
+          summary: 'container',
+        },
+      },
+    },
+  },
+  args: {
+    src: 'https://shorturl.at/nEO01',
+    alt: 'This is a profile picture',
+    loading: false,
   },
 } as ComponentMeta<typeof ImageContainer>;
 
