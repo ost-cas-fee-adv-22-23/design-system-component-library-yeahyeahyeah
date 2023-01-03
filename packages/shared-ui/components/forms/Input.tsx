@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import tw, { styled } from 'twin.macro';
 import { Eye } from '../icons/components';
 
@@ -26,12 +26,8 @@ export const InputForm: React.FC<IFormInputProps> = ({
 }) => {
   const [buttonType, setbuttonType] = useState(type);
 
-  useEffect(() => {
-    type === 'password' ? setbuttonType('password') : setbuttonType(type);
-  }, [type]);
-
   const showPassword = () => {
-    buttonType === type ? setbuttonType('text') : setbuttonType(type);
+    buttonType === 'password' ? setbuttonType('text') : setbuttonType('password');
   };
 
   return (
