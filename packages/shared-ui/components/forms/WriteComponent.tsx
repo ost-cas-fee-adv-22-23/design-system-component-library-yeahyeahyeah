@@ -3,25 +3,32 @@ import tw, { styled } from 'twin.macro';
 import { User, IUserProps } from '../User';
 import { InputForm, IFormInputProps } from './Input';
 import { Button, IButtonProps } from '../buttons/Button';
+import { BottomSpacing } from '../Spacing';
+import { Heading, Paragraph } from '../index';
 
 export interface IWriteComponentProps {
   user: IUserProps;
   form: IFormInputProps;
-  mode: 'write' | 'inline';
+  variant: 'write' | 'inline' | 'start';
   upload: IButtonProps;
   send: IButtonProps;
   setText: React.Dispatch<React.SetStateAction<string>>;
+  spacing?: TSpacing;
+  startHeading?: string;
+  startParagraph?: string;
 }
 
 export const WriteComponent: React.FC<IWriteComponentProps> = ({
-  mode = 'write',
+  variant = 'write',
+  startHeading = 'Hey, was läuft?',
+  setText,
+  startParagraph = 'Schreib deinen ersten Mumble, oder folge einem User',
   user = {
     label: 'Display Name',
     username: {
       label: 'Username',
       href: '#',
     },
-    variant: mode,
     avatar: {
       src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
       alt: 'Alter Tag',
@@ -53,18 +60,25 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
       return null;
     },
   },
-  setText,
 }) => {
   return (
     <>
-      <CardHeader mode={mode}>
-        <CardHeaderRow mode={mode}>
-          <User avatar={user.avatar} label={user.label} username={user.username} variant={mode} />
-        </CardHeaderRow>
-      </CardHeader>
-      <Card mode={mode}>
+      <Card variant={variant}>
+        <UserWrapper variant={variant} spacing={'16'}>
+          {variant === 'write' && (
+            <User avatar={user.avatar} label={user.label} username={user.username} variant={'write'} />
+          )}
+          {variant === 'inline' && (
+            <User avatar={user.avatar} label={user.label} username={user.username} variant={'inline'} />
+          )}
+          {variant === 'start' && (
+            <>
+              <Heading tag="h3" label={startHeading} color="light" size="default" />
+              <Paragraph text={startParagraph} color="light" size="default" />
+            </>
+          )}
+        </UserWrapper>
         <InputForm
-          tw="mt-16"
           editType={'textarea'}
           label={''}
           required={false}
@@ -99,62 +113,33 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
 };
 
 interface ICard {
-  mode?: string;
+  variant?: string;
+  spacing?: string;
 }
 
-const CardHeader = styled.div(({ mode }: ICard) => [
+const Card = styled.div(({ variant }: ICard) => [
   tw`
-  flex
-  flex-col
-  items-baseline
-  bg-slate-white
-  pt-16
-  px-16
-  pl-16
-  w-full
-  rounded-t-16
+    flex
+    flex-col
+    bg-slate-white
+    
+    pt-24
+    pb-32
+    px-16
+    w-full
+    
+    sm:(px-16)
+    md:(px-32)
+    lg:(px-48)
   `,
-  mode === 'inline' &&
-    tw`
-      sm:(px-16 pt-16)
-      md:(px-[20px] pt-0)
-      lg:(px-48 pt-0)
-  `,
-  mode === 'write' &&
-    tw`
-      rounded-none
-      sm:(px-16)
-      md:(px-32 pt-32)
-      lg:(px-48 pt-32)
-  `,
+  variant === 'write' && tw`rounded pt-4`,
+  variant === 'inline' && tw`rounded-none`,
+  variant === 'start' && tw`rounded`,
 ]);
 
-const CardHeaderRow = styled.div(({ mode }: ICard) => [
-  mode === 'inline' &&
-    tw`
-    relative
-    sm:(left-0 top-8)
-    md:(-left-[60px] top-16)
-    lg:(-left-[76px] top-16)
-  `,
-]);
-
-const Card = styled.div(({ mode }: ICard) => [
-  tw`
-  flex
-  flex-col
-  bg-slate-white
-  pb-32
-  px-16
-  w-full
-  rounded-b-16
-  
-  sm:(px-16)
-  md:(px-32)
-  lg:(px-48)
-  `,
-  mode === 'inline' && tw``,
-  mode === 'write' && tw`rounded-none`,
+const UserWrapper = styled.div(({ variant }: ICard) => [
+  BottomSpacing,
+  variant === 'write' && tw`relative left-0 top-16 md:-left-70`,
 ]);
 
 const Row = styled.div(() => [
@@ -163,7 +148,6 @@ const Row = styled.div(() => [
     justify-between
     gap-16
     flex-col
-
     sm:(flex-row)
   `,
 ]);

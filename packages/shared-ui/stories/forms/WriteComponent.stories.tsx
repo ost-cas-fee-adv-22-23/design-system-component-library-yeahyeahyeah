@@ -5,14 +5,14 @@ import { DefaultLayout } from '../layouts/DefaultLayout';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Write-Component/Typing',
+  title: 'Form/Write-Component',
   component: WriteComponent,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
-    mode: {
-      control: false,
+    variant: {
+      control: 'select',
       table: {
-        disable: true,
+        summary: 'write',
       },
     },
     user: {
@@ -57,6 +57,34 @@ export default {
         fCallBack: action('send in write component clicked'),
       },
     },
+    setText: {
+      control: false,
+      table: {
+        disable: true,
+      },
+    },
+    spacing: {
+      control: false,
+      table: {
+        disable: true,
+      },
+    },
+    startHeading: {
+      control: 'text',
+      table: {
+        defaultValue: {
+          summary: 'Hey, was läuft',
+        },
+      },
+    },
+    startParagraph: {
+      control: 'text',
+      table: {
+        defaultValue: {
+          summary: 'Schreib deinen ersten Mumble, oder folge einem User.',
+        },
+      },
+    },
   },
 } as ComponentMeta<typeof WriteComponent>;
 
@@ -70,25 +98,16 @@ const Template: ComponentStory<typeof WriteComponent> = (args) => {
   return <WriteComponent {...args} setText={setText} />;
 };
 
-/**
- * @input
- * @desc form input field
- */
+// WRITE STORY
 export const ComponentWriteStory = Template.bind({});
 
 ComponentWriteStory.argTypes = {
-  mode: {
-    control: {
-      type: 'select',
-    },
-    defaultValue: 'write',
-  },
   user: {
     control: {
       type: 'object',
     },
     defaultValue: {
-      label: 'Display Name',
+      label: 'Hey, was läuft?',
       username: {
         label: 'Username',
         href: '#',
@@ -101,7 +120,11 @@ ComponentWriteStory.argTypes = {
   },
 };
 
-ComponentWriteStory.storyName = 'Inline';
+ComponentWriteStory.args = {
+  variant: 'start',
+  startHeading: 'Hey, was läuft?',
+  startParagraph: 'Schreib deinen ersten Mumble, oder folge einem User.',
+};
 
 ComponentWriteStory.parameters = {
   docs: {
@@ -109,33 +132,4 @@ ComponentWriteStory.parameters = {
   },
 };
 
-export const ComponentInlineStory = Template.bind({});
-
-ComponentInlineStory.argTypes = {
-  mode: {
-    control: {
-      type: 'select',
-    },
-    defaultValue: 'inline',
-  },
-  user: {
-    control: {
-      type: 'object',
-    },
-    defaultValue: {
-      label: 'Display Name',
-      avatar: {
-        src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
-        alt: 'Family Guy goes Mumble',
-      },
-    },
-  },
-};
-
-ComponentInlineStory.storyName = 'Write';
-
-ComponentInlineStory.parameters = {
-  docs: {
-    source: { type: 'dynamic' },
-  },
-};
+ComponentWriteStory.storyName = 'Write-Component';

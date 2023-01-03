@@ -10,8 +10,14 @@ export interface IHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> 
   spacing?: TSpacing;
 }
 
-export const Heading: React.FC<IHeadingProps> = ({ label, tag = 'h1', color = 'default', size = 'default', spacing }) => {
-  const props = { tag, color, size, spacing };
+export const Heading: React.FC<IHeadingProps> = ({
+  label,
+  tag = 'h1',
+  color = 'default',
+  size = 'default',
+  spacing = '0',
+}) => {
+  const props = { label, tag, color, size, spacing };
 
   return (
     <>

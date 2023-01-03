@@ -58,7 +58,7 @@ export const User: React.FC<IUserProps> = ({
           </Column>
         </Row>
       )}
-      {variant === 'write' && (
+      {variant === 'inline' && (
         <Row gap="small">
           <Avatar
             alt={avatar.alt}
@@ -82,9 +82,10 @@ export const User: React.FC<IUserProps> = ({
         </Row>
       )}
 
-      {variant === 'inline' && (
+      {variant === 'write' && (
         <Row gap="small">
           <Column variant={variant}>
+
             <Avatar
               alt={avatar.alt}
               src={avatar.src}
@@ -226,7 +227,7 @@ const Column = styled.div(({ variant }: IUserStyles) => [
   `,
   variant === 'small' && tw`mt-2`,
   variant === 'recommended' && tw`items-center`,
-  variant === 'inline' &&
+  variant === 'write' &&
     tw`
     flex
     flex-row
