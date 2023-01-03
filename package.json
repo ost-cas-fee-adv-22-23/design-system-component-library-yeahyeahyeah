@@ -37,7 +37,6 @@
     "lint": "eslint packages/**/*.{js,ts,tsx,json} --no-error-on-unmatched-pattern",
     "lint:fix": "eslint --fix packages/**/*.{js,ts,tsx,json} --no-error-on-unmatched-pattern"
   },
-  "private": true,
   "workspaces": {
     "packages": [
       "packages/*"
