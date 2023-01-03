@@ -23,7 +23,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
     avatar: {
       alt: '',
       src: 'https://i.stack.imgur.com/5xd5n.png',
-      fCallBack: () => {
+      imageCallBack: () => {
         return null;
       },
     },
@@ -95,7 +95,12 @@ export const Mumble: React.FC<IMumbleProps> = ({
                 avatar={user.avatar}
               />
               <AvatarWrapper>
-                <Avatar alt={user.avatar.alt} src={user.avatar.src} variant={'medium'} fCallBack={user.avatar?.fCallBack} />
+                <Avatar
+                  alt={user.avatar.alt}
+                  src={user.avatar.src}
+                  variant={'medium'}
+                  imageCallBack={user.avatar?.imageCallBack}
+                />
               </AvatarWrapper>
             </UserWrapper>
             <Div>
@@ -124,7 +129,12 @@ export const Mumble: React.FC<IMumbleProps> = ({
               variant="large"
             />
             <AvatarWrapper>
-              <Avatar alt={user.avatar.alt} src={user.avatar.src} variant={'medium'} fCallBack={user.avatar.fCallBack} />
+              <Avatar
+                alt={user.avatar.alt}
+                src={user.avatar.src}
+                variant={'medium'}
+                imageCallBack={user.avatar?.imageCallBack}
+              />
             </AvatarWrapper>
           </UserWrapper>
           <Div>

@@ -3,6 +3,9 @@ import { Logo, Cancel, Calendar, Checkmark, LogoMumble, Button, Mumble } from 's
 import tw from 'twin.macro';
 
 const App = () => {
+  const handleAvatar = () => {
+    console.log('avatar');
+  };
   return (
     <div>
       <Button variant="pink" size="large" label="Roli Chicken Fest" icon="logo" width="default" />
@@ -15,17 +18,8 @@ const App = () => {
       <p tw={'text-violet-600 text-3xl'}>Hello World</p>
       <Mumble
         variant="detailpage"
-        avatar={{
-          alt: 'Alt-Tag',
-          fCallBack: () => {
-            return null;
-          },
-          src: 'https://shorturl.at/uvyKU',
-        }}
         comment={{
-          fCallBack: function noRefCheck() {
-            return null;
-          },
+          fCallBack: () => console.log('comment'),
           quantity: 0,
         }}
         img={{
@@ -36,48 +30,40 @@ const App = () => {
           src: 'https://shorturl.at/uvyKU',
         }}
         like={{
-          fCallBack: function noRefCheck() {
-            return null;
-          },
+          fCallBack: () => console.log('like'),
           quantity: 999,
         }}
         share={{
-          fCallBack: function noRefCheck() {
-            return null;
-          },
+          fCallBack: () => console.log('share'),
           label: 'Share',
         }}
         text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
         user={{
           avatar: {
             alt: 'avatar',
-            fCallBack: function noRefCheck() {
-              return null;
-            },
+            imageCallBack: handleAvatar,
             src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
-          },
-          btn: {
-            fCallBack: function noRefCheck() {
-              return null;
-            },
-            label: 'Follow',
           },
           joined: {
             href: '',
             label: 'Joined',
+            fCallBack: () => console.log('joined'),
           },
           label: 'Display Name',
           location: {
             href: '',
             label: 'Location',
+            fCallBack: () => console.log('location'),
           },
           timestamp: {
             href: '',
             label: 'Timestamp',
+            fCallBack: () => console.log('timestamp'),
           },
           username: {
             href: '',
             label: 'Username',
+            fCallBack: () => console.log('username'),
           },
           variant: 'xlarge',
         }}

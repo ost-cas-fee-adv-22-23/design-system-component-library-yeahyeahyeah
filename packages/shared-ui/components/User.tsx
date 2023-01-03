@@ -12,7 +12,7 @@ export interface IUserProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   timestamp?: IIconLinkProps;
   location?: IIconLinkProps;
   joined?: IIconLinkProps;
-  avatar: { src: string; alt: string; fCallBack?: () => void };
+  avatar: { src: string; alt: string; imageCallBack?: () => void; buttonCallBack?: () => void };
   btn?: { label: string; fCallBack?: () => void };
 }
 
@@ -30,7 +30,13 @@ export const User: React.FC<IUserProps> = ({
     <>
       {variant === 'small' && (
         <Row gap="small">
-          <Avatar alt={avatar.alt} src={avatar.src} variant={'small'} fCallBack={avatar.fCallBack} />
+          <Avatar
+            alt={avatar.alt}
+            src={avatar.src}
+            variant={'small'}
+            imageCallBack={avatar.imageCallBack}
+            buttonCallBack={avatar.buttonCallBack}
+          />
           <Column variant={variant}>
             <Heading tag="h4" color="dark" size={'default'} label={label} />
             <Row>
@@ -54,7 +60,13 @@ export const User: React.FC<IUserProps> = ({
       )}
       {variant === 'write' && (
         <Row gap="small">
-          <Avatar alt={avatar.alt} src={avatar.src} variant={'small'} fCallBack={avatar.fCallBack} />
+          <Avatar
+            alt={avatar.alt}
+            src={avatar.src}
+            variant={'small'}
+            imageCallBack={avatar.imageCallBack}
+            buttonCallBack={avatar.buttonCallBack}
+          />
           <Column variant={variant}>
             <Heading tag="h4" color="dark" size={'default'} label={label} />
             <Row>
@@ -73,7 +85,13 @@ export const User: React.FC<IUserProps> = ({
       {variant === 'inline' && (
         <Row gap="small">
           <Column variant={variant}>
-            <Avatar alt={avatar.alt} src={avatar.src} variant={'medium'} fCallBack={avatar.fCallBack} />
+            <Avatar
+              alt={avatar.alt}
+              src={avatar.src}
+              variant={'medium'}
+              imageCallBack={avatar.imageCallBack}
+              buttonCallBack={avatar.buttonCallBack}
+            />
             <Heading tag="h4" color="dark" size={'default'} label={label} />
           </Column>
         </Row>
@@ -152,7 +170,13 @@ export const User: React.FC<IUserProps> = ({
       {variant === 'recommended' && (
         <Article>
           <Column variant="recommended">
-            <Avatar alt={avatar.alt} src={avatar.src} variant={'large'} fCallBack={avatar.fCallBack} />
+            <Avatar
+              alt={avatar.alt}
+              src={avatar.src}
+              variant={'large'}
+              imageCallBack={avatar.imageCallBack}
+              buttonCallBack={avatar.buttonCallBack}
+            />
             <Row spacing={tw`mb-8`}>
               <Heading tag="h4" color="dark" size={'large'} label={label} />
             </Row>

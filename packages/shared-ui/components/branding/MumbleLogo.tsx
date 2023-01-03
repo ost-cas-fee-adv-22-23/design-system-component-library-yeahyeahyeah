@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import tw, { styled, TwStyle } from 'twin.macro';
-import { MumbleText, MumbleGradient, LogoMumble } from '../icons/components';
+import { MumbleText, MumbleGradient, LogoMumble } from '../icons';
 
 export interface IMumbleLogoProps extends React.HTMLAttributes<HTMLOrSVGImageElement> {
   title: string;
