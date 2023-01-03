@@ -11,11 +11,11 @@ export interface IconButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElem
 }
 
 export const IconButton: React.FC<IconButtonProps> = (props: IconButtonProps) => {
-  const { label, icon, fCallBack } = props;
+  const { label, icon, variant, fCallBack } = props;
   const Icon = createIcon(icon);
 
   return (
-    <ButtonStyles {...props} onClick={fCallBack} aria-label={label}>
+    <ButtonStyles variant={variant} onClick={fCallBack} aria-label={label}>
       <Icon />
       <p>{label}</p>
     </ButtonStyles>
