@@ -166,8 +166,8 @@ interface IRowStyles {
 
 const Row = styled.div(({ gap }: IRowStyles) => [
   tw`
-  flex
-  flex-row
+    flex
+    flex-row
     flex-wrap
     justify-start
     items-center
@@ -182,12 +182,10 @@ const Article = styled.article(() => [
     relative
     flex
     flex-col
-    justify-center
+    justify-start
     items-start
     w-full
-
     bg-slate-white
-
     py-32
     px-16
     sm:px-48

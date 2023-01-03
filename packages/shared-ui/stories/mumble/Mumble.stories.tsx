@@ -92,6 +92,12 @@ export default {
         label: 'Share',
       },
     },
+    spacing: {
+      control: false,
+      table: {
+        disable: true,
+      },
+    },
   },
 } as ComponentMeta<typeof Mumble>;
 

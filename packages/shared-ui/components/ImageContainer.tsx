@@ -121,20 +121,20 @@ const Figure = styled.figure.attrs({ className: 'group' })(({ type }: IImageIcon
     justify-center
     items-center
     w-full
-    border-1
-    border-slate-white
     overflow-hidden
-    bg-violet-200
-    hover:bg-violet-600
     cursor-pointer
     rounded-16
     relative
-    
+    max-h-[320px]
+
     mt-4
     mb-24
+    bg-violet-200
+
+    hover:bg-violet-600
   `,
-  type === 'container' && tw`max-h-[320px]`,
-  type === 'banner' && tw`absolute top-0 bg-violet-100 w-full h-auto`,
+  type === 'container' && tw`border-1 border-slate-white`,
+  type === 'banner' && tw`border-none`,
 ]);
 
 const StyledFullScreen = styled(Fullscreen)(() => [tw`w-32 h-32 fill-slate-white`]);

@@ -30,5 +30,5 @@ declare global {
     }
   }
 
-  type TSpacing = '4' | '8' | '16' | '32' | '64' | undefined;
+  type TSpacing = '0' | '2' | '4' | '8' | '16' | '32' | '64';
 }

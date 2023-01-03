@@ -15,7 +15,7 @@ export const Heading: React.FC<IHeadingProps> = ({
   tag = 'h1',
   color = 'default',
   size = 'default',
-  spacing = undefined,
+  spacing = '0',
 }) => {
   const props = { label, tag, color, size, spacing };
 
