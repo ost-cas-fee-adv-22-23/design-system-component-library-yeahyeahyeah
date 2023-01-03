@@ -35,7 +35,8 @@
     "format:check": "prettier --check packages/**/*.{js,ts,tsx,css,json} --config ./.prettierrc",
     "format": "prettier --write packages/**/*.{js,ts,tsx,css,json} --config ./.prettierrc",
     "lint": "eslint packages/**/*.{js,ts,tsx,json} --no-error-on-unmatched-pattern",
-    "lint:fix": "eslint --fix packages/**/*.{js,ts,tsx,json} --no-error-on-unmatched-pattern"
+    "lint:fix": "eslint --fix packages/**/*.{js,ts,tsx,json} --no-error-on-unmatched-pattern",
+    "synp": "del ./package-lock.json && synp --source-file ./yarn.lock"
   },
   "private": true,
   "workspaces": {

@@ -63,23 +63,26 @@ LikeButtonStory.storyName = 'Like';
 
 // COMMENT STORY
 export const CommentButtonStory = Template.bind({});
-(CommentButtonStory.argTypes = {
+
+CommentButtonStory.argTypes = {
   favourite: {
     control: false,
     table: {
       disable: true,
     },
   },
-}),
-  (CommentButtonStory.args = {
-    type: 'comment',
-    quantity: 0,
-    favourite: false,
-  }),
-  (CommentButtonStory.parameters = {
-    docs: {
-      source: { type: 'dynamic' },
-    },
-  });
+};
+
+CommentButtonStory.args = {
+  type: 'comment',
+  quantity: 0,
+  favourite: false,
+};
+
+CommentButtonStory.parameters = {
+  docs: {
+    source: { type: 'dynamic' },
+  },
+};
 
 CommentButtonStory.storyName = 'Comment';
