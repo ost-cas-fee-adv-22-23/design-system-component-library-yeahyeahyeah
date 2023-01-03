@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { useArgs } from '@storybook/client-api';
 import { Checkbox } from '../../components/forms/Checkbox';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
@@ -13,27 +12,22 @@ export default {
       control: 'select',
       table: {
         defaultValue: {
-          summary: 'yourMumbles',
+          summary: 'mumbles',
         },
       },
     },
     fCallBack: {
-      action: () => 'handleClick',
+      action: () => 'handleChange',
+      table: {
+        defaultValue: {
+          summary: 'mumbles',
+        },
+      },
     },
   },
 } as ComponentMeta<typeof Checkbox>;
 
-const Template: ComponentStory<typeof Checkbox> = (args) => {
-  const [{ selection }, updateArgs] = useArgs();
-  const [isType, setIsType] = useState<string>(selection);
-
-  const fCallBack = () => {
-    isType === 'yourLikes' ? setIsType('yourMumbles') : setIsType('yourLikes');
-    updateArgs({ selection: isType });
-    console.log({ selection, isType });
-  };
-  return <Checkbox {...args} fCallBack={fCallBack} />;
-};
+const Template: ComponentStory<typeof Checkbox> = (args) => <Checkbox {...args} />;
 
 /**
  * @input
@@ -42,7 +36,7 @@ const Template: ComponentStory<typeof Checkbox> = (args) => {
 export const FormCheckboxStory = Template.bind({});
 
 FormCheckboxStory.args = {
-  selection: 'yourMumbles',
+  selection: 'mumbles',
 };
 
 FormCheckboxStory.parameters = {

@@ -2,22 +2,23 @@ import React, { useState } from 'react';
 import tw, { styled } from 'twin.macro';
 
 export interface IFormCheckboxProps extends React.HtmlHTMLAttributes<HTMLFormElement> {
-  selection: 'yourMumbles' | 'yourLikes';
-  fCallBack?: () => void;
+  selection: 'mumbles' | 'likes';
+  fCallBack?: (type: string) => void;
 }
 
 export const Checkbox: React.FC<IFormCheckboxProps> = (props: IFormCheckboxProps) => {
   const { fCallBack } = props;
-  const [isType, setIsType] = useState<string>('yourMumbles');
+  const [isType, setIsType] = useState<string>('mumbles');
 
   const handleChange = () => {
-    isType === 'yourMumbles' ? setIsType('yourLikes') : setIsType('yourMumbles');
+    isType === 'mumbles' ? setIsType('likes') : setIsType('mumbles');
+    fCallBack && fCallBack(isType);
   };
 
   return (
     <>
       <FormLabel htmlFor="switch">
-        <FormInput id="switch" type="checkbox" name="switch" onChange={handleChange} onClick={fCallBack} />
+        <FormInput id="switch" type="checkbox" name="switch" onChange={handleChange} />
         <FormSpanMumble selection={isType}>Deine Mumbles</FormSpanMumble>
         <FormSpanLike selection={isType}>Deine Likes</FormSpanLike>
       </FormLabel>
@@ -31,7 +32,11 @@ interface IFormSpanStyles {
 }
 
 const Span = tw`
-    text-md
+    flex
+    justify-center
+    sm:justify-start
+    text-sm
+    sm:text-md
     font-semibold
     text-slate-600
 
@@ -45,14 +50,14 @@ const Span = tw`
 
 const FormSpanMumble = styled.span(({ selection }: IFormSpanStyles) => [
   Span,
-  selection === 'yourMumbles' && tw`bg-slate-white text-violet-600 hover:grow`,
-  selection === 'yourLikes' && tw`text-left hover:(sm:text-right text-slate-800)`,
+  selection === 'mumbles' && tw`bg-slate-white text-violet-600 hover:grow`,
+  selection === 'likes' && tw`text-left hover:(sm:text-right text-slate-800)`,
 ]);
 
 const FormSpanLike = styled.span(({ selection }: IFormSpanStyles) => [
   Span,
-  selection === 'yourLikes' && tw`bg-slate-white text-violet-600 text-center sm:text-right hover:grow`,
-  selection === 'yourMumbles' && tw`hover:(text-slate-800)`,
+  selection === 'likes' && tw`sm:justify-end bg-slate-white text-violet-600 hover:grow`,
+  selection === 'mumbles' && tw`hover:(text-slate-800)`,
 ]);
 
 const FormLabel = styled.label(() => [
