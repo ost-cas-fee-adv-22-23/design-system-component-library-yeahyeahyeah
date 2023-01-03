@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { InteractionButton } from '../../components/buttons/InteractionButton';
 import { useArgs } from '@storybook/client-api';
 import { DefaultLayout } from '../layouts/DefaultLayout';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Interactions',
@@ -16,13 +17,14 @@ export default {
       },
     },
     quantity: {
-      control: 'number',
+      control: { type: 'number', min: 0, max: 100 },
       table: {
         defaultValue: {
           summary: 0,
         },
       },
     },
+    //fCallBack: { action: 'clicked' },
   },
 } as ComponentMeta<typeof InteractionButton>;
 
@@ -30,7 +32,7 @@ const Template: ComponentStory<typeof InteractionButton> = (args) => {
   const [{ favourite, quantity }, updateArgs] = useArgs();
 
   const fCallBack = () => {
-    updateArgs({ favourite: !favourite, quantity: favourite ? quantity - 1 : quantity + 1 });
+    if (args.type === 'like') updateArgs({ favourite: !favourite, quantity: favourite ? quantity - 1 : quantity + 1 });
   };
 
   return <InteractionButton {...args} fCallBack={fCallBack} />;
@@ -38,7 +40,7 @@ const Template: ComponentStory<typeof InteractionButton> = (args) => {
 
 // LIKE STORY
 export const LikeButtonStory = Template.bind({});
-(LikeButtonStory.argTypes = {
+LikeButtonStory.argTypes = {
   favourite: {
     control: 'boolean',
     table: {
@@ -47,17 +49,18 @@ export const LikeButtonStory = Template.bind({});
       },
     },
   },
-  fCallBack: { action: 'handleClickLike' },
-}),
-  (LikeButtonStory.args = {
-    type: 'like',
-    quantity: 0,
-  }),
-  (LikeButtonStory.parameters = {
-    docs: {
-      source: { type: 'dynamic' },
-    },
-  });
+};
+
+LikeButtonStory.args = {
+  type: 'like',
+  quantity: 0,
+};
+
+LikeButtonStory.parameters = {
+  docs: {
+    source: { type: 'dynamic' },
+  },
+};
 
 LikeButtonStory.storyName = 'Like';
 
