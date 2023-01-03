@@ -8,6 +8,7 @@ export const BottomSpacing = ({ spacing }: ISpacingProps) => [
   tw`
     mb-0
   `,
+  spacing === '0' && tw`mb-0`,
   spacing === '4' && tw`mb-4`,
   spacing === '8' && tw`mb-8`,
   spacing === '16' && tw`mb-16`,

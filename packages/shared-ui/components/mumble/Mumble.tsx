@@ -6,6 +6,7 @@ import { IInteractionButton, InteractionButton } from '../buttons/InteractionBut
 import { IShareButton, ShareButton } from '../buttons/ShareButton';
 import { IImageContainerProps, ImageContainer } from '../ImageContainer';
 import { Avatar } from '../Avatar';
+import { BottomSpacing } from '../Spacing';
 
 export interface IMumbleProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   variant?: 'detailpage' | 'timeline' | 'response';
@@ -15,6 +16,7 @@ export interface IMumbleProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   comment: IInteractionButton;
   like: IInteractionButton;
   share: IShareButton;
+  spacing?: TSpacing;
 }
 
 export const Mumble: React.FC<IMumbleProps> = ({
@@ -84,7 +86,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
       {variant === 'detailpage' && (
         <>
           <Article>
-            <UserWrapper>
+            <UserWrapper spacing={'16'}>
               <User
                 btn={user.btn}
                 joined={user.joined}
@@ -98,13 +100,9 @@ export const Mumble: React.FC<IMumbleProps> = ({
                 <Avatar alt={user.avatar.alt} src={user.avatar.src} variant={'medium'} fCallBack={user.avatar?.fCallBack} />
               </AvatarWrapper>
             </UserWrapper>
-            <Div>
-              <Paragraph size={'large'} color={'dark'} text={text} />
-            </Div>
             <Row>
+              <Paragraph size={'large'} color={'dark'} text={text} spacing={'16'} />
               <ImageContainer alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
-            </Row>
-            <Row>
               <InteractionButton fCallBack={comment.fCallBack} quantity={comment.quantity} type="comment" />
               <InteractionButton fCallBack={like.fCallBack} quantity={like.quantity} type="like" />
               <ShareButton fCallBack={share.fCallBack} label={share.label} />
@@ -114,7 +112,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
       )}
       {variant === 'timeline' && (
         <Article>
-          <UserWrapper>
+          <UserWrapper spacing={'16'}>
             <User
               avatar={user.avatar}
               btn={user.btn}
@@ -127,13 +125,9 @@ export const Mumble: React.FC<IMumbleProps> = ({
               <Avatar alt={user.avatar.alt} src={user.avatar.src} variant={'medium'} fCallBack={user.avatar.fCallBack} />
             </AvatarWrapper>
           </UserWrapper>
-          <Div>
-            <Paragraph size={'medium'} color={'dark'} text={text} />
-          </Div>
           <Row>
+            <Paragraph size={'medium'} color={'dark'} text={text} spacing={'16'} />
             <ImageContainer alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
-          </Row>
-          <Row>
             <InteractionButton fCallBack={comment.fCallBack} quantity={comment.quantity} type="comment" />
             <InteractionButton fCallBack={like.fCallBack} quantity={like.quantity} type="like" />
             <ShareButton fCallBack={share.fCallBack} label={share.label} />
@@ -142,21 +136,19 @@ export const Mumble: React.FC<IMumbleProps> = ({
       )}
       {variant === 'response' && (
         <Article>
-          <User
-            avatar={user.avatar}
-            btn={user.btn}
-            label={user.label}
-            timestamp={user.timestamp}
-            username={user.username}
-            variant="small"
-          />
-          <Div>
-            <Paragraph size={'medium'} color={'dark'} text={text} />
-          </Div>
-          <Row>
-            <ImageContainer alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
+          <Row spacing={'16'}>
+            <User
+              avatar={user.avatar}
+              btn={user.btn}
+              label={user.label}
+              timestamp={user.timestamp}
+              username={user.username}
+              variant="small"
+            />
           </Row>
           <Row>
+            <Paragraph size={'medium'} color={'dark'} text={text} spacing={'16'} />
+            <ImageContainer alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
             <InteractionButton fCallBack={comment.fCallBack} quantity={comment.quantity} type="comment" />
             <InteractionButton fCallBack={like.fCallBack} quantity={like.quantity} type="like" />
             <ShareButton fCallBack={share.fCallBack} label={share.label} />
@@ -169,6 +161,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
 
 interface IRowStyles {
   gap?: string;
+  spacing?: string;
 }
 
 const Row = styled.div(({ gap }: IRowStyles) => [
@@ -179,8 +172,9 @@ const Row = styled.div(({ gap }: IRowStyles) => [
     justify-start
     items-center
     w-full
-  `,
+    `,
   gap === 'small' && tw`gap-8`,
+  BottomSpacing,
 ]);
 
 const Article = styled.article(() => [
@@ -188,22 +182,13 @@ const Article = styled.article(() => [
     relative
     flex
     flex-col
-    justify-center
+    justify-start
     items-start
     w-full
-
     bg-slate-white
-
     py-32
     px-16
     sm:px-48
-  `,
-]);
-
-const Div = styled.div(() => [
-  tw`
-    pt-16
-    pb-24
   `,
 ]);
 
@@ -214,6 +199,7 @@ const AvatarWrapper = styled.div(() => [
 ]);
 
 const UserWrapper = styled.div(() => [
+  BottomSpacing,
   tw`
     flex
     flex-row-reverse
