@@ -1,4 +1,4 @@
-# Component library with yarn/npm workspaces + Next.js
+# create a component library with yarn/npm workspaces + Next.js
 
 This setup demonstrates a TypeScript Next.js app (`packages/app`) importing a separate component library (`packages/shared-ui`) using either [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) or [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces).
 
