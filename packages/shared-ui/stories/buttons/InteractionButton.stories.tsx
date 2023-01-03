@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { InteractionButton } from '../../components/buttons/InteractionButton';
 import { useArgs } from '@storybook/client-api';
 import { DefaultLayout } from '../layouts/DefaultLayout';
-import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Interactions',
@@ -24,7 +23,6 @@ export default {
         },
       },
     },
-    //fCallBack: { action: 'clicked' },
   },
 } as ComponentMeta<typeof InteractionButton>;
 

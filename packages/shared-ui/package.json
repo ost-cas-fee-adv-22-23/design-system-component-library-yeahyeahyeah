@@ -4,10 +4,11 @@
   "main": "components/index.tsx",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json",
+    "build": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json && yarn copy-css",
     "watch": "tsc --watch",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "copy-css": "cp ./styles/tailwind.css ./dist && cp ../../tailwind.config.js ./dist"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
@@ -38,6 +39,7 @@
     "babel-plugin-macros": "^3.1.0",
     "babel-plugin-named-exports-order": "^0.0.2",
     "babel-plugin-styled-components": "^2.0.7",
+    "ctix": "^1.8.1",
     "del-cli": "^5.0.0",
     "eslint": "^8.29.0",
     "postcss": "^8.4.19",
@@ -56,8 +58,5 @@
   "overrides": {
     "enhanced-resolve": "5.10.0"
   },
-  "license": "MIT",
-  "dependencies": {
-    "ctix": "^1.8.1"
-  }
+  "license": "MIT"
 }

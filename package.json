@@ -1,5 +1,5 @@
 {
-  "name": "@smartive-education/yeahyeahyeah-mumble",
+  "name": "@smartive-education/design-system-component-library-yeahyeahyeah",
   "version": "0.0.0-development",
   "publishConfig": {
     "access": "public",
@@ -35,8 +35,7 @@
     "format:check": "prettier --check packages/**/*.{js,ts,tsx,css,json} --config ./.prettierrc",
     "format": "prettier --write packages/**/*.{js,ts,tsx,css,json} --config ./.prettierrc",
     "lint": "eslint packages/**/*.{js,ts,tsx,json} --no-error-on-unmatched-pattern",
-    "lint:fix": "eslint --fix packages/**/*.{js,ts,tsx,json} --no-error-on-unmatched-pattern",
-    "synp": "del ./package-lock.json && synp --source-file ./yarn.lock"
+    "lint:fix": "eslint --fix packages/**/*.{js,ts,tsx,json} --no-error-on-unmatched-pattern"
   },
   "private": true,
   "workspaces": {
