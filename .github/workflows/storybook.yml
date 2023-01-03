@@ -24,9 +24,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: npm
-      - run: npm ci
-      - run: npm run build-storybook
+          cache: yarn
+      - run: yarn install --frozen-lockfile
+      - run: yarn build-storybook
       - uses: actions/upload-pages-artifact@v1
         with:
           path: packages/shared-ui/storybook-static
