@@ -10,7 +10,8 @@ export interface IInteractionButton extends React.HtmlHTMLAttributes<HTMLButtonE
   fCallBack?: () => void;
 }
 
-export const InteractionButton: React.FC<IInteractionButton> = ({ type, quantity, favourite, fCallBack }) => {
+export const InteractionButton: React.FC<IInteractionButton> = (props: IInteractionButton) => {
+  const { type, quantity, favourite, fCallBack } = props;
   const [label, setLabel] = useState<string>('');
   const [count, setCount] = useState<number>(quantity || 0);
   const [isFavourite, setIsFavourite] = useState<boolean>(favourite || false);
@@ -78,6 +79,7 @@ export const InteractionButton: React.FC<IInteractionButton> = ({ type, quantity
         count={count}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
+        aria-pressed={isFavourite}
       >
         {isFavourite ? (
           <StyledHeartFilled hover={hover ? 'true' : 'false'} count={count} />
