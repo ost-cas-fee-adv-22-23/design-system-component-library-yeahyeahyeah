@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Mumble } from '../../components/mumble/Mumble';
 import { DefaultLayout } from '../layouts/DefaultLayout';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Mumble/Mumble',
@@ -19,32 +20,29 @@ export default {
         avatar: {
           alt: 'avatar',
           src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-          fCallBack: () => {
-            console.log('user avatar clicked');
-          },
-        },
-        btn: {
-          fCallBack: () => {
-            return null;
-          },
-          label: 'Follow',
+          buttonCallBack: action('button mumble clicked'),
+          imageCallBack: action('image mumble clicked'),
         },
         joined: {
           href: '',
           label: 'Joined',
+          fCallBack: action('joined clicked'),
         },
         label: 'Display Name',
         location: {
           href: '',
           label: 'Location',
+          fCallBack: action('location clicked'),
         },
         timestamp: {
           href: '',
           label: 'Timestamp',
+          fCallBack: action('timestamp clicked'),
         },
         username: {
           href: '',
           label: 'Username',
+          fCallBack: action('username clicked'),
         },
         variant: 'xlarge',
       },
@@ -59,36 +57,28 @@ export default {
       },
       defaultValue: {
         alt: 'This is a profile picture!',
-        fCallBack: () => {
-          return null;
-        },
+        fCallBack: action('icon clicked'),
         src: 'https://shorturl.at/nEO01',
       },
     },
     comment: {
       control: { type: 'object' },
       defaultValue: {
-        fCallBack: () => {
-          console.log('comment');
-        },
+        fCallBack: action('comment clicked'),
         quantity: 0,
       },
     },
     like: {
       control: { type: 'object' },
       defaultValue: {
-        fCallBack: () => {
-          console.log('like');
-        },
+        fCallBack: action('like clicked'),
         quantity: 999,
       },
     },
     share: {
       control: { type: 'object' },
       defaultValue: {
-        fCallBack: () => {
-          console.log('share');
-        },
+        fCallBack: action('share clicked'),
         label: 'Share',
       },
     },

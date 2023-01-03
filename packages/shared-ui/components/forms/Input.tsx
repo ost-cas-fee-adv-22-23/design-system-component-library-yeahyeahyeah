@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import tw, { styled } from 'twin.macro';
-import { Eye } from '../icons/components';
+import { Eye } from '../icons';
 
 export interface IFormInputProps extends React.HtmlHTMLAttributes<HTMLFormElement> {
   label?: string;

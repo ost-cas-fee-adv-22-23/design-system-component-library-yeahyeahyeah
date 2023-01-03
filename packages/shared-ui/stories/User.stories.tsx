@@ -74,7 +74,8 @@ export default {
       defaultValue: {
         src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
         alt: 'Alter Tag',
-        fCallBack: action('avatar clicked'),
+        buttonCallBack: action('button x clicked'),
+        imageCallBack: action('button x clicked'),
       },
     },
   },

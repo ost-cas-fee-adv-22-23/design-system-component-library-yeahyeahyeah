@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconTemplate } from '../layouts/IconGrid';
-import { Settings } from '../../components/icons/components';
+import { Settings } from '../../components/icons';
 import { IconsMapped, IconTypes } from '../../components/icons/IconMap';
 import { Heading } from '../../components/typography/Heading';
 import { Paragraph } from '../../components/typography/Paragraph';

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { Fullscreen, Edit, Repost } from './icons/components';
+import { Fullscreen, Edit, Repost } from './icons/default_index';
 
 export interface IImageContainerProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
   src?: string;

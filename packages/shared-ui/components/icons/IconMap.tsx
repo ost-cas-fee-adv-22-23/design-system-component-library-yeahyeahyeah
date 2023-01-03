@@ -27,7 +27,7 @@ import {
   Time,
   Up,
   Upload,
-} from './components';
+} from './default_index';
 
 export const Icons = {
   calendar: <Calendar />,

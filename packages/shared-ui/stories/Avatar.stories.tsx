@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Avatar } from '../components/Avatar';
 import { DefaultLayout } from './layouts/DefaultLayout';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'User',
@@ -26,8 +27,11 @@ export default {
       },
       defaultValue: 'Alter Tag',
     },
-    fCallBack: {
-      action: () => 'handleClick',
+    imageCallBack: {
+      defaultValue: action('image clicked'),
+    },
+    buttonCallBack: {
+      defaultValue: action('button clicked'),
     },
   },
 } as ComponentMeta<typeof Avatar>;

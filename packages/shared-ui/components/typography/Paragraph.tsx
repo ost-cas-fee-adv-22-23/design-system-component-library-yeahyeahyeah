@@ -9,11 +9,12 @@ export interface IParagraphProps extends React.HTMLAttributes<HTMLParagraphEleme
   spacing?: TSpacing;
 }
 
-export const Paragraph: React.FC<IParagraphProps> = ({ size = 'medium', color = 'default', text, spacing }) => {
-  const props = { size, color, text, spacing };
+export const Paragraph: React.FC<IParagraphProps> = ({ size = 'medium', color = 'default', spacing, text }) => {
   return (
     <>
-      <ParagraphStyles {...props}>{text}</ParagraphStyles>
+      <ParagraphStyles size={size} color={color} spacing={spacing}>
+        {text}
+      </ParagraphStyles>
     </>
   );
 };
