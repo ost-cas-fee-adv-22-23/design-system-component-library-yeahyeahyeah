@@ -1,6 +1,6 @@
 {
   "name": "@smartive-education/design-system-component-library-yeahyeahyeah",
-  "version": "0.0.3-development",
+  "version": "0.0.4-development",
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com",
@@ -41,5 +41,6 @@
     "packages": [
       "packages/*"
     ]
-  }
+  },
+  "license": "MIT"
 }
