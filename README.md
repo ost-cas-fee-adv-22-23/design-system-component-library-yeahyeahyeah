@@ -14,12 +14,6 @@ This setup demonstrates a TypeScript Next.js app (`packages/app`) importing a se
 
 ## Get started
 
-Use degit to pull down this example:
-
-```shell
-npx degit https://github.com/ben-rogerson/twin.examples/component-library-styled-components folder-name
-```
-
 From inside the new folder, start the dev server with yarn:
 
 ```bash
