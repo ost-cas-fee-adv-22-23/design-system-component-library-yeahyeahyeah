@@ -1,6 +1,6 @@
 {
   "name": "@smartive-education/design-system-component-library-yeahyeahyeah",
-  "version": "0.0.2-development",
+  "version": "0.0.3-development",
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com",
@@ -37,7 +37,6 @@
     "lint": "eslint packages/**/*.{js,ts,tsx,json} --no-error-on-unmatched-pattern",
     "lint:fix": "eslint --fix packages/**/*.{js,ts,tsx,json} --no-error-on-unmatched-pattern"
   },
-  "private": true,
   "workspaces": {
     "packages": [
       "packages/*"
