@@ -1,6 +1,6 @@
 {
   "name": "@smartive-education/design-system-component-library-yeahyeahyeah",
-  "version": "0.0.8-dev",
+  "version": "0.0.9-dev",
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com",
@@ -9,7 +9,8 @@
   "types": "dist/types/index.d.ts",
   "files": [
     "dist",
-    "styles"
+    "styles",
+    "tailwind.config.js"
   ],
   "exports": {
     ".": {
