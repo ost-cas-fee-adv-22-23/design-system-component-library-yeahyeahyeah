@@ -1,37 +1,14 @@
 {
-  "name": "@smartive-education/design-system-component-library-yeahyeahyeah",
-  "version": "0.0.4-development",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com",
-    "tag": "latest"
-  },
-  "files": [
-    "packages/shared-ui/dist",
-    "tailwind.config.js"
-  ],
-  "types": "packages/shared-ui/dist/types/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./packages/shared-ui/dist/index.js"
-    },
-    "./tailwind": "./tailwind.config.js"
-  },
-  "babelMacros": {
-    "twin": {
-      "config": "./../../tailwind.config.js",
-      "preset": "styled-components"
-    }
-  },
+  "name": "design-system-component-library-yeahyeahyeah-workspaces",
   "scripts": {
     "dev": "yarn build && cd packages/app && yarn dev",
     "start": "cd packages/app && yarn start",
-    "build": "cd packages/shared-ui && yarn build",
+    "build": "cd packages/design-system-component-library-yeahyeahyeah && yarn build",
     "build-app": "yarn build && cd packages/app && yarn build",
-    "build-icons": "npx @svgr/cli --typescript --icon 16px --out-dir ./packages/shared-ui/components/icons/components -- ./packages/shared-ui/components/icons/svg",
-    "watch:types": "cd packages/shared-ui && yarn watch",
-    "storybook": "cd packages/shared-ui && yarn storybook",
-    "build-storybook": "cd packages/shared-ui && yarn build-storybook",
+    "build-icons": "npx @svgr/cli --typescript --icon 16px --out-dir ./packages/design-system-component-library-yeahyeahyeah/components/icons/components -- ./packages/design-system-component-library-yeahyeahyeah/components/icons/svg",
+    "watch:types": "cd packages/design-system-component-library-yeahyeahyeah && yarn watch",
+    "storybook": "cd packages/design-system-component-library-yeahyeahyeah && yarn storybook",
+    "build-storybook": "cd packages/design-system-component-library-yeahyeahyeah && yarn build-storybook",
     "format:check": "prettier --check packages/**/*.{js,ts,tsx,css,json} --config ./.prettierrc",
     "format": "prettier --write packages/**/*.{js,ts,tsx,css,json} --config ./.prettierrc",
     "lint": "eslint packages/**/*.{js,ts,tsx,json} --no-error-on-unmatched-pattern",
@@ -42,5 +19,12 @@
       "packages/*"
     ]
   },
+  "babelMacros": {
+    "twin": {
+      "config": "./../../tailwind.config.js",
+      "preset": "styled-components"
+    }
+  },
+  "private": true,
   "license": "MIT"
 }

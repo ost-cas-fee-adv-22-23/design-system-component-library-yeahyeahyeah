@@ -2,11 +2,11 @@ const path = require('path');
 
 /**
  * next-transpile-modules
- * Makes Next.js run babel over code that's imported from the `shared-ui`
+ * Makes Next.js run babel over code that's imported from the `design-system-component-library-yeahyeahyeah`
  * package.
  * https://github.com/kutlugsahin/next-transpile-modules
  */
-const PACKAGE_NAMES = ['shared-ui']; // Add new packages to this array when imported into this app
+const PACKAGE_NAMES = ['@smartive-education/design-system-component-library-yeahyeahyeah']; // Add new packages to this array when imported into this app
 const withTranspileModules = require('next-transpile-modules')(PACKAGE_NAMES);
 
 module.exports = withTranspileModules({

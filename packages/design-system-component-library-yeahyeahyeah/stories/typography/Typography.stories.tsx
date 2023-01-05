@@ -3,7 +3,7 @@ import tw from 'twin.macro';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 import { Heading } from '../../components/typography/Heading';
-import { Paragraph } from '../../components';
+import { Paragraph } from '../../components/index';
 
 export default {
   title: 'Typography/All Font Styles',
