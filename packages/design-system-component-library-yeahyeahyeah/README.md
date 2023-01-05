@@ -1,11 +1,13 @@
 ## Installing the npm package
 
-Create nextjs app
+### Create nextjs app
 
 ```bash
 nvm use 16.17.0
 yarn create next-app --typescript
 ```
+
+### Create github token and add to .npmrc
 
 [Create a classic github token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)
 
@@ -21,13 +23,15 @@ Create .npmrc and add following line
 @smartive-education:registry=https://npm.pkg.github.com
 ```
 
-Install package
+### Install the npm package
+
+With yarn
 
 ```bash
 yarn add @smartive-education/design-system-component-library-yeahyeahyeah@latest
 ```
 
-or with npm
+Or with npm
 
 ```bash
 npm i @smartive-education/design-system-component-library-yeahyeahyeah@latest
