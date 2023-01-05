@@ -1,6 +1,6 @@
 {
   "name": "@smartive-education/design-system-component-library-yeahyeahyeah",
-  "version": "0.0.5-development",
+  "version": "0.0.6-development",
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com",
@@ -9,13 +9,13 @@
   "types": "dist/types/index.d.ts",
   "files": [
     "dist",
-    "tailwind.config.js"
+    "../../tailwind.config.js"
   ],
   "exports": {
     ".": {
       "import": "./dist/index.js"
     },
-    "./tailwind": "./tailwind.config.js"
+    "./tailwind": "./../../tailwind.config.js"
   },
   "scripts": {
     "build": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json && yarn copy-css",
