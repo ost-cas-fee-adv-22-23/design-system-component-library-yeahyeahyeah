@@ -1,6 +1,6 @@
 {
   "name": "@smartive-education/design-system-component-library-yeahyeahyeah",
-  "version": "0.0.9-dev",
+  "version": "0.0.10-dev",
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com",
