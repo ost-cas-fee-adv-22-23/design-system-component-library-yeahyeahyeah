@@ -1,6 +1,6 @@
 {
   "name": "@smartive-education/design-system-component-library-yeahyeahyeah",
-  "version": "0.0.6-development",
+  "version": "0.0.7-development",
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com",
@@ -18,11 +18,11 @@
     "./tailwind": "./../../tailwind.config.js"
   },
   "scripts": {
-    "build": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json && yarn copy-css",
+    "build": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json && yarn copy-files",
     "watch": "tsc --watch",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "copy-css": "cpy ./styles/tailwind.css ./dist"
+    "copy-files": "mkdir dist/styles && cp ./styles/tailwind.css ./dist/styles && cp ../../tailwind.config.js ./dist"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
@@ -52,7 +52,6 @@
     "babel-plugin-macros": "^3.1.0",
     "babel-plugin-named-exports-order": "^0.0.2",
     "babel-plugin-styled-components": "^2.0.7",
-    "cpy-cli": "^4.2.0",
     "ctix": "^1.8.1",
     "del-cli": "^5.0.0",
     "eslint": "^8.29.0",
