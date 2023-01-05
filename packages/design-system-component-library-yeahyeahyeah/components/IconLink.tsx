@@ -1,6 +1,6 @@
 import tw, { styled, TwStyle } from 'twin.macro';
 import React, { useState } from 'react';
-import { Profile, Time, Location, Calendar } from './icons/';
+import { Profile, Time, Location, Calendar } from './icons/index';
 import NextLink, { LinkProps } from 'next/link';
 
 export interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {

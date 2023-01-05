@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { HeartFilled, HeartOutlined, ReplyFilled, ReplyOutlined } from '../icons';
+import { HeartFilled, HeartOutlined, ReplyFilled, ReplyOutlined } from '../icons/index';
 
 export interface IInteractionButton extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   type?: 'like' | 'comment';

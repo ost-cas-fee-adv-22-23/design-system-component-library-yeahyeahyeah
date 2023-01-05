@@ -3,5 +3,8 @@
   "rules": {
     "react/no-unknown-property": ["error", { "ignore": ["css", "tw"] }]
   },
-  "ignorePatterns": ["packages/shared-ui/dist/**/*", "packages/shared-ui/node_modules/**/*"]
+  "ignorePatterns": [
+    "packages/design-system-component-library-yeahyeahyeah/dist/**/*",
+    "packages/design-system-component-library-yeahyeahyeah/node_modules/**/*"
+  ]
 }

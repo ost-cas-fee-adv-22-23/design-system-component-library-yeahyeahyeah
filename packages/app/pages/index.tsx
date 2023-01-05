@@ -1,5 +1,13 @@
 import React from 'react';
-import { Logo, Cancel, Calendar, Checkmark, LogoMumble, Button, Mumble } from 'shared-ui';
+import {
+  Logo,
+  Cancel,
+  Calendar,
+  Checkmark,
+  LogoMumble,
+  Button,
+  Mumble,
+} from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import tw from 'twin.macro';
 
 const App = () => {
