@@ -23,7 +23,7 @@ export const ImageContainer: React.FC<IImageContainerProps> = (props: IImageCont
     }
   };
 
-  return (
+  return src ? (
     <Figure type={type}>
       <Wrapper loading={loading ? 'true' : 'false'}>
         <Container>
@@ -32,8 +32,10 @@ export const ImageContainer: React.FC<IImageContainerProps> = (props: IImageCont
           </ImageIcon>
         </Container>
       </Wrapper>
-      {src && <Image alt={alt} src={src} />}
+      <Image alt={alt} src={src} />
     </Figure>
+  ) : (
+    <></>
   );
 };
 
