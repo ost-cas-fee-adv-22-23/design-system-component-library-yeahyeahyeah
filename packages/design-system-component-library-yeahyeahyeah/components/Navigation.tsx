@@ -3,7 +3,7 @@ import tw from 'twin.macro';
 import { MumbleLogo, IMumbleLogoProps } from './branding/MumbleLogo';
 import { NaviButton, INaviButtonProps } from './buttons/NaviButton';
 
-export interface INavigationProps extends React.ReactElement<HTMLDivElement> {
+export interface INavigationProps {
   logo: IMumbleLogoProps;
   avatar: INaviButtonProps;
   settings: INaviButtonProps;
