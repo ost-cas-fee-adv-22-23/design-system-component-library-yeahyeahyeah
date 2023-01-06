@@ -42,33 +42,3 @@ body {
   color: var(--color-base);
   hyphens: var(--hyphens-base);
 }
-
-/*
-  @headings
-*/
-/* h1 {
-  @apply text-4xl font-bold m-0;
-}
-
-h2 {
-  @apply text-3xl font-bold;
-}
-
-h3 {
-  @apply text-2xl font-semibold;
-}
-
-h4 {
-  @apply text-xl font-semibold;
-} */
-
-/*
-  @SVG's
-*/
-/* button svg {
-  @apply relative -top-1;
-}
-
-a svg {
-  @apply relative -top-1;
-} */
