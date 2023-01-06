@@ -8,7 +8,7 @@ import { IImageContainerProps, ImageContainer } from '../ImageContainer';
 import { Avatar } from '../Avatar';
 import { BottomSpacing } from '../Spacing';
 
-export interface IMumbleProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
+export interface IMumbleProps {
   variant?: 'detailpage' | 'timeline' | 'response';
   user: IUserProps;
   text: string;

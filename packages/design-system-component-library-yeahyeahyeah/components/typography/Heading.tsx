@@ -2,7 +2,7 @@ import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { BottomSpacing } from '../Spacing';
 
-export interface IHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
+export interface IHeadingProps {
   label: string;
   tag: 'h1' | 'h2' | 'h3' | 'h4' | 'span';
   color: 'light' | 'medium' | 'dark' | 'violet' | 'pink' | 'white';

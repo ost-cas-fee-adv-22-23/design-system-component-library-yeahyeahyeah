@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-export interface TextButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+export interface TextButtonProps {
   label: string;
   handleClick?: () => void;
 }

@@ -5,7 +5,7 @@ import { IconLink, IIconLinkProps } from './IconLink';
 import { Button } from './buttons/Button';
 import { Avatar } from './Avatar';
 
-export interface IUserProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
+export interface IUserProps {
   label: string;
   variant: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended' | 'write' | 'inline';
   username: IIconLinkProps;
@@ -85,7 +85,6 @@ export const User: React.FC<IUserProps> = ({
       {variant === 'write' && (
         <Row gap="small">
           <Column variant={variant}>
-
             <Avatar
               alt={avatar.alt}
               src={avatar.src}
@@ -196,8 +195,8 @@ export const User: React.FC<IUserProps> = ({
               label={btn?.label}
               size="small"
               type="button"
-              color="violet"
               width="large"
+              variant="violet"
             />
           </Column>
         </Article>
