@@ -2,7 +2,7 @@ import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { BottomSpacing } from '../Spacing';
 
-export interface IParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
+export interface IParagraphProps {
   size?: 'default' | 'medium' | 'large';
   color?: 'default' | 'dark' | 'light' | 'white';
   text: string;

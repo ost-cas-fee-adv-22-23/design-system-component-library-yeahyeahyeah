@@ -2,7 +2,7 @@ import React from 'react';
 import tw, { css, styled } from 'twin.macro';
 import { IconsMapped, IconTypes } from '../icons/IconMap';
 
-export interface IButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProps {
   label: string;
   variant?: 'slate' | 'violet' | 'pink';
   size?: 'small' | 'large';

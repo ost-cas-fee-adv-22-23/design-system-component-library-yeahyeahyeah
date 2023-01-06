@@ -2,7 +2,7 @@ import { useState } from 'react';
 import tw, { styled, TwStyle } from 'twin.macro';
 import { MumbleText, MumbleGradient, LogoMumble } from '../icons/index';
 
-export interface IMumbleLogoProps extends React.HTMLAttributes<HTMLOrSVGImageElement> {
+export interface IMumbleLogoProps {
   title: string;
   href: string;
   variant: 'violet' | 'gradient' | 'white';

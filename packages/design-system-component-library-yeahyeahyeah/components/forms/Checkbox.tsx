@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import tw, { styled } from 'twin.macro';
 
-export interface IFormCheckboxProps extends React.HtmlHTMLAttributes<HTMLFormElement> {
+export interface IFormCheckboxProps {
   selection: 'mumbles' | 'likes';
   fCallBack?: (type: string) => void;
 }

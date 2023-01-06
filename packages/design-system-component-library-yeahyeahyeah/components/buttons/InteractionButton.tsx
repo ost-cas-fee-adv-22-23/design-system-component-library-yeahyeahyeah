@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import { HeartFilled, HeartOutlined, ReplyFilled, ReplyOutlined } from '../icons/index';
 
-export interface IInteractionButton extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+export interface IInteractionButton {
   type?: 'like' | 'comment';
   quantity?: number;
   favourite?: boolean;
