@@ -12,7 +12,7 @@ export interface IMumbleProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   variant?: 'detailpage' | 'timeline' | 'response';
   user: IUserProps;
   text: string;
-  img: IImageContainerProps;
+  img?: IImageContainerProps;
   comment: IInteractionButton;
   like: IInteractionButton;
   share: IShareButton;
