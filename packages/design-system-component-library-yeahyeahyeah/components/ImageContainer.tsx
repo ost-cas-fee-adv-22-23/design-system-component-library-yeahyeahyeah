@@ -4,7 +4,7 @@ import tw from 'twin.macro';
 import { Fullscreen, Edit, Repost } from './icons/default_index';
 
 export interface IImageContainerProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
-  src?: string;
+  src: string;
   alt: string;
   fCallBack?: () => void;
   type?: 'container' | 'banner';
@@ -128,7 +128,7 @@ const Figure = styled.figure.attrs({ className: 'group' })(({ type }: IImageIcon
     max-h-[320px]
 
     mt-4
-    mb-24
+    mb-16
     bg-violet-200
 
     hover:bg-violet-600
