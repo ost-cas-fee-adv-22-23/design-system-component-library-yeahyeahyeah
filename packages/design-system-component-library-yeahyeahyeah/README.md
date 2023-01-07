@@ -37,14 +37,6 @@ Or with npm
 npm i @smartive-education/design-system-component-library-yeahyeahyeah@latest
 ```
 
-## Resources
-
-- [Typescript](https://www.typescriptlang.org/)
-- [React](https://reactjs.org/)
-- [styled-components](https://styled-components.com/)
-- [Twin](https://github.com/ben-rogerson/twin.macro)
-- [Github](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-packages-from-other-organizations)
-
 # Install Example App with Twin + Next.js + Styled Components + TypeScript + Mumble Component Library
 
 <p><a href="https://github.com/ben-rogerson/twin.macro#gh-light-mode-only" target="_blank"><img src="../.github/twin-light.svg" alt="Twin" width="60" height="70"></a><a href="https://github.com/ben-rogerson/twin.macro#gh-dark-mode-only" target="_blank"><img src="../.github/twin-dark.svg" alt="Twin" width="60" height="70"></a><a href="https://nextjs.org#gh-light-mode-only" target="_blank"><img src="../.github/next-light.svg" alt="Next.js" width="80" height="70"></a><a href="https://nextjs.org#gh-dark-mode-only" target="_blank"><img src="../.github/next-dark.svg" alt="Next.js" width="80" height="70"></a><a href="https://styled-components.com#gh-light-mode-only" target="_blank"><img src="../.github/styled-components-light.svg" alt="Styled components" width="105" height="70"></a><a href="https://styled-components.com#gh-dark-mode-only" target="_blank"><img src="../.github/styled-components-dark.svg" alt="Styled components" width="105" height="70"></a><a href="https://www.typescriptlang.org/" target="_blank"><img src="../.github/typescript.svg" alt="TypeScript" width="60" height="70"></a>
@@ -69,8 +61,10 @@ From within the new folder, run `yarn install`, then `yarn dev` to start the dev
   - [Add the TypeScript types](#add-typescript-types)
   - [Add the next babel config](#add-the-next-babel-config)
   - [Add the server stylesheet](#add-the-server-stylesheet)
+- [Resources](#resources)
 - [Customization](#customization)
 - [Next steps](#next-steps)
+- [Other](#other)
 
 [](#getting-started)
 
@@ -339,16 +333,20 @@ export default class MyDocument extends Document {
 }
 ```
 
+[](#resources)
+
+## Resources
+
 [](#customization)
 
-## Customization
+### Customization
 
 - [View the config options →](https://github.com/ben-rogerson/twin.macro/blob/master/docs/options.md)
 - [Customizing the tailwind config →](https://github.com/ben-rogerson/twin.macro/blob/master/docs/customizing-config.md)
 
 [](#next-steps)
 
-## Next steps
+### Next steps
 
 Learn how to work with twin
 
@@ -360,3 +358,13 @@ Learn more about styled-components
 - [The css prop](https://styled-components.com/docs/api#css-prop)
 - [The css import](https://styled-components.com/docs/api#css)
 - [The styled import](https://styled-components.com/docs/api#styled)
+
+[](#other)
+
+### Other
+
+- [Typescript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [styled-components](https://styled-components.com/)
+- [Twin](https://github.com/ben-rogerson/twin.macro)
+- [Github](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-packages-from-other-organizations)
