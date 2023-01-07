@@ -1,14 +1,14 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { BottomSpacing } from '../Spacing';
-import type { TSpacing } from '../../types/types';
+import type { TmbSpacing } from '../../types/types';
 
 export interface IHeadingProps {
   label: string;
   tag: 'h1' | 'h2' | 'h3' | 'h4' | 'span';
   color?: 'light' | 'medium' | 'dark' | 'violet' | 'pink' | 'white';
   size: 'default' | 'xlarge' | 'large' | 'medium' | 'small';
-  spacing?: TSpacing;
+  mbSpacing?: TmbSpacing;
 }
 
 export const Heading: React.FC<IHeadingProps> = ({
@@ -16,9 +16,9 @@ export const Heading: React.FC<IHeadingProps> = ({
   tag = 'h1',
   color = 'default',
   size = 'default',
-  spacing = '0',
+  mbSpacing = '0',
 }) => {
-  const props = { label, tag, color, size, spacing };
+  const props = { label, tag, color, size, mbSpacing };
 
   return (
     <>
@@ -35,7 +35,7 @@ interface IHeadingStylesProps {
   color: string;
   size: string;
   tag: string;
-  spacing?: TSpacing;
+  mbSpacing?: TmbSpacing;
 }
 
 const HeadingSize = ({ size, tag }: IHeadingStylesProps) => [

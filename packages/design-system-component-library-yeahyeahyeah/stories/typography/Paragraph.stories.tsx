@@ -21,7 +21,7 @@ export default {
     text: {
       defaultValue: 'This is a paragraph',
     },
-    spacing: {
+    mbSpacing: {
       control: 'select',
       options: ['0', '2', '4', '8', '16', '32', '64'],
       defaultValue: '0',
