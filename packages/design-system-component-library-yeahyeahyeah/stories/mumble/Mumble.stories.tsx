@@ -83,10 +83,9 @@ export default {
       },
     },
     mbSpacing: {
-      control: false,
-      table: {
-        disable: true,
-      },
+      control: 'select',
+      options: ['0', '2', '4', '8', '16', '32', '64'],
+      defaultValue: '0',
     },
   },
 } as ComponentMeta<typeof Mumble>;

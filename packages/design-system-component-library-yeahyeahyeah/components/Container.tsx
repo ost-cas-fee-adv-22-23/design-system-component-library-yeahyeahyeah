@@ -24,5 +24,5 @@ const SectionWrapper = styled.section(({ layout }: ContainerStyles) => [
     sm:mx-auto
   `,
   layout === 'box' && tw`bg-slate-white rounded-lg py-8 mx-4`,
-  layout === 'plain' && tw`bg-none px-4 bg-violet-400`,
+  layout === 'plain' && tw`bg-none px-4`,
 ]);
