@@ -22,6 +22,7 @@ export interface IMumbleProps {
 
 export const Mumble: React.FC<IMumbleProps> = ({
   variant = 'detailpage',
+  mbSpacing = '16',
   user = {
     avatar: {
       alt: '',
@@ -90,7 +91,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
     <>
       {variant === 'detailpage' && (
         <>
-          <Article variant={variant}>
+          <Article variant={variant} mbSpacing={mbSpacing}>
             <UserWrapper mbSpacing={'16'}>
               <User
                 btn={user.btn}
@@ -121,7 +122,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
         </>
       )}
       {variant === 'timeline' && (
-        <Article variant={variant}>
+        <Article variant={variant} mbSpacing={mbSpacing}>
           <UserWrapper mbSpacing={'16'}>
             <User
               avatar={user.avatar}
@@ -150,7 +151,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
         </Article>
       )}
       {variant === 'response' && (
-        <Article>
+        <Article mbSpacing={mbSpacing}>
           <Row mbSpacing={'16'}>
             <User
               avatar={user.avatar}
@@ -181,6 +182,7 @@ interface IRowStyles {
 
 interface IArticleStyles {
   variant?: string;
+  mbSpacing: string;
 }
 
 const Row = styled.div(({ gap }: IRowStyles) => [
@@ -198,7 +200,6 @@ const Row = styled.div(({ gap }: IRowStyles) => [
 
 const Article = styled.article(({ variant }: IArticleStyles) => [
   tw`
-    relative
     flex
     flex-col
     justify-start
@@ -210,6 +211,7 @@ const Article = styled.article(({ variant }: IArticleStyles) => [
     sm:px-48
   `,
   (variant === 'timeline' || variant === 'detailpage') && tw`rounded-xl`,
+  BottomSpacing,
 ]);
 
 const AvatarWrapper = styled.div(() => [
