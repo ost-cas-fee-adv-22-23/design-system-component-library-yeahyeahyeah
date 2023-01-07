@@ -10,7 +10,7 @@ export interface IButtonProps {
   type?: 'button' | 'reset' | 'submit';
   disabled?: boolean;
   fCallBack?: () => void;
-  icon: IconTypes;
+  icon?: IconTypes;
 }
 
 export const Button: React.FC<IButtonProps> = ({
@@ -21,7 +21,7 @@ export const Button: React.FC<IButtonProps> = ({
   width = 'default',
   disabled = false,
   fCallBack = () => null,
-  icon = 'calendar',
+  icon = 'none',
 }) => {
   const Icon = createIcon(icon);
 
@@ -36,7 +36,7 @@ export const Button: React.FC<IButtonProps> = ({
       aria-label={label}
     >
       {label}
-      <Icon />
+      {icon !== 'none' && <Icon />}
     </StyledButton>
   );
 };

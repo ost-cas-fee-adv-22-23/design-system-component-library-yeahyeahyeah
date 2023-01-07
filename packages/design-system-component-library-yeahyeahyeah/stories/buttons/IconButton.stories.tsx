@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconButton } from '../../components/buttons/IconButton';
-import { Icons } from '../../components/icons/IconMap';
+import { IconsMapped } from '../../components/icons/IconMap';
 import { DefaultLayout } from '../layouts/DefaultLayout';
 
 export default {
@@ -15,7 +15,7 @@ export default {
     },
     icon: {
       control: 'select',
-      options: Object.keys(Icons),
+      options: Object.keys(IconsMapped),
       name: 'Icon',
       defaultValue: 'logo',
     },
