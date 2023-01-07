@@ -1,1 +1,1 @@
-export type TSpacing = '0' | '2' | '4' | '8' | '16' | '32' | '64';
+export type TmbSpacing = '0' | '2' | '4' | '8' | '16' | '32' | '64';

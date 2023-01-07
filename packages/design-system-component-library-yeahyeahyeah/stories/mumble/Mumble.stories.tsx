@@ -82,7 +82,7 @@ export default {
         label: 'Share',
       },
     },
-    spacing: {
+    mbSpacing: {
       control: false,
       table: {
         disable: true,

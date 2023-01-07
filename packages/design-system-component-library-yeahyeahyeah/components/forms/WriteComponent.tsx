@@ -5,7 +5,7 @@ import { InputForm, IFormInputProps } from './Input';
 import { Button, IButtonProps } from '../buttons/Button';
 import { BottomSpacing } from '../Spacing';
 import { Heading, Paragraph } from '../index';
-import type { TSpacing } from '../../types/types';
+import type { TmbSpacing } from '../../types/types';
 
 export interface IWriteComponentProps {
   user: IUserProps;
@@ -14,7 +14,7 @@ export interface IWriteComponentProps {
   upload: IButtonProps;
   send: IButtonProps;
   setText: React.Dispatch<React.SetStateAction<string>>;
-  spacing?: TSpacing;
+  mbSpacing?: TmbSpacing;
   startHeading?: string;
   startParagraph?: string;
 }
@@ -66,7 +66,7 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
   return (
     <>
       <Card variant={variant}>
-        <UserWrapper variant={variant} spacing={'16'}>
+        <UserWrapper variant={variant} mbSpacing={'16'}>
           {variant === 'write' && (
             <User avatar={user.avatar} label={user.label} username={user.username} variant={'write'} />
           )}
@@ -116,7 +116,7 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
 
 interface ICard {
   variant?: string;
-  spacing?: string;
+  mbSpacing?: string;
 }
 
 const Card = styled.div(({ variant }: ICard) => [

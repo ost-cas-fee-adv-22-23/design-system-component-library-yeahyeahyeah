@@ -63,7 +63,7 @@ export default {
         disable: true,
       },
     },
-    spacing: {
+    mbSpacing: {
       control: false,
       table: {
         disable: true,
