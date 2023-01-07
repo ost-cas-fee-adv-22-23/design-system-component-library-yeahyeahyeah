@@ -38,6 +38,7 @@ export default {
     },
     type: {
       control: 'select',
+      defaultValue: 'container',
       table: {
         defaultValue: {
           summary: 'container',

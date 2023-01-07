@@ -23,7 +23,7 @@ export const ImageContainer: React.FC<IImageContainerProps> = (props: IImageCont
     }
   };
 
-  return src ? (
+  return (
     <Figure type={type}>
       <Wrapper loading={loading ? 'true' : 'false'}>
         <Container>
@@ -32,10 +32,9 @@ export const ImageContainer: React.FC<IImageContainerProps> = (props: IImageCont
           </ImageIcon>
         </Container>
       </Wrapper>
-      <Image alt={alt} src={src} />
+
+      {src !== '' ? <Image alt={alt} src={src} /> : <Image tw="aspect-video border-none" />}
     </Figure>
-  ) : (
-    <></>
   );
 };
 
@@ -51,6 +50,7 @@ const Image = styled.img(({ type }: IImageIcon) => [
     transition
     duration-300
     ease-in-out
+    z-10
     group-hover:scale-110
     group-hover:opacity-20
   `,
@@ -128,11 +128,11 @@ const Figure = styled.figure.attrs({ className: 'group' })(({ type }: IImageIcon
     rounded-16
     relative
     max-h-[320px]
-
+    
     mt-4
     mb-16
-    bg-violet-200
 
+    bg-violet-200
     hover:bg-violet-600
   `,
   type === 'container' && tw`border-1 border-slate-white`,
