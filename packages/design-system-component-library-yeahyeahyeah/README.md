@@ -104,7 +104,7 @@ yarn add styled-components @smartive-education/design-system-component-library-y
 Install DEV Dependencies
 
 ```shell
-yarn add twin.macro tailwindcss babel-plugin-macros @types/styled-components @babel/core babel-loader @babel/plugin-syntax-typescript --dev
+yarn add twin.macro tailwindcss babel-plugin-macros babel-plugin-twin @types/styled-components @babel/core babel-loader @babel/plugin-syntax-typescript --dev
 ```
 
 ### Add the global styles
@@ -253,6 +253,7 @@ module.exports = function withTwin(nextConfig) {
             options: {
               sourceMaps: dev,
               plugins: [
+                require.resolve('babel-plugin-twin'),
                 require.resolve('babel-plugin-macros'),
                 [require.resolve('babel-plugin-styled-components'), { ssr: true, displayName: true }],
                 [require.resolve('@babel/plugin-syntax-typescript'), { isTSX: true }],
@@ -340,7 +341,6 @@ export default class MyDocument extends Document {
 To see a nice mumble demo timeline add following code to `pages/index.tsx`.
 
 ```js
-import tw from 'twin.macro';
 import {
   Navigation,
   Mumble,
