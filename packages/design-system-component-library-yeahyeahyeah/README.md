@@ -37,20 +37,12 @@ Or with npm
 npm i @smartive-education/design-system-component-library-yeahyeahyeah@latest
 ```
 
-## Resources
-
-- [Typescript](https://www.typescriptlang.org/)
-- [React](https://reactjs.org/)
-- [styled-components](https://styled-components.com/)
-- [Twin](https://github.com/ben-rogerson/twin.macro)
-- [Github](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-packages-from-other-organizations)
-
 # Install Example App with Twin + Next.js + Styled Components + TypeScript + Mumble Component Library
 
 <p><a href="https://github.com/ben-rogerson/twin.macro#gh-light-mode-only" target="_blank"><img src="../.github/twin-light.svg" alt="Twin" width="60" height="70"></a><a href="https://github.com/ben-rogerson/twin.macro#gh-dark-mode-only" target="_blank"><img src="../.github/twin-dark.svg" alt="Twin" width="60" height="70"></a><a href="https://nextjs.org#gh-light-mode-only" target="_blank"><img src="../.github/next-light.svg" alt="Next.js" width="80" height="70"></a><a href="https://nextjs.org#gh-dark-mode-only" target="_blank"><img src="../.github/next-dark.svg" alt="Next.js" width="80" height="70"></a><a href="https://styled-components.com#gh-light-mode-only" target="_blank"><img src="../.github/styled-components-light.svg" alt="Styled components" width="105" height="70"></a><a href="https://styled-components.com#gh-dark-mode-only" target="_blank"><img src="../.github/styled-components-dark.svg" alt="Styled components" width="105" height="70"></a><a href="https://www.typescriptlang.org/" target="_blank"><img src="../.github/typescript.svg" alt="TypeScript" width="60" height="70"></a>
 </p>
 
-**Download this example using [git](https://github.com/tomschall/mumble-test-stack-yeahyeahyeah)**
+**Download demo app using [git](https://github.com/tomschall/mumble-test-stack-yeahyeahyeah)**
 
 ```shell
 git clone git@github.com:tomschall/mumble-test-stack-yeahyeahyeah.git folder-name
@@ -69,8 +61,10 @@ From within the new folder, run `yarn install`, then `yarn dev` to start the dev
   - [Add the TypeScript types](#add-typescript-types)
   - [Add the next babel config](#add-the-next-babel-config)
   - [Add the server stylesheet](#add-the-server-stylesheet)
+- [Resources](#resources)
 - [Customization](#customization)
 - [Next steps](#next-steps)
+- [Other](#other)
 
 [](#getting-started)
 
@@ -101,11 +95,16 @@ Create .npmrc and add following line
 @smartive-education:registry=https://npm.pkg.github.com
 ```
 
-Install Mumble Component Library And Other Needed Dependencies
+Install Mumble Component Library and Styled Components
 
 ```shell
 yarn add styled-components @smartive-education/design-system-component-library-yeahyeahyeah@latest
-yarn add twin.macro tailwindcss babel-plugin-macros @types/styled-components babel-loader @babel/plugin-syntax-typescript --dev
+```
+
+Install DEV Dependencies
+
+```shell
+yarn add twin.macro tailwindcss babel-plugin-macros babel-plugin-twin @types/styled-components @babel/core babel-loader @babel/plugin-syntax-typescript --dev
 ```
 
 ### Add the global styles
@@ -126,10 +125,7 @@ import { createGlobalStyle } from 'styled-components';
 import tw, { theme, GlobalStyles as BaseStyles } from 'twin.macro';
 
 const CustomStyles = createGlobalStyle({
-  body: {
-    WebkitTapHighlightColor: theme`colors.purple.500`,
-    ...tw`antialiased`,
-  },
+  body: {},
 });
 
 const GlobalStyles = () => (
@@ -142,9 +138,9 @@ const GlobalStyles = () => (
 export default GlobalStyles;
 ```
 
-Then import the GlobalStyles file and Mumble Global CSS file in `pages/_app.tsx`:
+The `@smartive-education/design-system-component-library-yeahyeahyeah/tailwind.css` import adds Mumble Global CSS settings - it includes all CSS vars and body styles that are needed for Mumble
 
-Mumble Global CSS has all CSS vars and body styles that are needed for Mumble
+All you have to do ist to import the GlobalStyles file and Mumble Global CSS file in `pages/_app.tsx`:
 
 Also import
 
@@ -257,6 +253,7 @@ module.exports = function withTwin(nextConfig) {
             options: {
               sourceMaps: dev,
               plugins: [
+                require.resolve('babel-plugin-twin'),
                 require.resolve('babel-plugin-macros'),
                 [require.resolve('babel-plugin-styled-components'), { ssr: true, displayName: true }],
                 [require.resolve('@babel/plugin-syntax-typescript'), { isTSX: true }],
@@ -339,16 +336,299 @@ export default class MyDocument extends Document {
 }
 ```
 
+### Add index.tsx
+
+To see a nice mumble demo timeline add following code to `pages/index.tsx`.
+
+```js
+import {
+  Navigation,
+  Mumble,
+  WriteComponent,
+  Heading,
+} from '@smartive-education/design-system-component-library-yeahyeahyeah';
+
+export default function Home() {
+  const handleAvatar = () => {
+    console.log('avatar clicked');
+  };
+
+  return (
+    <>
+      <div tw="bg-slate-200">
+        <Navigation
+          logo={{
+            title: 'Mumble Logo',
+            href: '#',
+            variant: 'white',
+            alignment: 'horizontal',
+            fCallBack: () => console.log('logo'),
+            isNavigation: true,
+          }}
+          avatar={{
+            label: 'Label',
+            variant: 'profile',
+            fCallBack: handleAvatar,
+            src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+          }}
+          settings={{
+            label: 'Settings',
+            variant: 'default',
+            fCallBack: () => console.log('settings'),
+            icon: 'settings',
+          }}
+          logout={{
+            label: 'Logout',
+            variant: 'default',
+            fCallBack: () => console.log('logout'),
+            icon: 'logout',
+          }}
+        />
+        <div tw="container">
+          <div tw="mt-32">
+            <Heading label="Willkommen auf Mumble" color="violet" tag="h2" size="default" spacing="32" />
+            <Heading
+              label="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna."
+              color="light"
+              tag="h4"
+              size="default"
+              spacing="32"
+            />
+          </div>
+          <div tw="mb-16">
+            <WriteComponent
+              variant="write"
+              spacing="64"
+              form={{
+                editType: 'textarea',
+                autoComplete: 'off',
+                required: false,
+                errorMessage: 'Da ist etwas schief gelaufen',
+                placeholder: 'Na, was meinste dazu ...?',
+              }}
+              send={{
+                fCallBack: function noRefCheck() {},
+                icon: 'send',
+                label: 'Absenden',
+                size: 'small',
+                type: 'button',
+                variant: 'violet',
+                width: 'full',
+              }}
+              setText={function noRefCheck() {}}
+              startHeading="Hey, was läuft?"
+              upload={{
+                fCallBack: function noRefCheck() {},
+                icon: 'upload',
+                label: 'Bild hochladen',
+                size: 'small',
+                type: 'button',
+                variant: 'slate',
+                width: 'full',
+              }}
+              user={{
+                avatar: {
+                  alt: 'Family Guy goes Mumble',
+                  src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
+                },
+                label: 'Hey, was läuft?',
+                username: {
+                  href: '#',
+                  label: 'Username',
+                  type: 'username',
+                },
+                variant: 'recommended', // wrong placed
+              }}
+            />
+          </div>
+          <div tw="mb-16">
+            <Mumble
+              variant="timeline"
+              comment={{
+                fCallBack: function noRefCheck() {},
+                quantity: 0,
+              }}
+              like={{
+                fCallBack: function noRefCheck() {},
+                quantity: 999,
+              }}
+              share={{
+                fCallBack: function noRefCheck() {},
+                label: 'Share',
+              }}
+              text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+              img={{
+                alt: 'This is a profile picture!',
+                fCallBack: function noRefCheck() {},
+                src: 'https://learnenglishteens.britishcouncil.org/sites/teens/files/field/image/istock-898916122.jpg',
+              }}
+              user={{
+                avatar: {
+                  alt: 'avatar',
+                  buttonCallBack: function noRefCheck() {},
+                  imageCallBack: function noRefCheck() {},
+                  src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+                },
+                joined: {
+                  fCallBack: function noRefCheck() {},
+                  href: '',
+                  label: 'Joined',
+                  type: 'joined',
+                },
+                label: 'Display Name',
+                location: {
+                  fCallBack: function noRefCheck() {},
+                  href: '',
+                  label: 'Location',
+                  type: 'location',
+                },
+                timestamp: {
+                  fCallBack: function noRefCheck() {},
+                  href: '',
+                  label: 'Timestamp',
+                  type: 'timestamp',
+                },
+                username: {
+                  fCallBack: function noRefCheck() {},
+                  href: '',
+                  label: 'Username',
+                  type: 'username',
+                },
+                variant: 'xlarge',
+              }}
+            />
+          </div>
+          <div tw="mb-16">
+            <Mumble
+              variant="timeline"
+              comment={{
+                fCallBack: function noRefCheck() {},
+                quantity: 0,
+              }}
+              like={{
+                fCallBack: function noRefCheck() {},
+                quantity: 999,
+              }}
+              share={{
+                fCallBack: function noRefCheck() {},
+                label: 'Share',
+              }}
+              text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+              user={{
+                avatar: {
+                  alt: 'avatar',
+                  buttonCallBack: function noRefCheck() {},
+                  imageCallBack: function noRefCheck() {},
+                  src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+                },
+                joined: {
+                  fCallBack: function noRefCheck() {},
+                  href: '',
+                  label: 'Joined',
+                  type: 'joined',
+                },
+                label: 'Display Name',
+                location: {
+                  fCallBack: function noRefCheck() {},
+                  href: '',
+                  label: 'Location',
+                  type: 'location',
+                },
+                timestamp: {
+                  fCallBack: function noRefCheck() {},
+                  href: '',
+                  label: 'Timestamp',
+                  type: 'timestamp',
+                },
+                username: {
+                  fCallBack: function noRefCheck() {},
+                  href: '',
+                  label: 'Username',
+                  type: 'username',
+                },
+                variant: 'xlarge',
+              }}
+            />
+          </div>
+          <div tw="mb-16">
+            <Mumble
+              variant="timeline"
+              comment={{
+                fCallBack: function noRefCheck() {},
+                quantity: 0,
+              }}
+              img={{
+                alt: 'This is a profile picture!',
+                fCallBack: function noRefCheck() {},
+                src: 'https://shorturl.at/nEO01',
+              }}
+              like={{
+                fCallBack: function noRefCheck() {},
+                quantity: 999,
+              }}
+              share={{
+                fCallBack: function noRefCheck() {},
+                label: 'Share',
+              }}
+              text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+              user={{
+                avatar: {
+                  alt: 'avatar',
+                  buttonCallBack: function noRefCheck() {},
+                  imageCallBack: function noRefCheck() {},
+                  src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+                },
+                joined: {
+                  fCallBack: function noRefCheck() {},
+                  href: '',
+                  label: 'Joined',
+                  type: 'joined',
+                },
+                label: 'Display Name',
+                location: {
+                  fCallBack: function noRefCheck() {},
+                  href: '',
+                  label: 'Location',
+                  type: 'location',
+                },
+                timestamp: {
+                  fCallBack: function noRefCheck() {},
+                  href: '',
+                  label: 'Timestamp',
+                  type: 'timestamp',
+                },
+                username: {
+                  fCallBack: function noRefCheck() {},
+                  href: '',
+                  label: 'Username',
+                  type: 'username',
+                },
+                variant: 'xlarge',
+              }}
+            />
+          </div>
+          <div tw="mt-64">&nbsp;</div>
+        </div>
+      </div>
+    </>
+  );
+}
+```
+
+[](#resources)
+
+## Resources
+
 [](#customization)
 
-## Customization
+### Customization
 
 - [View the config options →](https://github.com/ben-rogerson/twin.macro/blob/master/docs/options.md)
 - [Customizing the tailwind config →](https://github.com/ben-rogerson/twin.macro/blob/master/docs/customizing-config.md)
 
 [](#next-steps)
 
-## Next steps
+### Next steps
 
 Learn how to work with twin
 
@@ -360,3 +640,13 @@ Learn more about styled-components
 - [The css prop](https://styled-components.com/docs/api#css-prop)
 - [The css import](https://styled-components.com/docs/api#css)
 - [The styled import](https://styled-components.com/docs/api#styled)
+
+[](#other)
+
+### Other
+
+- [Typescript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [styled-components](https://styled-components.com/)
+- [Twin](https://github.com/ben-rogerson/twin.macro)
+- [Github](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-packages-from-other-organizations)

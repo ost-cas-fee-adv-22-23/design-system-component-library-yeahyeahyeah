@@ -7,6 +7,7 @@ import { IShareButton, ShareButton } from '../buttons/ShareButton';
 import { IImageContainerProps, ImageContainer } from '../ImageContainer';
 import { Avatar } from '../Avatar';
 import { BottomSpacing } from '../Spacing';
+import type { TSpacing } from '../../types/types';
 
 export interface IMumbleProps {
   variant?: 'detailpage' | 'timeline' | 'response';
