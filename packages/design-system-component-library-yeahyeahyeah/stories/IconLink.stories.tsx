@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconLink } from '../components/IconLink';
 import { DefaultLayout } from './layouts/DefaultLayout';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Interactions',
@@ -21,8 +22,8 @@ export default {
     href: {
       defaultValue: '',
     },
-    handleClick: {
-      action: () => 'handleClick',
+    fCallBack: {
+      defaultValue: action('IconLink clicked'),
     },
   },
 } as ComponentMeta<typeof IconLink>;

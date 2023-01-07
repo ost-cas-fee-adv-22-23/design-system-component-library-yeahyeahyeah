@@ -5,7 +5,7 @@ import NextLink, { LinkProps } from 'next/link';
 
 export interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
   label: string;
-  type?: 'username' | 'timestamp' | 'location' | 'joined';
+  type: 'username' | 'timestamp' | 'location' | 'joined';
   variant?: 'slate' | 'violet';
   href: string;
   fCallBack?: () => void;

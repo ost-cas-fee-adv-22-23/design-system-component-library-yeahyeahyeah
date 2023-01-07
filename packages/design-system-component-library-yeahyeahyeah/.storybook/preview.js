@@ -1,5 +1,6 @@
 import '../styles/tailwind.css';
 import '@storybook/addon-console';
+import { configureActions } from '@storybook/addon-actions';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -27,3 +28,7 @@ export const parameters = {
     ],
   },
 };
+
+configureActions({
+  clearOnStoryChange: true,
+});
