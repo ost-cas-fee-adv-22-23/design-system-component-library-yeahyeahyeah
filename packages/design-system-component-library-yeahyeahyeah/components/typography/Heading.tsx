@@ -5,7 +5,7 @@ import { BottomSpacing } from '../Spacing';
 export interface IHeadingProps {
   label: string;
   tag: 'h1' | 'h2' | 'h3' | 'h4' | 'span';
-  color: 'light' | 'medium' | 'dark' | 'violet' | 'pink' | 'white';
+  color?: 'light' | 'medium' | 'dark' | 'violet' | 'pink' | 'white';
   size: 'default' | 'xlarge' | 'large' | 'medium' | 'small';
   spacing?: TSpacing;
 }

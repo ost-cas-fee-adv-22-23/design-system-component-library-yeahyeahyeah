@@ -28,6 +28,7 @@ export const WriteComponent: React.FC<IWriteComponentProps> = ({
     username: {
       label: 'Username',
       href: '#',
+      type: 'username',
     },
     avatar: {
       src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
