@@ -5,6 +5,7 @@ import { InputForm, IFormInputProps } from './Input';
 import { Button, IButtonProps } from '../buttons/Button';
 import { BottomSpacing } from '../Spacing';
 import { Heading, Paragraph } from '../index';
+import type { TSpacing } from '../../types/types';
 
 export interface IWriteComponentProps {
   user: IUserProps;

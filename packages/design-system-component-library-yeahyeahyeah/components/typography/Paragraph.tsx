@@ -1,6 +1,7 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { BottomSpacing } from '../Spacing';
+import type { TSpacing } from '../../types/types';
 
 export interface IParagraphProps {
   size?: 'default' | 'medium' | 'large';
