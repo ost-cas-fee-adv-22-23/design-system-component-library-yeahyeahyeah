@@ -1145,7 +1145,7 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/template@^7.12.7", "@babel/template@^7.18.10", "@babel/template@^7.20.7", "@babel/template@^7.3.3":
+"@babel/template@^7.12.13", "@babel/template@^7.12.7", "@babel/template@^7.18.10", "@babel/template@^7.20.7", "@babel/template@^7.3.3":
   version "7.20.7"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.20.7.tgz#a15090c2839a83b02aa996c0b4994005841fd5a8"
   integrity sha512-8SegXApWe6VoNw0r9JHpSteLKTpTiLZ4rMlGIm9JQ18KiCtyQiAMEazujAHrUS5flrcqYZa75ukev3P6QmUwUw==
@@ -4770,6 +4770,13 @@ babel-plugin-transform-react-remove-prop-types@^0.4.24:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.24.tgz#f2edaf9b4c6a5fbe5c1d678bfb531078c1555f3a"
   integrity sha512-eqj0hVcJUR57/Ug2zE1Yswsw4LhuqqHhD+8v120T1cl3kjg76QwtyBrdIk4WVwK+lAhBJVYCd/v+4nc4y+8JsA==
+
+babel-plugin-twin@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-twin/-/babel-plugin-twin-1.1.0.tgz#fa2e9d94c22ed8bf2649fb7db508b9141e8cbb50"
+  integrity sha512-x4AZ7JSh8MmC6uEN41nrU021jLA0B4E1UD7AI0KJOtAwvTH1wEMLugW5SyY4m/CWDtsqZc1fqT1lkDoO2rdmHg==
+  dependencies:
+    "@babel/template" "^7.12.13"
 
 babel-preset-current-node-syntax@^1.0.0:
   version "1.0.1"
