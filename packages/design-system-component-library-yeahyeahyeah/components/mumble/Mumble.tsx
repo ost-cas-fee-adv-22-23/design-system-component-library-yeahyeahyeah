@@ -38,19 +38,23 @@ export const Mumble: React.FC<IMumbleProps> = ({
     joined: {
       href: '',
       label: 'Joined',
+      type: 'joined',
     },
     label: 'Display Name',
     location: {
       href: '',
       label: 'Location',
+      type: 'location',
     },
     timestamp: {
       href: '',
       label: 'Timestamp',
+      type: 'timestamp',
     },
     username: {
       href: '',
       label: 'Username',
+      type: 'username',
     },
   },
   text = '',
@@ -85,7 +89,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
     <>
       {variant === 'detailpage' && (
         <>
-          <Article>
+          <Article variant={variant}>
             <UserWrapper spacing={'16'}>
               <User
                 btn={user.btn}
@@ -116,7 +120,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
         </>
       )}
       {variant === 'timeline' && (
-        <Article>
+        <Article variant={variant}>
           <UserWrapper spacing={'16'}>
             <User
               avatar={user.avatar}
@@ -174,6 +178,10 @@ interface IRowStyles {
   spacing?: string;
 }
 
+interface IArticleStyles {
+  variant?: string;
+}
+
 const Row = styled.div(({ gap }: IRowStyles) => [
   tw`
     flex
@@ -187,7 +195,7 @@ const Row = styled.div(({ gap }: IRowStyles) => [
   BottomSpacing,
 ]);
 
-const Article = styled.article(() => [
+const Article = styled.article(({ variant }: IArticleStyles) => [
   tw`
     relative
     flex
@@ -200,6 +208,7 @@ const Article = styled.article(() => [
     px-16
     sm:px-48
   `,
+  (variant === 'timeline' || variant === 'detailpage') && tw`rounded-xl`,
 ]);
 
 const AvatarWrapper = styled.div(() => [

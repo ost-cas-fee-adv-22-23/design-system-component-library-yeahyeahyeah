@@ -19,10 +19,34 @@ export interface IUserProps {
 export const User: React.FC<IUserProps> = ({
   label = 'Display Name',
   variant = 'small',
-  username = { label: 'Username', href: '#' },
-  timestamp = { label: 'TimeStamp', href: '#' },
-  location = { label: 'Location', href: '#' },
-  joined = { label: 'Joined', href: '#' },
+  username = {
+    label: 'Username',
+    href: '#',
+    fCallBack: () => {
+      return null;
+    },
+  },
+  timestamp = {
+    label: 'TimeStamp',
+    href: '#',
+    fCallBack: () => {
+      return null;
+    },
+  },
+  location = {
+    label: 'Location',
+    href: '#',
+    fCallBack: () => {
+      return null;
+    },
+  },
+  joined = {
+    label: 'Joined',
+    href: '#',
+    fCallBack: () => {
+      return null;
+    },
+  },
   avatar = { src: 'https://i.stack.imgur.com/5xd5n.png', alt: 'Alter Tag' },
   btn = { label: 'Follow' },
 }) => {
