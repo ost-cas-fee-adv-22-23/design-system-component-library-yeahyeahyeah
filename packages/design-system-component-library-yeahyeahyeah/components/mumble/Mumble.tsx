@@ -92,7 +92,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
       {variant === 'detailpage' && (
         <>
           <Article variant={variant} mbSpacing={mbSpacing}>
-            <UserWrapper mbSpacing={'16'}>
+            <UserWrapper mbSpacing={'0'}>
               <User
                 btn={user.btn}
                 joined={user.joined}
@@ -123,14 +123,14 @@ export const Mumble: React.FC<IMumbleProps> = ({
       )}
       {variant === 'timeline' && (
         <Article variant={variant} mbSpacing={mbSpacing}>
-          <UserWrapper mbSpacing={'16'}>
+          <UserWrapper mbSpacing={'0'}>
             <User
               avatar={user.avatar}
               btn={user.btn}
               label={user.label}
               timestamp={user.timestamp}
               username={user.username}
-              variant="large"
+              variant="medium"
             />
             <AvatarWrapper>
               <Avatar
@@ -152,7 +152,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
       )}
       {variant === 'response' && (
         <Article mbSpacing={mbSpacing}>
-          <Row mbSpacing={'16'}>
+          <Row mbSpacing={'0'}>
             <User
               avatar={user.avatar}
               btn={user.btn}
@@ -193,6 +193,7 @@ const Row = styled.div(({ gap }: IRowStyles) => [
     justify-start
     items-center
     w-full
+    mt-16
     `,
   gap === 'small' && tw`gap-8`,
   BottomSpacing,
@@ -216,7 +217,7 @@ const Article = styled.article(({ variant }: IArticleStyles) => [
 
 const AvatarWrapper = styled.div(() => [
   tw`
-   mr-8   
+   mr-16
   `,
 ]);
 
@@ -225,9 +226,11 @@ const UserWrapper = styled.div(() => [
   tw`
     flex
     flex-row-reverse
+    justify-between
+    items-center
     relative
-    left-0
+    // left-0
 
-    sm:(-left-76)
+    sm:(-left-[84px])
   `,
 ]);

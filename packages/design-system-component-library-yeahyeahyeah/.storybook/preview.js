@@ -19,7 +19,7 @@ export const parameters = {
     values: [
       {
         name: 'default',
-        value: '#e5e5e5',
+        value: '#e2e8f0',
       },
       {
         name: 'standard',
