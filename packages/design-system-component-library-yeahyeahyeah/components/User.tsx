@@ -116,7 +116,9 @@ export const User: React.FC<IUserProps> = ({
               imageCallBack={avatar.imageCallBack}
               buttonCallBack={avatar.buttonCallBack}
             />
-            <Heading tag="h4" color="dark" size={'default'} label={label} />
+            <HeadingWrapper>
+              <Heading tag="h4" color="dark" size={'default'} label={label} />
+            </HeadingWrapper>
           </Column>
         </Row>
       )}
@@ -273,3 +275,7 @@ const Row = styled.div(({ gap, spacing }: IRowStyles) => [
 ]);
 
 const Article = styled.article(() => [tw`flex flex-col p-16 bg-slate-white rounded-16`]);
+
+const HeadingWrapper = tw.div`
+  ml-12
+`;

@@ -25,8 +25,11 @@ export default {
         type: 'object',
       },
       defaultValue: {
-        placeholder: 'Na, was meinste dazu ...?',
+        required: false,
+        autoComplete: 'off',
         errorMessage: 'Da ist etwas schief gelaufen',
+        placeholder: 'Na, was meinste dazu ...?',
+        editType: 'textarea',
       },
     },
     upload: {
@@ -108,7 +111,9 @@ ComponentWriteStory.argTypes = {
     },
     defaultValue: {
       label: 'Hey, was läuft?',
+      variant: 'write',
       username: {
+        type: 'joined',
         label: 'Username',
         href: '#',
       },
