@@ -229,7 +229,7 @@ const UserWrapper = styled.div(() => [
     justify-between
     items-center
     relative
-    // left-0
+    left-0
 
     sm:(-left-[84px])
   `,

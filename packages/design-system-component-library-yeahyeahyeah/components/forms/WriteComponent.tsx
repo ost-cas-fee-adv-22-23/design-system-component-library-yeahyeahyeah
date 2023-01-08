@@ -20,7 +20,7 @@ export interface IWriteComponentProps {
 }
 
 export const WriteComponent: React.FC<IWriteComponentProps> = ({
-  variant = 'write',
+  variant,
   startHeading = 'Hey, was läuft?',
   setText,
   startParagraph = 'Schreib deinen ersten Mumble, oder folge einem User',
@@ -134,14 +134,25 @@ const Card = styled.div(({ variant }: ICard) => [
     md:(px-32)
     lg:(px-48)
   `,
-  variant === 'write' && tw`rounded pt-4`,
+  variant === 'write' && tw`rounded pt-0`,
   variant === 'inline' && tw`rounded-none`,
   variant === 'start' && tw`rounded`,
 ]);
 
 const UserWrapper = styled.div(({ variant }: ICard) => [
   BottomSpacing,
-  variant === 'write' && tw`relative left-0 top-16 md:-left-70`,
+  variant === 'write' &&
+    tw`
+    flex
+    flex-row
+    justify-between
+    items-center
+    relative
+    top-16
+    left-0
+    md:(-left-[70px])
+    lg:(-left-[86px])
+  `,
 ]);
 
 const Row = styled.div(() => [

@@ -59,7 +59,7 @@ const Image = styled.img(({ variant }: IImageProps) => [
   variant === 'small' && tw`h-40 w-40 min-w-[40px]`,
   variant === 'small' && ImageAnim,
 
-  variant === 'medium' && tw`h-[72px] w-[72px] min-w-[64px] border-4`,
+  variant === 'medium' && tw`h-[72px] w-[72px] min-w-[72px] border-4`,
   variant === 'medium' && ImageAnim,
 
   variant === 'large' && tw`h-96 w-96 border-4`,
