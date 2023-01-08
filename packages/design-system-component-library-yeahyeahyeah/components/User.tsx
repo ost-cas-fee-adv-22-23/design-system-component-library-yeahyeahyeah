@@ -62,7 +62,7 @@ export const User: React.FC<IUserProps> = ({
             buttonCallBack={avatar.buttonCallBack}
           />
           <Column variant={variant}>
-            <Heading tag="h4" color="dark" size={'default'} label={label} />
+            <Heading tag="h4" color="dark" size={'medium'} label={label} />
             <Row>
               <IconLink
                 label={username.label}
@@ -165,7 +165,7 @@ export const User: React.FC<IUserProps> = ({
       )}
       {variant === 'xlarge' && (
         <Column>
-          <Heading tag="h4" color="dark" size={'xlarge'} label={label} />
+          <Heading tag="h4" color="dark" size={'large'} label={label} />
           <Row>
             <IconLink
               label={username.label}
