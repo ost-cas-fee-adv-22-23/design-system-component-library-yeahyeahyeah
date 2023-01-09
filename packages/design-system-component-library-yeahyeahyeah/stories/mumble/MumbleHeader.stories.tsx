@@ -37,6 +37,10 @@ export default {
           type: 'joined',
           href: '#',
         },
+        avatar: {
+          src: 'https://placebeard.it/640x360',
+          alt: 'Alttag',
+        },
       },
     },
     banner: {

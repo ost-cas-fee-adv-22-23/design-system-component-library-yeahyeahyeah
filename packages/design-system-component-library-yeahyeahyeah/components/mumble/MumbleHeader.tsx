@@ -13,7 +13,7 @@ export interface IMumbleProps {
   user: IUserProps;
   text: string;
   banner?: IImageContainerProps;
-  avatar?: IAvatarProps;
+  avatar: IAvatarProps;
   mbSpacing?: TmbSpacing;
 }
 
@@ -42,21 +42,27 @@ export const MumbleHeader: React.FC<IMumbleProps> = ({
       type: 'joined',
       href: '#',
     },
-  },
-  avatar = {
-    src: 'https://placebeard.it/640x360',
-    alt: 'asdfasdfasf',
-    variant: 'edit',
+    avatar: {
+      src: 'https://placebeard.it/640x360',
+      alt: 'Alttag',
+    },
   },
 }) => {
   return (
     <MumbleHeaderWrapper>
       <ImageContainer src={banner.src} alt={banner.alt} type={banner.type} />
       <div tw="px-8 mb-16">
-        <User username={user.username} location={user.location} joined={user.joined} label={label} variant={user.variant} />
+        <User
+          avatar={user.avatar}
+          username={user.username}
+          location={user.location}
+          joined={user.joined}
+          label={label}
+          variant={user.variant}
+        />
       </div>
       <div tw="flex justify-end items-end z-10 h-0 relative -top-16 overflow-visible">
-        <Avatar src={avatar.src} alt={avatar.alt} variant={avatar.variant} />
+        <Avatar src={user.avatar.src} alt={user.avatar.alt} variant="edit" />
       </div>
       <div tw="p-8 mb-32">
         <Paragraph text={text} color="light" />
@@ -64,11 +70,6 @@ export const MumbleHeader: React.FC<IMumbleProps> = ({
     </MumbleHeaderWrapper>
   );
 };
-
-interface MumbleHeaderStyles {
-  variant?: string;
-  mbSpacing?: string;
-}
 
 const MumbleHeaderWrapper = styled.div(() => [
   tw`

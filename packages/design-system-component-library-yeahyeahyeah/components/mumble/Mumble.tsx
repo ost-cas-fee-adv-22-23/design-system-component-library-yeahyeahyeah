@@ -134,8 +134,8 @@ export const Mumble: React.FC<IMumbleProps> = ({
             />
             <AvatarWrapper>
               <Avatar
-                alt={user.avatar.alt}
-                src={user.avatar.src}
+                alt={user.avatar?.alt}
+                src={user.avatar?.src}
                 variant={'medium'}
                 imageCallBack={user.avatar?.imageCallBack}
               />
