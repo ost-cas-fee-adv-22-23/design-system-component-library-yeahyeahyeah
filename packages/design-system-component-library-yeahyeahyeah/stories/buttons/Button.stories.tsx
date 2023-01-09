@@ -3,12 +3,13 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '../../components/buttons/Button';
 import { IconsMapped } from '../../components/icons/IconMap';
 import { DefaultLayout } from '../layouts/DefaultLayout';
-import readme from '../../components/buttons/README.md';
+import Readme from '../../components/buttons/README.md';
 
 export default {
   title: 'Interactions',
   component: Button,
   decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
+
   argTypes: {
     label: {
       name: 'label',
@@ -70,7 +71,10 @@ ButtonStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
     description: {
-      component: readme,
+      component: Readme,
+    },
+    readme: {
+      sidebar: Readme,
     },
   },
 };
