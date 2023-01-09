@@ -7,6 +7,14 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
+    [
+      'storybook-readme/register',
+      {
+        options: {
+          docs: false,
+        },
+      },
+    ],
   ],
   framework: '@storybook/react',
   core: {

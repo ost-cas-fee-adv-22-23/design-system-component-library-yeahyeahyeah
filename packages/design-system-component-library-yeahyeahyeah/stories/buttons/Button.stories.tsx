@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '../../components/buttons/Button';
 import { IconsMapped } from '../../components/icons/IconMap';
+import Readme from '../../components/buttons/README.md';
 
 export default {
   title: 'Interactions',
@@ -61,12 +62,18 @@ const Template: ComponentStory<typeof Button> = (args) => {
  * @button
  * @desc button standard slate
  */
-export const ButtonVariants = Template.bind({});
+export const ButtonStory = Template.bind({});
 
-ButtonVariants.parameters = {
+ButtonStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
+    description: {
+      component: Readme,
+    },
+    readme: {
+      sidebar: Readme,
+    },
   },
 };
 
-ButtonVariants.storyName = 'Button';
+ButtonStory.storyName = 'Button';
