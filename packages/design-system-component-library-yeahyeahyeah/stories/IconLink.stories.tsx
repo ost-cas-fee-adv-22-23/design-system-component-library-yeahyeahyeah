@@ -1,13 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconLink } from '../components/IconLink';
-import { DefaultLayout } from './layouts/DefaultLayout';
 import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Interactions',
   component: IconLink,
-  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
       name: 'label',

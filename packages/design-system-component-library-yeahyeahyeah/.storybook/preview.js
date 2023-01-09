@@ -1,9 +1,10 @@
 import '../styles/tailwind.css';
 import '@storybook/addon-console';
 import { configureActions } from '@storybook/addon-actions';
+import GlobalStyles from '../stories/layouts/GlobalStyles';
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+  layout: 'fullscreen',
   matchers: {
     color: /(background|color)$/i,
     date: /Date$/,
@@ -13,7 +14,6 @@ export const parameters = {
       order: ['Branding', 'Mumble', 'Write-Component', 'Typography', 'Navigation', 'Form', 'Interactions', 'Icons'],
     },
   },
-  layout: 'fullscreen',
   backgrounds: {
     default: 'default',
     values: [
@@ -32,3 +32,23 @@ export const parameters = {
 configureActions({
   clearOnStoryChange: true,
 });
+
+export const decorators = [
+  (Story, args) => {
+    console.log('args', args);
+    if (args.name === 'Navigation') {
+      return (
+        <div tw="flex flex-row flex-wrap justify-center items-start w-full h-full p-0 m-0">
+          <GlobalStyles />
+          <Story />
+        </div>
+      );
+    }
+    return (
+      <div tw="container mx-auto flex flex-col flex-wrap justify-center items-center p-8 pt-16 sm:p-16 md:p-32">
+        <GlobalStyles />
+        <Story />
+      </div>
+    );
+  },
+];

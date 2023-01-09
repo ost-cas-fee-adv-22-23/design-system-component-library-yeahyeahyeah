@@ -1,13 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Mumble } from '../../components/mumble/Mumble';
-import { DefaultLayout } from '../layouts/DefaultLayout';
 import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Mumble/Mumble',
   component: Mumble,
-  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     variant: {
       defaultValue: 'timeline',

@@ -2,12 +2,10 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconButton } from '../../components/buttons/IconButton';
 import { IconsMapped } from '../../components/icons/IconMap';
-import { DefaultLayout } from '../layouts/DefaultLayout';
 
 export default {
   title: 'Interactions/IconButton',
   component: IconButton,
-  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
       name: 'label',

@@ -1,11 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { DefaultLayout } from './layouts/DefaultLayout';
 import { ImageContainer } from '../components/ImageContainer';
 
 export default {
   title: 'Assets/Image',
-  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   component: ImageContainer,
   argTypes: {
     src: {
