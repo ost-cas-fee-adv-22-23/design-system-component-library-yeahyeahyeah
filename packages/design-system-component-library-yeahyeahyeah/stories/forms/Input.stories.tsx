@@ -1,12 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { InputForm } from '../../components/forms/Input';
-import { DefaultLayout } from '../layouts/DefaultLayout';
 
 export default {
   title: 'Form',
   component: InputForm,
-  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     type: {
       control: {

@@ -1,12 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MumbleLogo } from '../../components/branding/MumbleLogo';
-import { DefaultLayout } from '../layouts/DefaultLayout';
 import React from 'react';
 
 export default {
   title: 'Branding/Logo',
   component: MumbleLogo,
-  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     title: {
       name: 'title',

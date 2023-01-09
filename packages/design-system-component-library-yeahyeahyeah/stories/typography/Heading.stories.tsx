@@ -1,12 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { DefaultLayout } from '../layouts/DefaultLayout';
 import { Heading } from '../../components/typography/Heading';
 
 export default {
   title: 'Typography',
   component: Heading,
-  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
       name: 'label',
