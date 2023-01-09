@@ -7,15 +7,14 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
+    'storybook-readme/register',
   ],
   framework: '@storybook/react',
   core: {
     builder: '@storybook/builder-webpack5',
   },
   webpackFinal: async (config) => {
-    config.module.rules
-      .filter((rule) => rule.test?.test('.svg'))
-      .forEach((rule) => (rule.exclude = /\.svg$/i));
+    config.module.rules.filter((rule) => rule.test?.test('.svg')).forEach((rule) => (rule.exclude = /\.svg$/i));
 
     config.module.rules.push({
       test: /\,css&/,
