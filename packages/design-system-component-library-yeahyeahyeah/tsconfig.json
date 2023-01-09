@@ -17,7 +17,7 @@
     "emitDeclarationOnly": false,
     // Ensure that Babel can safely transpile files in the TypeScript project
     "isolatedModules": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "sourceMap": true,
     "outDir": "dist",
     "allowJs": true
