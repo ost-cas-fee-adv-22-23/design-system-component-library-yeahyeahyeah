@@ -12,7 +12,7 @@ export interface IUserProps {
   timestamp?: IIconLinkProps;
   location?: IIconLinkProps;
   joined?: IIconLinkProps;
-  avatar?: { src: string; alt: string; imageCallBack?: () => void; buttonCallBack?: () => void };
+  avatar: { src: string; alt: string; imageCallBack?: () => void; buttonCallBack?: () => void };
   btn?: { label: string; fCallBack?: () => void };
 }
 
