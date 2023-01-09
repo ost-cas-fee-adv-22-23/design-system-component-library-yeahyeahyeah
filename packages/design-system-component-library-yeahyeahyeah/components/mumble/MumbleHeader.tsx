@@ -7,7 +7,7 @@ import { Avatar, IAvatarProps } from '../Avatar';
 
 import type { TmbSpacing } from '../../types/types';
 
-export interface IMumbleProps {
+export interface IMumbleHeaderProps {
   label: string;
   variant?: 'view' | 'edit';
   user: IUserProps;
@@ -17,7 +17,7 @@ export interface IMumbleProps {
   mbSpacing?: TmbSpacing;
 }
 
-export const MumbleHeader: React.FC<IMumbleProps> = ({
+export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
   label = 'Display Name',
   text,
   banner = {
