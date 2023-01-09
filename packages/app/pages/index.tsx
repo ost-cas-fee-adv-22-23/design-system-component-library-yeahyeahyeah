@@ -5,6 +5,7 @@ import {
   WriteComponent,
   Heading,
   Container,
+  User,
 } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 
 export default function Home() {
@@ -15,6 +16,59 @@ export default function Home() {
   return (
     <>
       <div tw="flex flex-col justify-center items-start bg-slate-200 w-full h-full">
+        <div tw="bg-violet-200">hallo</div>
+        <User
+          avatar={{
+            alt: 'Alter Tag',
+            buttonCallBack: () => {
+              console.log('clicked');
+            },
+            imageCallBack: () => {
+              console.log('clicked');
+            },
+            src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+          }}
+          btn={{
+            fCallBack: () => {
+              console.log('clicked');
+            },
+            label: 'Follow',
+          }}
+          joined={{
+            fCallBack: () => {
+              console.log('clicked');
+            },
+            href: '',
+            label: 'Joined',
+            type: 'joined',
+          }}
+          label="Display Name"
+          location={{
+            fCallBack: () => {
+              console.log('clicked');
+            },
+            href: '',
+            label: 'Location',
+            type: 'location',
+          }}
+          timestamp={{
+            fCallBack: () => {
+              console.log('clicked');
+            },
+            href: '',
+            label: 'Timestamp',
+            type: 'timestamp',
+          }}
+          username={{
+            fCallBack: () => {
+              console.log('clicked');
+            },
+            href: '',
+            label: 'Username',
+            type: 'username',
+          }}
+          variant="recommended"
+        />
         <div tw="w-full mb-32">
           <Navigation
             logo={{

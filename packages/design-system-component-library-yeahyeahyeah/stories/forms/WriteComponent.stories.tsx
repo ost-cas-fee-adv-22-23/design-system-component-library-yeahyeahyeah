@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { WriteComponent } from '../../components/forms/WriteComponent';
-import { DefaultLayout } from '../layouts/DefaultLayout';
 import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Form/Write-Component',
   component: WriteComponent,
-  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     variant: {
       control: 'select',

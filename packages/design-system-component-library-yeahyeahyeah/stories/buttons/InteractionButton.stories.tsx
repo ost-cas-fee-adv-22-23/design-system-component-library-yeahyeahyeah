@@ -2,12 +2,10 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { InteractionButton } from '../../components/buttons/InteractionButton';
 import { useArgs } from '@storybook/client-api';
-import { DefaultLayout } from '../layouts/DefaultLayout';
 
 export default {
   title: 'Interactions',
   component: InteractionButton,
-  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     type: {
       control: false,

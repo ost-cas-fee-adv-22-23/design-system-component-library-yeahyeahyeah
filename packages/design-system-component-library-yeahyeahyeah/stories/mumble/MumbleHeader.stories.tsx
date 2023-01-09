@@ -1,12 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MumbleHeader } from '../../components/mumble/MumbleHeader';
-import { DefaultLayout } from '../layouts/DefaultLayout';
 
 export default {
   title: 'Mumble/Mumble-Header',
   component: MumbleHeader,
-  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     variant: {
       control: 'select',
@@ -67,10 +65,7 @@ export default {
 } as ComponentMeta<typeof MumbleHeader>;
 
 const Template: ComponentStory<typeof MumbleHeader> = (args) => <MumbleHeader {...args} />;
-/**
- * @button
- * @desc button standard slate
- */
+
 export const MumbleStory = Template.bind({});
 
 MumbleStory.parameters = {

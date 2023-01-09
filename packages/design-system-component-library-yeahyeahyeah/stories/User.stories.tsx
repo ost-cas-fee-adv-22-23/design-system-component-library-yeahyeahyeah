@@ -1,13 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { User } from '../components/User';
-import { DefaultLayout } from './layouts/DefaultLayout';
 import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'User/User',
   component: User,
-  decorators: [(story) => <DefaultLayout>{story()}</DefaultLayout>],
   argTypes: {
     label: {
       defaultValue: 'Display Name',
