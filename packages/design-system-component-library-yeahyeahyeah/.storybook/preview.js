@@ -1,4 +1,3 @@
-import '../styles/tailwind.css';
 import '@storybook/addon-console';
 import { configureActions } from '@storybook/addon-actions';
 import GlobalStyles from '../stories/layouts/GlobalStyles';

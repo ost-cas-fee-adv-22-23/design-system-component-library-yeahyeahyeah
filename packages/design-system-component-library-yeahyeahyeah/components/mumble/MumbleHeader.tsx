@@ -4,7 +4,6 @@ import { User, IUserProps } from '../User';
 import { Paragraph } from '../typography/Paragraph';
 import { IImageContainerProps, ImageContainer } from '../ImageContainer';
 import { Avatar, IAvatarProps } from '../Avatar';
-
 import type { TmbSpacing } from '../../types/types';
 
 export interface IMumbleHeaderProps {
@@ -62,7 +61,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
         />
       </div>
       <div tw="flex justify-end items-end z-10 h-0 relative -top-16 overflow-visible">
-        <Avatar src={user.avatar.src} alt={user.avatar.alt} variant="edit" />
+        <Avatar src={user.avatar?.src || ''} alt={user.avatar?.alt || ''} variant="edit" />
       </div>
       <div tw="p-8 mb-32">
         <Paragraph text={text} color="light" />

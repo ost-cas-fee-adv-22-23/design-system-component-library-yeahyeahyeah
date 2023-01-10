@@ -3,12 +3,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Avatar } from '../components/Avatar';
 import { action } from '@storybook/addon-actions';
 
-export const decorators = [(Story: any) => <div style={{ margin: '3em' }}>{Story()}</div>];
-
 export default {
   title: 'User',
   component: Avatar,
-  decorators,
   argTypes: {
     variant: {
       control: {
