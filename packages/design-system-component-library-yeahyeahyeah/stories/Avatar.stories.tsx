@@ -18,10 +18,10 @@ export default {
       control: 'text',
     },
     imageCallBack: {
-      defaultValue: action('image clicked'),
+      action: action('image clicked'),
     },
     buttonCallBack: {
-      defaultValue: action('button clicked'),
+      action: action('button clicked'),
     },
   },
   args: {
