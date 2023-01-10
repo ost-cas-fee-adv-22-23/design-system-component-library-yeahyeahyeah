@@ -4,7 +4,7 @@ import { IconsMapped, IconTypes } from '../icons/IconMap';
 
 export interface IButtonProps {
   label: string;
-  variant?: 'slate' | 'violet' | 'pink';
+  variant: 'slate' | 'violet' | 'pink';
   size?: 'small' | 'large';
   width?: 'default' | 'large' | 'full';
   type?: 'button' | 'reset' | 'submit';
@@ -14,8 +14,8 @@ export interface IButtonProps {
 }
 
 export const Button: React.FC<IButtonProps> = ({
-  label = 'Button Label',
-  variant = 'slate',
+  label,
+  variant,
   type = 'button',
   size = 'small',
   width = 'default',
