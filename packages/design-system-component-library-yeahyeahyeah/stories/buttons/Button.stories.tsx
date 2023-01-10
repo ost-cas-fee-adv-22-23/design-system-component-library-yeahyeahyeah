@@ -9,43 +9,25 @@ export default {
   component: Button,
   argTypes: {
     label: {
-      table: {
-        summary: 'Button Label',
-      },
+      control: 'text',
     },
     variant: {
       control: 'select',
-      table: {
-        summary: 'slate',
-      },
     },
     type: {
       control: 'select',
-      table: {
-        summary: 'button',
-      },
     },
     disabled: {
       control: 'boolean',
-      table: {
-        summary: false,
-      },
     },
     size: {
       control: 'select',
-      table: {
-        summary: 'sdfsdf',
-      },
     },
     width: {
       control: {
         type: 'select',
       },
-      table: {
-        summary: 'default',
-      },
     },
-
     fCallBack: {
       action: () => 'handleClick',
     },
@@ -53,9 +35,6 @@ export default {
       control: 'select',
       options: Object.keys(IconsMapped),
       name: 'Icon',
-      table: {
-        summary: 'Logo',
-      },
     },
   },
   args: {

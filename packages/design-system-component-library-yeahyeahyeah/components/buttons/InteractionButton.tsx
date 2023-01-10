@@ -10,8 +10,7 @@ export interface IInteractionButton {
   fCallBack?: () => void;
 }
 
-export const InteractionButton: React.FC<IInteractionButton> = (props: IInteractionButton) => {
-  const { type, quantity, favourite, fCallBack } = props;
+export const InteractionButton: React.FC<IInteractionButton> = ({ type, quantity, favourite, fCallBack }) => {
   const [label, setLabel] = useState<string>('');
   const [count, setCount] = useState<number>(quantity || 0);
   const [isFavourite, setIsFavourite] = useState<boolean>(favourite || false);

@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { InteractionButton } from '../../components/buttons/InteractionButton';
 import { useArgs } from '@storybook/client-api';
+import InterActionReadme from '../../docs/InteractionButton.md';
 
 export default {
   title: 'Interactions',
@@ -39,22 +40,21 @@ export const LikeButtonStory = Template.bind({});
 LikeButtonStory.argTypes = {
   favourite: {
     control: 'boolean',
-    table: {
-      defaultValue: {
-        summary: false,
-      },
-    },
   },
 };
 
 LikeButtonStory.args = {
   type: 'like',
   quantity: 0,
+  favourite: false,
 };
 
 LikeButtonStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
+    description: {
+      component: InterActionReadme,
+    },
   },
 };
 
@@ -81,6 +81,9 @@ CommentButtonStory.args = {
 CommentButtonStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
+    description: {
+      component: InterActionReadme,
+    },
   },
 };
 
