@@ -118,11 +118,14 @@ The `GlobalStyles` import adds these base styles along with some @keyframes for 
 
 You can import `GlobalStyles` within a new file placed in `styles/GlobalStyles.tsx`:
 
+The `GlobalStyles as MumbleStyles` import adds Mumble Global CSS settings and all font faces for `Poppins` - it includes all CSS vars and body styles that are needed for Mumble
+
 ```js
 // styles/GlobalStyles.tsx
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import tw, { theme, GlobalStyles as BaseStyles } from 'twin.macro';
+import { GlobalStyles as BaseStyles } from 'twin.macro';
+import { GlobalStyles as MumbleStyles } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 
 const CustomStyles = createGlobalStyle({
   body: {},
@@ -131,6 +134,7 @@ const CustomStyles = createGlobalStyle({
 const GlobalStyles = () => (
   <>
     <BaseStyles />
+    <MumbleStyles />
     <CustomStyles />
   </>
 );
@@ -138,28 +142,23 @@ const GlobalStyles = () => (
 export default GlobalStyles;
 ```
 
-The `@smartive-education/design-system-component-library-yeahyeahyeah/tailwind.css` import adds Mumble Global CSS settings - it includes all CSS vars and body styles that are needed for Mumble
-
-All you have to do ist to import the GlobalStyles file and Mumble Global CSS file in `pages/_app.tsx`:
-
-Also import
+All you have to do now is to import the GlobalStyles in `pages/_app.tsx` and add the component to get rendered:
 
 ```js
 // pages/_app.tsx
-import '@smartive-education/design-system-component-library-yeahyeahyeah/tailwind.css';
-import type { AppProps } from 'next/app';
+import React from 'react';
+import { AppProps } from 'next/app';
 import GlobalStyles from '../styles/GlobalStyles';
+import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <GlobalStyles />
-      <Component {...pageProps} />
-    </>
-  );
-}
+const App = ({ Component, pageProps }: AppProps) => (
+  <div>
+    <GlobalStyles />
+    <Component {...pageProps} />
+  </div>
+);
 
-export default MyApp;
+export default App;
 ```
 
 ### Add the twin config
