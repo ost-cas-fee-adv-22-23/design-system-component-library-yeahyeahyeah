@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '../../components/buttons/Button';
 import { IconsMapped } from '../../components/icons/IconMap';
-import Readme from '../../components/buttons/README.md';
+import Readme from '../../docs/Button.md';
 
 export default {
   title: 'Interactions',
