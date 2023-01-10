@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { WriteComponent } from '../../components/forms/WriteComponent';
+import { TextBox } from '../../components/forms/TextBox';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Form/Write-Component',
-  component: WriteComponent,
+  title: 'Form',
+  component: TextBox,
   argTypes: {
     variant: {
       control: 'select',
@@ -87,22 +87,22 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof WriteComponent>;
+} as ComponentMeta<typeof TextBox>;
 
-const Template: ComponentStory<typeof WriteComponent> = (args) => {
+const Template: ComponentStory<typeof TextBox> = (args) => {
   const [text, setText] = React.useState<string>('');
 
   useEffect(() => {
     console.log('text', text);
   }, [text]);
 
-  return <WriteComponent {...args} setText={setText} />;
+  return <TextBox {...args} setText={setText} />;
 };
 
 // WRITE STORY
-export const ComponentWriteStory = Template.bind({});
+export const TextBoxStory = Template.bind({});
 
-ComponentWriteStory.argTypes = {
+TextBoxStory.argTypes = {
   user: {
     control: {
       type: 'object',
@@ -123,16 +123,16 @@ ComponentWriteStory.argTypes = {
   },
 };
 
-ComponentWriteStory.args = {
+TextBoxStory.args = {
   variant: 'start',
   startHeading: 'Hey, was läuft?',
   startParagraph: 'Schreib deinen ersten Mumble, oder folge einem User.',
 };
 
-ComponentWriteStory.parameters = {
+TextBoxStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
   },
 };
 
-ComponentWriteStory.storyName = 'Write-Component';
+TextBoxStory.storyName = 'TextBox';

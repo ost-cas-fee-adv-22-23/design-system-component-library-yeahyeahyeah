@@ -243,7 +243,7 @@ module.exports = function withTwin(nextConfig) {
       config.module.rules = config.module.rules || [];
       config.module.rules.push({
         // mumble npm package components are pure js files, therefor js has also to be included
-        test: /\.(tsx|ts|js)$/,
+        test: /\.(tsx|ts|jsx)$/,
         include: includedDirs,
         use: [
           options.defaultLoaders.babel,
@@ -343,7 +343,7 @@ To see a nice mumble demo timeline add following code to `pages/index.tsx`.
 import {
   Navigation,
   Mumble,
-  WriteComponent,
+  TextBox,
   Heading,
   Container,
 } from '@smartive-education/design-system-component-library-yeahyeahyeah';
@@ -398,7 +398,7 @@ export default function Home() {
         </Container>
         <Container layout="plain">
           <div tw="mb-32">
-            <WriteComponent
+            <TextBox
               variant="write"
               mbSpacing="64"
               form={{

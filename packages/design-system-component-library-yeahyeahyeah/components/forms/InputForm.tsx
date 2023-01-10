@@ -65,6 +65,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
               placeholder={placeholder}
               onChange={(e) => setText && setText(e.target.value)}
             />
+            <FormFieldError>{errorMessage}</FormFieldError>
           </FormLabel>
         </>
       )}
