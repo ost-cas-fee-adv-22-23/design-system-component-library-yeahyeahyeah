@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { InputForm } from '../../components/forms/InputForm';
 
 export default {
-  title: 'Form/InputForm',
+  title: 'Form/Input',
   component: InputForm,
   argTypes: {
     type: {
@@ -67,7 +67,7 @@ FormInput.parameters = {
   },
 };
 
-FormInput.storyName = 'Input';
+FormInput.storyName = 'InputForm';
 
 /**
  * @textarea

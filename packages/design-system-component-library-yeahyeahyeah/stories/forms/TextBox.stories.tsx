@@ -4,7 +4,7 @@ import { TextBox } from '../../components/forms/TextBox';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Form/TextBox',
+  title: 'Form',
   component: TextBox,
   argTypes: {
     variant: {
