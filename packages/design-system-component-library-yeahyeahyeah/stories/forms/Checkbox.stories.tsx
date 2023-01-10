@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Checkbox } from '../../components/forms/Checkbox';
+import { CheckBox } from '../../components/forms/CheckBox';
 
 export default {
-  title: 'Form/Switch',
-  component: Checkbox,
+  title: 'Form/CheckBox',
+  component: CheckBox,
   argTypes: {
     selection: {
       control: 'select',
@@ -23,24 +23,24 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Checkbox>;
+} as ComponentMeta<typeof CheckBox>;
 
-const Template: ComponentStory<typeof Checkbox> = (args) => <Checkbox {...args} />;
+const Template: ComponentStory<typeof CheckBox> = (args) => <CheckBox {...args} />;
 
 /**
  * @input
  * @desc form input field
  */
-export const FormCheckboxStory = Template.bind({});
+export const FormCheckBoxStory = Template.bind({});
 
-FormCheckboxStory.args = {
+FormCheckBoxStory.args = {
   selection: 'mumbles',
 };
 
-FormCheckboxStory.parameters = {
+FormCheckBoxStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
   },
 };
 
-FormCheckboxStory.storyName = 'Switch';
+FormCheckBoxStory.storyName = 'CheckBox';

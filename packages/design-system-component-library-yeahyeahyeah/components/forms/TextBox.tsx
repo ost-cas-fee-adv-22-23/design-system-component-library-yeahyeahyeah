@@ -1,13 +1,13 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { User, IUserProps } from '../User';
-import { InputForm, IFormInputProps } from './Input';
+import { InputForm, IFormInputProps } from './InputForm';
 import { Button, IButtonProps } from '../buttons/Button';
 import { BottomSpacing } from '../Spacing';
 import { Heading, Paragraph } from '../index';
 import type { TmbSpacing } from '../../types/types';
 
-export interface IWriteComponentProps {
+export interface ITextBoxProps {
   user: IUserProps;
   form: IFormInputProps;
   variant: 'write' | 'inline' | 'start';
@@ -19,7 +19,7 @@ export interface IWriteComponentProps {
   startParagraph?: string;
 }
 
-export const WriteComponent: React.FC<IWriteComponentProps> = ({
+export const TextBox: React.FC<ITextBoxProps> = ({
   variant,
   startHeading = 'Hey, was läuft?',
   setText,
