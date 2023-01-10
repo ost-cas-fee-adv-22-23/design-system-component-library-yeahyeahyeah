@@ -1,1 +1,1 @@
-export * from './GlobalStyles';
+export { default as MumbleStyles } from './MumbleStyles';
