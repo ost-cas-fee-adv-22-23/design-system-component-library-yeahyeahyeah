@@ -15,10 +15,6 @@ export const TextButton: React.FC<TextButtonProps> = ({ label = 'Button Label', 
   );
 };
 
-/**
- * @TextButton
- * @desc Button styles
- */
 const buttonFont = tw`
   text-xs
   font-semibold
