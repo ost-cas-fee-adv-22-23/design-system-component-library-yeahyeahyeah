@@ -14,33 +14,27 @@ export default {
       },
     },
     variant: {
-      control: {
-        type: 'select',
-      },
+      control: 'select',
       table: {
         summary: 'slate',
       },
     },
     type: {
-      control: {
-        type: 'select',
-      },
+      control: 'select',
       table: {
         summary: 'button',
       },
     },
     disabled: {
-      control: {
-        type: 'boolean',
-      },
+      control: 'boolean',
       table: {
         summary: false,
       },
     },
     size: {
-      control: { type: 'select' },
+      control: 'select',
       table: {
-        summary: 'small',
+        summary: 'sdfsdf',
       },
     },
     width: {

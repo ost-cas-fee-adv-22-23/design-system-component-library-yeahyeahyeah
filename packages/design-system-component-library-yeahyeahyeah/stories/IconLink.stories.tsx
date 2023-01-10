@@ -10,27 +10,15 @@ export default {
   argTypes: {
     label: {
       control: 'text',
-      table: {
-        summary: 'Label',
-      },
     },
     variant: {
       control: 'select',
-      table: {
-        summary: 'slate',
-      },
     },
     href: {
       control: 'text',
-      table: {
-        summary: '#',
-      },
     },
     type: {
       control: 'select',
-      table: {
-        summary: 'username',
-      },
     },
     fCallBack: {
       defaultValue: action('IconLink clicked'),

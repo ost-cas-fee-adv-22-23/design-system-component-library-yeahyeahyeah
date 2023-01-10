@@ -1,7 +1,4 @@
 # Icon Link
-
-[Button](./?path=/docs/interactions--button-story "Button")
-
 ## **Icon-Link** properties and how to use
 | Property|Description|
 |-|-|

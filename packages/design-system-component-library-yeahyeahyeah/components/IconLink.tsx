@@ -79,11 +79,6 @@ interface IStyleProps {
   hover?: string;
 }
 
-/**
- * @Button
- * @desc Button styles
- */
-
 const defaultStyles = tw`
   flex
   flex-row
