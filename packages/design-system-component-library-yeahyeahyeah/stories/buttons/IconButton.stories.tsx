@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconButton } from '../../components/buttons/IconButton';
-import { IconsMapped } from '../../components/icons/IconMap';
 import IconButtonReadme from '../../docs/IconButton.md';
 
 export default {
