@@ -6,13 +6,21 @@ import { Fullscreen, Edit, Repost } from './icons/default_index';
 export interface IImageContainerProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string;
-  fCallBack?: () => void;
+  fCallBack?: (type: string) => void;
   type?: 'container' | 'banner';
   loading?: boolean;
 }
 
-export const ImageContainer: React.FC<IImageContainerProps> = (props: IImageContainerProps) => {
-  const { src = '', alt = '', fCallBack, type = 'container', loading = false } = props;
+export const ImageContainer: React.FC<IImageContainerProps> = ({
+  src = '',
+  alt = '',
+  fCallBack,
+  type = 'container',
+  loading = false,
+}) => {
+  const handleClick = () => {
+    fCallBack && fCallBack(type);
+  };
 
   const getIcon = () => {
     switch (type) {
@@ -27,7 +35,7 @@ export const ImageContainer: React.FC<IImageContainerProps> = (props: IImageCont
     <Figure type={type}>
       <Wrapper loading={loading ? 'true' : 'false'}>
         <Container>
-          <ImageIcon loading={loading ? 'true' : 'false'} onClick={fCallBack}>
+          <ImageIcon loading={loading ? 'true' : 'false'} onClick={handleClick}>
             {loading === true ? <StyledRepost /> : getIcon()}
           </ImageIcon>
         </Container>
