@@ -14,8 +14,8 @@ export interface IButtonProps {
 }
 
 export const Button: React.FC<IButtonProps> = ({
-  label = 'Button Label',
-  variant = 'slate',
+  label,
+  variant,
   type = 'button',
   size = 'small',
   width = 'default',

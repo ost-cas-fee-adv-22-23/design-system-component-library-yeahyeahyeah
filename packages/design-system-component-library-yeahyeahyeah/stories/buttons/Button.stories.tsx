@@ -9,38 +9,47 @@ export default {
   component: Button,
   argTypes: {
     label: {
-      name: 'label',
-      defaultValue: 'Button Label',
+      table: {
+        summary: 'Button Label',
+      },
     },
     type: {
       control: {
         type: 'select',
       },
-      defaultValue: 'button',
+      table: {
+        summary: 'button',
+      },
     },
     disabled: {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
+      table: {
+        summary: false,
+      },
     },
     size: {
-      description: 'A sized version of the button',
-      control: { type: 'radio' },
-      defaultValue: 'small',
+      control: { type: 'select' },
+      table: {
+        summary: 'small',
+      },
     },
     width: {
-      description: 'A full width version of the button',
       control: {
-        type: 'radio',
+        type: 'select',
       },
-      defaultValue: 'default',
+      table: {
+        summary: 'default',
+      },
     },
     variant: {
       control: {
         type: 'select',
       },
-      defaultValue: 'slate',
+      table: {
+        summary: 'slate',
+      },
     },
     fCallBack: {
       action: () => 'handleClick',
@@ -49,8 +58,19 @@ export default {
       control: 'select',
       options: Object.keys(IconsMapped),
       name: 'Icon',
-      defaultValue: 'settings',
+      table: {
+        summary: 'Logo',
+      },
     },
+  },
+  args: {
+    label: 'Button Label',
+    type: 'button',
+    disabled: false,
+    size: 'small',
+    width: 'default',
+    variant: 'slate',
+    icon: 'logo',
   },
 } as ComponentMeta<typeof Button>;
 
@@ -58,10 +78,6 @@ const Template: ComponentStory<typeof Button> = (args) => {
   return <Button {...args} />;
 };
 
-/**
- * @button
- * @desc button standard slate
- */
 export const ButtonStory = Template.bind({});
 
 ButtonStory.parameters = {
@@ -69,9 +85,6 @@ ButtonStory.parameters = {
     source: { type: 'dynamic' },
     description: {
       component: Readme,
-    },
-    readme: {
-      sidebar: Readme,
     },
   },
 };
