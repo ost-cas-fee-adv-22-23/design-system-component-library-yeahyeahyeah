@@ -1,14 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ShareButton } from '../../components/buttons/ShareButton';
+import ShareButtonReadme from '../../docs/ShareLink.md';
 
 export default {
   title: 'Interactions',
   component: ShareButton,
   argTypes: {
     label: {
-      name: 'label',
-      defaultValue: 'Copy Link',
+      control: 'text',
     },
     size: {
       control: false,
@@ -23,15 +23,15 @@ export default {
 } as ComponentMeta<typeof ShareButton>;
 
 const Template: ComponentStory<typeof ShareButton> = (args) => <ShareButton {...args} />;
-/**
- * @button
- * @desc button standard slate
- */
+
 export const ShareButtonStory = Template.bind({});
 
 ShareButtonStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
+    description: {
+      component: ShareButtonReadme,
+    },
   },
 };
 
