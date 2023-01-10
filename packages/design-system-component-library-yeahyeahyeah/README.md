@@ -343,7 +343,7 @@ To see a nice mumble demo timeline add following code to `pages/index.tsx`.
 import {
   Navigation,
   Mumble,
-  WriteComponent,
+  TextBox,
   Heading,
   Container,
 } from '@smartive-education/design-system-component-library-yeahyeahyeah';
@@ -398,7 +398,7 @@ export default function Home() {
         </Container>
         <Container layout="plain">
           <div tw="mb-32">
-            <WriteComponent
+            <TextBox
               variant="write"
               mbSpacing="64"
               form={{

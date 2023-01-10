@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { InputForm } from '../../components/forms/Input';
+import { InputForm } from '../../components/forms/InputForm';
 
 export default {
-  title: 'Form',
+  title: 'Form/InputForm',
   component: InputForm,
   argTypes: {
     type: {
@@ -110,4 +110,4 @@ FormTextarea.parameters = {
   },
 };
 
-FormTextarea.storyName = 'Textarea';
+FormTextarea.storyName = 'TextArea';

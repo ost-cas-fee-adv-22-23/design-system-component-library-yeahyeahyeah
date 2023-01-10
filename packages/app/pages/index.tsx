@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Navigation,
   Mumble,
-  WriteComponent,
+  TextBox,
   Heading,
   Container,
   User,
@@ -111,7 +111,7 @@ export default function Home() {
         </Container>
         <Container layout="plain">
           <div tw="mb-32">
-            <WriteComponent
+            <TextBox
               variant="write"
               mbSpacing="64"
               form={{
