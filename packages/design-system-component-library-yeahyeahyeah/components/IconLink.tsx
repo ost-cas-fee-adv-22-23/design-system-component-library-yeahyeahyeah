@@ -13,10 +13,10 @@ export interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement
 }
 
 export const IconLink: React.FC<IIconLinkProps> = ({
-  label,
+  label = 'username',
   type = 'username',
-  variant = 'slate',
-  href,
+  variant = 'violet',
+  href = '#',
   fCallBack,
   link,
 }) => {

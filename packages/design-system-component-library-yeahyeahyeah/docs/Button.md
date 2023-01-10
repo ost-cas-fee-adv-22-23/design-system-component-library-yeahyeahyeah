@@ -1,5 +1,5 @@
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/smartive-education/design-system-component-library-yeahyeahyeah)
 # Button
-
 ## Button properties and how to use
 | Property|Description|
 |-|-|
@@ -44,10 +44,13 @@ import { Button } from "@smartive-education/design-system-component-library-yeah
   width="default"
 />
 ```
-
-## Mumble Guidelines
-### Colors
+<hr />
+## Mumble Color Guidelines
 **Consider the following color specifications when using a button:**
 - Slate: Cancel events.
 - Violet: Submit events.
 - Pink: On Startscreens and predefined templates.
+
+<div style="text-align: center; background-color: #475569; color: white; margin-bottom: 4px; padding: 10px;">Slate</div>
+<div style="text-align: center; background-color: #7C3AED; color: white; margin-bottom: 4px; padding: 10px;">Violet</div>
+<div style="background: rgb(255,0,221); background: linear-gradient(90deg, rgba(255,0,221,1) 0%, rgba(156,0,255,1) 100%); color: white; text-align: center; padding: 10px;">Pink</div>
