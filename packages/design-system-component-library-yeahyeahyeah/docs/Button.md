@@ -4,7 +4,7 @@
 | Property|Description|
 |-|-|
 |fCallback|JS callback function.|
-|icon|Choose your icon accordingly.|
+|icon|Choose your icon accordingly. It is also possible to render a button without an icon. In this case, choose *none*.|
 |label|Label of the button.|
 |size|Default *small* is the default height, *large* has more height.|
 |type|Choose one of the HTML native types.|
@@ -19,7 +19,7 @@
 import { Button } from "@smartive-education/design-system-component-library-yeahyeahyeah"
 ```
 
-### **Slate** Button example with *setting* icon
+### **Slate** Button example with *settings* icon
 ```js
 <Button
   fCallBack={function noRefCheck(){}}
@@ -32,7 +32,7 @@ import { Button } from "@smartive-education/design-system-component-library-yeah
 />
 ```
 
-### Cancel Button example with *cancel* icon
+### **Cancel** Button example with *cancel* icon
 ```js
 <Button
   fCallBack={function noRefCheck(){}}

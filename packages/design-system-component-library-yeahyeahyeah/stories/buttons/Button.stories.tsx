@@ -13,6 +13,14 @@ export default {
         summary: 'Button Label',
       },
     },
+    variant: {
+      control: {
+        type: 'select',
+      },
+      table: {
+        summary: 'slate',
+      },
+    },
     type: {
       control: {
         type: 'select',
@@ -43,14 +51,7 @@ export default {
         summary: 'default',
       },
     },
-    variant: {
-      control: {
-        type: 'select',
-      },
-      table: {
-        summary: 'slate',
-      },
-    },
+
     fCallBack: {
       action: () => 'handleClick',
     },
