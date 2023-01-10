@@ -9,15 +9,13 @@
   "types": "dist/types/index.d.ts",
   "files": [
     "dist",
-    "styles",
     "tailwind.config.js"
   ],
   "exports": {
     ".": {
       "import": "./dist/index.js"
     },
-    "./tailwind.config.js": "./tailwind.config.js",
-    "./tailwind.css": "./styles/tailwind.css"
+    "./tailwind.config.js": "./tailwind.config.js"
   },
   "scripts": {
     "build": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json && yarn copy-files",
