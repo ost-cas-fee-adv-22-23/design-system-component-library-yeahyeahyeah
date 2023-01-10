@@ -6,7 +6,7 @@
 |fCallback|JS callback function.|
 |icon|Choose your icon accordingly.|
 |label|Label of the button.|
-|size|Default *small*, *full* respsonsive.|
+|size|Default *small* is the default height, *large* has more height.|
 |type|Choose one of the HTML native types.|
 |variant|Button color *slate*, *violet* and *pink*. See Color Guidelines below.|
 |width|In default choose always *full* for all devices.|
