@@ -1,3 +1,3 @@
-export * from './CheckBox';
+export * from './Checkbox';
 export * from './InputForm';
 export * from './TextBox';

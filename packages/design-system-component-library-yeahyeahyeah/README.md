@@ -243,7 +243,7 @@ module.exports = function withTwin(nextConfig) {
       config.module.rules = config.module.rules || [];
       config.module.rules.push({
         // mumble npm package components are pure js files, therefor js has also to be included
-        test: /\.(tsx|ts|js)$/,
+        test: /\.(tsx|ts|jsx)$/,
         include: includedDirs,
         use: [
           options.defaultLoaders.babel,
