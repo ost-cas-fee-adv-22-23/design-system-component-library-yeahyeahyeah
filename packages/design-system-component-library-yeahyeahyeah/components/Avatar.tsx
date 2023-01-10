@@ -3,16 +3,14 @@ import tw, { styled } from 'twin.macro';
 import { IconButton } from './buttons/IconButton';
 
 export interface IAvatarProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
+  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'edit';
   src: string;
   alt: string;
-  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'edit';
   buttonCallBack?: () => void;
   imageCallBack?: () => void;
 }
 
-export const Avatar: React.FC<IAvatarProps> = (props: IAvatarProps) => {
-  const { variant = 'small', alt, src, buttonCallBack, imageCallBack } = props;
-
+export const Avatar: React.FC<IAvatarProps> = ({ variant = 'small', alt = '', src = '', buttonCallBack, imageCallBack }) => {
   return (
     <>
       {variant !== 'edit' ? (
