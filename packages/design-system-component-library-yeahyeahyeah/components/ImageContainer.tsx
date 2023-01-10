@@ -7,7 +7,7 @@ export interface IImageContainerProps extends React.HtmlHTMLAttributes<HTMLImage
   src: string;
   alt: string;
   fCallBack?: (type: string) => void;
-  type: 'container' | 'banner';
+  type?: 'container' | 'banner';
   loading?: boolean;
 }
 
