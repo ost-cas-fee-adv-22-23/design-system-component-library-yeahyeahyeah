@@ -54,28 +54,28 @@ const Template: ComponentStory<typeof InputForm> = (args) => <InputForm {...args
  * @input
  * @desc form input field
  */
-export const FormInput = Template.bind({});
+export const FormInputStory = Template.bind({});
 
-FormInput.args = {
+FormInputStory.args = {
   editType: 'input',
   label: 'Label',
 };
 
-FormInput.parameters = {
+FormInputStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
   },
 };
 
-FormInput.storyName = 'InputForm';
+FormInputStory.storyName = 'InputForm';
 
 /**
  * @textarea
  * @desc form textarea
  */
-export const FormTextarea = Template.bind({});
+export const TextAreaStory = Template.bind({});
 
-FormTextarea.argTypes = {
+TextAreaStory.argTypes = {
   editType: {
     control: false,
     table: {
@@ -96,7 +96,7 @@ FormTextarea.argTypes = {
   },
 };
 
-FormTextarea.args = {
+TextAreaStory.args = {
   editType: 'textarea',
   type: undefined,
   label: 'Label',
@@ -104,10 +104,10 @@ FormTextarea.args = {
   placeholder: 'Was gibt es neues',
 };
 
-FormTextarea.parameters = {
+TextAreaStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
   },
 };
 
-FormTextarea.storyName = 'TextArea';
+TextAreaStory.storyName = 'TextArea';
