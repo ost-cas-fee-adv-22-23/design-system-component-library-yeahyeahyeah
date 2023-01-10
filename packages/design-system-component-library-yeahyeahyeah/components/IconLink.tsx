@@ -13,10 +13,10 @@ export interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement
 }
 
 export const IconLink: React.FC<IIconLinkProps> = ({
-  label,
+  label = 'username',
   type = 'username',
-  variant = 'slate',
-  href,
+  variant = 'violet',
+  href = '#',
   fCallBack,
   link,
 }) => {
@@ -78,11 +78,6 @@ interface IStyleProps {
   variant?: string;
   hover?: string;
 }
-
-/**
- * @Button
- * @desc Button styles
- */
 
 const defaultStyles = tw`
   flex

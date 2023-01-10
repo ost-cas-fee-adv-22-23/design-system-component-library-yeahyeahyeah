@@ -10,8 +10,12 @@ export interface IconButtonProps {
   fCallBack?: () => void;
 }
 
-export const IconButton: React.FC<IconButtonProps> = (props: IconButtonProps) => {
-  const { label, icon, variant, fCallBack } = props;
+export const IconButton: React.FC<IconButtonProps> = ({
+  label = 'Label',
+  icon = 'logo',
+  variant = 'default',
+  fCallBack,
+}) => {
   const Icon = createIcon(icon);
 
   return (
