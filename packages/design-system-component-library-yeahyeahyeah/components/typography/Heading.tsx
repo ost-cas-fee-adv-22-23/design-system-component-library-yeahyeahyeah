@@ -1,26 +1,24 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { BottomSpacing } from '../Spacing';
-import type { TmbSpacing, TmumbleColors, TSizes, THeadingTags, TAlignment } from '../../types/types';
+import type { TmbSpacing } from '../../types/types';
 
 export interface IHeadingProps {
   label: string;
-  tag?: THeadingTags;
-  color?: TmumbleColors;
-  size: TSizes;
-  alignment: TAlignment;
+  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'span';
+  color?: 'light' | 'medium' | 'dark' | 'violet' | 'pink' | 'white';
+  size: 'default' | 'xlarge' | 'large' | 'medium' | 'small';
   mbSpacing?: TmbSpacing;
 }
 
 export const Heading: React.FC<IHeadingProps> = ({
   label,
   tag = 'h1',
-  color = 'slate',
+  color = 'default',
   size = 'default',
-  alignment = 'default',
   mbSpacing = '0',
 }) => {
-  const props = { label, tag, color, size, mbSpacing, alignment };
+  const props = { label, tag, color, size, mbSpacing };
 
   return (
     <>
@@ -33,7 +31,14 @@ export const Heading: React.FC<IHeadingProps> = ({
   );
 };
 
-const HeadingSize = ({ size, tag }: IHeadingProps) => [
+interface IHeadingStylesProps {
+  color: string;
+  size: string;
+  tag: string;
+  mbSpacing?: TmbSpacing;
+}
+
+const HeadingSize = ({ size, tag }: IHeadingStylesProps) => [
   tw`
     font-bold
     m-0
@@ -46,7 +51,7 @@ const HeadingSize = ({ size, tag }: IHeadingProps) => [
   tag === 'h4' && tw`font-semibold`,
 ];
 
-const HeadingColor = ({ color }: IHeadingProps) => [
+const HeadingColor = ({ color }: IHeadingStylesProps) => [
   color === 'light' && tw`text-slate-500`,
   color === 'white' && tw`text-slate-white`,
   color === 'medium' && tw`text-slate-600`,
@@ -56,12 +61,6 @@ const HeadingColor = ({ color }: IHeadingProps) => [
   color === 'default' && tw`text-slate-900`,
 ];
 
-const HeadingAlignment = ({ alignment }: IHeadingProps) => [
-  alignment === 'left' && tw`text-left`,
-  alignment === 'center' && tw`text-center`,
-  alignment === 'right' && tw`text-right`,
-];
-
 const H1Styles = styled.h1(() => [
   tw`
     text-4xl font-bold
@@ -69,7 +68,6 @@ const H1Styles = styled.h1(() => [
   HeadingColor,
   HeadingSize,
   BottomSpacing,
-  HeadingAlignment,
 ]);
 
 const H2Styles = styled.h2(() => [
@@ -79,7 +77,6 @@ const H2Styles = styled.h2(() => [
   HeadingColor,
   HeadingSize,
   BottomSpacing,
-  HeadingAlignment,
 ]);
 
 const H3Styles = styled.h3(() => [
@@ -89,7 +86,6 @@ const H3Styles = styled.h3(() => [
   HeadingColor,
   HeadingSize,
   BottomSpacing,
-  HeadingAlignment,
 ]);
 
 const H4Styles = styled.h4(() => [
@@ -99,7 +95,6 @@ const H4Styles = styled.h4(() => [
   HeadingColor,
   HeadingSize,
   BottomSpacing,
-  HeadingAlignment,
 ]);
 
 const SpanStyles = styled.span(() => [
@@ -109,5 +104,4 @@ const SpanStyles = styled.span(() => [
   HeadingColor,
   HeadingSize,
   BottomSpacing,
-  HeadingAlignment,
 ]);
