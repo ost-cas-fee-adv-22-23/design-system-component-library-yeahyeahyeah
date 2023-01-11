@@ -52,7 +52,7 @@ export const Navigation: React.FC<INavigationProps> = ({
               <MumbleLogo
                 title={logo.title}
                 href={logo.href}
-                variant="white"
+                color="white"
                 alignment="horizontal"
                 fCallBack={logo.fCallBack}
                 isNavigation={true}
