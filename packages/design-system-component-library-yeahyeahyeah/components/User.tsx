@@ -67,14 +67,14 @@ export const User: React.FC<IUserProps> = ({
               <IconLink
                 label={username.label}
                 type="username"
-                variant="violet"
+                color="violet"
                 href={username.href}
                 fCallBack={username.fCallBack}
               ></IconLink>
               <IconLink
                 label={timestamp.label}
                 type="timestamp"
-                variant="slate"
+                color="slate"
                 href={timestamp.href}
                 fCallBack={timestamp.fCallBack}
               ></IconLink>
@@ -97,7 +97,7 @@ export const User: React.FC<IUserProps> = ({
               <IconLink
                 label={username.label}
                 type="username"
-                variant="violet"
+                color="violet"
                 href={username.href}
                 fCallBack={username.fCallBack}
               />
@@ -130,14 +130,14 @@ export const User: React.FC<IUserProps> = ({
             <IconLink
               label={username.label}
               type="username"
-              variant="violet"
+              color="violet"
               href={username.href}
               fCallBack={username.fCallBack}
             ></IconLink>
             <IconLink
               label={timestamp.label}
               type="timestamp"
-              variant="slate"
+              color="slate"
               href={timestamp.href}
               fCallBack={timestamp.fCallBack}
             ></IconLink>
@@ -151,14 +151,14 @@ export const User: React.FC<IUserProps> = ({
             <IconLink
               label={username.label}
               type="username"
-              variant="violet"
+              color="violet"
               href={username.href}
               fCallBack={username.fCallBack}
             ></IconLink>
             <IconLink
               label={timestamp.label}
               type="timestamp"
-              variant="slate"
+              color="slate"
               href={timestamp.href}
               fCallBack={timestamp.fCallBack}
             ></IconLink>
@@ -172,21 +172,21 @@ export const User: React.FC<IUserProps> = ({
             <IconLink
               label={username.label}
               type="username"
-              variant="violet"
+              color="violet"
               href={username.href}
               fCallBack={username.fCallBack}
             ></IconLink>
             <IconLink
               label={location.label}
               type="location"
-              variant="slate"
+              color="slate"
               href={location.href}
               fCallBack={location.fCallBack}
             ></IconLink>
             <IconLink
               label={joined.label}
               type="joined"
-              variant="slate"
+              color="slate"
               href={joined.href}
               fCallBack={joined.fCallBack}
             ></IconLink>
@@ -210,7 +210,7 @@ export const User: React.FC<IUserProps> = ({
               <IconLink
                 label={username.label}
                 type="username"
-                variant="violet"
+                color="violet"
                 href={username.href}
                 fCallBack={username.fCallBack}
               ></IconLink>

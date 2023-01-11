@@ -11,7 +11,7 @@ export default {
     label: {
       control: 'text',
     },
-    variant: {
+    color: {
       control: 'select',
     },
     href: {
@@ -26,7 +26,7 @@ export default {
   },
   args: {
     label: 'string',
-    variant: 'slate',
+    color: 'slate',
     href: '#',
     type: 'username',
   },
