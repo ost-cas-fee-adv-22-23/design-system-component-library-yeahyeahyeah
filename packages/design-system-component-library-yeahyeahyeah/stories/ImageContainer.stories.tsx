@@ -4,7 +4,7 @@ import { ImageContainer } from '../components/ImageContainer';
 import ImageContainerReadme from '../docs/ImageContainer.md';
 
 export default {
-  title: 'Assets/Image',
+  title: 'Medias/Image',
   component: ImageContainer,
   argTypes: {
     src: {

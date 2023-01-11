@@ -13,7 +13,7 @@ const tailWindColors: TwStyle[] = [tw`fill-slate-500`, tw`fill-violet-500`, tw`f
 let tailWindColorsElement: TwStyle = tw`fill-slate-500`;
 
 export default {
-  title: 'Icons/Collection',
+  title: 'Medias/Collection',
   decorators: [(story) => <IconTemplate>{story()}</IconTemplate>],
   argTypes: {
     handleClick: {
@@ -86,5 +86,11 @@ export const All = TemplateIcon.bind({});
 All.storyName = 'Collection';
 
 export const Single = TemplateIconSingle.bind({});
+
+All.parameters = {
+  darkMode: {
+    current: 'dark',
+  },
+};
 
 Single.storyName = 'Icon';

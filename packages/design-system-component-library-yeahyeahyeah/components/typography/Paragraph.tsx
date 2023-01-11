@@ -1,6 +1,6 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
-import { MarginSpacing } from '../Spacing';
+import { BottomSpacing } from '../Spacing';
 import type { TmbSpacing } from '../../types/types';
 
 export interface IParagraphProps {
@@ -40,7 +40,7 @@ const Aligment = ({ alignment }: IParagraphStylesProps) => [
   alignment === 'right' && tw`text-right`,
 ];
 
-const paragraphDefaults = tw`font-medium`;
+const paragraphDefaults = tw`font-medium w-full`;
 const paragraphMedium = tw`text-base font-medium`; // leading-loose
 const paragraphLarge = tw`text-lg font-medium`;
 const paragraphColorDark = tw`text-slate-900`;
@@ -51,7 +51,7 @@ const ParagraphStyles = styled.p(({ size, color }: IParagraphStylesProps) => [
       mb-24
     `,
   paragraphDefaults,
-  MarginSpacing,
+  BottomSpacing,
   Aligment,
   size === 'large' && paragraphLarge,
   size === 'medium' && paragraphMedium,
