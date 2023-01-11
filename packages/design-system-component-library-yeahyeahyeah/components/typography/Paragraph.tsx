@@ -1,19 +1,26 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
-import { BottomSpacing } from '../Spacing';
+import { MarginSpacing } from '../Spacing';
 import type { TmbSpacing } from '../../types/types';
 
 export interface IParagraphProps {
+  alignment?: 'left' | 'center' | 'right';
   size?: 'default' | 'medium' | 'large';
   color?: 'default' | 'dark' | 'light' | 'white';
   text: string;
   mbSpacing?: TmbSpacing;
 }
 
-export const Paragraph: React.FC<IParagraphProps> = ({ size = 'medium', color = 'default', mbSpacing, text }) => {
+export const Paragraph: React.FC<IParagraphProps> = ({
+  size = 'medium',
+  color = 'default',
+  mbSpacing,
+  text,
+  alignment = 'left',
+}) => {
   return (
     <>
-      <ParagraphStyles size={size} color={color} mbSpacing={mbSpacing}>
+      <ParagraphStyles size={size} color={color} mbSpacing={mbSpacing} alignment={alignment}>
         {text}
       </ParagraphStyles>
     </>
@@ -24,7 +31,14 @@ interface IParagraphStylesProps {
   size: string;
   color?: string;
   mbSpacing?: TmbSpacing;
+  alignment?: string;
 }
+
+const Aligment = ({ alignment }: IParagraphStylesProps) => [
+  alignment === 'left' && tw`text-left`,
+  alignment === 'center' && tw`text-center`,
+  alignment === 'right' && tw`text-right`,
+];
 
 const paragraphDefaults = tw`font-medium`;
 const paragraphMedium = tw`text-base font-medium`; // leading-loose
@@ -37,7 +51,8 @@ const ParagraphStyles = styled.p(({ size, color }: IParagraphStylesProps) => [
       mb-24
     `,
   paragraphDefaults,
-  BottomSpacing,
+  MarginSpacing,
+  Aligment,
   size === 'large' && paragraphLarge,
   size === 'medium' && paragraphMedium,
   color === 'dark' && paragraphColorDark,
