@@ -45,7 +45,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
     icon: 'upload',
     size: 'small',
     type: 'button',
-    variant: 'slate',
+    color: 'slate',
     width: 'full',
     fCallBack: () => {
       return null;
@@ -56,7 +56,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
     icon: 'send',
     size: 'small',
     type: 'button',
-    variant: 'violet',
+    color: 'violet',
     width: 'full',
     fCallBack: () => {
       return null;
@@ -95,7 +95,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
             label={upload.label}
             size={upload.size}
             type={upload.type}
-            variant={upload.variant}
+            color={upload.color}
             width={upload.width}
             icon={upload.icon}
           />
@@ -104,7 +104,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
             label={send.label}
             size={send.size}
             type={send.type}
-            variant={send.variant}
+            color={send.color}
             width={send.width}
             icon={send.icon}
           />

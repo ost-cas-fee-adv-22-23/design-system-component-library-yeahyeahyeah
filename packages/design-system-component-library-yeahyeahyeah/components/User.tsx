@@ -222,7 +222,7 @@ export const User: React.FC<IUserProps> = ({
               size="small"
               type="button"
               width="large"
-              variant="violet"
+              color="violet"
             />
           </Column>
         </Article>
