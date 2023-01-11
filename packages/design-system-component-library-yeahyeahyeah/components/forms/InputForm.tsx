@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import tw, { styled } from 'twin.macro';
 import { Eye } from '../icons/index';
 
@@ -10,8 +10,8 @@ export interface IFormInputProps {
   placeholder?: string;
   errorMessage: string;
   autoComplete: 'off' | 'on';
-  handleClick?: () => void;
   setText?: React.Dispatch<React.SetStateAction<string>>;
+  setRef?: React.Dispatch<React.SetStateAction<any>>;
 }
 
 export const InputForm: React.FC<IFormInputProps> = ({
@@ -23,12 +23,20 @@ export const InputForm: React.FC<IFormInputProps> = ({
   errorMessage,
   autoComplete = 'off',
   setText,
+  setRef,
 }) => {
   const [buttonType, setbuttonType] = useState(type);
 
   const showPassword = () => {
     buttonType === 'password' ? setbuttonType('text') : setbuttonType('password');
   };
+
+  const ref = useRef(null);
+
+  useEffect(() => {
+    console.log('ref', ref);
+    setRef && setRef(ref);
+  }, [ref]);
 
   return (
     <>
@@ -43,7 +51,8 @@ export const InputForm: React.FC<IFormInputProps> = ({
               required={required}
               maxLength={150}
               autoComplete={autoComplete}
-              onChange={(e) => setText && setText(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setText && setText(e.target.value)}
+              ref={ref}
             />
             {type === 'password' && <Eye tw="absolute right-16 cursor-pointer" onClick={showPassword} />}
           </FormInlineWrapperStyles>
@@ -55,7 +64,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
         <>
           <FormLabel htmlFor={label}>
             {label}
-            <TextareaStyles
+            <TextArea
               id={label}
               rows={20}
               cols={30}
@@ -63,7 +72,8 @@ export const InputForm: React.FC<IFormInputProps> = ({
               maxLength={500}
               required={required}
               placeholder={placeholder}
-              onChange={(e) => setText && setText(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setText && setText(e.target.value)}
+              ref={ref}
             />
             <FormFieldError>{errorMessage}</FormFieldError>
           </FormLabel>
@@ -112,8 +122,12 @@ const FormInlineWrapperStyles = styled.div(() => [
   `,
 ]);
 
+const _TextArea: any = React.forwardRef((props: IFormInputProps, ref?: React.Ref<any>) => {
+  return <textarea {...props} ref={ref} />;
+});
+
 // TEXTAREA
-const TextareaStyles = styled.textarea(() => [
+const TextArea = styled(_TextArea)(() => [
   tw`
   text-slate-900
     font-medium
@@ -143,8 +157,12 @@ const TextareaStyles = styled.textarea(() => [
   `,
 ]);
 
+const _Input: any = React.forwardRef((props: IFormInputProps, ref?: React.Ref<any>) => {
+  return <input {...props} ref={ref} />;
+});
+
 // INPUT
-const InputStyles = styled.input(() => [
+const InputStyles = styled(_Input)(() => [
   tw`
     peer-invalid:border-pink-700
   text-slate-500

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { InputForm } from '../../components/forms/InputForm';
 
@@ -48,7 +48,33 @@ export default {
   },
 } as ComponentMeta<typeof InputForm>;
 
-const Template: ComponentStory<typeof InputForm> = (args) => <InputForm {...args} />;
+const Template: ComponentStory<typeof InputForm> = (args) => {
+  const [ref, setRef] = useState<any>(null);
+  const [text, setText] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>('Bitte füllen Sie das Feld aus.');
+
+  const handleClick = () => {
+    console.log('ref', ref);
+    if (ref?.current) ref.current.value = '';
+    setErrorMessage('Bitte füllen Sie das Feld aus.');
+  };
+
+  useEffect(() => {
+    console.log('text', text);
+    if (text === '') {
+      setErrorMessage('Bitte füllen Sie das Feld aus.');
+    } else {
+      setErrorMessage('');
+    }
+  }, [text]);
+
+  return (
+    <>
+      <button onClick={handleClick}>Clear</button>
+      <InputForm {...args} setRef={setRef} setText={setText} errorMessage={errorMessage} />
+    </>
+  );
+};
 
 /**
  * @input
