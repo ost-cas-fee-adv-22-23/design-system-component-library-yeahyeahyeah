@@ -34,7 +34,6 @@ configureActions({
 
 export const decorators = [
   (Story, args) => {
-    console.log('args', args);
     if (args.name === 'Navigation') {
       return (
         <div tw="flex flex-row flex-wrap justify-center items-start w-full h-full p-0 m-0">

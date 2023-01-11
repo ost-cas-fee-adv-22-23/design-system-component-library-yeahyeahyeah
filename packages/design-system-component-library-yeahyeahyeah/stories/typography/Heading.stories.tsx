@@ -7,29 +7,32 @@ export default {
   component: Heading,
   argTypes: {
     label: {
-      name: 'label',
-      defaultValue: 'Heading',
+      control: 'text',
     },
     size: {
-      control: { type: 'select' },
-      description: 'Label size variants.',
-      defaultValue: 'default',
+      control: 'select',
     },
     tag: {
-      control: { type: 'select' },
-      description: 'Choose your HTML-Tag',
-      defaultValue: 'h1',
+      control: 'select',
     },
     color: {
-      control: { type: 'select' },
-      description: 'Color variants',
-      defaultValue: 'default',
+      control: 'select',
+    },
+    alignment: {
+      control: 'select',
     },
     mbSpacing: {
       control: 'select',
-      options: ['0', '2', '4', '8', '16', '32', '64'],
-      defaultValue: '0',
     },
+  },
+  args: {
+    label:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. ',
+    size: 'default',
+    tag: 'h1',
+    color: 'violet',
+    mbSpacing: '0',
+    alignment: 'left',
   },
 } as ComponentMeta<typeof Heading>;
 

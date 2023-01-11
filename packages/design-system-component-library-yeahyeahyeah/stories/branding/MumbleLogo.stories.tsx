@@ -20,7 +20,7 @@ export default {
       },
       defaultValue: 'horizontal',
     },
-    variant: {
+    color: {
       control: {
         type: 'select',
       },
@@ -28,6 +28,11 @@ export default {
     },
     fCallBack: {
       action: () => 'handleClick',
+    },
+    isNavigation: {
+      control: {
+        type: 'boolean',
+      },
     },
   },
 } as ComponentMeta<typeof MumbleLogo>;

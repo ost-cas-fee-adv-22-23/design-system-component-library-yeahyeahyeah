@@ -11,7 +11,7 @@ export default {
     label: {
       control: 'text',
     },
-    variant: {
+    color: {
       control: 'select',
     },
     type: {
@@ -43,7 +43,7 @@ export default {
     disabled: false,
     size: 'small',
     width: 'default',
-    variant: 'slate',
+    color: 'slate',
     icon: 'logo',
   },
 } as ComponentMeta<typeof Button>;
