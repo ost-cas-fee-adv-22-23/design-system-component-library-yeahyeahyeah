@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import tw, { styled } from 'twin.macro';
 import { User, IUserProps } from '../User';
 import { InputForm, IFormInputProps } from './InputForm';
@@ -63,8 +63,19 @@ export const TextBox: React.FC<ITextBoxProps> = ({
     width: 'full',
   };
 
+  const ref = useRef<HTMLFormElement>(null);
+
+  const onPressEnter = () => {
+    sendCallback();
+  };
+
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    sendCallback();
+  };
+
   return (
-    <>
+    <form ref={ref} onSubmit={handleSubmit}>
       <Card variant={variant}>
         <UserWrapper variant={variant} mbSpacing={'16'}>
           {variant === 'write' && (
@@ -89,6 +100,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
           autoComplete={'off'}
           setText={form.setText}
           setRef={form.setRef}
+          onPressEnter={onPressEnter}
         />
         <Row>
           <Button
@@ -101,26 +113,25 @@ export const TextBox: React.FC<ITextBoxProps> = ({
             icon={upload.icon}
           />
           <Button
-            fCallBack={sendCallback}
             label={send.label}
             size={send.size}
-            type={send.type}
+            type={'submit'}
             color={send.color}
             width={send.width}
             icon={send.icon}
           />
         </Row>
       </Card>
-    </>
+    </form>
   );
 };
 
 interface ICard {
-  variant?: string;
-  mbSpacing?: string;
+  variant: string;
+  mbSpacing: string;
 }
 
-const Card = styled.div(({ variant }: ICard) => [
+const Card = styled.div(({ variant }: Pick<ICard, 'variant'>) => [
   tw`
     flex
     flex-col

@@ -30,34 +30,6 @@ export default {
         editType: 'textarea',
       },
     },
-    upload: {
-      control: {
-        type: 'object',
-      },
-      defaultValue: {
-        label: 'Bild hochladen',
-        icon: 'upload',
-        size: 'small',
-        type: 'button',
-        variant: 'slate',
-        width: 'full',
-        fCallBack: action('upload in write component clicked'),
-      },
-    },
-    send: {
-      control: {
-        type: 'object',
-      },
-      defaultValue: {
-        label: 'Absenden',
-        icon: 'send',
-        size: 'small',
-        type: 'button',
-        variant: 'violet',
-        width: 'full',
-        fCallBack: action('send in write component clicked'),
-      },
-    },
     setText: {
       control: false,
       table: {
@@ -150,6 +122,7 @@ TextBoxStory.args = {
   variant: 'start',
   startHeading: 'Hey, was läuft?',
   startParagraph: 'Schreib deinen ersten Mumble, oder folge einem User.',
+  uploadCallback: action('uploadCallback'),
 };
 
 TextBoxStory.parameters = {

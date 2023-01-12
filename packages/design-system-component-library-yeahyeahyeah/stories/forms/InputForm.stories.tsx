@@ -72,7 +72,7 @@ const Template: ComponentStory<typeof InputForm> = (args) => {
   return (
     <>
       <Button label={'clear'} color={'slate'} fCallBack={handleClick} />
-      <InputForm {...args} setRef={setRef} setText={setText} errorMessage={errorMessage} />
+      <InputForm {...args} setRef={setRef} setText={setText} errorMessage={errorMessage} onPressEnter={handleClick} />
     </>
   );
 };
