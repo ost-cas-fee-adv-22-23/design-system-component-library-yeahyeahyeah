@@ -10,7 +10,7 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Branding', 'Mumble', 'Write-Component', 'Typography', 'Navigation', 'Form', 'Interactions', 'Icons'],
+      order: ['Branding', 'Mumble', 'Typography', 'Navigation', 'Form', 'Interactions', 'Icons'],
     },
   },
   backgrounds: {
@@ -21,8 +21,9 @@ export const parameters = {
         value: '#e2e8f0',
       },
       {
-        name: 'standard',
+        name: 'dark',
         value: '#0F172A',
+        appBg: '#F1F5F9',
       },
     ],
   },
