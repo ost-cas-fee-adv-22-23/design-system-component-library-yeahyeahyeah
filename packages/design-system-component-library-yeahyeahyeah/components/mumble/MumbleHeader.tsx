@@ -64,7 +64,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
         <Avatar src={user.avatar?.src || ''} alt={user.avatar?.alt || ''} variant="edit" />
       </div>
       <div tw="p-8 mb-32">
-        <Paragraph text={text} color="light" />
+        <Paragraph text={text} color={'light'} size={'default'} alignment={'left'} />
       </div>
     </MumbleHeaderWrapper>
   );

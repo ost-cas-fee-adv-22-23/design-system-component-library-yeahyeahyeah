@@ -76,7 +76,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
           {variant === 'start' && (
             <>
               <Heading tag="h3" label={startHeading} color="light" size="default" />
-              <Paragraph text={startParagraph} color="light" size="default" />
+              <Paragraph text={startParagraph} color="light" size="default" alignment="left" />
             </>
           )}
         </UserWrapper>

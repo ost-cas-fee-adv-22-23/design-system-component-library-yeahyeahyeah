@@ -4,10 +4,10 @@ import { BottomSpacing } from '../Spacing';
 import type { TmbSpacing } from '../../types/types';
 
 export interface IParagraphProps {
-  alignment?: 'left' | 'center' | 'right';
-  size?: 'default' | 'medium' | 'large';
-  color?: 'default' | 'dark' | 'light' | 'white';
   text: string;
+  size: 'default' | 'medium' | 'large';
+  color: 'default' | 'dark' | 'light' | 'white';
+  alignment: 'left' | 'center' | 'right';
   mbSpacing?: TmbSpacing;
 }
 
