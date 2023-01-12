@@ -14,6 +14,7 @@ export interface ITextBoxProps {
   upload: IButtonProps;
   send: IButtonProps;
   setText: React.Dispatch<React.SetStateAction<string>>;
+  setRef: React.Dispatch<React.SetStateAction<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>>;
   mbSpacing?: TmbSpacing;
   startHeading?: string;
   startParagraph?: string;
@@ -23,6 +24,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
   variant,
   startHeading = 'Hey, was läuft?',
   setText,
+  setRef,
   startParagraph = 'Schreib deinen ersten Mumble, oder folge einem User',
   user = {
     label: 'Display Name',
@@ -88,6 +90,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
           errorMessage={form.errorMessage}
           autoComplete={'off'}
           setText={setText}
+          setRef={setRef}
         />
         <Row>
           <Button
