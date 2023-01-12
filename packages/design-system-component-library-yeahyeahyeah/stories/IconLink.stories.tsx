@@ -25,7 +25,7 @@ export default {
     },
   },
   args: {
-    label: 'string',
+    label: 'username',
     color: 'slate',
     href: '#',
     type: 'username',

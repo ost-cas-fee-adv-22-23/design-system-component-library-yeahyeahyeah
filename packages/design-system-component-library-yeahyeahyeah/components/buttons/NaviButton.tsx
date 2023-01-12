@@ -2,45 +2,41 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { IconsMapped, IconTypes } from '../icons/IconMap';
-import { Avatar } from '../Avatar';
+import { Avatar, IAvatarProps } from '../Avatar';
 
 export interface INaviButtonProps {
   label: string;
-  variant?: 'icon' | 'default' | 'profile';
-  disabled?: boolean;
+  variant?: 'default' | 'profile';
   fCallBack?: () => void;
   icon?: IconTypes;
-  src?: string;
+  avatar?: IAvatarProps;
 }
 
 export const NaviButton: React.FC<INaviButtonProps> = ({
-  label,
+  label = 'Label',
   variant = 'default',
-  disabled = false,
   fCallBack,
-  icon = 'logo',
-  src = 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+  icon = 'settings',
+  avatar = {
+    variant: 'small',
+    src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+    alt: 'Alternative text',
+  },
 }) => {
   const Icon = createIcon(icon);
 
   return (
     <>
       {variant === 'default' && (
-        <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack} aria-label={label}>
+        <ButtonStyles onClick={fCallBack} aria-label={label}>
           <Icon />
           <Span>{label}</Span>
         </ButtonStyles>
       )}
 
-      {variant === 'icon' && (
-        <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack} aria-label={label}>
-          <Icon />
-        </ButtonStyles>
-      )}
-
       {variant === 'profile' && (
-        <ButtonStyles variant={variant} disabled={disabled} onClick={fCallBack} aria-label={label}>
-          <Avatar alt={'Alter Tag'} src={src} variant={'small'} />
+        <ButtonStyles onClick={fCallBack} aria-label={label}>
+          <Avatar alt={avatar.alt} src={avatar.src} variant={avatar.variant} />
         </ButtonStyles>
       )}
     </>
@@ -86,18 +82,4 @@ const buttonFocus = tw`
   focus:(bg-violet-700)
 `;
 
-const variantIcon = tw`
-  p-8
-`;
-
-interface ButtonProps {
-  variant?: string;
-}
-
-const ButtonStyles = styled.button(({ variant }: ButtonProps) => [
-  buttonFont,
-  buttonDefaults,
-  buttonHover,
-  buttonFocus,
-  variant === 'icon' && variantIcon,
-]);
+const ButtonStyles = styled.button(() => [buttonFont, buttonDefaults, buttonHover, buttonFocus]);
