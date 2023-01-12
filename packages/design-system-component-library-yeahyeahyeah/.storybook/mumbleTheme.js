@@ -7,7 +7,7 @@ export default create({
   brandTitle: 'Mumble Component Library',
   brandUrl: '/',
   brandImage:
-    'https://raw.githubusercontent.com/smartive-education/design-system-component-library-yeahyeahyeah/master/packages/design-system-component-library-yeahyeahyeah/components/icons/svg/mumble-gradient.svg',
+    'https://raw.githubusercontent.com/smartive-education/design-system-component-library-yeahyeahyeah/master/packages/design-system-component-library-yeahyeahyeah/stories/assets/mumble-logo.svg',
   brandTarget: '_self',
 
   fontBase: '"Poppins", sans-serif',

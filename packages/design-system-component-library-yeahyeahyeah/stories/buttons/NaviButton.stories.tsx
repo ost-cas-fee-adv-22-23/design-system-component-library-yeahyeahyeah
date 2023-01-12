@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { NaviButton } from '../../components/buttons/NaviButton';
 import { IconsMapped } from '../../components/icons/IconMap';
+import NaviButtonReadme from '../../docs/NaviButton.md';
 
 export default {
   title: 'Navigation',
@@ -63,6 +64,9 @@ NaviButtonStory.args = {
 NaviButtonStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
+    description: {
+      component: NaviButtonReadme,
+    },
   },
 };
 
