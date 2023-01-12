@@ -4,16 +4,17 @@ import { BottomSpacing } from '../Spacing';
 import type { TmbSpacing } from '../../types/types';
 
 export interface IParagraphProps {
+  text: string;
   size?: 'default' | 'medium' | 'large';
   color?: 'default' | 'dark' | 'light' | 'white';
-  text: string;
+  alignment?: 'left' | 'center' | 'right';
   mbSpacing?: TmbSpacing;
 }
 
-export const Paragraph: React.FC<IParagraphProps> = ({ size = 'medium', color = 'default', mbSpacing, text }) => {
+export const Paragraph: React.FC<IParagraphProps> = ({ size = 'medium', color = 'default', mbSpacing, text, alignment }) => {
   return (
     <>
-      <ParagraphStyles size={size} color={color} mbSpacing={mbSpacing}>
+      <ParagraphStyles size={size} color={color} mbSpacing={mbSpacing} alignment={alignment}>
         {text}
       </ParagraphStyles>
     </>
@@ -24,10 +25,20 @@ interface IParagraphStylesProps {
   size: string;
   color?: string;
   mbSpacing?: TmbSpacing;
+  alignment?: string;
 }
 
-const paragraphDefaults = tw`font-medium`;
-const paragraphMedium = tw`text-base font-medium`; // leading-loose
+const Aligment = ({ alignment }: IParagraphStylesProps) => [
+  tw`
+    text-left
+  `,
+  alignment === 'left' && tw`text-left`,
+  alignment === 'center' && tw`text-center`,
+  alignment === 'right' && tw`text-right`,
+];
+
+const paragraphDefaults = tw`font-medium w-full`;
+const paragraphMedium = tw`text-base font-medium`;
 const paragraphLarge = tw`text-lg font-medium`;
 const paragraphColorDark = tw`text-slate-900`;
 const paragraphColorLight = tw`text-slate-500`;
@@ -38,6 +49,7 @@ const ParagraphStyles = styled.p(({ size, color }: IParagraphStylesProps) => [
     `,
   paragraphDefaults,
   BottomSpacing,
+  Aligment,
   size === 'large' && paragraphLarge,
   size === 'medium' && paragraphMedium,
   color === 'dark' && paragraphColorDark,

@@ -59,6 +59,7 @@ ButtonStory.parameters = {
     source: { type: 'dynamic' },
     description: {
       component: Readme,
+      language: 'javascript',
     },
   },
 };

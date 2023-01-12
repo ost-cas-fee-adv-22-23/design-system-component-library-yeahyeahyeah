@@ -112,7 +112,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
               </AvatarWrapper>
             </UserWrapper>
             <Row>
-              <Paragraph size={'large'} color={'dark'} text={text} mbSpacing={'16'} />
+              <Paragraph size={'large'} color={'dark'} text={text} mbSpacing={'16'} alignment={'left'} />
               <ImageContainer type="container" alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
               <InteractionButton fCallBack={comment.fCallBack} quantity={comment.quantity} type="comment" />
               <InteractionButton fCallBack={like.fCallBack} quantity={like.quantity} type="like" />
@@ -142,7 +142,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
             </AvatarWrapper>
           </UserWrapper>
           <Row>
-            <Paragraph size={'medium'} color={'dark'} text={text} mbSpacing={'16'} />
+            <Paragraph size={'medium'} color={'dark'} text={text} mbSpacing={'16'} alignment={'left'} />
             <ImageContainer type="container" alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
             <InteractionButton fCallBack={comment.fCallBack} quantity={comment.quantity} type="comment" />
             <InteractionButton fCallBack={like.fCallBack} quantity={like.quantity} type="like" />
@@ -163,7 +163,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
             />
           </Row>
           <Row>
-            <Paragraph size={'medium'} color={'dark'} text={text} mbSpacing={'16'} />
+            <Paragraph size={'medium'} color={'dark'} text={text} mbSpacing={'16'} alignment={'left'} />
             <ImageContainer type="container" alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
             <InteractionButton fCallBack={comment.fCallBack} quantity={comment.quantity} type="comment" />
             <InteractionButton fCallBack={like.fCallBack} quantity={like.quantity} type="like" />

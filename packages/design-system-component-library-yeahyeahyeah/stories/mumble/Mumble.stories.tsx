@@ -8,7 +8,7 @@ export default {
   component: Mumble,
   argTypes: {
     variant: {
-      defaultValue: 'timeline',
+      control: 'select',
     },
     user: {
       control: {
@@ -89,6 +89,9 @@ export default {
       options: ['0', '2', '4', '8', '16', '32', '64'],
       defaultValue: '0',
     },
+  },
+  args: {
+    variant: 'timeline',
   },
 } as ComponentMeta<typeof Mumble>;
 
