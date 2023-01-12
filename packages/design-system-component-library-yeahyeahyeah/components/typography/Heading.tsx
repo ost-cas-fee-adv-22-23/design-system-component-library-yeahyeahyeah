@@ -6,8 +6,9 @@ import type { TmbSpacing } from '../../types/types';
 export interface IHeadingProps {
   label: string;
   tag: 'h1' | 'h2' | 'h3' | 'h4' | 'span';
-  color?: 'light' | 'medium' | 'dark' | 'violet' | 'pink' | 'white';
   size: 'default' | 'xlarge' | 'large' | 'medium' | 'small';
+  color: 'light' | 'medium' | 'dark' | 'violet' | 'pink' | 'white';
+  alignment?: 'left' | 'center' | 'right';
   mbSpacing?: TmbSpacing;
 }
 
@@ -17,16 +18,35 @@ export const Heading: React.FC<IHeadingProps> = ({
   color = 'default',
   size = 'default',
   mbSpacing = '0',
+  alignment,
 }) => {
-  const props = { label, tag, color, size, mbSpacing };
-
   return (
     <>
-      {tag === 'h1' && <H1Styles {...props}>{label}</H1Styles>}
-      {tag === 'h2' && <H2Styles {...props}>{label}</H2Styles>}
-      {tag === 'h3' && <H3Styles {...props}>{label}</H3Styles>}
-      {tag === 'h4' && <H4Styles {...props}>{label}</H4Styles>}
-      {tag === 'span' && <SpanStyles {...props}>{label}</SpanStyles>}
+      {tag === 'h1' && (
+        <H1Styles tag={tag} color={color} size={size} mbSpacing={mbSpacing} alignment={alignment}>
+          {label}
+        </H1Styles>
+      )}
+      {tag === 'h2' && (
+        <H2Styles tag={tag} color={color} size={size} mbSpacing={mbSpacing} alignment={alignment}>
+          {label}
+        </H2Styles>
+      )}
+      {tag === 'h3' && (
+        <H3Styles tag={tag} color={color} size={size} mbSpacing={mbSpacing} alignment={alignment}>
+          {label}
+        </H3Styles>
+      )}
+      {tag === 'h4' && (
+        <H4Styles tag={tag} color={color} size={size} mbSpacing={mbSpacing} alignment={alignment}>
+          {label}
+        </H4Styles>
+      )}
+      {tag === 'span' && (
+        <SpanStyles tag={tag} color={color} size={size} mbSpacing={mbSpacing} alignment={alignment}>
+          {label}
+        </SpanStyles>
+      )}
     </>
   );
 };
@@ -36,7 +56,17 @@ interface IHeadingStylesProps {
   size: string;
   tag: string;
   mbSpacing?: TmbSpacing;
+  alignment?: string;
 }
+
+const Alignment = ({ alignment }: IHeadingStylesProps) => [
+  tw`
+    text-left
+  `,
+  alignment === 'left' && tw`text-left`,
+  alignment === 'center' && tw`text-center`,
+  alignment === 'right' && tw`text-right`,
+];
 
 const HeadingSize = ({ size, tag }: IHeadingStylesProps) => [
   tw`
@@ -63,45 +93,50 @@ const HeadingColor = ({ color }: IHeadingStylesProps) => [
 
 const H1Styles = styled.h1(() => [
   tw`
-    text-4xl font-bold
+    text-4xl font-bold w-full
 	`,
   HeadingColor,
   HeadingSize,
   BottomSpacing,
+  Alignment,
 ]);
 
 const H2Styles = styled.h2(() => [
   tw`
-    text-3xl font-bold
+    text-3xl font-bold w-full
 	`,
   HeadingColor,
   HeadingSize,
   BottomSpacing,
+  Alignment,
 ]);
 
 const H3Styles = styled.h3(() => [
   tw`
-    text-2xl
+    text-2xl w-full
 	`,
   HeadingColor,
   HeadingSize,
   BottomSpacing,
+  Alignment,
 ]);
 
 const H4Styles = styled.h4(() => [
   tw`
-    text-xl
+    text-xl w-full
 	`,
   HeadingColor,
   HeadingSize,
   BottomSpacing,
+  Alignment,
 ]);
 
 const SpanStyles = styled.span(() => [
   tw`
-    text-xl
+    text-xl w-full
 	`,
   HeadingColor,
   HeadingSize,
   BottomSpacing,
+  Alignment,
 ]);

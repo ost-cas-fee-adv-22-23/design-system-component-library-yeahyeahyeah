@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Heading } from '../../components/typography/Heading';
+import HeadingReadme from '../../docs/Heading.md';
 
 export default {
   title: 'Typography',
@@ -39,5 +40,14 @@ export default {
 const Template: ComponentStory<typeof Heading> = (args) => <Heading {...args} />;
 
 export const HeadingStory = Template.bind({});
+
+HeadingStory.parameters = {
+  docs: {
+    source: { type: 'dynamic' },
+    description: {
+      component: HeadingReadme,
+    },
+  },
+};
 
 HeadingStory.storyName = 'Heading';
