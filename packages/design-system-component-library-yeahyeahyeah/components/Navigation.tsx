@@ -5,7 +5,7 @@ import { MumbleLogo, IMumbleLogoProps } from './branding/MumbleLogo';
 import { NaviButton, INaviButtonProps } from './buttons/NaviButton';
 export interface INavigationProps {
   logo: IMumbleLogoProps;
-  avatar: INaviButtonProps;
+  avatar?: INaviButtonProps;
   settings: INaviButtonProps;
   logout: INaviButtonProps;
 }
@@ -58,7 +58,7 @@ export const Navigation: React.FC<INavigationProps> = ({
                 isNavigation={true}
               />
               <Row>
-                <NaviButton variant={avatar.variant} label={avatar.label} fCallBack={avatar.fCallBack} src={avatar.src} />
+                <NaviButton variant={avatar.variant} label={avatar.label} fCallBack={avatar.fCallBack} />
                 <NaviButton
                   icon={settings.icon}
                   label={settings.label}

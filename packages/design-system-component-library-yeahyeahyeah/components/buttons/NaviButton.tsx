@@ -9,7 +9,7 @@ export interface INaviButtonProps {
   variant?: 'default' | 'profile';
   fCallBack?: () => void;
   icon?: IconTypes;
-  avatar: IAvatarProps;
+  avatar?: IAvatarProps;
 }
 
 export const NaviButton: React.FC<INaviButtonProps> = ({
