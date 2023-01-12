@@ -9,40 +9,20 @@ export default {
   component: NaviButton,
   argTypes: {
     label: {
-      name: 'label',
-      defaultValue: 'Label',
+      control: 'text',
     },
     variant: {
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
     fCallBack: {
       action: () => 'handleClick',
     },
-    width: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    size: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    disabled: {
-      control: {
-        type: 'boolean',
-      },
-      defaultValue: false,
-    },
     icon: {
       control: 'select',
       options: Object.keys(IconsMapped),
-      name: 'Icon',
-      defaultValue: 'settings',
+    },
+    avatar: {
+      control: 'object',
     },
   },
 } as ComponentMeta<typeof NaviButton>;
@@ -50,15 +30,45 @@ export default {
 const Template: ComponentStory<typeof NaviButton> = (args) => {
   return <NaviButton {...args} />;
 };
-/**
- * @button
- * @desc button standard slate
- */
+export const ProfileButtonStory = Template.bind({});
+
+// PROFILE BUTTON
+ProfileButtonStory.argTypes = {
+  icon: {
+    control: false,
+  },
+};
+
+ProfileButtonStory.args = {
+  label: 'Label',
+  variant: 'profile',
+  avatar: {
+    variant: 'small',
+    src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+    alt: 'Alternative text',
+  },
+};
+
+ProfileButtonStory.parameters = {
+  docs: {
+    source: { type: 'dynamic' },
+    description: {
+      component: NaviButtonReadme,
+    },
+  },
+};
+
+ProfileButtonStory.storyName = 'Profil Button';
+
 export const NaviButtonStory = Template.bind({});
+
+// NAVI BUTTON
+NaviButtonStory.argTypes = {};
 
 NaviButtonStory.args = {
   label: 'Label',
   variant: 'default',
+  icon: 'settings',
 };
 
 NaviButtonStory.parameters = {
