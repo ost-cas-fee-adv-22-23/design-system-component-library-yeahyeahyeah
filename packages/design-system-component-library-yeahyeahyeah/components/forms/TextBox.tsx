@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import tw, { styled } from 'twin.macro';
 import { User, IUserProps } from '../User';
 import { InputForm, IFormInputProps } from './InputForm';
@@ -9,11 +9,10 @@ import type { TmbSpacing } from '../../types/types';
 
 export interface ITextBoxProps {
   user: IUserProps;
-  form: IFormInputProps;
+  form: Pick<IFormInputProps, 'placeholder' | 'errorMessage' | 'setRef' | 'setText'>;
   variant: 'write' | 'inline' | 'start';
-  upload: IButtonProps;
-  send: IButtonProps;
-  setText: React.Dispatch<React.SetStateAction<string>>;
+  uploadCallback: () => void;
+  sendCallback: () => void;
   mbSpacing?: TmbSpacing;
   startHeading?: string;
   startParagraph?: string;
@@ -22,7 +21,6 @@ export interface ITextBoxProps {
 export const TextBox: React.FC<ITextBoxProps> = ({
   variant,
   startHeading = 'Hey, was läuft?',
-  setText,
   startParagraph = 'Schreib deinen ersten Mumble, oder folge einem User',
   user = {
     label: 'Display Name',
@@ -40,31 +38,44 @@ export const TextBox: React.FC<ITextBoxProps> = ({
     placeholder: 'Na, was meinste dazu ...?',
     errorMessage: 'Da ist etwas schief gelaufen',
   },
-  upload = {
+  uploadCallback = () => {
+    null;
+  },
+  sendCallback = () => {
+    null;
+  },
+}) => {
+  const upload: IButtonProps = {
     label: 'Bild hochladen',
     icon: 'upload',
     size: 'small',
     type: 'button',
     color: 'slate',
     width: 'full',
-    fCallBack: () => {
-      return null;
-    },
-  },
-  send = {
+  };
+
+  const send: IButtonProps = {
     label: 'Absenden',
     icon: 'send',
     size: 'small',
     type: 'button',
     color: 'violet',
     width: 'full',
-    fCallBack: () => {
-      return null;
-    },
-  },
-}) => {
+  };
+
+  const ref = useRef<HTMLFormElement>(null);
+
+  const onPressEnter = () => {
+    sendCallback();
+  };
+
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    sendCallback();
+  };
+
   return (
-    <>
+    <form ref={ref} onSubmit={handleSubmit}>
       <Card variant={variant}>
         <UserWrapper variant={variant} mbSpacing={'16'}>
           {variant === 'write' && (
@@ -87,11 +98,13 @@ export const TextBox: React.FC<ITextBoxProps> = ({
           placeholder={form.placeholder}
           errorMessage={form.errorMessage}
           autoComplete={'off'}
-          setText={setText}
+          setText={form.setText}
+          setRef={form.setRef}
+          onPressEnter={onPressEnter}
         />
         <Row>
           <Button
-            fCallBack={upload.fCallBack}
+            fCallBack={uploadCallback}
             label={upload.label}
             size={upload.size}
             type={upload.type}
@@ -100,26 +113,25 @@ export const TextBox: React.FC<ITextBoxProps> = ({
             icon={upload.icon}
           />
           <Button
-            fCallBack={send.fCallBack}
             label={send.label}
             size={send.size}
-            type={send.type}
+            type={'submit'}
             color={send.color}
             width={send.width}
             icon={send.icon}
           />
         </Row>
       </Card>
-    </>
+    </form>
   );
 };
 
 interface ICard {
-  variant?: string;
-  mbSpacing?: string;
+  variant: string;
+  mbSpacing: string;
 }
 
-const Card = styled.div(({ variant }: ICard) => [
+const Card = styled.div(({ variant }: Pick<ICard, 'variant'>) => [
   tw`
     flex
     flex-col

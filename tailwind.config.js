@@ -139,6 +139,9 @@ module.exports = {
         800: '#9d174d',
         900: '#831843',
       },
+      red: {
+        DEFAULT: '#FF0000',
+      },
     },
     container: {
       center: true,

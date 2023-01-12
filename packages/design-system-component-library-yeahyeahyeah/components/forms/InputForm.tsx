@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import tw, { styled } from 'twin.macro';
 import { Eye } from '../icons/index';
 
@@ -10,8 +10,11 @@ export interface IFormInputProps {
   placeholder?: string;
   errorMessage: string;
   autoComplete: 'off' | 'on';
-  handleClick?: () => void;
   setText?: React.Dispatch<React.SetStateAction<string>>;
+  setRef?: React.Dispatch<
+    React.SetStateAction<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>
+  >;
+  onPressEnter?: () => void;
 }
 
 export const InputForm: React.FC<IFormInputProps> = ({
@@ -23,11 +26,26 @@ export const InputForm: React.FC<IFormInputProps> = ({
   errorMessage,
   autoComplete = 'off',
   setText,
+  setRef,
+  onPressEnter,
 }) => {
   const [buttonType, setbuttonType] = useState(type);
 
   const showPassword = () => {
     buttonType === 'password' ? setbuttonType('text') : setbuttonType('password');
+  };
+
+  const ref = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
+
+  useEffect(() => {
+    setRef && setRef(ref);
+  }, [ref]);
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.code === 'Enter' && e.shiftKey == false) {
+      e.preventDefault();
+      onPressEnter && onPressEnter();
+    }
   };
 
   return (
@@ -43,7 +61,10 @@ export const InputForm: React.FC<IFormInputProps> = ({
               required={required}
               maxLength={150}
               autoComplete={autoComplete}
-              onChange={(e) => setText && setText(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setText && setText(e.target.value)}
+              onKeyDown={handleKeyDown}
+              ref={ref}
+              error={errorMessage ? 'true' : 'false'}
             />
             {type === 'password' && <Eye tw="absolute right-16 cursor-pointer" onClick={showPassword} />}
           </FormInlineWrapperStyles>
@@ -52,26 +73,31 @@ export const InputForm: React.FC<IFormInputProps> = ({
       )}
 
       {editType === 'textarea' && (
-        <>
-          <FormLabel htmlFor={label}>
-            {label}
-            <TextareaStyles
-              id={label}
-              rows={20}
-              cols={30}
-              aria-colspan={10}
-              maxLength={500}
-              required={required}
-              placeholder={placeholder}
-              onChange={(e) => setText && setText(e.target.value)}
-            />
-            <FormFieldError>{errorMessage}</FormFieldError>
-          </FormLabel>
-        </>
+        <FormLabel htmlFor={label}>
+          {label}
+          <TextArea
+            id={label}
+            rows={20}
+            cols={30}
+            aria-colspan={10}
+            maxLength={500}
+            required={required}
+            placeholder={placeholder}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setText && setText(e.target.value)}
+            onKeyDown={handleKeyDown}
+            ref={ref}
+            error={errorMessage ? 'true' : 'false'}
+          />
+          <FormFieldError>{errorMessage}</FormFieldError>
+        </FormLabel>
       )}
     </>
   );
 };
+
+interface IStyled {
+  error: string;
+}
 
 /**
  * @Form: Input, Textarea, Label
@@ -85,7 +111,7 @@ const FormFieldError = styled.p(() => [
     items-center
     text-xxs
     font-medium
-    text-pink-700
+    text-red
     mt-4
   `,
 ]);
@@ -112,59 +138,64 @@ const FormInlineWrapperStyles = styled.div(() => [
   `,
 ]);
 
+// eslint-disable-next-line
+const _TextArea: any = React.forwardRef(
+  (props: Pick<IFormInputProps, 'required' | 'autoComplete'>, ref?: React.Ref<any>) => {
+    return <textarea {...props} ref={ref} />;
+  }
+);
+
 // TEXTAREA
-const TextareaStyles = styled.textarea(() => [
+const TextArea = styled(_TextArea)(({ error }: IStyled) => [
   tw`
-  text-slate-900
+    text-slate-500
+    bg-slate-100
     font-medium
     text-md
     leading-6
-
     flex
     flex-row
     justify-start
     items-start
     p-16
     rounded
-    
     w-full
     h-[160px]
     min-h-[calc(4.375rem)]
-    
-  bg-slate-100
-    border-2
-    border-slate-100
+    border-1
     outline-none
-  
-    hover:(border-2 border-slate-200)
-    active:(border-2 border-violet-600)
-    focus:(border-2 border-violet-600)
-    placeholder:(font-normal text-slate-500)
+    placeholder:(font-normal text-slate-300)
   `,
+  error === 'true'
+    ? tw`ring-0 border-red hover:(ring-0 border-red) focus:(ring-0 border-red) focus-within:(ring-0 border-red)`
+    : tw`ring-0 border-slate-200 hover:(ring-0 border-violet-700) focus:(ring-0 border-violet-700) focus-within:(ring-0 border-violet-700)`,
 ]);
 
+// eslint-disable-next-line
+const _Input: any = React.forwardRef((props: Pick<IFormInputProps, 'required' | 'autoComplete'>, ref?: React.Ref<any>) => {
+  return <input {...props} ref={ref} />;
+});
+
 // INPUT
-const InputStyles = styled.input(() => [
+const InputStyles = styled(_Input)(({ error }: IStyled) => [
   tw`
-    peer-invalid:border-pink-700
-  text-slate-500
+    text-slate-500
+    bg-slate-50
     font-medium
     text-sm
     leading
-
     flex
     flex-row
     justify-start
     items-start
     form-input
     w-full
-    
     rounded
     border-1
-    border-slate-200
-    hover:border-violet-700
-    focus:border-violet-700
     placeholder:(font-normal text-slate-300)
-    bg-slate-50
+    
   `,
+  error === 'true'
+    ? tw`ring-0 border-red hover:(ring-0 border-red) focus:(ring-0 border-red) focus-within:(ring-0 border-red)`
+    : tw`ring-0 border-slate-200 hover:(ring-0 border-violet-700) focus:(ring-0 border-violet-700) focus-within:(ring-0 border-violet-700)`,
 ]);
