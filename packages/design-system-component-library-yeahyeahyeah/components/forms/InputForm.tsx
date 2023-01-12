@@ -11,7 +11,9 @@ export interface IFormInputProps {
   errorMessage: string;
   autoComplete: 'off' | 'on';
   setText?: React.Dispatch<React.SetStateAction<string>>;
-  setRef?: React.Dispatch<React.SetStateAction<any>>;
+  setRef?: React.Dispatch<
+    React.SetStateAction<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>
+  >;
 }
 
 export const InputForm: React.FC<IFormInputProps> = ({
@@ -31,10 +33,9 @@ export const InputForm: React.FC<IFormInputProps> = ({
     buttonType === 'password' ? setbuttonType('text') : setbuttonType('password');
   };
 
-  const ref = useRef(null);
+  const ref = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
-    console.log('ref', ref);
     setRef && setRef(ref);
   }, [ref]);
 
@@ -122,6 +123,7 @@ const FormInlineWrapperStyles = styled.div(() => [
   `,
 ]);
 
+// eslint-disable-next-line
 const _TextArea: any = React.forwardRef((props: IFormInputProps, ref?: React.Ref<any>) => {
   return <textarea {...props} ref={ref} />;
 });
@@ -157,6 +159,7 @@ const TextArea = styled(_TextArea)(() => [
   `,
 ]);
 
+// eslint-disable-next-line
 const _Input: any = React.forwardRef((props: IFormInputProps, ref?: React.Ref<any>) => {
   return <input {...props} ref={ref} />;
 });

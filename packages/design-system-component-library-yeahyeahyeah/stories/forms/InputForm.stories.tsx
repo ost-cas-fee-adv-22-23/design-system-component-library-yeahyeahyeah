@@ -49,7 +49,7 @@ export default {
 } as ComponentMeta<typeof InputForm>;
 
 const Template: ComponentStory<typeof InputForm> = (args) => {
-  const [ref, setRef] = useState<any>(null);
+  const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
   const [text, setText] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('Bitte füllen Sie das Feld aus.');
 
