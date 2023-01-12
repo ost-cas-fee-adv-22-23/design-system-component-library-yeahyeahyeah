@@ -6,59 +6,6 @@ import { action } from '@storybook/addon-actions';
 export default {
   title: 'Form',
   component: TextBox,
-  argTypes: {
-    variant: {
-      control: 'select',
-      table: {
-        summary: 'write',
-      },
-    },
-    user: {
-      control: {
-        type: 'object',
-      },
-    },
-    form: {
-      control: {
-        type: 'object',
-      },
-      defaultValue: {
-        required: false,
-        autoComplete: 'off',
-        errorMessage: 'Da ist etwas schief gelaufen',
-        placeholder: 'Na, was meinste dazu ...?',
-        editType: 'textarea',
-      },
-    },
-    setText: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    mbSpacing: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    startHeading: {
-      control: 'text',
-      table: {
-        defaultValue: {
-          summary: 'Hey, was läuft',
-        },
-      },
-    },
-    startParagraph: {
-      control: 'text',
-      table: {
-        defaultValue: {
-          summary: 'Schreib deinen ersten Mumble, oder folge einem User.',
-        },
-      },
-    },
-  },
 } as ComponentMeta<typeof TextBox>;
 
 const Template: ComponentStory<typeof TextBox> = (args) => {
@@ -98,6 +45,18 @@ const Template: ComponentStory<typeof TextBox> = (args) => {
 export const TextBoxStory = Template.bind({});
 
 TextBoxStory.argTypes = {
+  variant: {
+    control: 'select',
+    table: {
+      summary: 'write',
+    },
+  },
+  mbSpacing: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
   user: {
     control: {
       type: 'object',
@@ -114,6 +73,24 @@ TextBoxStory.argTypes = {
         src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
         alt: 'Family Guy goes Mumble',
       },
+    },
+    table: {
+      disable: true,
+    },
+  },
+  form: {
+    table: {
+      disable: true,
+    },
+  },
+  uploadCallback: {
+    table: {
+      disable: true,
+    },
+  },
+  sendCallback: {
+    table: {
+      disable: true,
     },
   },
 };

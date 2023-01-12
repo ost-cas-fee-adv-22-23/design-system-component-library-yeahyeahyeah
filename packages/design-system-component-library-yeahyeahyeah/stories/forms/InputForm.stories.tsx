@@ -6,47 +6,6 @@ import { Button } from '../../index';
 export default {
   title: 'Form/Input',
   component: InputForm,
-  argTypes: {
-    type: {
-      control: {
-        type: 'select',
-      },
-      name: 'type',
-      defaultValue: 'text',
-    },
-    placeholder: {
-      name: 'placeholder',
-      defaultValue: 'Placeholder',
-    },
-    width: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    required: {
-      control: {
-        type: 'boolean',
-      },
-      defaultValue: false,
-    },
-    errorMessage: {
-      name: 'errorMessage',
-      defaultValue: 'Error Message',
-    },
-    editType: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    autoComplete: {
-      control: {
-        type: 'select',
-      },
-      defaultValue: 'off',
-    },
-  },
 } as ComponentMeta<typeof InputForm>;
 
 const Template: ComponentStory<typeof InputForm> = (args) => {
@@ -55,7 +14,6 @@ const Template: ComponentStory<typeof InputForm> = (args) => {
   const [errorMessage, setErrorMessage] = useState<string>('Bitte füllen Sie das Feld aus.');
 
   const handleClick = () => {
-    console.log('ref', ref);
     if (ref?.current) ref.current.value = '';
     setErrorMessage('Bitte füllen Sie das Feld aus.');
   };
@@ -83,9 +41,56 @@ const Template: ComponentStory<typeof InputForm> = (args) => {
  */
 export const FormInputStory = Template.bind({});
 
+FormInputStory.argTypes = {
+  editType: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+  required: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+  errorMessage: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+  autoComplete: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+  setText: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+  setRef: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+  onPressEnter: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+};
+
 FormInputStory.args = {
   editType: 'input',
   label: 'Label',
+  required: false,
+  placeholder: 'Was gibt es neues ?',
 };
 
 FormInputStory.parameters = {
@@ -109,13 +114,37 @@ TextAreaStory.argTypes = {
       disable: true,
     },
   },
-  type: {
+  required: {
     control: false,
     table: {
       disable: true,
     },
   },
-  required: {
+  errorMessage: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+  autoComplete: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+  setText: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+  setRef: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+  onPressEnter: {
     control: false,
     table: {
       disable: true,
@@ -125,10 +154,9 @@ TextAreaStory.argTypes = {
 
 TextAreaStory.args = {
   editType: 'textarea',
-  type: undefined,
   label: 'Label',
   required: false,
-  placeholder: 'Was gibt es neues',
+  placeholder: 'Was gibt es neues ?',
 };
 
 TextAreaStory.parameters = {
