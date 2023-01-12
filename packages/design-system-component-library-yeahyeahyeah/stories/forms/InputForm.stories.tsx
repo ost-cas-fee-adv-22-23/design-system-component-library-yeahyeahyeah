@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { InputForm } from '../../components/forms/InputForm';
+import { Button } from '../../index';
 
 export default {
   title: 'Form/Input',
@@ -70,7 +71,7 @@ const Template: ComponentStory<typeof InputForm> = (args) => {
 
   return (
     <>
-      <button onClick={handleClick}>Clear</button>
+      <Button label={'clear'} color={'slate'} fCallBack={handleClick} />
       <InputForm {...args} setRef={setRef} setText={setText} errorMessage={errorMessage} />
     </>
   );

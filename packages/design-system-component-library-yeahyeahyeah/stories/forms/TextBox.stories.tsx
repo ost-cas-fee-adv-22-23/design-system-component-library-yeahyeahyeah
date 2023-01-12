@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TextBox } from '../../components/forms/TextBox';
 import { action } from '@storybook/addon-actions';
@@ -90,13 +90,36 @@ export default {
 } as ComponentMeta<typeof TextBox>;
 
 const Template: ComponentStory<typeof TextBox> = (args) => {
-  const [text, setText] = React.useState<string>('');
+  const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
+  const [text, setText] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>('Bitte füllen Sie das Feld aus.');
+
+  const handleSend = () => {
+    if (ref?.current) ref.current.value = '';
+    setErrorMessage('Bitte füllen Sie das Feld aus.');
+  };
 
   useEffect(() => {
     console.log('text', text);
+    if (text === '') {
+      setErrorMessage('Bitte füllen Sie das Feld aus.');
+    } else {
+      setErrorMessage('');
+    }
   }, [text]);
 
-  return <TextBox {...args} setText={setText} />;
+  return (
+    <TextBox
+      {...args}
+      form={{
+        errorMessage: errorMessage,
+        placeholder: 'Hast du uns etwas mitzuteilen ?',
+        setRef: setRef,
+        setText: setText,
+      }}
+      sendCallback={handleSend}
+    />
+  );
 };
 
 // WRITE STORY

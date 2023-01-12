@@ -9,12 +9,10 @@ import type { TmbSpacing } from '../../types/types';
 
 export interface ITextBoxProps {
   user: IUserProps;
-  form: IFormInputProps;
+  form: Pick<IFormInputProps, 'placeholder' | 'errorMessage' | 'setRef' | 'setText'>;
   variant: 'write' | 'inline' | 'start';
-  upload: IButtonProps;
-  send: IButtonProps;
-  setText: React.Dispatch<React.SetStateAction<string>>;
-  setRef: React.Dispatch<React.SetStateAction<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>>;
+  uploadCallback: () => void;
+  sendCallback: () => void;
   mbSpacing?: TmbSpacing;
   startHeading?: string;
   startParagraph?: string;
@@ -23,8 +21,6 @@ export interface ITextBoxProps {
 export const TextBox: React.FC<ITextBoxProps> = ({
   variant,
   startHeading = 'Hey, was läuft?',
-  setText,
-  setRef,
   startParagraph = 'Schreib deinen ersten Mumble, oder folge einem User',
   user = {
     label: 'Display Name',
@@ -42,29 +38,31 @@ export const TextBox: React.FC<ITextBoxProps> = ({
     placeholder: 'Na, was meinste dazu ...?',
     errorMessage: 'Da ist etwas schief gelaufen',
   },
-  upload = {
+  uploadCallback = () => {
+    null;
+  },
+  sendCallback = () => {
+    null;
+  },
+}) => {
+  const upload: IButtonProps = {
     label: 'Bild hochladen',
     icon: 'upload',
     size: 'small',
     type: 'button',
     color: 'slate',
     width: 'full',
-    fCallBack: () => {
-      return null;
-    },
-  },
-  send = {
+  };
+
+  const send: IButtonProps = {
     label: 'Absenden',
     icon: 'send',
     size: 'small',
     type: 'button',
     color: 'violet',
     width: 'full',
-    fCallBack: () => {
-      return null;
-    },
-  },
-}) => {
+  };
+
   return (
     <>
       <Card variant={variant}>
@@ -89,12 +87,12 @@ export const TextBox: React.FC<ITextBoxProps> = ({
           placeholder={form.placeholder}
           errorMessage={form.errorMessage}
           autoComplete={'off'}
-          setText={setText}
-          setRef={setRef}
+          setText={form.setText}
+          setRef={form.setRef}
         />
         <Row>
           <Button
-            fCallBack={upload.fCallBack}
+            fCallBack={uploadCallback}
             label={upload.label}
             size={upload.size}
             type={upload.type}
@@ -103,7 +101,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
             icon={upload.icon}
           />
           <Button
-            fCallBack={send.fCallBack}
+            fCallBack={sendCallback}
             label={send.label}
             size={send.size}
             type={send.type}
