@@ -24,25 +24,33 @@ import { IconLink } from '@smartive-education/design-system-component-library-ye
 ### Username
 
 ```js
+
 <IconLink fCallBack={() => {}} href="#" label="Username" type="username" color="violet" />
+
 ```
 
 ### Timestamp
 
 ```js
+
 <IconLink fCallBack={() => {}} href="#" label="Timestamp" type="timestamp" color="slate" />
+
 ```
 
 ### Location
 
 ```js
+
 <IconLink fCallBack={() => {}} href="#" label="Location" type="location" color="slate" />
+
 ```
 
 ### Joined
 
 ```js
+
 <IconLink fCallBack={() => {}} href="#" label="Joined" type="joined" color="slate" />
+
 ```
 
 ## Mumble **Color** Guidelines
