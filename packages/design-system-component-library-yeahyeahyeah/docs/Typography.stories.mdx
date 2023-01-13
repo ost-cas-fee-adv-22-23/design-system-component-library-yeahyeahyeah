@@ -1,31 +1,47 @@
-<!-- Typography.stories.mdx -->
-
 import { Meta, Typeset } from '@storybook/addon-docs/blocks';
 import { theme } from '../docs/config.js';
 export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
 <Meta title="Guidelines/Typography" />
 
-# Typography
+# Font
 
 ## Font Poppins, sans-serif
 
-**Reference: Google Font** [Poppins](https://fonts.google.com/specimen/Poppins 'Google Fonts: Poppins')
+**Google Font**: [Poppins](https://fonts.google.com/specimen/Poppins 'Google Fonts: Poppins')
+
+## Default Font Size:
+
+| Property    | Value           |
+| ----------- | --------------- |
+| font-size   | 18px / 1.125rem |
+| line-height | 25px            |
+| color       | _slate 900_     |
+
+### Sample
+
+<Typeset
+  fontWeight={500}
+  fontSizes={[theme.fontSize['base'][0]]}
+  color={'#cccccc'}
+  sampleText={SampleText}
+  fontFamily={theme.fontFamily.poppins}
+/>
 
 ## Font sizes
 
 <Typeset
   fontSizes={[
-    String(theme.fontSize['xxs'][0]),
-    String(theme.fontSize['xs'][0]),
-    String(theme.fontSize['sm'][0]),
-    String(theme.fontSize['base'][0]),
-    String(theme.fontSize['md'][0]),
-    String(theme.fontSize['lg'][0]),
-    String(theme.fontSize['xl'][0]),
-    String(theme.fontSize['2xl'][0]),
-    String(theme.fontSize['3xl'][0]),
-    String(theme.fontSize['4xl'][0]),
+    theme.fontSize['xxs'][0],
+    theme.fontSize['xs'][0],
+    theme.fontSize['sm'][0],
+    theme.fontSize['base'][0],
+    theme.fontSize['md'][0],
+    theme.fontSize['lg'][0],
+    theme.fontSize['xl'][0],
+    theme.fontSize['2xl'][0],
+    theme.fontSize['3xl'][0],
+    theme.fontSize['4xl'][0],
   ]}
   color={'#cccccc'}
   fontWeight={theme.fontWeight['bold']}
@@ -33,46 +49,44 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
   fontFamily={theme.fontFamily.poppins}
 />
 
-## Default font style
-
-<Typeset
-  fontWeight={500}
-  fontSizes={['18px', theme.fontSize['base'][0]]}
-  color={'#cccccc'}
-  sampleText={SampleText}
-  fontFamily={theme.fontFamily.poppins}
-/>
-
 ## Font Weights
+
+### 300
 
 <Typeset
   fontWeight={300}
   fontSizes={[theme.fontSize['xl'][0]]}
-  color={'#cccccc'}
+  color={theme.colors.slate[900]}
   sampleText={SampleText}
   fontFamily={theme.fontFamily.poppins}
 />
+
+### 500
 
 <Typeset
   fontWeight={500}
   fontSizes={[theme.fontSize['xl'][0]]}
-  color={'#cccccc'}
+  color={theme.colors.slate[900]}
   sampleText={SampleText}
   fontFamily={theme.fontFamily.poppins}
 />
+
+### 600
 
 <Typeset
   fontWeight={600}
   fontSizes={[theme.fontSize['xl'][0]]}
-  color={'#cccccc'}
+  color={theme.colors.slate[900]}
   sampleText={SampleText}
   fontFamily={theme.fontFamily.poppins}
 />
 
+### 700
+
 <Typeset
   fontWeight={700}
   fontSizes={[theme.fontSize['xl'][0]]}
-  color={'#cccccc'}
+  color={theme.colors.slate[900]}
   sampleText={SampleText}
   fontFamily={theme.fontFamily.poppins}
 />
