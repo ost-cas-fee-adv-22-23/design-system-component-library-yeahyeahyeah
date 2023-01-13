@@ -49,7 +49,7 @@ module.exports = {
       base: ['1.125rem', { lineHeight: '1.575rem' }], // 18px / 25px
       md: ['1.25rem', { lineHeight: '1.575rem' }], // 20px / 20px / 25px
       lg: ['1.5rem', { lineHeight: '2.1875rem' }], // 24px / 30px Paragraph L
-      xl: ['1.5rem', { lineHeight: '1.875rem' }], // h4 -> 24px / 30px
+      xl: ['24px', { lineHeight: '1.875rem' }], // h4 -> 24px / 30px
       '2xl': ['2rem', { lineHeight: '2.5rem' }], // h3 -> 32px / 40px
       '3xl': ['2.5rem', { lineHeight: '3.125rem' }], // h2 -> 40px
       '4xl': ['3rem', { lineHeight: '3.75rem' }], // h1 -> 48px / 60px
