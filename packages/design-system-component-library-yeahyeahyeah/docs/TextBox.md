@@ -3,16 +3,11 @@
 ## InputForm properties and how to use
 | Property|Description|
 |-|-|
-|user|is needed for variant *write* and *inline*. [Navigation To User](./?path=/story/navigation-navigation--navigation-story)|
-|editType|You can choose between *input* and *textarea*.|
-|required|Set the *required* attribute to *true* or *false*. Default is set to *true*.|
-|type|The type of the input. Default is set to *text*. You can choose between *text*, *password*, *email*, *search*, *tel*, *url*, *file*.|
-|placeholder|The placeholder of the input or textarea.|
-|errorMessage|The errormessage that should be seen.|
-|autoComplete|The *autocomplete* property of the *imput* or *textarea*. Default is *off*. You can set to *on*.|
-|setText|Here you can pass an *setState* function. The text that you type into the *textarea* or *input* will be passed into it.|
-|setRef|Here you can pass an *setState* function. You will get a reference to the *input* or *textarea*.|
-|onPressEnter|You can pass a callback function, to trigger whatever you want, when enter button is hit.|
+|user|Is needed for variant *write* and *inline*. [Navigation To User](./?path=/docs/user-user--user-story)|
+|form|Property object for handling the form functionality. You will have to set *errorMessage*, *placeholder*, *setRef* and *setText* - see example or [Navigation To InputForm](./?path=/docs/form-input--form-input-story)|
+|variant|Possible options are *write*, *inline* and *start*. Default is set to *start*. If you choose *write* or *inline*, you will have to set the user property|
+|uploadCallBack|You can pass a callback function, to trigger whatever you want, when enter button is hit.|
+|sendCallback|You can pass a callback function, to trigger whatever you want, when enter button is hit.|
 
 ## Include the InputForm from the component library in your App
 
