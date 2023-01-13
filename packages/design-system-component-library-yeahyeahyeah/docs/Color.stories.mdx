@@ -3,13 +3,11 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
 
 <Meta title="Branding/Colors" />
 
-# Branding Colors
+# Mumble Color Guidelines
 
 <hr />
 
 ## Primary colors
-
-Description how to use colors ....
 
 <ColorPalette>
   <ColorItem
@@ -57,55 +55,23 @@ Description how to use colors ....
 More explanations and further details to all [Buttons](./?path=/story/interactions--button-story) styles and configurations.
 
 <ColorItem
-  title="Slate Button"
-  subtitle="Default, hover"
-  colors={{
-    Default: '#475569',
-    Hover: '#334155',
-  }}
+  title={config.buttonColors.slate.title}
+  subtitle={config.buttonColors.slate.subtitle}
+  colors={config.buttonColors.slate.colors}
 />
+
 <ColorItem
-  title="Violet Button"
-  subtitle="Default, hover"
-  colors={{
-    Default: '#7c3aed',
-    Hover: '#6d28d9',
-  }}
+  title={config.buttonColors.violet.title}
+  subtitle={config.buttonColors.violet.subtitle}
+  colors={config.buttonColors.violet.colors}
 />
+
 <ColorItem
-  title="Gradient Button"
-  subtitle="Default, hover"
-  colors={{
-    Default: 'linear-gradient(90deg, #ec4899 0%, #8b5cf6  70%)',
-    Hover: 'linear-gradient(90deg, #ec4899 0%, #8b5cf6 40%)',
-  }}
+  title={config.buttonColors.gradient.title}
+  subtitle={config.buttonColors.gradient.subtitle}
+  colors={config.buttonColors.gradient.colors}
 />
 
 ## Font colors
 
-tbd ...
-
-<ColorItem
-  title="Slate Button"
-  subtitle="Default, hover"
-  colors={{
-    Default: '#475569',
-    Hover: '#334155',
-  }}
-/>
-<ColorItem
-  title="Violet Button"
-  subtitle="Default, hover"
-  colors={{
-    Default: '#7c3aed',
-    Hover: '#6d28d9',
-  }}
-/>
-<ColorItem
-  title="Gradient Button"
-  subtitle="Default, hover"
-  colors={{
-    Default: 'linear-gradient(90deg, #ec4899 0%, #8b5cf6  70%)',
-    Hover: 'linear-gradient(90deg, #ec4899 0%, #8b5cf6 40%)',
-  }}
-/>
+<ColorItem title={config.fontColors.title} subtitle={config.fontColors.subtitle} colors={config.fontColors.colors} />

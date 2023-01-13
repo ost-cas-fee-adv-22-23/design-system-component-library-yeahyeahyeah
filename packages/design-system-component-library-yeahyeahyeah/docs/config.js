@@ -40,4 +40,42 @@ export const config = {
     subtitle: 'HTML Body Background Color',
     colors: [theme.colors.slate[200]],
   },
+  buttonColors: {
+    slate: {
+      title: 'Slate Button',
+      subtitle: 'Default and hover state',
+      colors: {
+        ['default: slate 600']: theme.colors.slate[600],
+        ['hover: slate 700']: theme.colors.slate[700],
+      },
+    },
+    violet: {
+      title: 'Violet Button',
+      subtitle: 'Default and hover state',
+      colors: {
+        ['default: violet 600']: theme.colors.violet[600],
+        ['hover: slate 700']: theme.colors.violet[700],
+      },
+    },
+    gradient: {
+      title: 'Gradient Button',
+      subtitle: 'Default and hover state',
+      colors: {
+        ['default: gradient']: ['linear-gradient(90deg, #ec4899 0%, #8b5cf6  70%)'],
+        ['hover: gradient']: ['linear-gradient(90deg, #ec4899 0%, #8b5cf6  40%)'],
+      },
+    },
+  },
+  fontColors: {
+    title: 'Font Colors',
+    subtitle: 'Color variants',
+    colors: {
+      ['light: slate 500']: theme.colors.slate[500],
+      ['medium: slate 600']: theme.colors.slate[600],
+      ['dark: slate 900']: theme.colors.slate[900],
+      ['violet: violet 600']: theme.colors.violet[600],
+      ['pink: pink 900']: theme.colors.pink[900],
+      ['white: slate white']: theme.colors.slate['white'],
+    },
+  },
 };
