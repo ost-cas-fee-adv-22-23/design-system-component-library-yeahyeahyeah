@@ -8,7 +8,7 @@ import { Heading, Paragraph } from '../index';
 import type { TmbSpacing } from '../../types/types';
 
 export interface ITextBoxProps {
-  user: IUserProps;
+  user?: Pick<IUserProps, 'label' | 'username' | 'avatar'>;
   form: Pick<IFormInputProps, 'placeholder' | 'errorMessage' | 'setRef' | 'setText'>;
   variant: 'write' | 'inline' | 'start';
   uploadCallback: () => void;
@@ -19,7 +19,7 @@ export interface ITextBoxProps {
 }
 
 export const TextBox: React.FC<ITextBoxProps> = ({
-  variant,
+  variant = 'start',
   startHeading = 'Hey, was läuft?',
   startParagraph = 'Schreib deinen ersten Mumble, oder folge einem User',
   user = {
@@ -30,7 +30,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
       type: 'username',
     },
     avatar: {
-      src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
+      src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
       alt: 'Alter Tag',
     },
   },
