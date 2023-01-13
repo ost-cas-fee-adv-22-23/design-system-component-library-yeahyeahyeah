@@ -100,8 +100,8 @@ const Color = ({ color }: ButtonProps) => [
   color === 'pink' &&
     tw`
   !bg-gradient-to-r from-pink-500 to-violet-500
-  hover:(!bg-gradient-to-r-70 outline-violet-100)
-  focus:(!bg-gradient-to-r-80 outline-violet-200)
+  hover:(!bg-gradient70 outline-violet-100)
+  focus:(!bg-gradient80 outline-violet-200)
   disabled:(bg-gradient-to-r)
 `,
 ];
