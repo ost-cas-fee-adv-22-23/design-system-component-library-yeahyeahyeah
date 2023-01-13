@@ -66,6 +66,13 @@ export const config = {
       },
     },
   },
+  alertColor: {
+    title: 'Alert color',
+    subtitle: 'Form error color',
+    colors: {
+      ['alert: red']: theme.colors.red['DEFAULT'],
+    },
+  },
   fontColors: {
     title: 'Font Colors',
     subtitle: 'Color variants',
