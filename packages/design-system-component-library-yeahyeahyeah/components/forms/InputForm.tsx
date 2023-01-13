@@ -77,14 +77,15 @@ export const InputForm: React.FC<IFormInputProps> = ({
           {label}
           <TextArea
             id={label}
+            placeholder={placeholder}
+            required={required}
+            maxLength={500}
+            autoComplete={autoComplete}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setText && setText(e.target.value)}
+            onKeyDown={handleKeyDown}
             rows={20}
             cols={30}
             aria-colspan={10}
-            maxLength={500}
-            required={required}
-            placeholder={placeholder}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setText && setText(e.target.value)}
-            onKeyDown={handleKeyDown}
             ref={ref}
             error={errorMessage ? 'true' : 'false'}
           />

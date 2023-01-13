@@ -6,7 +6,7 @@
 |user|Is needed for variant *write* and *inline*. [Navigation To User](./?path=/docs/user-user--user-story)|
 |form|Property object for handling the form functionality. You will have to set *errorMessage*, *placeholder*, *setRef* and *setText* - see example or [Navigation To InputForm](./?path=/docs/form-input--form-input-story)|
 |variant|Possible options are *write*, *inline* and *start*. Default is set to *start*. If you choose *write* or *inline*, you will have to set the user property|
-|uploadCallBack|You can pass a callback function, to trigger whatever you want, when enter button is hit.|
+|uploadCallBack|You can pass a callback function, to trigger whatever you want, when the upload button is hit.|
 |sendCallback|You can pass a callback function, to trigger whatever you want, when enter button is hit.|
 
 ## Include the InputForm from the component library in your App
@@ -17,7 +17,7 @@
 import { InputForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 ```
 
-### TextBox example *start* without user object
+### TextBox example with variant *"start"* without user object
 
 ```typescript
 
@@ -56,7 +56,7 @@ return (
 
 ```
 
-### TextBox example *write* or *inline* (with user object)
+### TextBox example with variant *"write"* or *"inline"* (with user object)
 
 ```typescript
 
