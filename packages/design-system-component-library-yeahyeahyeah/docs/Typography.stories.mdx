@@ -1,17 +1,21 @@
 import { Meta, Typeset } from '@storybook/addon-docs/blocks';
 import { theme, config } from '../docs/config.js';
+import { Container } from '../components/Container.tsx';
+import { ImageContainer } from '../components/ImageContainer.tsx';
 import { Paragraph } from '../components/typography/Paragraph.tsx';
 import { Heading } from '../components/typography/Heading.tsx';
+import { MumbleHeader } from '../components/mumble/MumbleHeader.tsx';
+import { Mumble } from '../components/mumble/Mumble.tsx';
 export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
 <Meta title="Guidelines/Typography" />
 
-# Font
-
 <Heading label="Mumble Font Guidelines" color="violet" tag="h1" size="default" mbSpacing="16" />
 
+<ImageContainer alt="This is a profile picture" fCallBack={() => {}} src="https://placebeard.it/800x360" type="container" />
+
 <Paragraph
-  text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+  text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
   size="large"
   alignment="left"
   color="dark"
@@ -39,7 +43,64 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 | line-height | 25px            |
 | color       | _slate 900_     |
 
-<hr />
+<Container type="container">
+  <Mumble
+    comment={{
+      fCallBack: () => {},
+      quantity: 0,
+    }}
+    img={{
+      alt: 'This is a profile picture!',
+      fCallBack: function noRefCheck() {},
+      src: 'https://shorturl.at/nEO01',
+    }}
+    like={{
+      fCallBack: function noRefCheck() {},
+      quantity: 999,
+    }}
+    mbSpacing="0"
+    share={{
+      fCallBack: function noRefCheck() {},
+      label: 'Share',
+    }}
+    text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+    user={{
+      avatar: {
+        alt: 'avatar',
+        buttonCallBack: function noRefCheck() {},
+        imageCallBack: function noRefCheck() {},
+        src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+      },
+      joined: {
+        fCallBack: function noRefCheck() {},
+        href: '',
+        label: 'Joined',
+        type: 'joined',
+      },
+      label: 'Display Name',
+      location: {
+        fCallBack: function noRefCheck() {},
+        href: '',
+        label: 'Location',
+        type: 'location',
+      },
+      timestamp: {
+        fCallBack: function noRefCheck() {},
+        href: '',
+        label: 'Timestamp',
+        type: 'timestamp',
+      },
+      username: {
+        fCallBack: function noRefCheck() {},
+        href: '',
+        label: 'Username',
+        type: 'username',
+      },
+      variant: 'xlarge',
+    }}
+    variant="detailpage"
+  />
+</Container>
 
 <Heading label="Font sizes" color="medium" tag="h3" mbSpacing="0" />
 
@@ -76,6 +137,45 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 | 2xl  | 40px | 2rem     | 0.875rem   |               |
 | 3xl  | 48px | 2.5rem   | 0.875rem   |               |
 | 4xl  | 48px | 3rem     | 0.875rem   |               |
+
+<Heading label="How to use font in mumble theme" color="medium" tag="h3" mbSpacing="32" />
+<MumbleHeader
+  avatar={{
+    alt: 'Picture',
+    src: 'https://placebeard.it/640x360',
+    variant: 'edit',
+  }}
+  banner={{
+    alt: 'Picture',
+    src: 'https://placebeard.it/640x360',
+    type: 'banner',
+  }}
+  label="tag: h4, size: large, color: dark"
+  text="tag: p, size: default, color: default: De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+  user={{
+    avatar: {
+      alt: 'Alttag',
+      src: 'https://placebeard.it/640x360',
+    },
+    joined: {
+      href: '#',
+      label: 'Joined',
+      type: 'joined',
+    },
+    location: {
+      href: '#',
+      label: 'Location',
+      type: 'joined',
+    },
+    username: {
+      href: '#',
+      label: 'tag: a, size: xs, color: dark',
+      type: 'joined',
+    },
+    variant: 'xlarge',
+  }}
+  variant="edit"
+/>
 
 <Heading label="Font weights" color="violet" tag="h3" mbSpacing="0" />
 <Heading label="Font weight 300" color="light" tag="h4" mbSpacing="0" size="xlarge" />
