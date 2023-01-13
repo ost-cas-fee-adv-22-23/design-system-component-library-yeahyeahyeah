@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TextBox } from '../../components/forms/TextBox';
 import { action } from '@storybook/addon-actions';
+import Readme from '../../docs/TextBox.md';
 
 export default {
   title: 'Form',
@@ -11,18 +12,19 @@ export default {
 const Template: ComponentStory<typeof TextBox> = (args) => {
   const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
   const [text, setText] = useState<string>('');
-  const [errorMessage, setErrorMessage] = useState<string>('Bitte füllen Sie das Feld aus.');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleSend = () => {
+    if (text === '') {
+      setErrorMessage('Bitte füllen sie das Formular aus.');
+      return;
+    }
     if (ref?.current) ref.current.value = '';
-    setErrorMessage('Bitte füllen Sie das Feld aus.');
+    setText('');
   };
 
   useEffect(() => {
-    console.log('text', text);
-    if (text === '') {
-      setErrorMessage('Bitte füllen Sie das Feld aus.');
-    } else {
+    if (text !== '') {
       setErrorMessage('');
     }
   }, [text]);
@@ -37,6 +39,7 @@ const Template: ComponentStory<typeof TextBox> = (args) => {
         setText: setText,
       }}
       sendCallback={handleSend}
+      uploadCallback={action('uploadCallback')}
     />
   );
 };
@@ -70,7 +73,7 @@ TextBoxStory.argTypes = {
         href: '#',
       },
       avatar: {
-        src: 'https://media.giphy.com/media/ZYzt9dXQUjmBa/giphy.gif',
+        src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
         alt: 'Family Guy goes Mumble',
       },
     },
@@ -105,6 +108,10 @@ TextBoxStory.args = {
 TextBoxStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
+    description: {
+      component: Readme,
+      language: 'javascript',
+    },
   },
 };
 

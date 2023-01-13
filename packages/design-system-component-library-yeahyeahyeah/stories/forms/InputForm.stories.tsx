@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { InputForm } from '../../components/forms/InputForm';
 import { Button } from '../../index';
+import Readme from '../../docs/InputForm.md';
 
 export default {
   title: 'Form/Input',
@@ -11,18 +12,19 @@ export default {
 const Template: ComponentStory<typeof InputForm> = (args) => {
   const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
   const [text, setText] = useState<string>('');
-  const [errorMessage, setErrorMessage] = useState<string>('Bitte füllen Sie das Feld aus.');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleClick = () => {
+    if (text === '') {
+      setErrorMessage(args.errorMessage);
+      return;
+    }
     if (ref?.current) ref.current.value = '';
-    setErrorMessage('Bitte füllen Sie das Feld aus.');
+    setText('');
   };
 
   useEffect(() => {
-    console.log('text', text);
-    if (text === '') {
-      setErrorMessage('Bitte füllen Sie das Feld aus.');
-    } else {
+    if (text !== '') {
       setErrorMessage('');
     }
   }, [text]);
@@ -49,12 +51,6 @@ FormInputStory.argTypes = {
     },
   },
   required: {
-    control: false,
-    table: {
-      disable: true,
-    },
-  },
-  errorMessage: {
     control: false,
     table: {
       disable: true,
@@ -91,11 +87,16 @@ FormInputStory.args = {
   label: 'Label',
   required: false,
   placeholder: 'Was gibt es neues ?',
+  errorMessage: 'Bitte füllen Sie das Feld aus.',
 };
 
 FormInputStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
+    description: {
+      component: Readme,
+      language: 'javascript',
+    },
   },
 };
 
@@ -115,12 +116,6 @@ TextAreaStory.argTypes = {
     },
   },
   required: {
-    control: false,
-    table: {
-      disable: true,
-    },
-  },
-  errorMessage: {
     control: false,
     table: {
       disable: true,
@@ -157,11 +152,16 @@ TextAreaStory.args = {
   label: 'Label',
   required: false,
   placeholder: 'Was gibt es neues ?',
+  errorMessage: 'Bitte füllen Sie das Feld aus.',
 };
 
 TextAreaStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
+    description: {
+      component: Readme,
+      language: 'javascript',
+    },
   },
 };
 
