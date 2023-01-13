@@ -1,16 +1,37 @@
 import { Meta, Typeset } from '@storybook/addon-docs/blocks';
-import { theme } from '../docs/config.js';
+import { theme, config } from '../docs/config.js';
+import { Paragraph } from '../components/typography/Paragraph.tsx';
+import { Heading } from '../components/typography/Heading.tsx';
 export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
 <Meta title="Guidelines/Typography" />
 
 # Font
 
-## Font Poppins, sans-serif
+<Heading label="Mumble Font Guidelines" color="violet" tag="h1" size="default" mbSpacing="16" />
+
+<Paragraph
+  text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+  size="large"
+  alignment="left"
+  color="dark"
+  mbSpacing="32"
+/>
+
+<Heading label="Font Poppins" color="pink" tag="h2" size="default" mbSpacing="0" />
+
+<Paragraph
+  text="Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+  size="default"
+  alignment="left"
+  color="light"
+/>
 
 **Google Font**: [Poppins](https://fonts.google.com/specimen/Poppins 'Google Fonts: Poppins')
 
-## Default Font Size:
+<hr />
+
+<Heading label="Default font settings" color="medium" tag="h3" mbSpacing="0" />
 
 | Property    | Value           |
 | ----------- | --------------- |
@@ -18,17 +39,9 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 | line-height | 25px            |
 | color       | _slate 900_     |
 
-### Sample
+<hr />
 
-<Typeset
-  fontWeight={500}
-  fontSizes={[theme.fontSize['base'][0]]}
-  color={'#cccccc'}
-  sampleText={SampleText}
-  fontFamily={theme.fontFamily.poppins}
-/>
-
-## Font sizes
+<Heading label="Font sizes" color="medium" tag="h3" mbSpacing="0" />
 
 <Typeset
   fontSizes={[
@@ -43,15 +56,29 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
     theme.fontSize['3xl'][0],
     theme.fontSize['4xl'][0],
   ]}
-  color={'#cccccc'}
+  color={['red']}
   fontWeight={theme.fontWeight['bold']}
   sampleText={SampleText}
   fontFamily={theme.fontFamily.poppins}
 />
 
-## Font Weights
+<Heading label="Font Units" color="medium" tag="h3" mbSpacing="0" />
 
-### 300
+| size | px   | rem      | lineHeight | _label sizes_ |
+| ---- | ---- | -------- | ---------- | ------------- |
+| xxs  | 12px | 0.75rem  | 0.75rem    |               |
+| xs   | 14px | 0.875rem | 0.875rem   | **small**     |
+| sm   | 16px | 1rem     | 0.875rem   | **medium**    |
+| base | 18px | 1.125rem | 1.575rem   | **medium**    |
+| md   | 20px | 1.25rem  | 1.575rem   | **large**     |
+| lg   | 24px | 1.5rem   | 1.575rem   | **xlarge**    |
+| xl   | 24px | 24px     | 2.1875rem  |               |
+| 2xl  | 40px | 2rem     | 0.875rem   |               |
+| 3xl  | 48px | 2.5rem   | 0.875rem   |               |
+| 4xl  | 48px | 3rem     | 0.875rem   |               |
+
+<Heading label="Font weights" color="violet" tag="h3" mbSpacing="0" />
+<Heading label="Font weight 300" color="light" tag="h4" mbSpacing="0" size="xlarge" />
 
 <Typeset
   fontWeight={300}
@@ -61,7 +88,38 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
   fontFamily={theme.fontFamily.poppins}
 />
 
-### 500
+```css
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z11lFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1JlFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1xlFd2JQEk.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+```
+
+<Heading label="Font weight 500" color="light" tag="h4" mbSpacing="0" size="xlarge" />
 
 <Typeset
   fontWeight={500}
@@ -71,8 +129,38 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
   fontFamily={theme.fontFamily.poppins}
 />
 
-### 600
+```css
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z11lFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1JlFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1xlFd2JQEk.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+```
 
+<Heading label="Font weight 600" color="light" tag="h4" mbSpacing="0" size="xlarge" />
 <Typeset
   fontWeight={600}
   fontSizes={[theme.fontSize['xl'][0]]}
@@ -81,7 +169,38 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
   fontFamily={theme.fontFamily.poppins}
 />
 
-### 700
+```css
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z11lFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1JlFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+```
+
+<Heading label="Font weight 700" color="light" tag="h4" mbSpacing="0" size="xlarge" />
 
 <Typeset
   fontWeight={700}
@@ -90,3 +209,34 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
   sampleText={SampleText}
   fontFamily={theme.fontFamily.poppins}
 />
+
+```css
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z11lFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1JlFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+```
