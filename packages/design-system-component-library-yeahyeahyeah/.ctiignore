@@ -1,5 +1,6 @@
 {
   "components/icons/components/**": "*",
   "node_modules/**": "*",
-  "stories/**": "*"
+  "stories/**": "*",
+  "docs/**": "*"
 }

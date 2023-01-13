@@ -21,7 +21,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
   label = 'Label',
   editType = 'textarea',
   required = true,
-  type = 'icon',
+  type = 'text',
   placeholder = 'Placeholder',
   errorMessage,
   autoComplete = 'off',
