@@ -138,6 +138,8 @@ const Figure = styled.figure.attrs({ className: 'group' })(({ type }: IImageIcon
     max-h-[320px]
     
     mt-4
+    ml-0
+    mr-0
     mb-16
 
     bg-violet-200
