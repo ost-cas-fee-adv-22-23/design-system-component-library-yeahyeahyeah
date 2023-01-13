@@ -86,22 +86,22 @@ const Color = ({ color }: ButtonProps) => [
   color === 'slate' &&
     tw`
   !bg-slate-600
-  hover:(bg-slate-700 outline-slate-100)
-  focus:(outline-slate-200)
+  hover:(!bg-slate-700 outline-slate-100)
+  focus:(!outline-slate-200)
   disabled:bg-slate-300
 `,
   color === 'violet' &&
     tw`
   !bg-violet-600
-  hover:(bg-violet-700 outline-violet-100)
-  focus:(outline-violet-200)
+  hover:(!bg-violet-700 outline-violet-100)
+  focus:(!outline-violet-200)
   disabled:bg-violet-300
 `,
   color === 'pink' &&
     tw`
   !bg-gradient-to-r from-pink-500 to-violet-500
-  hover:(bg-gradient-to-r-70 outline-violet-100)
-  focus:(bg-gradient-to-r-80 outline-violet-200)
+  hover:(!bg-gradient-to-r-70 outline-violet-100)
+  focus:(!bg-gradient-to-r-80 outline-violet-200)
   disabled:(bg-gradient-to-r)
 `,
 ];
