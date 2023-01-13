@@ -1,46 +1,9 @@
-import resolveConfig from 'tailwindcss/resolveConfig';
-import mumbleTheme from '../tailwind.config.js';
-const { theme } = resolveConfig(mumbleTheme);
-
+import { config } from '../docs/config.js';
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
-
-export const config = {
-  brandingColor: {
-    title: 'Primary colors',
-    subtitle: 'Slate, Pink, Violet and Gradient',
-    colors: {
-      Violet: theme.colors.violet[700],
-      Pink: theme.colors.pink[800],
-      Slate: theme.colors.slate[600],
-      Gradient: 'linear-gradient(90deg, #ec4899 0%, #8b5cf6  70%)',
-    },
-  },
-  palettes: {
-    violet: {
-      title: 'Violet',
-      subtitle: 'Color range',
-      colors: {
-        Default: '#7c3aed',
-        50: '#f5f3ff',
-        100: '#ede9fe',
-        200: '#ddd6fe',
-        300: '#c4b5fd',
-        400: '#a78bfa',
-        500: '#8b5cf6',
-        600: '#7c3aed',
-        700: '#6d28d9',
-        800: '#5b21b6',
-        900: '#4c1d95',
-      },
-    },
-  },
-};
 
 <Meta title="Branding/Colors" />
 
 # Branding Colors
-
-Description ...
 
 <hr />
 
@@ -65,56 +28,28 @@ Description how to use colors ....
     colors={config.palettes.violet.colors}
   />
   <ColorItem
-    title="Pink"
-    subtitle="Color range"
-    colors={{
-      Default: '#9d174d',
-      50: '#fdf2f8',
-      100: '#fce7f3',
-      200: '#fbcfe8',
-      300: '#f9a8d4',
-      400: '#f472b6',
-      500: '#ec4899',
-      600: '#db2777',
-      700: '#be185d',
-      800: '#9d174d',
-      900: '#831843',
-    }}
+    title={config.palettes.pink.title}
+    subtitle={config.palettes.pink.subtitle}
+    colors={config.palettes.pink.colors}
   />
   <ColorItem
-    title="Slate"
-    subtitle="Color range"
-    colors={{
-      Default: '#475569',
-      White: '#ffffff',
-      50: '#f8fafc',
-      100: '#f1f5f9',
-      200: '#e2e8f0',
-      300: '#cbd5e1',
-      400: '#94a3b8',
-      500: '#64748b',
-      600: '#475569',
-      700: '#334155',
-      800: '#1e293b',
-      900: '#0f172a',
-    }}
+    title={config.palettes.slate.title}
+    subtitle={config.palettes.slate.subtitle}
+    colors={config.palettes.slate.colors}
   />
   <ColorItem
-    title="Gradient"
-    colors={{
-      Default: 'linear-gradient(90deg, #ec4899 0%, #8b5cf6  70%)',
-    }}
+    title={config.palettes.gradient.title}
+    subtitle={config.palettes.gradient.subtitle}
+    colors={config.palettes.gradient.colors}
   />
 </ColorPalette>
 
 ## Theme background color
 
 <ColorItem
-  title="Background"
-  subtitle="Body background color"
-  colors={{
-    Slate: '#e2e8f0',
-  }}
+  title={config.themeBackground.title}
+  subtitle={config.themeBackground.subtitle}
+  colors={{ 'Slate 200': config.themeBackground.colors }}
 />
 
 ## Button colors
