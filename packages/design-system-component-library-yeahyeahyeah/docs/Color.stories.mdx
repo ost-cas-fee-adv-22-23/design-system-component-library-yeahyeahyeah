@@ -1,0 +1,83 @@
+import { config } from '../docs/config.js';
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
+
+<Meta title="Branding/Colors" />
+
+# Mumble Color Guidelines
+
+<hr />
+
+## Primary colors
+
+<ColorPalette>
+  <ColorItem
+    title={config.brandingColor.title}
+    subtitle={config.brandingColor.subtitle}
+    colors={config.brandingColor.colors}
+  />
+</ColorPalette>
+
+## Color palette
+
+<ColorPalette>
+  <ColorItem
+    title={config.palettes.violet.title}
+    subtitle={config.palettes.violet.subtitle}
+    colors={config.palettes.violet.colors}
+  />
+  <ColorItem
+    title={config.palettes.pink.title}
+    subtitle={config.palettes.pink.subtitle}
+    colors={config.palettes.pink.colors}
+  />
+  <ColorItem
+    title={config.palettes.slate.title}
+    subtitle={config.palettes.slate.subtitle}
+    colors={config.palettes.slate.colors}
+  />
+  <ColorItem
+    title={config.palettes.gradient.title}
+    subtitle={config.palettes.gradient.subtitle}
+    colors={config.palettes.gradient.colors}
+  />
+</ColorPalette>
+
+## Error color
+
+<ColorPalette>
+  <ColorItem title={config.alertColor.title} subtitle={config.alertColor.subtitle} colors={config.alertColor.colors} />
+</ColorPalette>
+
+## Background color
+
+<ColorItem
+  title={config.themeBackground.title}
+  subtitle={config.themeBackground.subtitle}
+  colors={{ 'Slate 200': config.themeBackground.colors }}
+/>
+
+## Button colors
+
+More explanations and further details to all [Buttons](./?path=/story/interactions--button-story) styles and configurations.
+
+<ColorItem
+  title={config.buttonColors.slate.title}
+  subtitle={config.buttonColors.slate.subtitle}
+  colors={config.buttonColors.slate.colors}
+/>
+
+<ColorItem
+  title={config.buttonColors.violet.title}
+  subtitle={config.buttonColors.violet.subtitle}
+  colors={config.buttonColors.violet.colors}
+/>
+
+<ColorItem
+  title={config.buttonColors.gradient.title}
+  subtitle={config.buttonColors.gradient.subtitle}
+  colors={config.buttonColors.gradient.colors}
+/>
+
+## Font colors
+
+<ColorItem title={config.fontColors.title} subtitle={config.fontColors.subtitle} colors={config.fontColors.colors} />

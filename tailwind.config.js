@@ -4,11 +4,6 @@ module.exports = {
   darkMode: 'media', // or 'class'
   theme: {
     extend: {
-      colors: {
-        slate: {
-          white: 'var(--color-light)',
-        },
-      },
       textColor: {
         skin: {
           base: 'var(--color-base)',
@@ -37,8 +32,8 @@ module.exports = {
         3: '3px',
       },
       backgroundImage: {
-        'gradient-to-r-70': 'linear-gradient(90deg, var(--color-gradient-pink) 0%, var(--color-gradient-violet) 70%)',
-        'gradient-to-r-80': 'linear-gradient(90deg, var(--color-gradient-pink) 0%, var(--color-gradient-violet) 40%)',
+        gradient70: 'linear-gradient(90deg, var(--color-gradient-pink) 0%, var(--color-gradient-violet) 70%)',
+        gradient80: 'linear-gradient(90deg, var(--color-gradient-pink) 0%, var(--color-gradient-violet) 40%)',
       },
     },
     fontWeight: {
@@ -104,6 +99,7 @@ module.exports = {
     },
     colors: {
       slate: {
+        white: '#ffffff',
         50: '#f8fafc',
         100: '#f1f5f9',
         200: '#e2e8f0',
