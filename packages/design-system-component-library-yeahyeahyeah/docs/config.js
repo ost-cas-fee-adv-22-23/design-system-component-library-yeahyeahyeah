@@ -1,6 +1,6 @@
 import resolveConfig from 'tailwindcss/resolveConfig';
 import mumbleTheme from '../../../tailwind.config';
-const { theme } = resolveConfig(mumbleTheme);
+export const { theme } = resolveConfig(mumbleTheme);
 
 export const config = {
   brandingColor: {
