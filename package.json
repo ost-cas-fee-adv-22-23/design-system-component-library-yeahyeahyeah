@@ -1,7 +1,7 @@
 {
   "name": "design-system-component-library-yeahyeahyeah-workspaces",
   "scripts": {
-    "dev": "yarn build && cd packages/app && yarn dev",
+    "dev": "yarn build_local && cd packages/app && yarn dev",
     "start": "cd packages/app && yarn start",
     "build": "cd packages/design-system-component-library-yeahyeahyeah && yarn build",
     "build_local": "cd packages/design-system-component-library-yeahyeahyeah && yarn build_local",
