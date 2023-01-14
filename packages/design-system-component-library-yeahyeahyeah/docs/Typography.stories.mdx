@@ -15,7 +15,7 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 <ImageContainer alt="This is a profile picture" fCallBack={() => {}} src="https://placebeard.it/800x360" type="container" />
 
 <Paragraph
-  text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  text="This tutorial will show you how to work with typography in Mumble theme. Here you get an overview of all font sizes and font styles and examples of how the font is used."
   size="large"
   alignment="left"
   color="dark"
@@ -42,65 +42,6 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 | font-size   | 18px / 1.125rem |
 | line-height | 25px            |
 | color       | _slate 900_     |
-
-<Container type="container">
-  <Mumble
-    comment={{
-      fCallBack: () => {},
-      quantity: 0,
-    }}
-    img={{
-      alt: 'This is a profile picture!',
-      fCallBack: function noRefCheck() {},
-      src: 'https://shorturl.at/nEO01',
-    }}
-    like={{
-      fCallBack: function noRefCheck() {},
-      quantity: 999,
-    }}
-    mbSpacing="0"
-    share={{
-      fCallBack: function noRefCheck() {},
-      label: 'Share',
-    }}
-    text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
-    user={{
-      avatar: {
-        alt: 'avatar',
-        buttonCallBack: function noRefCheck() {},
-        imageCallBack: function noRefCheck() {},
-        src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-      },
-      joined: {
-        fCallBack: function noRefCheck() {},
-        href: '',
-        label: 'Joined',
-        type: 'joined',
-      },
-      label: 'Display Name',
-      location: {
-        fCallBack: function noRefCheck() {},
-        href: '',
-        label: 'Location',
-        type: 'location',
-      },
-      timestamp: {
-        fCallBack: function noRefCheck() {},
-        href: '',
-        label: 'Timestamp',
-        type: 'timestamp',
-      },
-      username: {
-        fCallBack: function noRefCheck() {},
-        href: '',
-        label: 'Username',
-        type: 'username',
-      },
-      variant: 'xlarge',
-    }}
-    variant="detailpage"
-  />
-</Container>
 
 <Heading label="Font sizes" color="medium" tag="h3" mbSpacing="0" />
 
@@ -138,7 +79,7 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 | 3xl  | 48px | 2.5rem   | 0.875rem   |               |
 | 4xl  | 48px | 3rem     | 0.875rem   |               |
 
-<Heading label="How to use font in mumble theme" color="medium" tag="h3" mbSpacing="32" />
+<Heading label="Font settings using the Mumble header as an example" color="medium" tag="h3" mbSpacing="32" />
 <MumbleHeader
   avatar={{
     alt: 'Picture',
