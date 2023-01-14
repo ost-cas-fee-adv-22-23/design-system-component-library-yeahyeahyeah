@@ -25,8 +25,6 @@ const createIcon = (icon: IconTypes) => {
 
 const TemplateIcon: ComponentStory<(IconsMapped: React.SVGProps<SVGSVGElement>) => JSX.Element> = () => (
   <>
-    <Heading tag="h1" label={'ICONS'} color={'medium'} size="default" alignment="center" />
-
     {Object.keys(IconsMapped).map((iconType, index) => {
       tailWindColorsElement = (tailWindColors.shift() as TwStyle) || '';
 
