@@ -41,7 +41,8 @@ const MumbleStyles = createGlobalStyle`
     letter-spacing: var(--font-letter-spacing);
     color: var(--color-base);
     hyphens: var(--hyphens-base);
-  }  /* devanagari */
+  }  
+  /* devanagari */
   @font-face {
     font-family: 'Poppins';
     font-style: normal;
