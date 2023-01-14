@@ -19,7 +19,8 @@
   },
   "scripts": {
     "build": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json && yarn copy-files",
-    "watch": "tsc --watch",
+    "build_local": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json",
+    "watch": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc --watch -p tsconfig.dist.json",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "copy-files": "del ./tailwind.config.js && cp ../../tailwind.config.js ./"

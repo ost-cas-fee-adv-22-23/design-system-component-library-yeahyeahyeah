@@ -17,13 +17,13 @@ This setup demonstrates a TypeScript Next.js app (`packages/app`) importing a se
 From inside the new folder, start the dev server with yarn:
 
 ```bash
-yarn && yarn build && yarn dev
+yarn && yarn dev
 ```
 
-or npm:
+And watch changes in the bundle with
 
 ```bash
-npm install && npm run build && npm run dev
+yarn watch
 ```
 
 > npm@9.2+ is required to use the [workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) feature.<br/>Update to latest with: `npm install -g npm@latest`
