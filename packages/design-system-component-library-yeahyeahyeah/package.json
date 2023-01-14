@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json && yarn copy-files",
+    "build_local": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json",
     "watch": "tsc --watch",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",

@@ -9,9 +9,9 @@
 |type|The type of the input. Default is set to *text*. You can choose between *text*, *password*, *email*, *search*, *tel*, *url*, *file*.|
 |placeholder|The placeholder of the input or textarea.|
 |errorMessage|The errormessage that should be seen.|
-|autoComplete|The *autocomplete* property of the *imput* or *textarea*. Default is *off*. You can set to *on*.|
-|setText|Here you can pass an *setState* function. The text that you type into the *textarea* or *input* will be passed into it.|
-|setRef|Here you can pass an *setState* function. You will get a reference to the *input* or *textarea*.|
+|autoComplete|The *autocomplete* property of the *input* or *textarea*. Default is *off*. You can set it to *on* also.|
+|setText|Here you can pass a *setState* function. The text string that you type into the *textarea* or *input* will be passed into it.|
+|setRef|Here you can pass a *setState* function. You will get a reference to the *input* or *textarea* eg. to clear the element.|
 |onPressEnter|You can pass a callback function, to trigger whatever you want, when enter button is hit.|
 
 ## Include the InputForm from the component library in your App
@@ -32,7 +32,7 @@ const [errorMessage, setErrorMessage] = useState<string>('');
 
 const handleClick = () => {
   if (text === '') {
-    setErrorMessage(args.errorMessage);
+    setErrorMessage('Bitte füllen sie das Feld aus.');
     return;
   }
   if (ref?.current) ref.current.value = '';
