@@ -1,8 +1,6 @@
-import React from 'react';
-import Link from 'next/link';
 import Navi from './includes/navi';
 import { Mumble, TextBox, Heading, Container } from '@smartive-education/design-system-component-library-yeahyeahyeah';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Timeline() {
   const [posts, setPosts] = useState(['']);
