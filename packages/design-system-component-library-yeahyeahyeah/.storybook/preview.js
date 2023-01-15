@@ -37,7 +37,7 @@ export const decorators = [
   (Story, args) => {
     if (args.name === 'Welcome') {
       return (
-        <div tw="flex flex-row flex-wrap w-full h-full p-32">
+        <div tw="container">
           <GlobalStyles />
           <Story />
         </div>
@@ -60,7 +60,7 @@ export const decorators = [
       );
     }
     return (
-      <div tw="container mx-auto flex flex-col flex-wrap justify-center items-center p-8 pt-16 sm:p-16 md:p-32">
+      <div tw="container mx-auto flex flex-col flex-wrap justify-center items-center mx-2 sm:mx-auto mt-32">
         <GlobalStyles />
         <Story />
       </div>
