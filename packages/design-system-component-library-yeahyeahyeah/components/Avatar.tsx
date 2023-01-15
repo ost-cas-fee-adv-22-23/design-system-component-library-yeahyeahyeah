@@ -86,7 +86,8 @@ const Image = styled.img(({ variant }: IImageProps) => [
       border-6
 
       sm:(scale-75)
-      md:(scale-100)
+      md:(scale-90)
+      lg:(scale-100)
     `,
   tw`
   border-slate-200
