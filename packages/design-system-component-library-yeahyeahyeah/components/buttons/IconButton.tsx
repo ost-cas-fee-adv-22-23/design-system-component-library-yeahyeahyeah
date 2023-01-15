@@ -89,8 +89,8 @@ const ButtonStyles = styled.button(({ variant }: IButtonStyles) => [
   variant === 'edit' &&
     tw`
     relative
-    bottom-[86px]
-    right-32
+    bottom-96
+    right-24
     self-end
     // z-10
     sm:(bottom-76 right-16)
