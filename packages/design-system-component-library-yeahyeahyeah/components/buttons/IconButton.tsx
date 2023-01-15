@@ -86,5 +86,14 @@ const ButtonStyles = styled.button(({ variant }: IButtonStyles) => [
       margin-left: 0;
     }
   `,
-  variant === 'edit' && tw`relative self-end right-48`,
+  variant === 'edit' &&
+    tw`
+    relative
+    bottom-[86px]
+    right-32
+    self-end
+    // z-10
+    sm:(bottom-64)
+    md:(bottom-[50px] right-12)
+  `,
 ]);

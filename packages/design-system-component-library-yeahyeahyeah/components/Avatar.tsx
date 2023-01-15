@@ -33,10 +33,15 @@ interface IImageProps {
 
 const Row = tw.div`
   flex
-  flex-row
+  flex-col
   justify-center
-  items-end
+  items-start
+  grow-0
   overflow-hidden
+  mr-32
+
+  relative
+  top-64
 `;
 
 const ImageAnim = tw`
@@ -68,13 +73,20 @@ const Image = styled.img(({ variant }: IImageProps) => [
 
   variant === 'edit' &&
     tw`
-		flex
-		items-end
-		justify-end
-		h-160
-		w-160
-    min-w-[160px]
-		border-4
+      h-[160px]
+      w-[160px]
+      
+      scale-50
+      transform-gpu
+      transition
+      duration-500
+      ease-in-out
+
+      rounded-full    
+      border-6
+
+      sm:(scale-75)
+      md:(scale-100)
     `,
   tw`
   border-slate-200
