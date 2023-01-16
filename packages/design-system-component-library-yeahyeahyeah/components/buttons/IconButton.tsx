@@ -92,7 +92,6 @@ const ButtonStyles = styled.button(({ variant }: IButtonStyles) => [
     bottom-96
     right-24
     self-end
-    // z-10
     sm:(bottom-76 right-16)
     md:(bottom-64 right-4)
     lg:(bottom-[56px] right-4)
