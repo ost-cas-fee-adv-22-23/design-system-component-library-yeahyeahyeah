@@ -5,7 +5,7 @@ import { create } from '@storybook/theming';
 export default create({
   base: 'light',
   brandTitle: 'Mumble Component Library',
-  brandUrl: '/',
+  brandUrl: 'https://smartive-education.github.io/design-system-component-library-yeahyeahyeah/',
   brandImage:
     'https://raw.githubusercontent.com/smartive-education/design-system-component-library-yeahyeahyeah/master/packages/design-system-component-library-yeahyeahyeah/stories/assets/mumble-logo.svg',
   brandTarget: '_self',
