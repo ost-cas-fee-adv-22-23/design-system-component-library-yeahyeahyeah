@@ -1,4 +1,4 @@
-import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+import { Meta, Typeset, Story, Canvas } from '@storybook/addon-docs';
 import { theme, config } from '../docs/config.js';
 import { Container } from '../components/Container.tsx';
 import { ImageContainer } from '../components/ImageContainer.tsx';
@@ -10,32 +10,11 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 
 <Meta title="Guidelines/Typography" />
 
-<Heading label="Mumble Font Guidelines" color="violet" tag="h1" size="default" mbSpacing="16" />
-
-<ImageContainer alt="This is a profile picture" fCallBack={() => {}} src="https://placebeard.it/800x360" type="container" />
-
-<Paragraph
-  text="This tutorial will show you how to work with typography in Mumble theme. Here you get an overview of all font sizes and font styles and examples of how the font is used."
-  size="large"
-  alignment="left"
-  color="dark"
-  mbSpacing="32"
-/>
-
-<Heading label="Font Poppins" color="pink" tag="h2" size="default" mbSpacing="0" />
-
-<Paragraph
-  text="Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-  size="default"
-  alignment="left"
-  color="light"
-/>
+# Mumble Typography
 
 **Google Font**: [Poppins](https://fonts.google.com/specimen/Poppins 'Google Fonts: Poppins')
 
-<hr />
-
-<Heading label="Default font settings" color="medium" tag="h3" mbSpacing="0" />
+## Default font style
 
 | Property    | Value           |
 | ----------- | --------------- |
@@ -43,26 +22,48 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 | line-height | 25px            |
 | color       | _slate 900_     |
 
-<Heading label="Font sizes" color="medium" tag="h3" mbSpacing="0" />
+<Canvas>
+  <Paragraph
+    text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    color="medium"
+    size="default"
+    mbSpacing="0"
+  />
+</Canvas>
 
-<Typeset
-  fontSizes={[
-    theme.fontSize['xxs'][0],
-    theme.fontSize['xs'][0],
-    theme.fontSize['sm'][0],
-    theme.fontSize['base'][0],
-    theme.fontSize['md'][0],
-    theme.fontSize['lg'][0],
-    theme.fontSize['xl'][0],
-    theme.fontSize['2xl'][0],
-    theme.fontSize['3xl'][0],
-    theme.fontSize['4xl'][0],
-  ]}
-  color={['red']}
-  fontWeight={theme.fontWeight['bold']}
-  sampleText={SampleText}
-  fontFamily={theme.fontFamily.poppins}
-/>
+## Heading font sizes
+
+| size | px   | rem  | lineHeight | tag |
+| ---- | ---- | ---- | ---------- | --- |
+| 4xl  | 48px | 3rem | 0.875rem   | h1  |
+
+<Canvas>
+  <Heading label="Mumble typography rocks..." color="violet" tag="h1" size="default" mbSpacing="0" />
+</Canvas>
+
+| size | px   | rem    | lineHeight | tag |
+| ---- | ---- | ------ | ---------- | --- |
+| 3xl  | 48px | 2.5rem | 0.875rem   | h2  |
+
+<Canvas>
+  <Heading label="Mumble typography rocks..." color="violet" tag="h2" size="default" mbSpacing="0" />
+</Canvas>
+
+| size | px   | rem    | lineHeight | tag |
+| ---- | ---- | ------ | ---------- | --- |
+| 3xl  | 48px | 2.5rem | 0.875rem   | h3  |
+
+<Canvas>
+  <Heading label="Mumble typography rocks..." color="violet" tag="h3" size="default" mbSpacing="0" />
+</Canvas>
+
+| size | px   | rem  | lineHeight | tag |
+| ---- | ---- | ---- | ---------- | --- |
+| 4xl  | 48px | 3rem | 0.875rem   | h4  |
+
+<Canvas>
+  <Heading label="Mumble typography rocks..." color="violet" tag="h4" size="default" mbSpacing="0" />
+</Canvas>
 
 <Heading label="Font Units" color="medium" tag="h3" mbSpacing="0" />
 
@@ -75,51 +76,11 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 | md   | 20px | 1.25rem  | 1.575rem   | **large**     |
 | lg   | 24px | 1.5rem   | 1.575rem   | **xlarge**    |
 | xl   | 24px | 24px     | 2.1875rem  |               |
-| 2xl  | 40px | 2rem     | 0.875rem   |               |
-| 3xl  | 48px | 2.5rem   | 0.875rem   |               |
+| 2xl  | 32px | 2rem     | 0.875rem   |               |
+| 3xl  | 40px | 2.5rem   | 0.875rem   |               |
 | 4xl  | 48px | 3rem     | 0.875rem   |               |
 
-<Heading label="Font settings using the Mumble header as an example" color="medium" tag="h3" mbSpacing="32" />
-<MumbleHeader
-  avatar={{
-    alt: 'Picture',
-    src: 'https://placebeard.it/640x360',
-    variant: 'edit',
-  }}
-  banner={{
-    alt: 'Picture',
-    src: 'https://placebeard.it/640x360',
-    type: 'banner',
-  }}
-  label="tag: h4, size: large, color: dark"
-  text="tag: p, size: default, color: default: De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
-  user={{
-    avatar: {
-      alt: 'Alttag',
-      src: 'https://placebeard.it/640x360',
-    },
-    joined: {
-      href: '#',
-      label: 'Joined',
-      type: 'joined',
-    },
-    location: {
-      href: '#',
-      label: 'Location',
-      type: 'joined',
-    },
-    username: {
-      href: '#',
-      label: 'tag: a, size: xs, color: dark',
-      type: 'joined',
-    },
-    variant: 'xlarge',
-  }}
-  variant="edit"
-/>
-
-<Heading label="Font weights" color="violet" tag="h3" mbSpacing="0" />
-<Heading label="Font weight 300" color="light" tag="h4" mbSpacing="0" size="xlarge" />
+## Font weight 300
 
 <Typeset
   fontWeight={300}
@@ -160,7 +121,7 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 }
 ```
 
-<Heading label="Font weight 500" color="light" tag="h4" mbSpacing="0" size="xlarge" />
+## Font weight 500
 
 <Typeset
   fontWeight={500}
@@ -201,7 +162,8 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 }
 ```
 
-<Heading label="Font weight 600" color="light" tag="h4" mbSpacing="0" size="xlarge" />
+## Font weight 600
+
 <Typeset
   fontWeight={600}
   fontSizes={[theme.fontSize['xl'][0]]}
@@ -241,7 +203,7 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 }
 ```
 
-<Heading label="Font weight 700" color="light" tag="h4" mbSpacing="0" size="xlarge" />
+## Font weight 700
 
 <Typeset
   fontWeight={700}
