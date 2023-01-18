@@ -35,6 +35,7 @@ configureActions({
 
 export const decorators = [
   (Story, args) => {
+    console.log('args', args);
     if (args.name === 'Welcome') {
       return (
         <div tw="container">
@@ -57,6 +58,14 @@ export const decorators = [
           <GlobalStyles />
           <Story />
         </div>
+      );
+    }
+    if (args.kind === 'Guidelines/Docs') {
+      return (
+        <>
+          <GlobalStyles />
+          <Story />
+        </>
       );
     }
     return (
