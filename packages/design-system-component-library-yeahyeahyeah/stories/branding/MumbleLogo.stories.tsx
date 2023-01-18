@@ -7,33 +7,30 @@ export default {
   component: MumbleLogo,
   argTypes: {
     title: {
-      name: 'title',
-      defaultValue: 'Homepage',
+      control: 'text',
     },
     href: {
-      name: 'href',
-      defaultValue: '#',
+      control: 'text',
     },
     alignment: {
-      control: {
-        type: 'select',
-      },
-      defaultValue: 'horizontal',
+      control: 'select',
     },
     color: {
-      control: {
-        type: 'select',
-      },
-      defaultValue: 'violet',
+      control: 'select',
     },
     fCallBack: {
       action: () => 'handleClick',
     },
     isNavigation: {
-      control: {
-        type: 'boolean',
-      },
+      control: 'boolean',
     },
+  },
+  args: {
+    title: 'Homepage',
+    href: '#',
+    alignment: 'vertical',
+    color: 'violet',
+    isNavigation: false,
   },
 } as ComponentMeta<typeof MumbleLogo>;
 
