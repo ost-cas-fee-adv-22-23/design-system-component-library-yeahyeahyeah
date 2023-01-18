@@ -13,12 +13,12 @@ export interface IHeadingProps {
 }
 
 export const Heading: React.FC<IHeadingProps> = ({
-  label,
+  label = 'Heading text',
   tag = 'h1',
   color = 'default',
   size = 'default',
   mbSpacing = '0',
-  alignment,
+  alignment = 'left',
 }) => {
   return (
     <>
