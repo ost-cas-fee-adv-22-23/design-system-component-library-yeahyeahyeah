@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MumbleLogo } from '../../components/branding/MumbleLogo';
 import React from 'react';
+import MumbleLogoReadme from '../../docs/MumbleLogo.md';
 
 export default {
   title: 'Medias/Logo',
@@ -43,6 +44,9 @@ export const LogoVariants = Template.bind({});
 LogoVariants.parameters = {
   docs: {
     source: { type: 'dynamic' },
+    description: {
+      component: MumbleLogoReadme,
+    },
   },
 };
 
