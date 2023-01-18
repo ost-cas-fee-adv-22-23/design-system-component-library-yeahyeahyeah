@@ -4,7 +4,7 @@ import { IconsMapped, IconTypes } from '../icons/IconMap';
 
 export interface IButtonProps {
   label: string;
-  color: 'slate' | 'violet' | 'pink';
+  color: 'slate' | 'violet' | 'gradient';
   size?: 'small' | 'large';
   width?: 'default' | 'large' | 'full';
   type?: 'button' | 'reset' | 'submit';
@@ -97,7 +97,7 @@ const Color = ({ color }: ButtonProps) => [
   focus:(!outline-violet-200)
   disabled:bg-violet-300
 `,
-  color === 'pink' &&
+  color === 'gradient' &&
     tw`
   !bg-gradient-to-r from-pink-500 to-violet-500
   hover:(!bg-gradient70 outline-violet-100)
