@@ -1,39 +1,37 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MumbleLogo } from '../../components/branding/MumbleLogo';
 import React from 'react';
+import MumbleLogoReadme from '../../docs/MumbleLogo.md';
 
 export default {
-  title: 'Branding/Logo',
+  title: 'Medias/Logo',
   component: MumbleLogo,
   argTypes: {
     title: {
-      name: 'title',
-      defaultValue: 'Homepage',
+      control: 'text',
     },
     href: {
-      name: 'href',
-      defaultValue: '#',
+      control: 'text',
     },
     alignment: {
-      control: {
-        type: 'select',
-      },
-      defaultValue: 'horizontal',
+      control: 'select',
     },
     color: {
-      control: {
-        type: 'select',
-      },
-      defaultValue: 'violet',
+      control: 'select',
     },
     fCallBack: {
       action: () => 'handleClick',
     },
     isNavigation: {
-      control: {
-        type: 'boolean',
-      },
+      control: 'boolean',
     },
+  },
+  args: {
+    title: 'Homepage',
+    href: '#',
+    alignment: 'vertical',
+    color: 'violet',
+    isNavigation: false,
   },
 } as ComponentMeta<typeof MumbleLogo>;
 
@@ -46,6 +44,9 @@ export const LogoVariants = Template.bind({});
 LogoVariants.parameters = {
   docs: {
     source: { type: 'dynamic' },
+    description: {
+      component: MumbleLogoReadme,
+    },
   },
 };
 

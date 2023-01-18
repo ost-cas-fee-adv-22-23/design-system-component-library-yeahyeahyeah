@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '../../components/buttons/Button';
 import { IconsMapped } from '../../components/icons/IconMap';
-import Readme from '../../docs/Button.md';
+import ButtonReadme from '../../docs/Button.md';
 
 export default {
   title: 'Interactions',
@@ -58,7 +58,7 @@ ButtonStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
     description: {
-      component: Readme,
+      component: ButtonReadme,
       language: 'javascript',
     },
   },

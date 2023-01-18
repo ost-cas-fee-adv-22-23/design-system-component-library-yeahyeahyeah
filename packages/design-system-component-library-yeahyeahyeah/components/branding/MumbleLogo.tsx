@@ -11,15 +11,14 @@ export interface IMumbleLogoProps {
   isNavigation?: boolean;
 }
 
-export const MumbleLogo: React.FC<IMumbleLogoProps> = (props: IMumbleLogoProps) => {
-  const {
-    title = 'Mumble Logo',
-    href = '#',
-    color = 'white',
-    alignment = 'horizontal',
-    fCallBack,
-    isNavigation = true,
-  } = props;
+export const MumbleLogo: React.FC<IMumbleLogoProps> = ({
+  title = 'Mumble Logo',
+  href = '#',
+  color = 'white',
+  alignment = 'horizontal',
+  fCallBack,
+  isNavigation = true,
+}) => {
   const [hover, setHover] = useState(false);
 
   return (

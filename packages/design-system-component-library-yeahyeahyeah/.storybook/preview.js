@@ -69,7 +69,7 @@ export const decorators = [
       );
     }
     return (
-      <div tw="container mx-auto flex flex-col flex-wrap justify-center items-center mx-2 sm:mx-auto mt-32">
+      <div tw="container mx-auto flex flex-col flex-wrap justify-center items-center mx-2 sm:mx-auto mt-32 mb-32">
         <GlobalStyles />
         <Story />
       </div>
