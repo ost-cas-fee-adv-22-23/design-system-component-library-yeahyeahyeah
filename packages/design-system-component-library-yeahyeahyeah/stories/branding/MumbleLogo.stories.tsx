@@ -3,7 +3,7 @@ import { MumbleLogo } from '../../components/branding/MumbleLogo';
 import React from 'react';
 
 export default {
-  title: 'Branding/Logo',
+  title: 'Medias/Logo',
   component: MumbleLogo,
   argTypes: {
     title: {
