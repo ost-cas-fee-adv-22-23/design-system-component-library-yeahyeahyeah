@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { InputForm } from '../../components/forms/InputForm';
-import { Button } from '../../index';
+import { Button } from '../../components/buttons/Button';
 import Readme from '../../docs/InputForm.md';
 
 export default {
