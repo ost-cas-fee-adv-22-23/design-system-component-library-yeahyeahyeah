@@ -30,7 +30,7 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 
 | size | px   | rem  | lineHeight | tag |
 | ---- | ---- | ---- | ---------- | --- |
-| 4xl  | 48px | 3rem | 0.875rem   |     |
+| 4xl  | 48px | 3rem | 0.875rem   | h1  |
 
 <Canvas>
   <Story id="docs--h-1" />
@@ -38,7 +38,7 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 
 | size | px   | rem    | lineHeight | tag |
 | ---- | ---- | ------ | ---------- | --- |
-| 3xl  | 40px | 2.5rem | 0.875rem   |     |
+| 3xl  | 40px | 2.5rem | 0.875rem   | h2  |
 
 <Canvas>
   <Story id="docs--h-2" />
@@ -46,7 +46,7 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 
 | size | px   | rem  | lineHeight | tag |
 | ---- | ---- | ---- | ---------- | --- |
-| 2xl  | 32px | 2rem | 0.875rem   |     |
+| 2xl  | 32px | 2rem | 0.875rem   | h3  |
 
 <Canvas>
   <Story id="docs--h-3" />
@@ -54,10 +54,40 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 
 | size | px   | rem  | lineHeight | tag |
 | ---- | ---- | ---- | ---------- | --- |
-| xl   | 24px | 24px | 2.1875rem  |     |
+| xl   | 24px | 24px | 2.1875rem  | h4  |
 
 <Canvas>
   <Story id="docs--h-4" />
+</Canvas>
+
+## Label sizes with heading tag
+
+Simulate all **Label** styles with heading tags. You can use any heading tag you like, but bear in mind the HTML semantic order.
+
+This view is for demonstration purposes only. A detail example is visible on [User](./?path=/story/user-user--user-story&args=variant:small).
+
+### Label **small** with H1 tag
+
+<Canvas>
+  <Story id="docs--label-small" />
+</Canvas>
+
+### Label **medium** with H2 tag
+
+<Canvas>
+  <Story id="docs--label-medium" />
+</Canvas>
+
+### Label **large** with H3 tag
+
+<Canvas>
+  <Story id="docs--label-large" />
+</Canvas>
+
+### Label **xlarge** with H4 tag
+
+<Canvas>
+  <Story id="docs--label-x-large" />
 </Canvas>
 
 ## Heading colors
@@ -74,19 +104,21 @@ Paragraph colors differs only in gray tones.
   <Story id="docs--paragraph-light" />
 </Canvas>
 
-<ColorItem
-  title={config.paragraphColors.title}
-  subtitle={config.paragraphColors.subtitle}
-  colors={config.paragraphColors.colors}
-/>
-
-## Paragraph sizes
+### Paragraph sizes
 
 <Canvas>
   <Story id="docs--paragraph-size-default" />
   <Story id="docs--paragraph-size-medium" />
   <Story id="docs--paragraph-size-large" />
 </Canvas>
+
+### Paragraph colors
+
+<ColorItem
+  title={config.paragraphColors.title}
+  subtitle={config.paragraphColors.subtitle}
+  colors={config.paragraphColors.colors}
+/>
 
 ## Font units
 
