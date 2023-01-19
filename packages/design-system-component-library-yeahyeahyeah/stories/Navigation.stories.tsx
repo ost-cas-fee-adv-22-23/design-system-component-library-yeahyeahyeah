@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Navigation } from '../components/Navigation';
+import { Modal } from '../components/modal/Modal';
 
 export default {
   title: 'Navigation/Navigation',
@@ -56,7 +57,33 @@ export default {
   },
 } as ComponentMeta<typeof Navigation>;
 
-const Template: ComponentStory<typeof Navigation> = (args) => <Navigation {...args} />;
+const Template: ComponentStory<typeof Navigation> = (args) => {
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen((open) => !open);
+  };
+
+  const handleClose = () => {
+    setOpen((open) => !open);
+  };
+
+  return !open ? (
+    <Navigation
+      {...args}
+      settings={{
+        icon: 'settings',
+        label: 'Settings',
+        variant: 'default',
+        fCallBack: handleClick,
+      }}
+    />
+  ) : (
+    <Modal label="Settings" isOpen={open} onClose={handleClose}>
+      Settings
+    </Modal>
+  );
+};
 
 export const NavigationStory = Template.bind({});
 
