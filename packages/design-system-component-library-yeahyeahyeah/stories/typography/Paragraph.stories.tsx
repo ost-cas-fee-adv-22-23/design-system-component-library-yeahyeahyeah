@@ -26,7 +26,7 @@ export default {
     },
     mbSpacing: {
       control: 'select',
-      options: ['0', '2', '4', '8', '16', '32', '64'],
+      options: ['0', '2', '4', '8', '16', '24', '32', '64'],
       defaultValue: '0',
     },
   },
