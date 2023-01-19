@@ -74,7 +74,7 @@ export const config = {
     },
   },
   fontColors: {
-    title: 'Font Colors',
+    title: 'Heading Colors',
     subtitle: 'Color variants',
     colors: {
       ['light: slate 500']: theme.colors.slate[500],
@@ -83,6 +83,15 @@ export const config = {
       ['violet: violet 600']: theme.colors.violet[600],
       ['pink: pink 900']: theme.colors.pink[900],
       ['white: slate white']: theme.colors.slate['white'],
+    },
+  },
+  paragraphColors: {
+    title: 'Paragraph Colors',
+    subtitle: 'Color variants',
+    colors: {
+      ['light: slate 500']: theme.colors.slate[500],
+      ['medium: slate 600']: theme.colors.slate[600],
+      ['dark: slate 900']: theme.colors.slate[900],
     },
   },
 };
