@@ -11,7 +11,10 @@ export default {
     label: {
       control: 'text',
     },
-    fnCallBack: {
+    size: {
+      control: 'select',
+    },
+    fCallBack: {
       control: false,
       table: {
         disable: true,
