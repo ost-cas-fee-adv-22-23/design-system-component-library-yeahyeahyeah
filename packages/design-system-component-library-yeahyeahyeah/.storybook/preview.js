@@ -60,7 +60,7 @@ export const decorators = [
         </div>
       );
     }
-    if (args.kind === 'Guidelines/Docs') {
+    if (args.kind === 'Docs') {
       return (
         <>
           <GlobalStyles />

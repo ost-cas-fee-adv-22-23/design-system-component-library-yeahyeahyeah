@@ -1,0 +1,35 @@
+import { Meta, Typeset, Story, Canvas } from '@storybook/addon-docs';
+import { theme, config } from '../../docs/config.js';
+import { Container } from '../../components/Container.tsx';
+import { ImageContainer } from '../../components/ImageContainer.tsx';
+import { Paragraph } from '../../components/typography/Paragraph.tsx';
+import { Heading } from '../../components/typography/Heading.tsx';
+import { MumbleHeader } from '../../components/mumble/MumbleHeader.tsx';
+import { Mumble } from '../../components/mumble/Mumble.tsx';
+export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+<Meta title="Docs" component={Paragraph} />
+
+# Mumble Typography
+
+**Google Font**: [Poppins](https://fonts.google.com/specimen/Poppins 'Google Fonts: Poppins')
+
+## Default font style
+
+| Property    | Value           |
+| ----------- | --------------- |
+| font-size   | 18px / 1.125rem |
+| line-height | 25px            |
+| color       | _slate 900_     |
+
+<Canvas>
+  <Story
+    name="Paragraph"
+    args={{
+      text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+      color: 'medium',
+      size: 'default',
+      mbSpacing: '0',
+    }}
+  />
+</Canvas>
