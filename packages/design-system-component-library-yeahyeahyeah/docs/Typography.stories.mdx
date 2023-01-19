@@ -1,4 +1,4 @@
-import { Meta, Typeset, Story, Canvas } from '@storybook/addon-docs';
+import { Meta, Typeset, Story, Canvas, ColorItem } from '@storybook/addon-docs';
 import { theme, config } from '../docs/config.js';
 import { Container } from '../components/Container.tsx';
 import { ImageContainer } from '../components/ImageContainer.tsx';
@@ -30,7 +30,7 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 
 | size | px   | rem  | lineHeight | tag |
 | ---- | ---- | ---- | ---------- | --- |
-| 4xl  | 48px | 3rem | 0.875rem   | h1  |
+| 4xl  | 48px | 3rem | 0.875rem   |     |
 
 <Canvas>
   <Story id="docs--h-1" />
@@ -38,15 +38,15 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 
 | size | px   | rem    | lineHeight | tag |
 | ---- | ---- | ------ | ---------- | --- |
-| 3xl  | 48px | 2.5rem | 0.875rem   | h2  |
+| 3xl  | 40px | 2.5rem | 0.875rem   |     |
 
 <Canvas>
   <Story id="docs--h-2" />
 </Canvas>
 
-| size | px   | rem    | lineHeight | tag |
-| ---- | ---- | ------ | ---------- | --- |
-| 3xl  | 48px | 2.5rem | 0.875rem   | h3  |
+| size | px   | rem  | lineHeight | tag |
+| ---- | ---- | ---- | ---------- | --- |
+| 2xl  | 32px | 2rem | 0.875rem   |     |
 
 <Canvas>
   <Story id="docs--h-3" />
@@ -54,15 +54,41 @@ export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing el
 
 | size | px   | rem  | lineHeight | tag |
 | ---- | ---- | ---- | ---------- | --- |
-| 4xl  | 48px | 3rem | 0.875rem   | h4  |
+| xl   | 24px | 24px | 2.1875rem  |     |
 
 <Canvas>
   <Story id="docs--h-4" />
 </Canvas>
 
+## Heading colors
+
+<ColorItem title={config.fontColors.title} subtitle={config.fontColors.subtitle} colors={config.fontColors.colors} />
+
+## Paragraph colors
+
+Paragraph colors differs only in gray tones.
+
 <Canvas>
-  <Story id="docs--font-units" />
+  <Story id="docs--paragraph-dark" />
+  <Story id="docs--paragraph-medium" />
+  <Story id="docs--paragraph-light" />
 </Canvas>
+
+<ColorItem
+  title={config.paragraphColors.title}
+  subtitle={config.paragraphColors.subtitle}
+  colors={config.paragraphColors.colors}
+/>
+
+## Paragraph sizes
+
+<Canvas>
+  <Story id="docs--paragraph-size-default" />
+  <Story id="docs--paragraph-size-medium" />
+  <Story id="docs--paragraph-size-large" />
+</Canvas>
+
+## Font units
 
 | size | px   | rem      | lineHeight | _label sizes_ |
 | ---- | ---- | -------- | ---------- | ------------- |
