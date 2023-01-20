@@ -66,7 +66,6 @@ TextBoxStory.argTypes = {
     },
     defaultValue: {
       label: 'Hey, was läuft?',
-      variant: 'write',
       username: {
         type: 'joined',
         label: 'Username',
