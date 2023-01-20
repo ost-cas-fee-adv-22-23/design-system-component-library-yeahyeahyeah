@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import tw, { styled } from 'twin.macro';
-import { Eye } from '../icons/index';
+import { Eye, Cancel } from '../icons/index';
 
 export interface IFormInputProps {
   label?: string;
@@ -30,9 +30,15 @@ export const InputForm: React.FC<IFormInputProps> = ({
   onPressEnter,
 }) => {
   const [buttonType, setbuttonType] = useState(type);
+  const [clear, setClear] = useState<boolean>(false);
 
   const showPassword = () => {
     buttonType === 'password' ? setbuttonType('text') : setbuttonType('password');
+  };
+
+  const clearForm = () => {
+    if (ref?.current) ref.current.value = '';
+    setClear(false);
   };
 
   const ref = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
@@ -40,6 +46,10 @@ export const InputForm: React.FC<IFormInputProps> = ({
   useEffect(() => {
     setRef && setRef(ref);
   }, [ref]);
+
+  useEffect(() => {
+    if (ref?.current && ref.current.value !== '') setClear(true);
+  }, [ref?.current && ref.current.value]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.code === 'Enter' && e.shiftKey == false) {
@@ -67,6 +77,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
               error={errorMessage ? 'true' : 'false'}
             />
             {type === 'password' && <Eye tw="absolute right-16 cursor-pointer" onClick={showPassword} />}
+            {type === 'text' && clear && <Cancel tw="absolute right-16 cursor-pointer" onClick={clearForm} />}
           </FormInlineWrapperStyles>
           <FormFieldError>{errorMessage}</FormFieldError>
         </FormLabel>

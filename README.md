@@ -4,13 +4,14 @@ This setup demonstrates a TypeScript Next.js app (`packages/app`) importing a se
 
 ## Features
 
-- **Simple, speedy workflow**<br/>After starting the next app `yarn dev` you can work on the components in `packages/design-system-component-library-yeahyeahyeah` and receive HMR updates in your app
+- **Simple, speedy workflow**<br/>After starting the next app with `yarn dev` and the watcher with `yarn watch` you can work on the components in `packages/design-system-component-library-yeahyeahyeah` and receive HMR updates in your app
 - **Simple multi-project configs**
   - Shared styles in `tailwind.config.js`
   - Shared babel settings in `babel.config.js`
-  - Shared twin config in `package.json` and `types`
+  - Shared twin config in `package.json`
+  - Shared global types in `types`
 - **Automatic component type generation**<br/>
-  Start live component type updates with `yarn types:watch`
+  Start live component build updates with `yarn watch`
 
 ## Get started
 
@@ -30,8 +31,8 @@ yarn watch
 
 ## Resources
 
+- [design-system-component-library-yeahyeahyeah](https://github.com/smartive-education/design-system-component-library-yeahyeahyeah)
 - [Typescript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/)
 - [styled-components](https://styled-components.com/)
 - [Twin](https://github.com/ben-rogerson/twin.macro)
-- [Github](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-packages-from-other-organizations)
