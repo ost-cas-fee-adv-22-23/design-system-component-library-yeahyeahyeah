@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Navigation } from '../components/Navigation';
 import { Modal } from '../components/modal/Modal';
+import NavigationReadme from '../docs/Navigation.md';
 
 export default {
   title: 'Navigation/Navigation',
@@ -86,5 +87,14 @@ const Template: ComponentStory<typeof Navigation> = (args) => {
 };
 
 export const NavigationStory = Template.bind({});
+
+NavigationStory.parameters = {
+  docs: {
+    source: { type: 'dynamic' },
+    description: {
+      component: NavigationReadme,
+    },
+  },
+};
 
 NavigationStory.storyName = 'Navigation';
