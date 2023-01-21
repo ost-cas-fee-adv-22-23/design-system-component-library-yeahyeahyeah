@@ -2,7 +2,7 @@
 # Container
 ## Container properties
 
-**Explanation:** This element serves as a wrapper element for the specific mumble feeds.
+**Explanation:** This element serves as a wrapper element for the specific mumble feeds. For **timeline**, **profilepage** and choose layout *plain*. For **detailview** page choose layout *box*. See examples on [Mumble UI Design on Figma](https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=1%3A4&t=QgTgKbePxpLOcrCA-0).
 
 | Property|Description|
 |-|-|
