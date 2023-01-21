@@ -47,7 +47,10 @@ export const User: React.FC<IUserProps> = ({
       return null;
     },
   },
-  avatar = { src: 'https://i.stack.imgur.com/5xd5n.png', alt: 'Alter Tag' },
+  avatar = {
+    src: 'https://i.stack.imgur.com/5xd5n.png',
+    alt: 'Alter Tag',
+  },
   btn = { label: 'Follow' },
 }) => {
   return (

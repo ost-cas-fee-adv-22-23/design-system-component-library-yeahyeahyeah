@@ -48,12 +48,17 @@ export const InputForm: React.FC<IFormInputProps> = ({
   }, [ref]);
 
   useEffect(() => {
-    if (ref?.current && ref.current.value !== '') setClear(true);
+    if (ref?.current && ref.current.value !== '') {
+      setClear(true);
+      return;
+    }
+    setClear(false);
   }, [ref?.current && ref.current.value]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.code === 'Enter' && e.shiftKey == false) {
       e.preventDefault();
+      setClear(false);
       onPressEnter && onPressEnter();
     }
   };
@@ -96,7 +101,6 @@ export const InputForm: React.FC<IFormInputProps> = ({
             onKeyDown={handleKeyDown}
             rows={20}
             cols={30}
-            aria-colspan={10}
             ref={ref}
             error={errorMessage ? 'true' : 'false'}
           />
@@ -125,6 +129,7 @@ const FormFieldError = styled.p(() => [
     font-medium
     text-red
     mt-4
+    h-16
   `,
 ]);
 
