@@ -75,7 +75,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
   };
 
   return (
-    <FormStyles ref={ref} onSubmit={handleSubmit}>
+    <form ref={ref} onSubmit={handleSubmit} tw="container">
       <Card variant={variant}>
         <UserWrapper variant={variant} mbSpacing={'16'}>
           {variant === 'write' && (
@@ -122,7 +122,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
           />
         </Row>
       </Card>
-    </FormStyles>
+    </form>
   );
 };
 
@@ -130,10 +130,6 @@ interface ICard {
   variant: string;
   mbSpacing: string;
 }
-
-const FormStyles = tw.form`
-  container
-`;
 
 const Card = styled.div(({ variant }: Pick<ICard, 'variant'>) => [
   tw`
