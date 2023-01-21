@@ -11,7 +11,7 @@ export interface IModalProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
   onClose?: () => void;
 }
 
-export const Modal: React.FC<IModalProps> = ({ label, children, isOpen, onClose }) => {
+export const Modal: React.FC<IModalProps> = ({ label = 'Modal title', children, isOpen = false, onClose }) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const handleClose = () => {
