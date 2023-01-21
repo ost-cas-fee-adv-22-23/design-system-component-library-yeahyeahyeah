@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Modal } from '../../components/modal/Modal';
 import { action } from '@storybook/addon-actions';
+import ModalReadme from '../../docs/Modal.md';
 
 export default {
   title: 'Modal/Modal',
@@ -20,14 +21,19 @@ const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 export const ModalStory = Template.bind({});
 
 ModalStory.args = {
-  label: 'Title modal',
-  children: 'Hallo Roli',
+  label: 'Modal title',
+  children: 'Modal content',
   isOpen: false,
 };
 
 ModalStory.parameters = {
   docs: {
-    source: { type: 'dynamic' },
+    source: {
+      type: 'dynamic',
+    },
+    description: {
+      component: ModalReadme,
+    },
   },
 };
 
