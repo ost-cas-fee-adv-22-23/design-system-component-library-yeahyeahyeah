@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Switch } from '../../components/forms/Switch';
 import SwitchReadme from '../../docs/Switch.md';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Form/Switch',
@@ -10,13 +11,10 @@ export default {
 } as ComponentMeta<typeof Switch>;
 
 const Template: ComponentStory<typeof Switch> = (args) => <Switch {...args} />;
-
 export const SwitchStory = Template.bind({});
 
 SwitchStory.args = {
-  label: 'Switching to different Mumbles',
   value: 'likes',
-  name: 'switch',
   options: [
     {
       label: 'Deine Mumbles',
@@ -31,6 +29,7 @@ SwitchStory.args = {
       value: 'promotedPosts',
     },
   ],
+  fCallBack: action('value'),
 };
 
 SwitchStory.parameters = {

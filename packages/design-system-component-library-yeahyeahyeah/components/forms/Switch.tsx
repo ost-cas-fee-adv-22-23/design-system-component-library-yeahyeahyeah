@@ -1,14 +1,12 @@
-import React, { FC, ChangeEvent, InputHTMLAttributes, useState, useEffect } from 'react';
+import React, { FC, InputHTMLAttributes, useState } from 'react';
 import tw, { styled } from 'twin.macro';
 
 export type TSwitchOption = InputHTMLAttributes<HTMLInputElement> & { label: string };
 
 export interface ISwitchProps {
-  label: string;
   options: TSwitchOption[];
-  value: string;
-  name: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
+  fCallBack: (value: string) => void;
 }
 
 export const Switch: FC<ISwitchProps> = ({
@@ -26,37 +24,31 @@ export const Switch: FC<ISwitchProps> = ({
       value: 'promotedPosts',
     },
   ],
-  name,
-  label,
   value = 'mumbles',
-  onChange,
+  fCallBack,
 }) => {
   const [active, setActive] = useState<string>(value);
 
-  useEffect(() => {
-    console.log('active', active);
-  }, [active]);
-
-  const handleClick = (event: any, value: string) => {
-    setActive(value as string);
-    onChange && onChange(event);
+  const handleClick = (value: string) => {
+    setActive(value);
+    fCallBack && fCallBack(value);
   };
 
   return (
     <StyledList>
-      {options.map((option, index) => {
+      {options.map((option) => {
         return (
-          <li key={index} onClick={(event) => handleClick(event, option?.value as string)}>
+          <React.Fragment key={option?.value as string}>
             {option.value === active ? (
-              <StyledListItemActive>
+              <StyledListItemActive onClick={() => handleClick(option?.value as string)}>
                 <StyledLink>{option.label}</StyledLink>
               </StyledListItemActive>
             ) : (
-              <StyledListItem>
+              <StyledListItem onClick={() => handleClick(option?.value as string)}>
                 <StyledLink>{option.label}</StyledLink>
               </StyledListItem>
             )}
-          </li>
+          </React.Fragment>
         );
       })}
     </StyledList>
@@ -70,20 +62,17 @@ const StyledList = styled.ul(() => [
     md:flex-row
     flex-wrap
     list-none
-    py-12
-    px-4
-    rounded-xl
-    border-2
+    p-4
+    rounded-md
     bg-slate-200
-    border-slate-white
   `,
 ]);
 
-const StyledListItem = styled.span(() => [
+const StyledListItem = styled.li(() => [
   tw`
     w-fit
-    p-8
-    px-16
+    py-8
+    px-12
     bg-slate-200
     text-slate-600
     text-md
@@ -96,11 +85,11 @@ const StyledListItem = styled.span(() => [
   `,
 ]);
 
-const StyledListItemActive = styled.span(() => [
+const StyledListItemActive = styled.li(() => [
   tw`
     w-fit
-    p-8
-    px-16
+    py-8
+    px-12
     bg-slate-white
     text-violet-600
     text-md
