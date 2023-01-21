@@ -21,7 +21,7 @@ const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 export const ModalStory = Template.bind({});
 
 ModalStory.args = {
-  label: 'Title modal',
+  label: 'Modal title',
   children: 'Modal content',
   isOpen: false,
 };
