@@ -70,10 +70,12 @@ TextBoxStory.argTypes = {
         type: 'joined',
         label: 'Username',
         href: '#',
+        fCallBack: action('user clicked'),
       },
       avatar: {
         src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
         alt: 'Family Guy goes Mumble',
+        imageCallBack: action('avatar clicked'),
       },
     },
     table: {

@@ -75,7 +75,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
   };
 
   return (
-    <form ref={ref} onSubmit={handleSubmit}>
+    <form ref={ref} onSubmit={handleSubmit} tw="container">
       <Card variant={variant}>
         <UserWrapper variant={variant} mbSpacing={'16'}>
           {variant === 'write' && (
