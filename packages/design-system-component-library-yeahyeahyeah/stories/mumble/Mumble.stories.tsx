@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Mumble } from '../../components/mumble/Mumble';
 import { action } from '@storybook/addon-actions';
+import MumbleReadme from '../../docs/Mumble.md';
 
 export default {
   title: 'Mumble/Mumble',
@@ -105,6 +106,9 @@ export const MumbleStory = Template.bind({});
 MumbleStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
+    description: {
+      component: MumbleReadme,
+    },
   },
 };
 
