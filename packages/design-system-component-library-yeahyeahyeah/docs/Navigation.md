@@ -19,26 +19,28 @@ import { Navigation } from "@smartive-education/design-system-component-library-
 ```js
 
 <Navigation
-  fCallBack={() => {}}
-  icon="settings"
-  label="Label"
-  variant="default"
-/>
-
-```
-
-### Navigation *profile* example
-```js
-
-<Navigation
   avatar={{
-    alt: 'Alternative text',
+    fCallBack: () => {},
     src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-    variant: 'small'
+    variant: 'profile'
   }}
-  fCallBack={() => {}}
-  label="Label"
-  variant="profile"
+  logo={{
+    fCallBack: function noRefCheck() {},
+    href: '#',
+    title: 'Mumble Logo'
+  }}
+  logout={{
+    fCallBack: function noRefCheck() {},
+    icon: 'logout',
+    label: 'Logout',
+    variant: 'default'
+  }}
+  settings={{
+    fCallBack: function noRefCheck() {},
+    icon: 'settings',
+    label: 'Settings',
+    variant: 'default'
+  }}
 />
 
 ```
