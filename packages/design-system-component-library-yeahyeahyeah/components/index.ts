@@ -6,6 +6,7 @@ export * from './forms';
 export * from './IconLink';
 export * from './icons';
 export * from './ImageContainer';
+export * from './modal';
 export * from './mumble';
 export * from './Navigation';
 export * from './Spacing';
