@@ -19,10 +19,6 @@ export const Switch: FC<ISwitchProps> = ({
       label: 'Deine Likes',
       value: 'likes',
     },
-    {
-      label: 'Empfehlungen',
-      value: 'promotedPosts',
-    },
   ],
   value = 'mumbles',
   fCallBack,
@@ -35,17 +31,31 @@ export const Switch: FC<ISwitchProps> = ({
   };
 
   return (
-    <StyledList>
+    <StyledList role="tablist">
       {options.map((option) => {
         return (
           <React.Fragment key={option?.value as string}>
             {option.value === active ? (
-              <StyledListItemActive onClick={() => handleClick(option?.value as string)}>
-                <StyledLink>{option.label}</StyledLink>
+              <StyledListItemActive
+                id={`tabs-${option?.value as string}`}
+                onClick={() => handleClick(option?.value as string)}
+                role="tabpanel"
+                aria-label={option?.label}
+              >
+                <StyledLink role="tab" aria-controls={`tabs-${option?.value as string}`} aria-selected="true">
+                  {option.label}
+                </StyledLink>
               </StyledListItemActive>
             ) : (
-              <StyledListItem onClick={() => handleClick(option?.value as string)}>
-                <StyledLink>{option.label}</StyledLink>
+              <StyledListItem
+                id={`tabs-${option?.value as string}`}
+                onClick={() => handleClick(option?.value as string)}
+                role="tabpanel"
+                aria-label={option?.label}
+              >
+                <StyledLink role="tab" aria-controls={`tabs-${option?.value as string}`} aria-selected="false">
+                  {option.label}
+                </StyledLink>
               </StyledListItem>
             )}
           </React.Fragment>
@@ -63,7 +73,7 @@ const StyledList = styled.ul(() => [
     flex-wrap
     list-none
     p-4
-    rounded-md
+    rounded-lg
     bg-slate-200
   `,
 ]);
@@ -81,7 +91,7 @@ const StyledListItem = styled.li(() => [
     transition-all
     ease-in duration-150
     hover:(text-slate-600)
-    rounded-md
+    rounded-lg
   `,
 ]);
 
@@ -98,7 +108,7 @@ const StyledListItemActive = styled.li(() => [
     transition-all
     ease-in duration-150
     hover:(cursor-pointer text-violet-600)
-    rounded-md
+    rounded-lg
   `,
 ]);
 
