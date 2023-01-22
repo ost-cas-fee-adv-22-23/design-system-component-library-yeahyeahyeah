@@ -70,6 +70,14 @@ export const decorators = [
         </div>
       );
     }
+    if (args.name === 'Switch') {
+      return (
+        <div tw="flex flex-row flex-wrap justify-center items-start w-full h-full p-64 m-0 bg-slate-100">
+          <GlobalStyles />
+          <Story />
+        </div>
+      );
+    }
     if (args.kind === 'Docs') {
       return (
         <>
