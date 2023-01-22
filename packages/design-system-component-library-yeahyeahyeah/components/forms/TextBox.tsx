@@ -133,7 +133,6 @@ interface ICard {
 
 const Card = styled.div(({ variant }: Pick<ICard, 'variant'>) => [
   tw`
-    container
     flex
     flex-col
     bg-slate-white
