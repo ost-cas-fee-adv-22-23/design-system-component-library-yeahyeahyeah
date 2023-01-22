@@ -153,9 +153,10 @@ const FormInlineWrapperStyles = styled.div(() => [
   `,
 ]);
 
-// eslint-disable-next-line
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const _TextArea: any = React.forwardRef(
-  (props: Pick<IFormInputProps, 'required' | 'autoComplete'>, ref?: React.Ref<never>) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (props: Pick<IFormInputProps, 'required' | 'autoComplete'>, ref?: React.Ref<any>) => {
     return <textarea {...props} ref={ref} />;
   }
 );

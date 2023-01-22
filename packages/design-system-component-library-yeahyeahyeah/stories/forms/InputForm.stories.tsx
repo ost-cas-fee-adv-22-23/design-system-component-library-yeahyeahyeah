@@ -117,6 +117,7 @@ FormInputStory.play = async ({ canvasElement }) => {
   await userEvent.type(canvas.getByTestId('label'), 'Lorem ipsum dolor sit amet');
   await expect(await canvas.findByTestId('svg_cancel')).toBeInTheDocument();
   await userEvent.click(await within(canvasElement).getByTestId('svg_cancel'));
+  await expect(await canvas.findByTestId('label')).toBeUndefined;
 };
 
 FormInputStory.storyName = 'InputForm';
