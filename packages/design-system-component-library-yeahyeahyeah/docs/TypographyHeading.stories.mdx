@@ -1,0 +1,88 @@
+import { Meta, Story, Canvas, ColorItem } from '@storybook/addon-docs';
+import { config } from '../docs/config.js';
+
+<Meta title="Guidelines/Typography/Heading" />
+
+# Mumble Typography Heading
+
+**Google Font**: [Poppins](https://fonts.google.com/specimen/Poppins 'Google Fonts: Poppins')
+
+## Default font style
+
+| Property    | Value           |
+| ----------- | --------------- |
+| font-size   | 18px / 1.125rem |
+| line-height | 25px            |
+| color       | _slate 900_     |
+
+<Canvas>
+  <Story id="docs--p" />
+</Canvas>
+
+## Heading font sizes
+
+| size | px   | rem  | lineHeight | tag |
+| ---- | ---- | ---- | ---------- | --- |
+| 4xl  | 48px | 3rem | 0.875rem   | h1  |
+
+<Canvas>
+  <Story id="docs--h-1" />
+</Canvas>
+
+| size | px   | rem    | lineHeight | tag |
+| ---- | ---- | ------ | ---------- | --- |
+| 3xl  | 40px | 2.5rem | 0.875rem   | h2  |
+
+<Canvas>
+  <Story id="docs--h-2" />
+</Canvas>
+
+| size | px   | rem  | lineHeight | tag |
+| ---- | ---- | ---- | ---------- | --- |
+| 2xl  | 32px | 2rem | 0.875rem   | h3  |
+
+<Canvas>
+  <Story id="docs--h-3" />
+</Canvas>
+
+| size | px   | rem  | lineHeight | tag |
+| ---- | ---- | ---- | ---------- | --- |
+| xl   | 24px | 24px | 2.1875rem  | h4  |
+
+<Canvas>
+  <Story id="docs--h-4" />
+</Canvas>
+
+## Label sizes with heading tag
+
+Simulate all **Label** styles with heading tags. You can use any heading tag you like, but bear in mind the HTML semantic order.
+
+This view is for demonstration purposes only. A detail example is visible on [User](./?path=/story/user-user--user-story&args=variant:small).
+
+### Label **small** with H1 tag
+
+<Canvas>
+  <Story id="docs--hsmall" />
+</Canvas>
+
+### Label **medium** with H2 tag
+
+<Canvas>
+  <Story id="docs--hmedium" />
+</Canvas>
+
+### Label **large** with H3 tag
+
+<Canvas>
+  <Story id="docs--hlarge" />
+</Canvas>
+
+### Label **xlarge** with H4 tag
+
+<Canvas>
+  <Story id="docs--hxlarge" />
+</Canvas>
+
+## Heading colors
+
+<ColorItem title={config.fontColors.title} subtitle={config.fontColors.subtitle} colors={config.fontColors.colors} />

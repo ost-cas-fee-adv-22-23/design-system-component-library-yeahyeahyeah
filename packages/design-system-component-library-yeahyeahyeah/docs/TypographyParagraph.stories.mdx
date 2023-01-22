@@ -1,115 +1,27 @@
-import { Meta, Typeset, Story, Canvas, ColorItem } from '@storybook/addon-docs';
+import { Meta, Story, Canvas, ColorItem } from '@storybook/addon-docs';
 import { theme, config } from '../docs/config.js';
-import { Container } from '../components/Container.tsx';
-import { ImageContainer } from '../components/ImageContainer.tsx';
-import { Paragraph } from '../components/typography/Paragraph.tsx';
-import { Heading } from '../components/typography/Heading.tsx';
-import { MumbleHeader } from '../components/mumble/MumbleHeader.tsx';
-import { Mumble } from '../components/mumble/Mumble.tsx';
 export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
-<Meta title="Guidelines/Typography" />
+<Meta title="Guidelines/Typography/Paragraph" />
 
-# Mumble Typography
-
-**Google Font**: [Poppins](https://fonts.google.com/specimen/Poppins 'Google Fonts: Poppins')
-
-## Default font style
-
-| Property    | Value           |
-| ----------- | --------------- |
-| font-size   | 18px / 1.125rem |
-| line-height | 25px            |
-| color       | _slate 900_     |
-
-<Canvas>
-  <Story id="docs--paragraph" />
-</Canvas>
-
-## Heading font sizes
-
-| size | px   | rem  | lineHeight | tag |
-| ---- | ---- | ---- | ---------- | --- |
-| 4xl  | 48px | 3rem | 0.875rem   | h1  |
-
-<Canvas>
-  <Story id="docs--h-1" />
-</Canvas>
-
-| size | px   | rem    | lineHeight | tag |
-| ---- | ---- | ------ | ---------- | --- |
-| 3xl  | 40px | 2.5rem | 0.875rem   | h2  |
-
-<Canvas>
-  <Story id="docs--h-2" />
-</Canvas>
-
-| size | px   | rem  | lineHeight | tag |
-| ---- | ---- | ---- | ---------- | --- |
-| 2xl  | 32px | 2rem | 0.875rem   | h3  |
-
-<Canvas>
-  <Story id="docs--h-3" />
-</Canvas>
-
-| size | px   | rem  | lineHeight | tag |
-| ---- | ---- | ---- | ---------- | --- |
-| xl   | 24px | 24px | 2.1875rem  | h4  |
-
-<Canvas>
-  <Story id="docs--h-4" />
-</Canvas>
-
-## Label sizes with heading tag
-
-Simulate all **Label** styles with heading tags. You can use any heading tag you like, but bear in mind the HTML semantic order.
-
-This view is for demonstration purposes only. A detail example is visible on [User](./?path=/story/user-user--user-story&args=variant:small).
-
-### Label **small** with H1 tag
-
-<Canvas>
-  <Story id="docs--label-small" />
-</Canvas>
-
-### Label **medium** with H2 tag
-
-<Canvas>
-  <Story id="docs--label-medium" />
-</Canvas>
-
-### Label **large** with H3 tag
-
-<Canvas>
-  <Story id="docs--label-large" />
-</Canvas>
-
-### Label **xlarge** with H4 tag
-
-<Canvas>
-  <Story id="docs--label-x-large" />
-</Canvas>
-
-## Heading colors
-
-<ColorItem title={config.fontColors.title} subtitle={config.fontColors.subtitle} colors={config.fontColors.colors} />
+# Mumble Typography Paragraph
 
 ## Paragraph colors
 
 Paragraph colors differs only in gray tones.
 
 <Canvas>
-  <Story id="docs--paragraph-dark" />
-  <Story id="docs--paragraph-medium" />
-  <Story id="docs--paragraph-light" />
+  <Story id="docs--pdark" />
+  <Story id="docs--pmedium" />
+  <Story id="docs--plight" />
 </Canvas>
 
 ### Paragraph sizes
 
 <Canvas>
-  <Story id="docs--paragraph-size-default" />
-  <Story id="docs--paragraph-size-medium" />
-  <Story id="docs--paragraph-size-large" />
+  <Story id="docs--psdefault" />
+  <Story id="docs--psmedium" />
+  <Story id="docs--pslarge" />
 </Canvas>
 
 ### Paragraph colors
