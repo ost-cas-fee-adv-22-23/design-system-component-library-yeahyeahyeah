@@ -19,10 +19,6 @@ export const Switch: FC<ISwitchProps> = ({
       label: 'Deine Likes',
       value: 'likes',
     },
-    {
-      label: 'Empfehlungen',
-      value: 'promotedPosts',
-    },
   ],
   value = 'mumbles',
   fCallBack,
