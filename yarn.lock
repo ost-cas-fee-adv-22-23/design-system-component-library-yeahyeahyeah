@@ -2535,7 +2535,7 @@
   dependencies:
     core-js "^3.0.1"
 
-"@storybook/client-logger@6.5.15":
+"@storybook/client-logger@6.5.15", "@storybook/client-logger@^6.4.0":
   version "6.5.15"
   resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-6.5.15.tgz#0d9878af893a3493b6ee108cc097ae1436d7da4d"
   integrity sha512-0uyxKvodq+FycGv6aUwC1wUR6suXf2+7ywMFAOlYolI4UvNj8NyU/5AfgKT5XnxYAgPmoCiAjOE700TrfHrosw==
@@ -3033,6 +3033,17 @@
     read-pkg-up "^7.0.1"
     regenerator-runtime "^0.13.7"
 
+"@storybook/testing-library@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@storybook/testing-library/-/testing-library-0.0.13.tgz#417c87d4ea62895092ec5fdf67027ae201254f45"
+  integrity sha512-vRMeIGer4EjJkTgI8sQyK9W431ekPWYCWL//OmSDJ64IT3h7FnW7Xg6p+eqM3oII98/O5pcya5049GxnjaPtxw==
+  dependencies:
+    "@storybook/client-logger" "^6.4.0"
+    "@storybook/instrumenter" "^6.4.0"
+    "@testing-library/dom" "^8.3.0"
+    "@testing-library/user-event" "^13.2.1"
+    ts-dedent "^2.2.0"
+
 "@storybook/theming@5.3.22":
   version "5.3.22"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-5.3.22.tgz#c62a4139b7cb9aff3d8b0b08247cf1855a1f1a5e"
@@ -3323,6 +3334,20 @@
   dependencies:
     mini-svg-data-uri "^1.2.3"
 
+"@testing-library/dom@^8.3.0":
+  version "8.20.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.20.0.tgz#914aa862cef0f5e89b98cc48e3445c4c921010f6"
+  integrity sha512-d9ULIT+a4EXLX3UU8FBjauG9NnsZHkHztXoIcTsOKoOw030fyjheN9svkTULjJxtYag9DZz5Jz5qkWZDPxTFwA==
+  dependencies:
+    "@babel/code-frame" "^7.10.4"
+    "@babel/runtime" "^7.12.5"
+    "@types/aria-query" "^5.0.1"
+    aria-query "^5.0.0"
+    chalk "^4.1.0"
+    dom-accessibility-api "^0.5.9"
+    lz-string "^1.4.4"
+    pretty-format "^27.0.2"
+
 "@testing-library/jest-dom@^5.16.2":
   version "5.16.5"
   resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.16.5.tgz#3912846af19a29b2dbf32a6ae9c31ef52580074e"
@@ -3337,6 +3362,13 @@
     dom-accessibility-api "^0.5.6"
     lodash "^4.17.15"
     redent "^3.0.0"
+
+"@testing-library/user-event@^13.2.1":
+  version "13.5.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-13.5.0.tgz#69d77007f1e124d55314a2b73fd204b333b13295"
+  integrity sha512-5Kwtbo3Y/NowpkbRuSepbyMFkZmHgD+vPzYB/RJ4oxt5Gj/avFFBYjhw27cqSVPVw/3a67NK1PbiIr9k4Gwmdg==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -3357,6 +3389,11 @@
     minimatch "^5.1.0"
     mkdirp "^1.0.4"
     path-browserify "^1.0.1"
+
+"@types/aria-query@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@types/aria-query/-/aria-query-5.0.1.tgz#3286741fb8f1e1580ac28784add4c7a1d49bdfbc"
+  integrity sha512-XTIieEY+gvJ39ChLcB4If5zHtPxt3Syj5rgZR+e1ctpmK8NjPf0zFqsz4JpLJT0xla9GFDKjy8Cpu331nrmE1Q==
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.14":
   version "7.20.0"
@@ -6867,7 +6904,7 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dom-accessibility-api@^0.5.6:
+dom-accessibility-api@^0.5.6, dom-accessibility-api@^0.5.9:
   version "0.5.16"
   resolved "https://registry.yarnpkg.com/dom-accessibility-api/-/dom-accessibility-api-0.5.16.tgz#5a7429e6066eb3664d911e33fb0e45de8eb08453"
   integrity sha512-X7BJ2yElsnOJ30pZF4uIIDfBEVgF4XEBxL9Bxhy6dnrm5hkzqmsWHGTiHqRiITNhMyFLyAiWndIJP7Z1NTteDg==
@@ -10656,6 +10693,11 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
+lz-string@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/lz-string/-/lz-string-1.4.4.tgz#c0d8eaf36059f705796e1e344811cf4c498d3a26"
+  integrity sha512-0ckx7ZHRPqb0oUm8zNr+90mtf9DQB60H1wMCjBtfi62Kl3a7JbHob6gA2bC+xRvZoOL+1hzUK8jeuEIQE8svEQ==
+
 magic-string@^0.25.0, magic-string@^0.25.7:
   version "0.25.9"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.9.tgz#de7f9faf91ef8a1c91d02c2e5314c8277dbcdd1c"
@@ -12767,7 +12809,7 @@ pretty-error@^4.0.0:
     lodash "^4.17.20"
     renderkid "^3.0.0"
 
-pretty-format@^27.5.1:
+pretty-format@^27.0.2, pretty-format@^27.5.1:
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-27.5.1.tgz#2181879fdea51a7a5851fb39d920faa63f01d88e"
   integrity sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==
