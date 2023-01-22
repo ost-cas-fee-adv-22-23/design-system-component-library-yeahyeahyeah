@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { expect } from '@storybook/jest';
+import { within, userEvent } from '@storybook/testing-library';
 import { InputForm } from '../../components/forms/InputForm';
-import { Button } from '../../components/buttons/Button';
+import { Eye, Cancel } from '../../components/icons';
 import Readme from '../../docs/InputForm.md';
 
 export default {
@@ -13,6 +15,17 @@ const Template: ComponentStory<typeof InputForm> = (args) => {
   const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
   const [text, setText] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
+  const [buttonType, setbuttonType] = useState('text');
+  const [clear, setClear] = useState<boolean>(false);
+
+  const showPassword = () => {
+    buttonType === 'password' ? setbuttonType('text') : setbuttonType('password');
+  };
+
+  const clearForm = () => {
+    if (ref?.current) ref.current.value = '';
+    setClear(false);
+  };
 
   const handleClick = () => {
     if (text === '') {
@@ -31,8 +44,19 @@ const Template: ComponentStory<typeof InputForm> = (args) => {
 
   return (
     <>
-      <Button label={'clear'} color={'slate'} fCallBack={handleClick} />
-      <InputForm {...args} setRef={setRef} setText={setText} errorMessage={errorMessage} onPressEnter={handleClick} />
+      <InputForm
+        {...args}
+        setRef={setRef}
+        setText={setText}
+        errorMessage={errorMessage}
+        onPressEnter={handleClick}
+        data-testid={'label'}
+        type="text"
+      />
+      {args.type === 'password' && <Eye tw="absolute right-16 cursor-pointer" onClick={showPassword} />}
+      {args.type === 'text' && clear && (
+        <Cancel data-testid={'svg_cancel'} tw="absolute right-16 cursor-pointer" onClick={clearForm} />
+      )}
     </>
   );
 };
@@ -86,6 +110,7 @@ FormInputStory.args = {
   editType: 'input',
   label: 'Label',
   required: false,
+  type: 'text',
   placeholder: 'Was gibt es neues ?',
   errorMessage: 'Bitte füllen Sie das Feld aus.',
 };
@@ -166,3 +191,12 @@ TextAreaStory.parameters = {
 };
 
 TextAreaStory.storyName = 'TextArea';
+
+// Testing input story
+FormInputStory.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await userEvent.type(canvas.getByTestId('label'), 'Lorem ipsum dolor sit amet');
+  await expect(await canvas.findByTestId('svg_cancel')).toBeInTheDocument();
+  await userEvent.click(await within(canvasElement).getByTestId('svg_cancel'));
+};

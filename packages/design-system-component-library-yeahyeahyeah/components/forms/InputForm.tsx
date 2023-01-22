@@ -65,7 +65,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
           {label}
           <FormInlineWrapperStyles>
             <InputStyles
-              id={label}
+              id={label.toLowerCase()}
               placeholder={placeholder}
               type={buttonType}
               required={required}
@@ -75,9 +75,12 @@ export const InputForm: React.FC<IFormInputProps> = ({
               onKeyDown={handleKeyDown}
               ref={ref}
               error={errorMessage ? 'true' : 'false'}
+              data-testid={label.toLowerCase()}
             />
             {type === 'password' && <Eye tw="absolute right-16 cursor-pointer" onClick={showPassword} />}
-            {type === 'text' && clear && <Cancel tw="absolute right-16 cursor-pointer" onClick={clearForm} />}
+            {type === 'text' && clear && (
+              <Cancel data-testid={'svg_cancel'} tw="absolute right-16 cursor-pointer" onClick={clearForm} />
+            )}
           </FormInlineWrapperStyles>
           <FormFieldError>{errorMessage}</FormFieldError>
         </FormLabel>
@@ -152,7 +155,7 @@ const FormInlineWrapperStyles = styled.div(() => [
 
 // eslint-disable-next-line
 const _TextArea: any = React.forwardRef(
-  (props: Pick<IFormInputProps, 'required' | 'autoComplete'>, ref?: React.Ref<any>) => {
+  (props: Pick<IFormInputProps, 'required' | 'autoComplete'>, ref?: React.Ref<never>) => {
     return <textarea {...props} ref={ref} />;
   }
 );
