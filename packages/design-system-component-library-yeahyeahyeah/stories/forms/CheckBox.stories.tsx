@@ -27,10 +27,6 @@ export default {
 
 const Template: ComponentStory<typeof CheckBox> = (args) => <CheckBox {...args} />;
 
-/**
- * @input
- * @desc form input field
- */
 export const CheckBoxStory = Template.bind({});
 
 CheckBoxStory.args = {

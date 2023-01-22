@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { expect } from '@storybook/jest';
+import { within, userEvent } from '@storybook/testing-library';
 import { InputForm } from '../../components/forms/InputForm';
-import { Button } from '../../components/buttons/Button';
 import Readme from '../../docs/InputForm.md';
 
 export default {
   title: 'Form/Input',
   component: InputForm,
+  args: {
+    editType: 'input',
+    required: false,
+    errorMessage: 'Something went wrong!',
+    autoComplete: 'off',
+  },
 } as ComponentMeta<typeof InputForm>;
 
 const Template: ComponentStory<typeof InputForm> = (args) => {
@@ -31,16 +38,19 @@ const Template: ComponentStory<typeof InputForm> = (args) => {
 
   return (
     <>
-      <Button label={'clear'} color={'slate'} fCallBack={handleClick} />
-      <InputForm {...args} setRef={setRef} setText={setText} errorMessage={errorMessage} onPressEnter={handleClick} />
+      <InputForm
+        {...args}
+        setRef={setRef}
+        setText={setText}
+        errorMessage={errorMessage}
+        onPressEnter={handleClick}
+        data-testid={'label'}
+        type="text"
+      />
     </>
   );
 };
 
-/**
- * @input
- * @desc form input field
- */
 export const FormInputStory = Template.bind({});
 
 FormInputStory.argTypes = {
@@ -86,6 +96,7 @@ FormInputStory.args = {
   editType: 'input',
   label: 'Label',
   required: false,
+  type: 'text',
   placeholder: 'Was gibt es neues ?',
   errorMessage: 'Bitte füllen Sie das Feld aus.',
 };
@@ -100,12 +111,17 @@ FormInputStory.parameters = {
   },
 };
 
+FormInputStory.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await userEvent.type(canvas.getByTestId('label'), 'Lorem ipsum dolor sit amet');
+  await expect(await canvas.findByTestId('svg_cancel')).toBeInTheDocument();
+  await userEvent.click(await within(canvasElement).getByTestId('svg_cancel'));
+  await expect(await canvas.findByTestId('label')).toBeUndefined;
+};
+
 FormInputStory.storyName = 'InputForm';
 
-/**
- * @textarea
- * @desc form textarea
- */
 export const TextAreaStory = Template.bind({});
 
 TextAreaStory.argTypes = {

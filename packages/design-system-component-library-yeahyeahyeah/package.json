@@ -23,7 +23,9 @@
     "watch": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc --watch -p tsconfig.dist.json",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "copy-files": "del ./tailwind.config.js && cp ../../tailwind.config.js ./"
+    "copy-files": "del ./tailwind.config.js && cp ../../tailwind.config.js ./",
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json || true",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
@@ -37,9 +39,9 @@
     "@storybook/addon-interactions": "^6.5.15",
     "@storybook/addon-links": "^6.5.15",
     "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/jest": "^0.0.10",
     "@storybook/node-logger": "^6.5.13",
     "@storybook/react": "^6.5.15",
-    "@storybook/testing-library": "^0.0.13",
     "@svgr/cli": "^6.5.1",
     "@types/node": "^16.18.3",
     "@types/react": "^18.0.26",
