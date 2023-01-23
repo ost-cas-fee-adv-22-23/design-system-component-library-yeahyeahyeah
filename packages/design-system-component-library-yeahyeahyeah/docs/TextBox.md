@@ -19,7 +19,7 @@ import { InputForm } from '@smartive-education/design-system-component-library-y
 
 ### TextBox example with variant *"start"* without user object
 
-```typescript
+```js
 
 const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
 const [text, setText] = useState<string>('');
@@ -50,7 +50,7 @@ return (
       setText: setText,
     }}
     sendCallback={handleSend}
-    uploadCallback={action('uploadCallback')}
+    uploadCallback={() => console.log('uploadCallback')}
   />
 );
 
@@ -58,7 +58,7 @@ return (
 
 ### TextBox example with variant *"write"* or *"inline"* (with user object)
 
-```typescript
+```js
 
 const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
 const [text, setText] = useState<string>('');
@@ -83,7 +83,7 @@ return (
   <TextBox
     variant="write"
     user={{
-      label: 'Display Name',
+      label: 'Hey, was läuft?',
       username: {
         label: 'Username',
         href: '#',
@@ -92,6 +92,7 @@ return (
       avatar: {
         src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
         alt: 'Alter Tag',
+        imageCallBack: () => console.log('avatar clicked'),
       },
     }}
     form={{
@@ -101,7 +102,7 @@ return (
       setText: setText,
     }}
     sendCallback={handleSend}
-    uploadCallback={action('uploadCallback')}
+    uploadCallback={() => console.log('uploadCallback')}
   />
 );
 
