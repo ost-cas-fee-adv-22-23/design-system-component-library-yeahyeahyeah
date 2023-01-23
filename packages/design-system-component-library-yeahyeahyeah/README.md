@@ -46,7 +46,7 @@ Create .npmrc and add following line
 
 ## Check out demo app on github
 
-Now we can check out the demo app and install the dependencies. You can also [setup the app step by step with instructions](#install-a-demo-app-with-twin--nextjs--styled-components--typescript--mumble-component-library).
+Now we can check out the demo app and install the dependencies. You can also [setup the app step by step with instructions](#install-a-demo-app-step-by-step-with-twin--nextjs--styled-components--typescript--mumble-component-library).
 
 **Check out demo app using [git](https://github.com/tomschall/mumble-test-stack-yeahyeahyeah)**
 
@@ -57,9 +57,6 @@ git clone git@github.com:tomschall/mumble-test-stack-yeahyeahyeah.git folder-nam
 From within the new folder, run `yarn install`, then `yarn dev` to start the dev server.
 
 ## Install a demo app step by step with Twin + Next.js + Styled Components + TypeScript + Mumble Component Library
-
-<p><a href="https://github.com/ben-rogerson/twin.macro#gh-light-mode-only" target="_blank"><img src="../.github/twin-light.svg" alt="Twin" width="60" height="70"></a><a href="https://github.com/ben-rogerson/twin.macro#gh-dark-mode-only" target="_blank"><img src="../.github/twin-dark.svg" alt="Twin" width="60" height="70"></a><a href="https://nextjs.org#gh-light-mode-only" target="_blank"><img src="../.github/next-light.svg" alt="Next.js" width="80" height="70"></a><a href="https://nextjs.org#gh-dark-mode-only" target="_blank"><img src="../.github/next-dark.svg" alt="Next.js" width="80" height="70"></a><a href="https://styled-components.com#gh-light-mode-only" target="_blank"><img src="../.github/styled-components-light.svg" alt="Styled components" width="105" height="70"></a><a href="https://styled-components.com#gh-dark-mode-only" target="_blank"><img src="../.github/styled-components-dark.svg" alt="Styled components" width="105" height="70"></a><a href="https://www.typescriptlang.org/" target="_blank"><img src="../.github/typescript.svg" alt="TypeScript" width="60" height="70"></a>
-</p>
 
 ### Install Next.js
 
