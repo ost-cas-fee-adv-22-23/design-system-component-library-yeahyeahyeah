@@ -24,10 +24,6 @@ SwitchStory.args = {
       label: 'Deine Likes',
       value: 'likes',
     },
-    {
-      label: 'Empfehlungen',
-      value: 'promotedPosts',
-    },
   ],
   fCallBack: action('value'),
 };

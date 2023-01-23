@@ -1,83 +1,34 @@
-## Installing Mumble Component Library
-
-### Create Nextjs App
-
-```bash
-nvm use 16.17.0
-yarn create next-app --typescript
-```
-
-### Create Github Token And Add To .npmrc
-
-[Create a classic github token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)
-
-To authenticate by adding your personal access token (classic) to your ~/.npmrc file, edit the ~/.npmrc file for your project to include the following line, replacing TOKEN with your personal access token. Create a new ~/.npmrc file if one doesn’t exist.
-
-```bash
-//npm.pkg.github.com/:_authToken=TOKEN
-```
-
-Create .npmrc and add following line
-
-```bash
-@smartive-education:registry=https://npm.pkg.github.com
-```
-
-### Install The NPM Package
-
-With yarn
-
-```bash
-yarn add @smartive-education/design-system-component-library-yeahyeahyeah@latest
-```
-
-Or with npm
-
-```bash
-npm i @smartive-education/design-system-component-library-yeahyeahyeah@latest
-```
-
-# Install Example App with Twin + Next.js + Styled Components + TypeScript + Mumble Component Library
-
-<p><a href="https://github.com/ben-rogerson/twin.macro#gh-light-mode-only" target="_blank"><img src="../.github/twin-light.svg" alt="Twin" width="60" height="70"></a><a href="https://github.com/ben-rogerson/twin.macro#gh-dark-mode-only" target="_blank"><img src="../.github/twin-dark.svg" alt="Twin" width="60" height="70"></a><a href="https://nextjs.org#gh-light-mode-only" target="_blank"><img src="../.github/next-light.svg" alt="Next.js" width="80" height="70"></a><a href="https://nextjs.org#gh-dark-mode-only" target="_blank"><img src="../.github/next-dark.svg" alt="Next.js" width="80" height="70"></a><a href="https://styled-components.com#gh-light-mode-only" target="_blank"><img src="../.github/styled-components-light.svg" alt="Styled components" width="105" height="70"></a><a href="https://styled-components.com#gh-dark-mode-only" target="_blank"><img src="../.github/styled-components-dark.svg" alt="Styled components" width="105" height="70"></a><a href="https://www.typescriptlang.org/" target="_blank"><img src="../.github/typescript.svg" alt="TypeScript" width="60" height="70"></a>
-</p>
-
-**Download demo app using [git](https://github.com/tomschall/mumble-test-stack-yeahyeahyeah)**
-
-```shell
-git clone git@github.com:tomschall/mumble-test-stack-yeahyeahyeah.git folder-name
-```
-
-From within the new folder, run `yarn install`, then `yarn dev` to start the dev server.
-
-[](#table-of-contents)
+# Mumble Component Library and how to use it
 
 ## Table of contents
 
 - [Getting started](#getting-started)
-  - [Installation](#installation)
+- [Use credentials](#use-credentials)
+- [Check out demo app on github](#check-out-demo-app-on-github)
+- [Install a demo app with Twin + Next.js + Styled Components + TypeScript + Mumble Component Library](#install-a-demo-app-step-by-step-with-twin--nextjs--styled-components--typescript--mumble-component-library)
+  - [Installation Next.js](#install-nextjs)
+  - [Install Mumble Component Library and Styled Components](#install-mumble-component-library-and-styled-components)
+  - [Install Dependencies](#install-dependencies)
   - [Add the global styles](#add-the-global-styles)
   - [Add the twin config](#add-the-twin-config)
-  - [Add the TypeScript types](#add-typescript-types)
-  - [Add the next babel config](#add-the-next-babel-config)
+  - [Add the TypeScript types](#add-the-typescript-types)
+  - [Add the babel config](#add-the-babel-config)
   - [Add the server stylesheet](#add-the-server-stylesheet)
+  - [Add a demo site](#add-a-demo-site)
 - [Resources](#resources)
 - [Customization](#customization)
 - [Next steps](#next-steps)
 - [Other](#other)
 
 [](#getting-started)
-
 ## Getting started
 
-### Installation
+In the next steps you will setup a TypeScript Next.js app using Twin and Styled Components. After installing the Next.js App, we will configure the Next.js App, that we can use Twin and Styled Components. In a next step the Mumble Component Library Npm Package will be added as a dependency. In the last step we will add a few components for demonstration purposes. If you don't wanna go through all steps, you can check out the demo app on github.
 
-Install Next.js
+[](#use-credentials)
+## Use credentials
 
-```shell
-nvm use 16.17.0
-yarn create next-app --typescript
-```
+We need a github token and a .npmrc to get access to the [mumble npm package](https://github.com/smartive-education/design-system-component-library-yeahyeahyeah/pkgs/npm/design-system-component-library-yeahyeahyeah) at [smartive education](https://github.com/smartive-education) on github.
 
 Create github token and add to .npmrc
 
@@ -95,18 +46,46 @@ Create .npmrc and add following line
 @smartive-education:registry=https://npm.pkg.github.com
 ```
 
-Install Mumble Component Library and Styled Components
+[](#check-out-demo-app-on-github)
+## Check out demo app on github
+
+Now we can check out the demo app and install the dependencies. You can also [setup the app step by step with instructions](#install-a-demo-app-with-twin--nextjs--styled-components--typescript--mumble-component-library).
+
+**Check out demo app using [git](https://github.com/tomschall/mumble-test-stack-yeahyeahyeah)**
+
+```shell
+git clone git@github.com:tomschall/mumble-test-stack-yeahyeahyeah.git folder-name
+```
+
+From within the new folder, run `yarn install`, then `yarn dev` to start the dev server.
+
+[](#install-a-demo-app)
+## Install a demo app step by step with Twin + Next.js + Styled Components + TypeScript + Mumble Component Library
+
+<p><a href="https://github.com/ben-rogerson/twin.macro#gh-light-mode-only" target="_blank"><img src="../.github/twin-light.svg" alt="Twin" width="60" height="70"></a><a href="https://github.com/ben-rogerson/twin.macro#gh-dark-mode-only" target="_blank"><img src="../.github/twin-dark.svg" alt="Twin" width="60" height="70"></a><a href="https://nextjs.org#gh-light-mode-only" target="_blank"><img src="../.github/next-light.svg" alt="Next.js" width="80" height="70"></a><a href="https://nextjs.org#gh-dark-mode-only" target="_blank"><img src="../.github/next-dark.svg" alt="Next.js" width="80" height="70"></a><a href="https://styled-components.com#gh-light-mode-only" target="_blank"><img src="../.github/styled-components-light.svg" alt="Styled components" width="105" height="70"></a><a href="https://styled-components.com#gh-dark-mode-only" target="_blank"><img src="../.github/styled-components-dark.svg" alt="Styled components" width="105" height="70"></a><a href="https://www.typescriptlang.org/" target="_blank"><img src="../.github/typescript.svg" alt="TypeScript" width="60" height="70"></a>
+</p>
+
+[](#installation-step-by-step)
+### Install Next.js
+
+```shell
+nvm use 16.17.0
+yarn create next-app --typescript
+```
+
+### Install Mumble Component Library and Styled Components
 
 ```shell
 yarn add styled-components @smartive-education/design-system-component-library-yeahyeahyeah@latest
 ```
 
-Install DEV Dependencies
+### Install Dependencies
 
 ```shell
 yarn add twin.macro tailwindcss babel-plugin-macros babel-plugin-twin @types/styled-components @babel/core babel-loader @babel/plugin-syntax-typescript --dev
 ```
 
+[](#add-the-global-styles)
 ### Add the global styles
 
 Twin uses the same [preflight base styles](https://unpkg.com/tailwindcss/dist/base.css) as Tailwind to smooth over cross-browser inconsistencies.
@@ -161,6 +140,7 @@ const App = ({ Component, pageProps }: AppProps) => (
 export default App;
 ```
 
+[](#add-the-twin-config)
 ### Add the twin config
 
 Twin’s config must be added.
@@ -179,7 +159,8 @@ Here we use the tailwind.config.js from our mumble npm package
 },
 ```
 
-### Add TypeScript types
+[](#add-the-typescript-types)
+### Add the typeScript types
 
 Create a `types/twin.d.ts` file and add these declarations:
 
@@ -217,7 +198,8 @@ declare global {
 }
 ```
 
-### Add the next babel config
+[](#add-the-babel-config)
+### Add the babel config
 
 Create a new file either in the root or in a `config`
 subfolder:
@@ -297,6 +279,7 @@ module.exports = withTwin({
   // ...
 });
 ```
+[](#add-the-server-stylesheet)
 
 ### Add the server stylesheet
 
@@ -335,7 +318,8 @@ export default class MyDocument extends Document {
 }
 ```
 
-### Add index.tsx
+[](#add-a-demo-site)
+### Add a demo site
 
 To see a nice mumble demo timeline add following code to `pages/index.tsx`.
 

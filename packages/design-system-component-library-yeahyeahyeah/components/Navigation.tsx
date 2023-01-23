@@ -4,8 +4,8 @@ import tw from 'twin.macro';
 import { MumbleLogo, IMumbleLogoProps } from './branding/MumbleLogo';
 import { NaviButton, INaviButtonProps } from './buttons/NaviButton';
 export interface INavigationProps {
-  logo: IMumbleLogoProps;
-  avatar?: INaviButtonProps;
+  logo: Pick<IMumbleLogoProps, 'title' | 'href' | 'fCallBack'>;
+  avatar: Pick<INaviButtonProps, 'label' | 'variant' | 'fCallBack' | 'avatar'>;
   settings: INaviButtonProps;
   logout: INaviButtonProps;
 }
@@ -24,7 +24,11 @@ export const Navigation: React.FC<INavigationProps> = ({
     fCallBack: () => {
       return null;
     },
-    src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+    avatar: {
+      variant: 'small',
+      src: 'https://media.giphy.com/media/12HZukMBlutpoQ/giphy.gif',
+      alt: 'Alternative text',
+    },
   },
   settings = {
     icon: 'settings',
@@ -58,7 +62,12 @@ export const Navigation: React.FC<INavigationProps> = ({
                 isNavigation={true}
               />
               <Row>
-                <NaviButton variant={avatar.variant} label={avatar.label} fCallBack={avatar.fCallBack} />
+                <NaviButton
+                  variant={avatar.variant}
+                  label={avatar.label}
+                  fCallBack={avatar.fCallBack}
+                  avatar={avatar.avatar}
+                />
                 <NaviButton
                   icon={settings.icon}
                   label={settings.label}
