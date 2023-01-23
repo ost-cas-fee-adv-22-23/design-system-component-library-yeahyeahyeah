@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { expect } from '@storybook/jest';
+import { within, userEvent } from '@storybook/testing-library';
 import { TextBox } from '../../components/forms/TextBox';
 import { action } from '@storybook/addon-actions';
-import Readme from '../../docs/TextBox.md';
+import TextBoxReadme from '../../docs/TextBox.md';
 
 export default {
   title: 'Form',
@@ -34,7 +36,7 @@ const Template: ComponentStory<typeof TextBox> = (args) => {
       {...args}
       form={{
         errorMessage: errorMessage,
-        placeholder: 'Hast du uns etwas mitzuteilen ?',
+        placeholder: 'Hast du uns etwas mitzuteilen?',
         setRef: setRef,
         setText: setText,
       }}
@@ -110,10 +112,20 @@ TextBoxStory.parameters = {
   docs: {
     source: { type: 'dynamic' },
     description: {
-      component: Readme,
+      component: TextBoxReadme,
       language: 'javascript',
     },
   },
+};
+
+TextBoxStory.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await userEvent.type(await canvas.getByTestId('testTextarea'), 'Lorem ipsum dolor sit amet');
+  await userEvent.click(await within(canvasElement).getByLabelText('Absenden'));
+  await expect(await canvas.findByTestId('testTextarea')).toHaveValue('');
+  await userEvent.click(await within(canvasElement).getByLabelText('Absenden'));
+  await expect(canvas.getByText('Bitte füllen sie das Formular aus.'));
 };
 
 TextBoxStory.storyName = 'TextBox';

@@ -117,7 +117,7 @@ FormInputStory.play = async ({ canvasElement }) => {
   await userEvent.type(canvas.getByTestId('label'), 'Lorem ipsum dolor sit amet');
   await expect(await canvas.findByTestId('svg_cancel')).toBeInTheDocument();
   await userEvent.click(await within(canvasElement).getByTestId('svg_cancel'));
-  await expect(await canvas.findByTestId('label')).toBeUndefined;
+  expect(await canvas.findByTestId('label')).toHaveValue('');
 };
 
 FormInputStory.storyName = 'InputForm';
@@ -179,6 +179,18 @@ TextAreaStory.parameters = {
       language: 'javascript',
     },
   },
+};
+
+TextAreaStory.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const textArea = 'testTextarea';
+
+  await userEvent.type(
+    canvas.getByTestId(textArea),
+    'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
+  );
+  userEvent.clear(await within(canvasElement).getByTestId(textArea));
+  expect(await canvas.findByTestId(textArea)).toHaveValue('');
 };
 
 TextAreaStory.storyName = 'TextArea';

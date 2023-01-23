@@ -17,7 +17,6 @@ export interface ITextBoxProps {
   startHeading?: string;
   startParagraph?: string;
 }
-
 export const TextBox: React.FC<ITextBoxProps> = ({
   variant = 'start',
   startHeading = 'Hey, was läuft?',
@@ -91,6 +90,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
             </>
           )}
         </UserWrapper>
+
         <InputForm
           editType={'textarea'}
           label={''}
@@ -101,7 +101,9 @@ export const TextBox: React.FC<ITextBoxProps> = ({
           setText={form.setText}
           setRef={form.setRef}
           onPressEnter={onPressEnter}
+          data-testid={'testTextarea'}
         />
+
         <Row>
           <Button
             fCallBack={uploadCallback}
