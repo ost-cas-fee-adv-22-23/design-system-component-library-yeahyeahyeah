@@ -31,7 +31,7 @@ yarn watch
 
 ## Resources
 
-- [design-system-component-library-yeahyeahyeah](https://github.com/smartive-education/design-system-component-library-yeahyeahyeah)
+- [design-system-component-library-yeahyeahyeah](https://github.com/smartive-education/design-system-component-library-yeahyeahyeah/pkgs/npm/design-system-component-library-yeahyeahyeah)
 - [Typescript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/)
 - [styled-components](https://styled-components.com/)
