@@ -15,6 +15,7 @@
 // index.tsx, index.js, index.jsx
 
 import { InputForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+
 ```
 
 ### TextBox example with variant *"start"* without user object
