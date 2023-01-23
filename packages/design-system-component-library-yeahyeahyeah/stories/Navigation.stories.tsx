@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Navigation } from '../components/Navigation';
 import { Modal } from '../components/modal/Modal';
 import NavigationReadme from '../docs/Navigation.md';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Navigation/Navigation',
@@ -15,9 +16,7 @@ export default {
       defaultValue: {
         title: 'Mumble Logo',
         href: '#',
-        fCallBack: () => {
-          console.log('Mumble Logo');
-        },
+        fCallBack: action('logo'),
       },
     },
     avatar: {
@@ -25,10 +24,13 @@ export default {
       description: 'User image',
       defaultValue: {
         variant: 'profile',
-        fCallBack: () => {
-          console.log('Avatar');
+        label: 'Profile',
+        fCallBack: action('avatar'),
+        avatar: {
+          variant: 'small',
+          src: 'https://media.giphy.com/media/3oEduQAsYcJKQH2XsI/giphy.gif',
+          alt: 'Alternative text',
         },
-        src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
       },
     },
     settings: {
@@ -38,9 +40,7 @@ export default {
         icon: 'settings',
         label: 'Settings',
         variant: 'default',
-        fCallBack: () => {
-          console.log('Settings');
-        },
+        fCallBack: action('settings'),
       },
     },
     logout: {
@@ -50,9 +50,7 @@ export default {
         icon: 'logout',
         label: 'Logout',
         variant: 'default',
-        fCallBack: () => {
-          console.log('Logout');
-        },
+        fCallBack: action('logout'),
       },
     },
   },
