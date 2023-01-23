@@ -329,32 +329,32 @@ export default function Navi() {
       </div>
       <div tw="w-full mb-32">
         <Navigation
-          logo={{
-            title: 'Mumble Logo',
-            href: '#',
-            fCallBack: () => console.log('logo'),
-          }}
           avatar={{
-            label: 'Label',
-            variant: 'profile',
-            fCallBack: handleAvatar,
             avatar: {
-              variant: 'small',
-              src: 'https://media.giphy.com/media/3oEduQAsYcJKQH2XsI/giphy.gif',
               alt: 'Alternative text',
+              src: 'https://media.giphy.com/media/3oEduQAsYcJKQH2XsI/giphy.gif',
+              variant: 'small',
             },
+            fCallBack: () => console.log('avatar clicked'),
+            label: 'Profile',
+            variant: 'profile',
           }}
-          settings={{
-            label: 'Detailview',
-            variant: 'default',
-            fCallBack: () => console.log('settings'),
-            icon: 'settings',
+          logo={{
+            fCallBack: () => console.log('logo clicked'),
+            href: '#',
+            title: 'Mumble Logo',
           }}
           logout={{
+            fCallBack: () => console.log('logout clicked'),
+            icon: 'logout',
             label: 'Logout',
             variant: 'default',
-            fCallBack: () => console.log('logout'),
-            icon: 'logout',
+          }}
+          settings={{
+            fCallBack: () => console.log('settings clicked'),
+            icon: 'settings',
+            label: 'Settings',
+            variant: 'default',
           }}
         />
       </div>

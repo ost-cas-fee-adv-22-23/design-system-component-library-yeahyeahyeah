@@ -13,12 +13,13 @@
 // index.tsx, index.js, index.jsx
 
 import { ShareButton } from "@smartive-education/design-system-component-library-yeahyeahyeah"
+
 ```
 
 ### ShareButton
 
 ```js
 
-<ShareButton fCallBack={() => {}} />
+<ShareButton fCallBack={() => console.log('ShareButton clicked')} />
 
 ```

@@ -17,6 +17,7 @@
 // index.tsx, index.js, index.jsx
 
 import { Mumble } from "@smartive-education/design-system-component-library-yeahyeahyeah"
+
 ```
 
 ## Mumble **timeline** example

@@ -13,13 +13,16 @@
 // index.tsx, index.js, index.jsx
 
 import { TextButton } from "@smartive-education/design-system-component-library-yeahyeahyeah"
+
 ```
 
 ### TextButton
 
 ```js
+
 <TextButton
-  handleClick={() => {}}
+  handleClick={console.log('TextButton clicked')}
   label="Link Label"
 />
+
 ```

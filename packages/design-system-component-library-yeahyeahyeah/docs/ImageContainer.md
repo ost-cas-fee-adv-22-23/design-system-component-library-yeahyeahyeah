@@ -15,26 +15,31 @@
 // index.tsx, index.js, index.jsx
 
 import { ImageContainer } from "@smartive-education/design-system-component-library-yeahyeahyeah"
+
 ```
 
 ### Image with *container* type
 
 ```js
+
 <ImageContainer
   alt="This is a profile picture"
   fCallBack={() => {}}
   src="https://shorturl.at/nEO01"
   type="container"
 />
+
 ```
 
 ### Image with *banner* type
 
 ```js
+
 <ImageContainer
   alt="This is a profile picture"
   fCallBack={() => {}}
   src="https://shorturl.at/nEO01"
   type="banner"
 />
+
 ```

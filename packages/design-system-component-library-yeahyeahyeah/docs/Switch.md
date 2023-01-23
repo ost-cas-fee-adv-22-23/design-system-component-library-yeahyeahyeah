@@ -31,10 +31,6 @@ import { Switch } from "@smartive-education/design-system-component-library-yeah
       label: 'Deine Likes',
       value: 'likes'
     },
-    {
-      label: 'Empfehlungen',
-      value: 'promotedPosts'
-    }
   ]}
   value="likes"
 />

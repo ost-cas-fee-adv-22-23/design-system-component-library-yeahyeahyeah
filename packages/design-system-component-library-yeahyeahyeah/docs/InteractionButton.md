@@ -14,23 +14,28 @@
 // index.tsx, index.js, index.jsx
 
 import { InteractionButton } from "@smartive-education/design-system-component-library-yeahyeahyeah"
+
 ```
 
 ### Like Button
 ```js
+
 <InteractionButton
-  fCallBack={() => {}}
+  fCallBack={() => console.log('LikeButton clicked')}
   quantity={0}
   type="like"
 />
+
 ```
 
 ### Comment Button
 ```js
+
 <InteractionButton
-  fCallBack={() => {}}
+  fCallBack={() => console.log('CommentButton clicked')}
   quantity={0}
   type="comment"
 />
+
 ```
 <hr />

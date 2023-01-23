@@ -17,12 +17,14 @@
 // index.tsx, index.js, index.jsx
 
 import { Button } from "@smartive-education/design-system-component-library-yeahyeahyeah"
+
 ```
 
 ### **Slate** Button example with *settings* icon
 ```js
+
 <Button
-  fCallBack={function noRefCheck(){}}
+  fCallBack={() => console.log('Button clicked')}
   icon="settings"
   label="Settings"
   size="small"
@@ -30,12 +32,14 @@ import { Button } from "@smartive-education/design-system-component-library-yeah
   variant="slate"
   width="default"
 />
+
 ```
 
 ### **Cancel** Button example with *cancel* icon
 ```js
+
 <Button
-  fCallBack={function noRefCheck(){}}
+  fCallBack={() => console.log('Button clicked')}
   icon="cancel"
   label="Cancel"
   size="small"
@@ -43,6 +47,7 @@ import { Button } from "@smartive-education/design-system-component-library-yeah
   variant="slate"
   width="default"
 />
+
 ```
 <hr />
 ## Mumble Color Guidelines

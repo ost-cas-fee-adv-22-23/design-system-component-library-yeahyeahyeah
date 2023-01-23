@@ -15,24 +15,29 @@
 // index.tsx, index.js, index.jsx
 
 import { IconButton } from "@smartive-education/design-system-component-library-yeahyeahyeah"
+
 ```
 ## IconButton Types
 ### Default
 ```js
+
 <IconButton
-  fCallBack={function noRefCheck(){}}
+  fCallBack={() => console.log('IconButton clicked')}
   icon="logo"
   label="Label"
   variant="default"
 />
+
 ```
 
 ### Edit
 ```js
+
 <IconButton
-  fCallBack={function noRefCheck(){}}
+  fCallBack={() => console.log('IconButton clicked')}
   icon="logo"
   label="Label"
   variant="edit"
 />
+
 ```

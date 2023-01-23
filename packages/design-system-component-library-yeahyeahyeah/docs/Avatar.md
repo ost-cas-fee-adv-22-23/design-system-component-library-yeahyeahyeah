@@ -15,28 +15,33 @@
 // index.tsx, index.js, index.jsx
 
 import { Avatar } from "@smartive-education/design-system-component-library-yeahyeahyeah"
+
 ```
 
 ### Avatar *small* example
 
 ```js
+
 <Avatar
-  alt=""
-  buttonCallBack={() => {}}
-  imageCallBack={function noRefCheck() {}}
+  alt="Small Avatar"
+  buttonCallBack={() => console.log('Button clicked')}
+  imageCallBack={() => console.log('Image clicked')}
   src=""
   variant="small"
 />
+
 ```
 
 ### Avatar *edit* example
 
 ```js
+
 <Avatar
-  alt=""
-  buttonCallBack={() => {}}
-  imageCallBack={function noRefCheck() {}}
-  src="..."
+  alt="Edit Avatar"
+  buttonCallBack={() => console.log('Button clicked')}
+  imageCallBack={() => console.log('Image clicked')}
+  src=""
   variant="edit"
 />
+
 ```

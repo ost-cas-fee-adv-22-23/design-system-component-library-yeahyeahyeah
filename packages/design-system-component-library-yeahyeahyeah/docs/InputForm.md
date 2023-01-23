@@ -20,11 +20,12 @@
 // index.tsx, index.js, index.jsx
 
 import { InputForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+
 ```
 
 ### InputForm example with type *input*
 
-```typescript
+```js
 
 const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
 const [text, setText] = useState<string>('');
@@ -61,7 +62,7 @@ return (
 
 ### InputForm example with type *textarea*
 
-```typescript
+```js
 
 const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
 const [text, setText] = useState<string>('');
