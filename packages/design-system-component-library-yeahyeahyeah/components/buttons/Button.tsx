@@ -34,6 +34,7 @@ export const Button: React.FC<IButtonProps> = ({
       disabled={disabled}
       onClick={fCallBack}
       aria-label={label}
+      role="button"
     >
       {label}
       {icon !== 'none' && <Icon />}

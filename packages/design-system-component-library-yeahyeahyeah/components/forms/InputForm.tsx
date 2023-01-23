@@ -106,6 +106,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
             cols={30}
             ref={ref}
             error={errorMessage ? 'true' : 'false'}
+            data-testid={'testTextarea'}
           />
           <FormFieldError>{errorMessage}</FormFieldError>
         </FormLabel>
