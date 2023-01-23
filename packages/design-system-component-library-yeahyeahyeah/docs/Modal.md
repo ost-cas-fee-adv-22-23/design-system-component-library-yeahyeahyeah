@@ -14,6 +14,7 @@
 // index.tsx, index.js, index.jsx
 
 import { Modal } from "@smartive-education/design-system-component-library-yeahyeahyeah"
+
 ```
 
 ## Modal snippet

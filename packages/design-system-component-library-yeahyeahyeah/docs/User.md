@@ -27,32 +27,32 @@ import { User } from "@smartive-education/design-system-component-library-yeahye
 <User
   avatar={{
     alt: 'Alter Tag',
-    buttonCallBack: () => {},
-    imageCallBack: function noRefCheck() {},
+    buttonCallBack: () => console.log('button clicked'),
+    imageCallBack: () => console.log('image clicked'),
     src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif'
   }}
   btn={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: () => console.log('btn clicked'),
     label: 'Follow'
   }}
   joined={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: () => console.log('joined clicked'),
     href: '',
     label: 'Joined'
   }}
   label="Display Name"
   location={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: () => console.log('location clicked'),
     href: '',
     label: 'Location'
   }}
   timestamp={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: () => console.log('timestamp clicked'),
     href: '',
     label: 'Timestamp'
   }}
   username={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: () => console.log('username clicked'),
     href: '',
     label: 'Username'
   }}
@@ -68,36 +68,89 @@ import { User } from "@smartive-education/design-system-component-library-yeahye
 <User
   avatar={{
     alt: 'Alter Tag',
-    buttonCallBack: () => {},
-    imageCallBack: function noRefCheck() {},
+    buttonCallBack: () => console.log('button clicked'),
+    imageCallBack: () => console.log('image clicked'),
     src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif'
   }}
   btn={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: () => console.log('btn clicked'),
     label: 'Follow'
   }}
   joined={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: () => console.log('joined clicked'),
     href: '',
     label: 'Joined'
   }}
   label="Display Name"
   location={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: () => console.log('location clicked'),
     href: '',
     label: 'Location'
   }}
   timestamp={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: () => console.log('timestamp clicked'),
     href: '',
     label: 'Timestamp'
   }}
   username={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: () => console.log('username clicked'),
     href: '',
     label: 'Username'
   }}
   variant="small"
 />
+
+```
+
+### Render a lit of user *recommended* example
+
+```js
+
+const props: IUserProps = {
+    avatar: {
+      alt: 'Alter Tag',
+      buttonCallBack: handleClick,
+      imageCallBack: handleClick,
+      src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+    },
+    btn: {
+      fCallBack: handleClick,
+      label: 'Follow',
+    },
+    joined: {
+      type: 'joined',
+      fCallBack: handleClick,
+      href: '',
+      label: 'Joined',
+    },
+    label: 'Display Name',
+    location: {
+      type: 'joined',
+      fCallBack: handleClick,
+      href: '',
+      label: 'Location',
+    },
+    timestamp: {
+      type: 'joined',
+      fCallBack: handleClick,
+      href: '',
+      label: 'Timestamp',
+    },
+    username: {
+      type: 'joined',
+      fCallBack: handleClick,
+      href: '',
+      label: 'Username',
+    },
+    variant: 'recommended',
+  };
+
+  const users = Array(12)
+    .fill('user')
+    .map((u, i) => (
+      <div tw="flex-[30%]" key={i}>
+        <User {...props} />
+      </div>
+    ));
 
 ```

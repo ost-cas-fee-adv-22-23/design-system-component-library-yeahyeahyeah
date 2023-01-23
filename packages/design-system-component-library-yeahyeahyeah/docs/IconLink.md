@@ -17,6 +17,7 @@
 // index.tsx, index.js, index.jsx
 
 import { IconLink } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+
 ```
 
 ## IconLink Variants
@@ -25,7 +26,7 @@ import { IconLink } from '@smartive-education/design-system-component-library-ye
 
 ```js
 
-<IconLink fCallBack={() => {}} href="#" label="Username" type="username" color="violet" />
+<IconLink fCallBack={() => console.log('IconLink clicked')} href="#" label="Username" type="username" color="violet" />
 
 ```
 
@@ -33,7 +34,7 @@ import { IconLink } from '@smartive-education/design-system-component-library-ye
 
 ```js
 
-<IconLink fCallBack={() => {}} href="#" label="Timestamp" type="timestamp" color="slate" />
+<IconLink fCallBack={() => console.log('IconLink clicked')} href="#" label="Timestamp" type="timestamp" color="slate" />
 
 ```
 
@@ -41,7 +42,7 @@ import { IconLink } from '@smartive-education/design-system-component-library-ye
 
 ```js
 
-<IconLink fCallBack={() => {}} href="#" label="Location" type="location" color="slate" />
+<IconLink fCallBack={() => console.log('IconLink clicked')} href="#" label="Location" type="location" color="slate" />
 
 ```
 
@@ -49,7 +50,7 @@ import { IconLink } from '@smartive-education/design-system-component-library-ye
 
 ```js
 
-<IconLink fCallBack={() => {}} href="#" label="Joined" type="joined" color="slate" />
+<IconLink fCallBack={() => console.log('IconLink clicked')} href="#" label="Joined" type="joined" color="slate" />
 
 ```
 

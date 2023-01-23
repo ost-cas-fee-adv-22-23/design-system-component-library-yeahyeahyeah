@@ -15,6 +15,7 @@
 // index.tsx, index.js, index.jsx
 
 import { MumbleLogo } from "@smartive-education/design-system-component-library-yeahyeahyeah"
+
 ```
 
 ### MumbleLogo *navigation* snippet

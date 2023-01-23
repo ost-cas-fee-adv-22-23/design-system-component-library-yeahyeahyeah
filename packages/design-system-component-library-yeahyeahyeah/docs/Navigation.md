@@ -14,32 +14,38 @@
 // index.tsx, index.js, index.jsx
 
 import { Navigation } from "@smartive-education/design-system-component-library-yeahyeahyeah"
+
 ```
 ### Navigation *default* example
 ```js
 
 <Navigation
   avatar={{
-    fCallBack: () => {},
-    src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-    variant: 'profile'
+    avatar: {
+      alt: 'Alternative text',
+      src: 'https://media.giphy.com/media/3oEduQAsYcJKQH2XsI/giphy.gif',
+      variant: 'small',
+    },
+    fCallBack: () => console.log('avatar clicked'),
+    label: 'Profile',
+    variant: 'profile',
   }}
   logo={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: () => console.log('logo clicked'),
     href: '#',
-    title: 'Mumble Logo'
+    title: 'Mumble Logo',
   }}
   logout={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: () => console.log('logout clicked'),
     icon: 'logout',
     label: 'Logout',
-    variant: 'default'
+    variant: 'default',
   }}
   settings={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: () => console.log('settings clicked'),
     icon: 'settings',
     label: 'Settings',
-    variant: 'default'
+    variant: 'default',
   }}
 />
 

@@ -15,12 +15,13 @@
 // index.tsx, index.js, index.jsx
 
 import { NaviButton } from "@smartive-education/design-system-component-library-yeahyeahyeah"
+
 ```
 ### NaviButton *default* example
 ```js
 
 <NaviButton
-  fCallBack={() => {}}
+  fCallBack={() => console.log('NaviButton clicked')}
   icon="settings"
   label="Label"
   variant="default"
@@ -37,7 +38,7 @@ import { NaviButton } from "@smartive-education/design-system-component-library-
     src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
     variant: 'small'
   }}
-  fCallBack={() => {}}
+  fCallBack={() => console.log('ProfileButton clicked')}
   label="Label"
   variant="profile"
 />

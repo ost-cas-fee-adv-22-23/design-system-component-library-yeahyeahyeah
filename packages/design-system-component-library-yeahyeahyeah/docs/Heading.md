@@ -16,6 +16,7 @@
 // index.tsx, index.js, index.jsx
 
 import { Heading } from "@smartive-education/design-system-component-library-yeahyeahyeah"
+
 ```
 
 ### Heading *default* example
