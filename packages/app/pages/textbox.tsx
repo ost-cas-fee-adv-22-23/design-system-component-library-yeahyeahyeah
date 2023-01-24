@@ -1,5 +1,5 @@
-import { InputForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import React, { useEffect, useState } from 'react';
+import { InputForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 
 export default function Profilepage() {
   const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);

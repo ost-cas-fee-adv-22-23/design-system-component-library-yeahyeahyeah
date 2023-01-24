@@ -1,6 +1,6 @@
+import React, { useEffect, useState } from 'react';
 import Navi from './includes/navi';
 import { Mumble, TextBox, Container } from '@smartive-education/design-system-component-library-yeahyeahyeah';
-import React, { useEffect, useState } from 'react';
 
 export default function Detailview() {
   const [posts, setPosts] = useState(['']);
