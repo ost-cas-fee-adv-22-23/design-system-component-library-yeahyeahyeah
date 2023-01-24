@@ -1,6 +1,6 @@
-# create a component library with yarn/npm workspaces + Next.js
+# Mumble component library development with Yarn/NPM Workspaces + Next.js + Storybook + Typescript + StyledComponents + Twin
 
-This setup demonstrates a TypeScript Next.js app (`packages/app`) importing a separate component library (`packages/design-system-component-library-yeahyeahyeah`) using either [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) or [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces).
+This setup includes a TypeScript Next.js App (`packages/app`) importing a separate component library (`packages/design-system-component-library-yeahyeahyeah`) using either [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) or [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces).
 
 ## Features
 

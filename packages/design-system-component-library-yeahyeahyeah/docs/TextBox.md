@@ -15,6 +15,7 @@
 // index.tsx, index.js, index.jsx
 
 import { InputForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { useEffect, useState } from 'react';
 
 ```
 
@@ -39,6 +40,7 @@ useEffect(() => {
   if (text !== '') {
     setErrorMessage('');
   }
+  console.log('text', text);
 }, [text]);
 
 return (
@@ -78,6 +80,7 @@ useEffect(() => {
   if (text !== '') {
     setErrorMessage('');
   }
+  console.log('text', text);
 }, [text]);
 
 return (

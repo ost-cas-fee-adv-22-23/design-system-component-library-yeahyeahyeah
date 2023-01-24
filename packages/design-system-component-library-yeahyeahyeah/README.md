@@ -1,9 +1,9 @@
-# Mumble Component Library and how to use it
+# Mumble Component Library
 
 ## Table of contents
 
 - [Getting started](#getting-started)
-- [Use credentials](#use-credentials)
+- [Add credentials](#add-credentials)
 - [Check out demo app on github](#check-out-demo-app-on-github)
 - [Install a demo app with Twin + Next.js + Styled Components + TypeScript + Mumble Component Library](#install-a-demo-app-step-by-step-with-twin--nextjs--styled-components--typescript--mumble-component-library)
   - [Installation Next.js](#install-nextjs)
@@ -14,17 +14,18 @@
   - [Add the TypeScript types](#add-the-typescript-types)
   - [Add the babel config](#add-the-babel-config)
   - [Add the server stylesheet](#add-the-server-stylesheet)
+  - [Add a navigation to the site](#add-a-navigation)
   - [Add a demo site](#add-a-demo-site)
 - [Resources](#resources)
-- [Customization](#customization)
-- [Next steps](#next-steps)
+- [Customization of Twin](#customization-of-twin)
+- [Next steps with Twin](#next-steps-with-twin)
 - [Other](#other)
 
 ## Getting started
 
-In the next steps you will setup a TypeScript Next.js app using Twin and Styled Components. After installing the Next.js App, we will configure the Next.js App, that we can use Twin and Styled Components. In a next step the Mumble Component Library Npm Package will be added as a dependency. In the last step we will add a few components for demonstration purposes. If you don't wanna go through all steps, you can check out the demo app on github.
+In the next steps you will setup a TypeScript Next.js app using Twin and Styled Components. After installing the Next.js App, we will configure the Next.js App, that we can use Twin and Styled Components, which we need for the Mumble component library. In a next step the Mumble Component Library NPM package will be added as a dependency. In the last steps we will add a server stylesheet, a navigation and a demo site for demonstration purposes. If you don't wanna go through all steps, you can check out the demo app on github.
 
-## Use credentials
+## Add credentials
 
 We need a github token and a .npmrc to get access to the [mumble npm package](https://github.com/smartive-education/design-system-component-library-yeahyeahyeah/pkgs/npm/design-system-component-library-yeahyeahyeah) at [smartive education](https://github.com/smartive-education) on github.
 
@@ -54,14 +55,21 @@ Now we can check out the demo app and install the dependencies. You can also [se
 git clone git@github.com:tomschall/mumble-test-stack-yeahyeahyeah.git folder-name
 ```
 
-From within the new folder, run `yarn install`, then `yarn dev` to start the dev server.
+From within the new folder, run `yarn install && yarn dev` to start the dev server.
 
 ## Install a demo app step by step with Twin + Next.js + Styled Components + TypeScript + Mumble Component Library
 
 ### Install Next.js
 
+Please use node version 16.17.0. If you use nvm u can use the next command.
+
 ```shell
 nvm use 16.17.0
+```
+
+Then add a Next.js App
+
+```shell
 yarn create next-app --typescript
 ```
 
@@ -321,8 +329,6 @@ export default function Navi() {
     <>
       <div tw="flex flex-row justify-start items-center font-medium p-16 gap-16">
         <Link href={'/'}>Timeline</Link>
-        <Link href={'./detailview'}>Detailview</Link>
-        <Link href={'./profilepage'}>Profilepage</Link>
       </div>
       <div tw="w-full mb-32">
         <Navigation
@@ -543,7 +549,7 @@ Learn more about styled-components
 - [The css import](https://styled-components.com/docs/api#css)
 - [The styled import](https://styled-components.com/docs/api#styled)
 
-### Other Resources
+### Other
 
 - [Typescript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/)

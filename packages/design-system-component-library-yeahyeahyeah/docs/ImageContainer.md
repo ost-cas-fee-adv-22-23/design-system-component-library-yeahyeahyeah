@@ -24,7 +24,7 @@ import { ImageContainer } from "@smartive-education/design-system-component-libr
 
 <ImageContainer
   alt="This is a profile picture"
-  fCallBack={() => {}}
+  fCallBack={() => console.log('ImageContainer clicked')}
   src="https://shorturl.at/nEO01"
   type="container"
 />
@@ -37,7 +37,7 @@ import { ImageContainer } from "@smartive-education/design-system-component-libr
 
 <ImageContainer
   alt="This is a profile picture"
-  fCallBack={() => {}}
+  fCallBack={() => console.log('ImageContainer clicked')}
   src="https://shorturl.at/nEO01"
   type="banner"
 />

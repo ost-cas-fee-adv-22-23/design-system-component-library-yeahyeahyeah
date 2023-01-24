@@ -9,6 +9,7 @@ export default {
   argTypes: {
     label: {
       control: 'text',
+      defaultValue: 'Share',
     },
     size: {
       control: false,

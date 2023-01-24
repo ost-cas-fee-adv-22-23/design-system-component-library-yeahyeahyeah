@@ -20,6 +20,7 @@ export default {
         label: 'Username',
         href: '',
         fCallBack: action('username clicked'),
+        type: 'username',
       },
     },
     timestamp: {
@@ -30,6 +31,7 @@ export default {
         label: 'Timestamp',
         href: '',
         fCallBack: action('timestamp clicked'),
+        type: 'timestamp',
       },
     },
     location: {
@@ -40,6 +42,7 @@ export default {
         label: 'Location',
         href: '',
         fCallBack: action('location clicked'),
+        type: 'location',
       },
     },
     joined: {
@@ -50,6 +53,7 @@ export default {
         label: 'Joined',
         href: '',
         fCallBack: action('joined clicked'),
+        type: 'joined',
       },
     },
     btn: {
