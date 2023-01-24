@@ -18,6 +18,8 @@ We created this setup in the course of further education, a CAS Frontend-Enginee
 
 ## Get started
 
+In the next steps you will learn how to setup this project and get some useful information about using this stack.
+
 ### Node.js
 
 Please use node version 16.17.0. If you use nvm you can use the next command.
