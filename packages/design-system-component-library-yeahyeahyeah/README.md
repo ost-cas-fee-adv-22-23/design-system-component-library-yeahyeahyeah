@@ -6,7 +6,8 @@
 - [Add credentials](#add-credentials)
 - [Check out demo app on github](#check-out-demo-app-on-github)
 - [Install a demo app with Twin + Next.js + Styled Components + TypeScript + Mumble Component Library](#install-a-demo-app-step-by-step-with-twin--nextjs--styled-components--typescript--mumble-component-library)
-  - [Installation Next.js](#install-nextjs)
+  - [Install Next.js](#install-nextjs)
+  - [Add credentials for accessing the Mumble component Library NPM package](#add-credentials-for-accessing-the-mumble-component-library-npm-package)
   - [Install Mumble Component Library and Styled Components](#install-mumble-component-library-and-styled-components)
   - [Install Dependencies](#install-dependencies)
   - [Add the global styles](#add-the-global-styles)
@@ -39,7 +40,7 @@ To authenticate by adding your personal access token (classic) to your ~/.npmrc 
 //npm.pkg.github.com/:_authToken=TOKEN
 ```
 
-Create .npmrc and add following line
+Create .npmrc in the project folder, where you wanna add your npm package and add following line
 
 ```bash
 @smartive-education:registry=https://npm.pkg.github.com
@@ -54,6 +55,8 @@ Now we can check out the demo app and install the dependencies. You can also [se
 ```shell
 git clone git@github.com:tomschall/mumble-test-stack-yeahyeahyeah.git folder-name
 ```
+
+Follow the steps [Add credentials](#add-credentials), if you don't have access to the [mumble npm package](https://github.com/smartive-education/design-system-component-library-yeahyeahyeah/pkgs/npm/design-system-component-library-yeahyeahyeah).
 
 From within the new folder, run `yarn install && yarn dev` to start the dev server.
 
@@ -72,6 +75,10 @@ Then add a Next.js App
 ```shell
 yarn create next-app --typescript
 ```
+
+### Add credentials for accessing the Mumble component Library NPM package
+
+Follow the steps [Add credentials](#add-credentials), if you don't have access to the [mumble npm package](https://github.com/smartive-education/design-system-component-library-yeahyeahyeah/pkgs/npm/design-system-component-library-yeahyeahyeah).
 
 ### Install Mumble Component Library and Styled Components
 
