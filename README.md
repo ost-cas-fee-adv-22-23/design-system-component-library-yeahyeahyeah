@@ -2,6 +2,8 @@
 
 This setup includes a TypeScript Next.js App (`packages/app`) importing a separate component library (`packages/design-system-component-library-yeahyeahyeah`) using either [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) or [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces).
 
+We created this setup in the course of further education, a CAS Frontend-Engineering-Advanced, to develop a component library for a Twitter Clone named Mumble. The goal is to provide a reusable and maintainable set of UI components that can be integrated into a Next.js App.
+
 ## Features
 
 - **Simple, speedy workflow**<br/>After starting the next app with `yarn dev` and the watcher with `yarn watch` you can work on the components in `packages/design-system-component-library-yeahyeahyeah` and receive HMR updates in your app
@@ -10,8 +12,9 @@ This setup includes a TypeScript Next.js App (`packages/app`) importing a separa
   - Shared babel settings in `babel.config.js`
   - Shared twin config in `package.json`
   - Shared global types in `types`
-- **Automatic component type generation**<br/>
+- **Automatic component and type generation**<br/>
   Start live component build updates with `yarn watch`
+  Start build with `yarn build`
 
 ## Get started
 
@@ -31,8 +34,8 @@ yarn && yarn dev
 
 ## Resources
 
-- [design-system-component-library-yeahyeahyeah](https://github.com/smartive-education/design-system-component-library-yeahyeahyeah/pkgs/npm/design-system-component-library-yeahyeahyeah)
+- [Design-System-Component-Library-YeahYeahYeah](https://github.com/smartive-education/design-system-component-library-yeahyeahyeah/pkgs/npm/design-system-component-library-yeahyeahyeah)
 - [Typescript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/)
-- [styled-components](https://styled-components.com/)
+- [Styled-components](https://styled-components.com/)
 - [Twin](https://github.com/ben-rogerson/twin.macro)
