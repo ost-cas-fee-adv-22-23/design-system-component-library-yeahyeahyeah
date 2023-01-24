@@ -54,7 +54,7 @@ Sidenote: We wrote 2 Interaction Tests for InputForm component and TextArea comp
 
 ### Next.js App
 
-If you wanna test the component library inside a Nextjs app, you can you the ts-watcher and the Next.js app. The watcher will generate a *dist* folder inside `packages/design-system-component-library-yeahyeahyeah`, where the components are located. You can use them inside the Next.js app located at `packages/app`. There are some demo pages located at `packages/app/pages`, where you can see how you should import the components. Use following steps to start the watcher and the Next.js app.
+If you wanna test the component library inside a Nextjs app, you can use the ts-watcher and the Next.js app. The watcher will generate a *dist* folder inside `packages/design-system-component-library-yeahyeahyeah`, where the components are located. You can use them inside the Next.js app located at `packages/app`. There are some demo pages located at `packages/app/pages`, where you can see how you should [import the components](/packages/app/pages/index.tsx). Use following steps to start the watcher and the Next.js app.
 
 From inside the root folder start the watcher and watch changes in the bundle with:
 
