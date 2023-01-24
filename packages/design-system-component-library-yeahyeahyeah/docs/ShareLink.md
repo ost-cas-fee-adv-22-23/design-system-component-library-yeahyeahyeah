@@ -20,6 +20,6 @@ import { ShareButton } from "@smartive-education/design-system-component-library
 
 ```js
 
-<ShareButton fCallBack={() => console.log('ShareButton clicked')} />
+<ShareButton label="Teilen" fCallBack={() => console.log('ShareButton clicked')} />
 
 ```

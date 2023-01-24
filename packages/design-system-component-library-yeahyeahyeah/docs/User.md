@@ -29,32 +29,18 @@ import { User } from "@smartive-education/design-system-component-library-yeahye
     alt: 'Alter Tag',
     buttonCallBack: () => console.log('button clicked'),
     imageCallBack: () => console.log('image clicked'),
-    src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif'
+    src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
   }}
   btn={{
     fCallBack: () => console.log('btn clicked'),
-    label: 'Follow'
-  }}
-  joined={{
-    fCallBack: () => console.log('joined clicked'),
-    href: '',
-    label: 'Joined'
+    label: 'Follow',
   }}
   label="Display Name"
-  location={{
-    fCallBack: () => console.log('location clicked'),
-    href: '',
-    label: 'Location'
-  }}
-  timestamp={{
-    fCallBack: () => console.log('timestamp clicked'),
-    href: '',
-    label: 'Timestamp'
-  }}
   username={{
     fCallBack: () => console.log('username clicked'),
     href: '',
-    label: 'Username'
+    label: 'Username',
+    type: 'username',
   }}
   variant="recommended"
 />
@@ -70,39 +56,27 @@ import { User } from "@smartive-education/design-system-component-library-yeahye
     alt: 'Alter Tag',
     buttonCallBack: () => console.log('button clicked'),
     imageCallBack: () => console.log('image clicked'),
-    src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif'
-  }}
-  btn={{
-    fCallBack: () => console.log('btn clicked'),
-    label: 'Follow'
-  }}
-  joined={{
-    fCallBack: () => console.log('joined clicked'),
-    href: '',
-    label: 'Joined'
+    src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
   }}
   label="Display Name"
-  location={{
-    fCallBack: () => console.log('location clicked'),
-    href: '',
-    label: 'Location'
-  }}
   timestamp={{
     fCallBack: () => console.log('timestamp clicked'),
     href: '',
-    label: 'Timestamp'
+    label: 'Timestamp',
+    type: 'timestamp',
   }}
   username={{
     fCallBack: () => console.log('username clicked'),
     href: '',
-    label: 'Username'
+    label: 'Username',
+    type: 'username',
   }}
   variant="small"
 />
 
 ```
 
-### Render a lit of user *recommended* example
+### Render a list of *recommended* users - example
 
 ```js
 

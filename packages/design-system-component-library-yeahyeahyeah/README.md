@@ -61,8 +61,15 @@ From within the new folder, run `yarn install && yarn dev` to start the dev serv
 
 ### Install Next.js
 
+Please use node version 16.17.0. If you use nvm u can use the next command.
+
 ```shell
 nvm use 16.17.0
+```
+
+Then add a Next.js App
+
+```shell
 yarn create next-app --typescript
 ```
 

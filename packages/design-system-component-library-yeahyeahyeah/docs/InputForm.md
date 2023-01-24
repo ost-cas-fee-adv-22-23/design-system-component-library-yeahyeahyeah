@@ -20,6 +20,7 @@
 // index.tsx, index.js, index.jsx
 
 import { InputForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { useEffect, useState } from 'react';
 
 ```
 
@@ -44,6 +45,7 @@ useEffect(() => {
   if (text !== '') {
     setErrorMessage('');
   }
+  console.log('text', text);
 }, [text]);
 
 return (
@@ -70,7 +72,7 @@ const [errorMessage, setErrorMessage] = useState<string>('');
 
 const handleClick = () => {
   if (text === '') {
-    setErrorMessage(args.errorMessage);
+    setErrorMessage('Bitte füllen sie das Feld aus.');
     return;
   }
   if (ref?.current) ref.current.value = '';
@@ -81,6 +83,7 @@ useEffect(() => {
   if (text !== '') {
     setErrorMessage('');
   }
+  console.log('text', text);
 }, [text]);
 
 return (

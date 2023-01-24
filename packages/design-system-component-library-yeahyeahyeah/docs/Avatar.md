@@ -24,10 +24,48 @@ import { Avatar } from "@smartive-education/design-system-component-library-yeah
 
 <Avatar
   alt="Small Avatar"
-  buttonCallBack={() => console.log('Button clicked')}
   imageCallBack={() => console.log('Image clicked')}
-  src=""
+  src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif"
   variant="small"
+/>
+
+```
+
+### Avatar *medium* example
+
+```js
+
+<Avatar
+  alt="Medium Avatar"
+  imageCallBack={() => console.log('Image clicked')}
+  src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif"
+  variant="medium"
+/>
+
+```
+
+### Avatar *large* example
+
+```js
+
+<Avatar
+  alt="Large Avatar"
+  imageCallBack={() => console.log('Image clicked')}
+  src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif"
+  variant="large"
+/>
+
+```
+
+### Avatar *xlarge* example
+
+```js
+
+<Avatar
+  alt="XLarge Avatar"
+  imageCallBack={() => console.log('Image clicked')}
+  src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif"
+  variant="xlarge"
 />
 
 ```
@@ -40,7 +78,7 @@ import { Avatar } from "@smartive-education/design-system-component-library-yeah
   alt="Edit Avatar"
   buttonCallBack={() => console.log('Button clicked')}
   imageCallBack={() => console.log('Image clicked')}
-  src=""
+  src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif"
   variant="edit"
 />
 

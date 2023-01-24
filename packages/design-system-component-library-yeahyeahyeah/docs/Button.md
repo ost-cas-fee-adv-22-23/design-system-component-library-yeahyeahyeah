@@ -29,13 +29,13 @@ import { Button } from "@smartive-education/design-system-component-library-yeah
   label="Settings"
   size="small"
   type="button"
-  variant="slate"
+  color="slate"
   width="default"
 />
 
 ```
 
-### **Cancel** Button example with *cancel* icon
+### **Cancel** Button example with *cancel* icon and color *gradient*
 ```js
 
 <Button
@@ -44,7 +44,7 @@ import { Button } from "@smartive-education/design-system-component-library-yeah
   label="Cancel"
   size="small"
   type="button"
-  variant="slate"
+  color="gradient"
   width="default"
 />
 
