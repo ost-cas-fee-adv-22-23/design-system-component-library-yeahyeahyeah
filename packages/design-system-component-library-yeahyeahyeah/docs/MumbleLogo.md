@@ -23,10 +23,10 @@ import { MumbleLogo } from "@smartive-education/design-system-component-library-
 
 <MumbleLogo
   alignment="horizontal"
-  color="white"
-  fCallBack={() => {}}
+  isNavigation={true}
+  color="violet"
+  fCallBack={() => console.log('logo clicked')}
   href="#"
-  isNavigation
   title="Homepage"
 />
 
@@ -36,9 +36,10 @@ import { MumbleLogo } from "@smartive-education/design-system-component-library-
 ```js
 
 <MumbleLogo
-  alignment="horizontal"
+  alignment="vertical"
+  isNavigation={false}
   color="violet"
-  fCallBack={() => {}}
+  fCallBack={() => console.log('logo clicked')}
   href="#"
   title="Homepage"
 />

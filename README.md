@@ -15,16 +15,16 @@ This setup includes a TypeScript Next.js App (`packages/app`) importing a separa
 
 ## Get started
 
-From inside the new folder, start the dev server with yarn:
-
-```bash
-yarn && yarn dev
-```
-
-And watch changes in the bundle with
+Watch changes in the bundle with
 
 ```bash
 yarn watch
+```
+
+From inside the root folder, start the dev server with yarn:
+
+```bash
+yarn && yarn dev
 ```
 
 > npm@9.2+ is required to use the [workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) feature.<br/>Update to latest with: `npm install -g npm@latest`
