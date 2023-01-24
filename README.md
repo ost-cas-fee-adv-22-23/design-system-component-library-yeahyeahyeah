@@ -18,6 +18,8 @@ We created this setup in the course of further education, a CAS Frontend-Enginee
 
 ## Get started
 
+In the next steps you will learn how to setup this project and get some useful information about using this stack.
+
 ### Node.js
 
 Please use node version 16.17.0. If you use nvm you can use the next command.
@@ -25,6 +27,10 @@ Please use node version 16.17.0. If you use nvm you can use the next command.
 ```shell
 nvm use 16.17.0
 ```
+
+### NPM Workspaces
+
+> npm@9.2+ is required to use the [workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) feature.<br/>Update to latest with: `npm install -g npm@latest`
 
 ### Clone repository and install dependencies
 
@@ -60,7 +66,19 @@ Also from inside the root folder, start the dev server with yarn:
 yarn dev
 ```
 
-> npm@9.2+ is required to use the [workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) feature.<br/>Update to latest with: `npm install -g npm@latest`
+### Build
+
+If you just want to create a build, use following command:
+
+```bash
+yarn build
+```
+
+This command will generate a *dist* folder inside `packages/design-system-component-library-yeahyeahyeah`, where the compiled components are located.
+
+### Mumble Component Library NPM Package
+
+There is a separate [README.md](/packages/design-system-component-library-yeahyeahyeah/README.md) located inside `packages/design-system-component-library-yeahyeahyeah`. In this [Mumble NPM Package README](https://github.com/smartive-education/design-system-component-library-yeahyeahyeah/pkgs/npm/design-system-component-library-yeahyeahyeah) you will learn, how to setup a TypeScript Next.js app using Twin and Styled Components. You will also learn how to install the Mumble Component Library NPM package, and how you can use it inside the Next.js app. You can find our [Mumble NPM Package README](https://github.com/smartive-education/design-system-component-library-yeahyeahyeah/pkgs/npm/design-system-component-library-yeahyeahyeah) also on github.
 
 ## Resources
 
