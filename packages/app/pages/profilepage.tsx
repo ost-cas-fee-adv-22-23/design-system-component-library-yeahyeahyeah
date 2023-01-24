@@ -1,6 +1,7 @@
+import React, { useEffect, useState } from 'react';
 import Navi from './includes/navi';
 import {
-  CheckBox,
+  Switch,
   Container,
   Heading,
   Mumble,
@@ -11,7 +12,6 @@ import {
   Paragraph,
   IUserProps,
 } from '@smartive-education/design-system-component-library-yeahyeahyeah';
-import React, { useEffect, useState } from 'react';
 
 export default function Profilepage() {
   const [posts, setPosts] = useState(['']);
@@ -35,10 +35,6 @@ export default function Profilepage() {
     addText();
   };
 
-  const handleClick = () => {
-    console.log('avatar clicked');
-  };
-
   const addText = () => {
     if (text === '') {
       setErrorMessage('Bitte füllen Sie das Feld aus.');
@@ -57,36 +53,36 @@ export default function Profilepage() {
   const props: IUserProps = {
     avatar: {
       alt: 'Alter Tag',
-      buttonCallBack: handleClick,
-      imageCallBack: handleClick,
+      buttonCallBack: () => console.log('button clicked'),
+      imageCallBack: () => console.log('image clicked'),
       src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
     },
     btn: {
-      fCallBack: handleClick,
+      fCallBack: () => console.log('button clicked'),
       label: 'Follow',
     },
     joined: {
       type: 'joined',
-      fCallBack: handleClick,
+      fCallBack: () => console.log('joined clicked'),
       href: '',
       label: 'Joined',
     },
     label: 'Display Name',
     location: {
       type: 'joined',
-      fCallBack: handleClick,
+      fCallBack: () => console.log('location clicked'),
       href: '',
       label: 'Location',
     },
     timestamp: {
       type: 'joined',
-      fCallBack: handleClick,
+      fCallBack: () => console.log('timestamp clicked'),
       href: '',
       label: 'Timestamp',
     },
     username: {
       type: 'joined',
-      fCallBack: handleClick,
+      fCallBack: () => console.log('username clicked'),
       href: '',
       label: 'Username',
     },
@@ -112,50 +108,36 @@ export default function Profilepage() {
               <User
                 avatar={{
                   alt: 'Alter Tag',
-                  buttonCallBack: function noRefCheck() {
-                    console.log('clicked');
-                  },
-                  imageCallBack: function noRefCheck() {
-                    console.log('clicked');
-                  },
+                  buttonCallBack: () => console.log('button clicked'),
+                  imageCallBack: () => console.log('image clicked'),
                   src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
                 }}
                 btn={{
-                  fCallBack: function noRefCheck() {
-                    console.log('clicked');
-                  },
+                  fCallBack: () => console.log('button clicked'),
                   label: 'Follow',
                 }}
                 joined={{
                   type: 'joined',
-                  fCallBack: function noRefCheck() {
-                    console.log('clicked');
-                  },
+                  fCallBack: () => console.log('joined clicked'),
                   href: '',
                   label: 'Joined',
                 }}
                 label="Display Name"
                 location={{
                   type: 'joined',
-                  fCallBack: function noRefCheck() {
-                    console.log('clicked');
-                  },
+                  fCallBack: () => console.log('location clicked'),
                   href: '',
                   label: 'Location',
                 }}
                 timestamp={{
                   type: 'joined',
-                  fCallBack: function noRefCheck() {
-                    console.log('clicked');
-                  },
+                  fCallBack: () => console.log('timestamp clicked'),
                   href: '',
                   label: 'Timestamp',
                 }}
                 username={{
                   type: 'joined',
-                  fCallBack: function noRefCheck() {
-                    console.log('clicked');
-                  },
+                  fCallBack: () => console.log('username clicked'),
                   href: '',
                   label: 'Username',
                 }}
@@ -171,8 +153,20 @@ export default function Profilepage() {
                 color="light"
               />
             </div>
-
-            <CheckBox selection="mumbles" />
+            <Switch
+              options={[
+                {
+                  label: 'Deine Mumbles',
+                  value: 'mumbles',
+                },
+                {
+                  label: 'Deine Likes',
+                  value: 'likes',
+                },
+              ]}
+              value="mumbles"
+              fCallBack={(value) => console.log(`${value} clicked`)}
+            />
           </div>
         </div>
         <Container layout="plain">
@@ -185,13 +179,14 @@ export default function Profilepage() {
               user={{
                 label: 'Hey, was läuft?',
                 username: {
-                  type: 'joined',
                   label: 'Username',
                   href: '#',
+                  type: 'username',
                 },
                 avatar: {
                   src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-                  alt: 'Family Guy goes Mumble',
+                  alt: 'Alter Tag',
+                  imageCallBack: () => console.log('avatar clicked'),
                 },
               }}
               form={{
@@ -201,7 +196,7 @@ export default function Profilepage() {
                 setText: setText,
               }}
               sendCallback={handleSend}
-              uploadCallback={() => console.log('upload')}
+              uploadCallback={() => console.log('uploadCallback')}
             />
           </div>
           {posts
@@ -212,77 +207,56 @@ export default function Profilepage() {
                 <Mumble
                   key={i}
                   comment={{
-                    fCallBack: function noRefCheck() {
-                      console.log('clicked');
-                    },
+                    fCallBack: () => console.log('comment clicked'),
                     quantity: 0,
                   }}
                   img={{
                     alt: 'This is a profile picture!',
-                    fCallBack: function noRefCheck() {
-                      console.log('clicked');
-                    },
+                    fCallBack: () => console.log('img clicked'),
                     src: 'https://picsum.photos/640/360',
                   }}
                   like={{
-                    fCallBack: function noRefCheck() {
-                      console.log('clicked');
-                    },
+                    fCallBack: () => console.log('like clicked'),
                     quantity: 999,
                   }}
                   mbSpacing="32"
                   share={{
-                    fCallBack: function noRefCheck() {
-                      console.log('clicked');
-                    },
+                    fCallBack: () => console.log('share clicked'),
                     label: 'Share',
                   }}
                   text={post}
                   user={{
                     avatar: {
                       alt: 'avatar',
-                      buttonCallBack: function noRefCheck() {
-                        console.log('clicked');
-                      },
-                      imageCallBack: function noRefCheck() {
-                        console.log('clicked');
-                      },
-                      src: 'https://picsum.photos/640/360',
+                      src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+                      imageCallBack: () => console.log('avatar clicked'),
                     },
                     joined: {
-                      type: 'joined',
-                      fCallBack: function noRefCheck() {
-                        console.log('clicked');
-                      },
+                      fCallBack: () => console.log('joined clicked'),
                       href: '',
                       label: 'Joined',
+                      type: 'joined',
                     },
                     label: 'Display Name',
                     location: {
-                      type: 'joined',
-                      fCallBack: function noRefCheck() {
-                        console.log('clicked');
-                      },
+                      fCallBack: () => console.log('location clicked'),
                       href: '',
                       label: 'Location',
+                      type: 'location',
                     },
                     timestamp: {
-                      type: 'joined',
-                      fCallBack: function noRefCheck() {
-                        console.log('clicked');
-                      },
+                      fCallBack: () => console.log('timestamp clicked'),
                       href: '',
                       label: 'Timestamp',
+                      type: 'timestamp',
                     },
                     username: {
-                      type: 'joined',
-                      fCallBack: function noRefCheck() {
-                        console.log('clicked');
-                      },
+                      fCallBack: () => console.log('username clicked'),
                       href: '',
                       label: 'Username',
+                      type: 'username',
                     },
-                    variant: 'xlarge',
+                    variant: 'large',
                   }}
                   variant="timeline"
                 />
@@ -290,223 +264,166 @@ export default function Profilepage() {
             })}
           <Mumble
             comment={{
-              fCallBack: function noRefCheck() {
-                console.log('clicked');
-              },
+              fCallBack: () => console.log('comment clicked'),
               quantity: 0,
             }}
             img={{
               alt: 'This is a profile picture!',
-              fCallBack: function noRefCheck() {
-                console.log('clicked');
-              },
+              fCallBack: () => console.log('img clicked'),
               src: 'https://picsum.photos/640/360',
             }}
             like={{
-              fCallBack: function noRefCheck() {
-                console.log('clicked');
-              },
+              fCallBack: () => console.log('like clicked'),
               quantity: 999,
             }}
             mbSpacing="32"
             share={{
-              fCallBack: function noRefCheck() {
-                console.log('clicked');
-              },
+              fCallBack: () => console.log('share clicked'),
               label: 'Share',
             }}
             text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
             user={{
               avatar: {
                 alt: 'avatar',
-                buttonCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
-                imageCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
-                src: 'https://picsum.photos/640/360',
-              },
-              joined: {
-                type: 'joined',
-                fCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
-                href: '',
-                label: 'Joined',
-              },
-              label: 'Display Name',
-              location: {
-                type: 'joined',
-                fCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
-                href: '',
-                label: 'Location',
-              },
-              timestamp: {
-                type: 'joined',
-                fCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
-                href: '',
-                label: 'Timestamp',
-              },
-              username: {
-                type: 'joined',
-                fCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
-                href: '',
-                label: 'Username',
-              },
-              variant: 'xlarge',
-            }}
-            variant="timeline"
-          />
-
-          <Mumble
-            comment={{
-              fCallBack: function noRefCheck() {
-                console.log('clicked');
-              },
-              quantity: 0,
-            }}
-            like={{
-              fCallBack: function noRefCheck() {
-                console.log('clicked');
-              },
-              quantity: 999,
-            }}
-            mbSpacing="32"
-            share={{
-              fCallBack: function noRefCheck() {
-                console.log('clicked');
-              },
-              label: 'Share',
-            }}
-            text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
-            user={{
-              avatar: {
-                alt: 'avatar',
-                buttonCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
-                imageCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
                 src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+                imageCallBack: () => console.log('avatar clicked'),
               },
               joined: {
-                type: 'joined',
-                fCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
+                fCallBack: () => console.log('joined clicked'),
                 href: '',
                 label: 'Joined',
+                type: 'joined',
               },
               label: 'Display Name',
               location: {
-                type: 'joined',
-                fCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
+                fCallBack: () => console.log('location clicked'),
                 href: '',
                 label: 'Location',
+                type: 'location',
               },
               timestamp: {
-                type: 'joined',
-                fCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
+                fCallBack: () => console.log('timestamp clicked'),
                 href: '',
                 label: 'Timestamp',
+                type: 'timestamp',
               },
               username: {
-                type: 'joined',
-                fCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
+                fCallBack: () => console.log('username clicked'),
                 href: '',
                 label: 'Username',
+                type: 'username',
               },
-              variant: 'xlarge',
+              variant: 'large',
             }}
             variant="timeline"
           />
           <Mumble
             comment={{
-              fCallBack: function noRefCheck() {
-                console.log('clicked');
-              },
+              fCallBack: () => console.log('comment clicked'),
               quantity: 0,
             }}
             img={{
               alt: 'This is a profile picture!',
-              fCallBack: function noRefCheck() {
-                console.log('clicked');
-              },
+              fCallBack: () => console.log('img clicked'),
               src: 'https://picsum.photos/640/360',
             }}
             like={{
-              fCallBack: function noRefCheck() {
-                console.log('clicked');
-              },
+              fCallBack: () => console.log('like clicked'),
               quantity: 999,
             }}
             mbSpacing="32"
             share={{
-              fCallBack: function noRefCheck() {
-                console.log('clicked');
-              },
+              fCallBack: () => console.log('share clicked'),
               label: 'Share',
             }}
             text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
             user={{
               avatar: {
                 alt: 'avatar',
-                buttonCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
-                imageCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
                 src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+                imageCallBack: () => console.log('avatar clicked'),
               },
               joined: {
-                type: 'joined',
-                fCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
+                fCallBack: () => console.log('joined clicked'),
                 href: '',
                 label: 'Joined',
+                type: 'joined',
               },
               label: 'Display Name',
               location: {
-                type: 'joined',
-                fCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
+                fCallBack: () => console.log('location clicked'),
                 href: '',
                 label: 'Location',
+                type: 'location',
               },
               timestamp: {
-                type: 'joined',
-                fCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
+                fCallBack: () => console.log('timestamp clicked'),
                 href: '',
                 label: 'Timestamp',
+                type: 'timestamp',
               },
               username: {
-                type: 'joined',
-                fCallBack: function noRefCheck() {
-                  console.log('clicked');
-                },
+                fCallBack: () => console.log('username clicked'),
                 href: '',
                 label: 'Username',
+                type: 'username',
               },
-              variant: 'xlarge',
+              variant: 'large',
+            }}
+            variant="timeline"
+          />
+          <Mumble
+            comment={{
+              fCallBack: () => console.log('comment clicked'),
+              quantity: 0,
+            }}
+            img={{
+              alt: 'This is a profile picture!',
+              fCallBack: () => console.log('img clicked'),
+              src: 'https://picsum.photos/640/360',
+            }}
+            like={{
+              fCallBack: () => console.log('like clicked'),
+              quantity: 999,
+            }}
+            mbSpacing="32"
+            share={{
+              fCallBack: () => console.log('share clicked'),
+              label: 'Share',
+            }}
+            text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
+            user={{
+              avatar: {
+                alt: 'avatar',
+                src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+                imageCallBack: () => console.log('avatar clicked'),
+              },
+              joined: {
+                fCallBack: () => console.log('joined clicked'),
+                href: '',
+                label: 'Joined',
+                type: 'joined',
+              },
+              label: 'Display Name',
+              location: {
+                fCallBack: () => console.log('location clicked'),
+                href: '',
+                label: 'Location',
+                type: 'location',
+              },
+              timestamp: {
+                fCallBack: () => console.log('timestamp clicked'),
+                href: '',
+                label: 'Timestamp',
+                type: 'timestamp',
+              },
+              username: {
+                fCallBack: () => console.log('username clicked'),
+                href: '',
+                label: 'Username',
+                type: 'username',
+              },
+              variant: 'large',
             }}
             variant="timeline"
           />
