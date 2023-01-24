@@ -20,9 +20,6 @@ import { TextButton } from "@smartive-education/design-system-component-library-
 
 ```js
 
-<TextButton
-  handleClick={console.log('TextButton clicked')}
-  label="Link Label"
-/>
+<TextButton handleClick={() => console.log('TextButton clicked')} label="Link Label" />
 
 ```
