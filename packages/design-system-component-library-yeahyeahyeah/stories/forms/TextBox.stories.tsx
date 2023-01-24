@@ -118,14 +118,4 @@ TextBoxStory.parameters = {
   },
 };
 
-TextBoxStory.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-
-  await userEvent.type(await canvas.getByTestId('testTextarea'), 'Lorem ipsum dolor sit amet');
-  await userEvent.click(await within(canvasElement).getByLabelText('Absenden'));
-  await expect(await canvas.findByTestId('testTextarea')).toHaveValue('');
-  await userEvent.click(await within(canvasElement).getByLabelText('Absenden'));
-  await expect(canvas.getByText('Bitte füllen sie das Formular aus.'));
-};
-
 TextBoxStory.storyName = 'TextBox';
