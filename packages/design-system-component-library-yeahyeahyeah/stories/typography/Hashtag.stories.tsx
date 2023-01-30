@@ -24,6 +24,7 @@ export default {
   },
   args: {
     label: 'Mumble',
+    size: 'small',
   },
 } as ComponentMeta<typeof Hashtag>;
 
