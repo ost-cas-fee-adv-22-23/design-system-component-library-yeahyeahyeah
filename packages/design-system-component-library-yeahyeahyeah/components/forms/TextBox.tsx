@@ -3,7 +3,7 @@ import tw, { styled } from 'twin.macro';
 import { User, IUserProps } from '../User';
 import { InputForm, IFormInputProps } from './InputForm';
 import { Button, IButtonProps } from '../buttons/Button';
-import { BottomSpacing } from '../Spacing';
+import { BottomSpacing } from '../utils/Spacing';
 import { Heading, Paragraph } from '../index';
 import type { TmbSpacing } from '../../types/types';
 

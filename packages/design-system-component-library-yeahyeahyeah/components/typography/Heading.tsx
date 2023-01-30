@@ -1,6 +1,6 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
-import { BottomSpacing } from '../Spacing';
+import { BottomSpacing } from '../utils/Spacing';
 import type { TmbSpacing } from '../../types/types';
 
 export interface IHeadingProps {
