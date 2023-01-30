@@ -184,13 +184,16 @@ const TextArea = styled(_TextArea)(({ error }: IStyled) => [
     w-full
     h-[160px]
     min-h-[calc(4.375rem)]
-    border-1
+    border-0
     outline-none
-    placeholder:(font-normal text-slate-300)
+
+    ring-1
+    ring-slate-100
+    placeholder:(font-normal text-slate-500)
   `,
   error === 'true'
-    ? tw`ring-0 border-red hover:(ring-0 border-red) focus:(ring-0 border-red) focus-within:(ring-0 border-red)`
-    : tw`ring-0 border-slate-200 hover:(ring-0 border-violet-700) focus:(ring-0 border-violet-700) focus-within:(ring-0 border-violet-700)`,
+    ? tw`ring-1 ring-red hover:(ring-red) focus:(ring-red) focus-within:(ring-red)`
+    : tw`ring-1 ring-slate-200 hover:(ring-2 ring-slate-300) focus:(ring-2 ring-violet-700) focus-within:(ring-2 ring-violet-700)`,
 ]);
 
 // eslint-disable-next-line
@@ -213,11 +216,17 @@ const InputStyles = styled(_Input)(({ error }: IStyled) => [
     form-input
     w-full
     rounded
-    border-1
-    placeholder:(font-normal text-slate-300)
+    border-0
+    outline-none
+
+    ring-1
+    ring-offset-0
+    ring-slate-50
+
+    placeholder:(font-normal text-slate-500)
     
   `,
   error === 'true'
-    ? tw`ring-0 border-red hover:(ring-0 border-red) focus:(ring-0 border-red) focus-within:(ring-0 border-red)`
-    : tw`ring-0 border-slate-200 hover:(ring-0 border-violet-700) focus:(ring-0 border-violet-700) focus-within:(ring-0 border-violet-700)`,
+    ? tw`ring-1 ring-red hover:(ring-red) focus:(ring-red) focus-within:(ring-red)`
+    : tw`ring-2 ring-slate-50 hover:(ring-slate-300) focus:(ring-2 ring-violet-700) focus-within:(ring-2 ring-violet-700)`,
 ]);
