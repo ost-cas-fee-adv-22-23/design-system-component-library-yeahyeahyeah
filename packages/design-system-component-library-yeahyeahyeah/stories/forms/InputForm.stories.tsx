@@ -9,12 +9,12 @@ export default {
   title: 'Form/Input',
   component: InputForm,
   argTypes: {
-    size: {
+    labelSize: {
       control: 'select',
     },
   },
   args: {
-    size: 'default',
+    labelSize: 'default',
   },
 } as ComponentMeta<typeof InputForm>;
 

@@ -4,7 +4,7 @@ import { Eye, Cancel } from '../icons/index';
 
 export interface IFormInputProps {
   label?: string;
-  size?: 'default' | 'small';
+  labelSize?: 'default' | 'small';
   editType: 'input' | 'textarea';
   required: boolean;
   type?: 'text' | 'password' | 'email' | 'search' | 'tel' | 'url' | 'file';
@@ -18,7 +18,7 @@ export interface IFormInputProps {
 
 export const InputForm: React.FC<IFormInputProps> = ({
   label = 'Label',
-  size = 'default',
+  labelSize = 'default',
   editType = 'textarea',
   required = true,
   type = 'text',
@@ -50,7 +50,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
   return (
     <>
       {editType === 'input' ? (
-        <FormLabel htmlFor={label} size={size}>
+        <FormLabel htmlFor={label} labelSize={labelSize}>
           {label}
           <FormInlineWrapperStyles>
             <InputStyles
@@ -74,7 +74,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
           <FormFieldError>{errorMessage}</FormFieldError>
         </FormLabel>
       ) : (
-        <FormLabel htmlFor={label} size={size}>
+        <FormLabel htmlFor={label} labelSize={labelSize}>
           {label}
           <TextArea
             id={label}
@@ -116,10 +116,10 @@ const FormFieldError = styled.p(() => [
 ]);
 
 interface ILabelStyles {
-  size: string;
+  labelSize: string;
 }
 
-const FormLabel = styled.label(({ size }: ILabelStyles) => [
+const FormLabel = styled.label(({ labelSize }: ILabelStyles) => [
   tw`
   block
   text-slate-700
@@ -127,8 +127,8 @@ const FormLabel = styled.label(({ size }: ILabelStyles) => [
   mt-4
   mb-24
   `,
-  size === 'default' && tw`text-sm font-semibold`,
-  size === 'small' && tw`text-xxs font-medium`,
+  labelSize === 'default' && tw`text-sm font-semibold`,
+  labelSize === 'small' && tw`text-xxs font-medium`,
 ]);
 
 const FormInlineWrapperStyles = styled.div(() => [
