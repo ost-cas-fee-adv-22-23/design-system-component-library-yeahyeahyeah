@@ -81,13 +81,19 @@ FormInputStory.argTypes = {
       disable: true,
     },
   },
+  type: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
 };
 
 FormInputStory.args = {
   editType: 'input',
   label: 'Label',
   required: false,
-  type: 'text',
+  type: 'email',
   placeholder: 'Was gibt es neues ?',
   errorMessage: 'Bitte füllen Sie das Feld aus.',
 };
@@ -147,6 +153,12 @@ TextAreaStory.argTypes = {
     },
   },
   onPressEnter: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+  type: {
     control: false,
     table: {
       disable: true,
