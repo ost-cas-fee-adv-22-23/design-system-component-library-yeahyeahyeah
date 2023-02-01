@@ -2,7 +2,7 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { GlobalStyles as BaseStyles } from 'twin.macro';
-import MumbleStyles from '../../components/styles/MumbleStyles';
+import MumbleStyles from '../../styles/MumbleStyles';
 
 const CustomStyles = createGlobalStyle({
   body: {},

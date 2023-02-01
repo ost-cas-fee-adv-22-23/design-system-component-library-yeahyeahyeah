@@ -8,25 +8,17 @@ import Readme from '../../docs/InputForm.md';
 export default {
   title: 'Form/Input',
   component: InputForm,
-  args: {
-    editType: 'input',
-    required: false,
-    errorMessage: 'Something went wrong!',
-    autoComplete: 'off',
-  },
 } as ComponentMeta<typeof InputForm>;
 
 const Template: ComponentStory<typeof InputForm> = (args) => {
-  const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
   const [text, setText] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
 
-  const handleClick = () => {
+  const handlePressEnter = () => {
     if (text === '') {
       setErrorMessage(args.errorMessage);
       return;
     }
-    if (ref?.current) ref.current.value = '';
     setText('');
   };
 
@@ -40,12 +32,11 @@ const Template: ComponentStory<typeof InputForm> = (args) => {
     <>
       <InputForm
         {...args}
-        setRef={setRef}
-        setText={setText}
+        setInputValue={setText}
+        inputValue={text}
         errorMessage={errorMessage}
-        onPressEnter={handleClick}
+        onPressEnter={handlePressEnter}
         data-testid={'label'}
-        type="text"
       />
     </>
   );
@@ -72,13 +63,13 @@ FormInputStory.argTypes = {
       disable: true,
     },
   },
-  setText: {
+  setInputValue: {
     control: false,
     table: {
       disable: true,
     },
   },
-  setRef: {
+  inputValue: {
     control: false,
     table: {
       disable: true,
@@ -143,13 +134,13 @@ TextAreaStory.argTypes = {
       disable: true,
     },
   },
-  setText: {
+  setInputValue: {
     control: false,
     table: {
       disable: true,
     },
   },
-  setRef: {
+  inputValue: {
     control: false,
     table: {
       disable: true,

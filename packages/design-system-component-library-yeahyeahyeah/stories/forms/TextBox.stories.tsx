@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { expect } from '@storybook/jest';
-import { within, userEvent } from '@storybook/testing-library';
 import { TextBox } from '../../components/forms/TextBox';
 import { action } from '@storybook/addon-actions';
 import TextBoxReadme from '../../docs/TextBox.md';
@@ -12,7 +10,6 @@ export default {
 } as ComponentMeta<typeof TextBox>;
 
 const Template: ComponentStory<typeof TextBox> = (args) => {
-  const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
   const [text, setText] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
 
@@ -21,7 +18,6 @@ const Template: ComponentStory<typeof TextBox> = (args) => {
       setErrorMessage('Bitte füllen sie das Formular aus.');
       return;
     }
-    if (ref?.current) ref.current.value = '';
     setText('');
   };
 
@@ -37,9 +33,9 @@ const Template: ComponentStory<typeof TextBox> = (args) => {
       form={{
         errorMessage: errorMessage,
         placeholder: 'Hast du uns etwas mitzuteilen?',
-        setRef: setRef,
-        setText: setText,
       }}
+      inputValue={text}
+      setInputValue={setText}
       sendCallback={handleSend}
       uploadCallback={action('uploadCallback')}
     />
