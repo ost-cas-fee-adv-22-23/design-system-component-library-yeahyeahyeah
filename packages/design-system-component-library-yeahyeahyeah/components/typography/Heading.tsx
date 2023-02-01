@@ -7,7 +7,7 @@ export interface IHeadingProps {
   label: string;
   tag: 'h1' | 'h2' | 'h3' | 'h4' | 'span';
   size: 'default' | 'xlarge' | 'large' | 'medium' | 'small';
-  color: 'light' | 'medium' | 'dark' | 'violet' | 'pink' | 'white';
+  color: 'light' | 'medium' | 'dark' | 'violet' | 'pink' | 'pink-light' | 'white';
   alignment?: 'left' | 'center' | 'right';
   mbSpacing?: TmbSpacing;
 }
@@ -88,6 +88,7 @@ const HeadingColor = ({ color }: IHeadingStylesProps) => [
   color === 'dark' && tw`text-slate-900`,
   color === 'violet' && tw`text-violet-600`,
   color === 'pink' && tw`text-pink-900`,
+  color === 'pink-light' && tw`text-pink-300`,
   color === 'default' && tw`text-slate-900`,
 ];
 
