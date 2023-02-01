@@ -8,6 +8,14 @@ import Readme from '../../docs/InputForm.md';
 export default {
   title: 'Form/Input',
   component: InputForm,
+  argTypes: {
+    size: {
+      control: 'select',
+    },
+  },
+  args: {
+    size: 'default',
+  },
 } as ComponentMeta<typeof InputForm>;
 
 const Template: ComponentStory<typeof InputForm> = (args) => {
@@ -93,8 +101,7 @@ FormInputStory.args = {
   editType: 'input',
   label: 'Label',
   required: false,
-  type: 'email',
-  placeholder: 'Was gibt es neues ?',
+  placeholder: 'Was gibt es neues?',
   errorMessage: 'Bitte füllen Sie das Feld aus.',
 };
 

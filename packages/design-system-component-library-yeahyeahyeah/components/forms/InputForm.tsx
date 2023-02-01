@@ -4,6 +4,7 @@ import { Eye, Cancel } from '../icons/index';
 
 export interface IFormInputProps {
   label?: string;
+  size?: 'default' | 'small';
   editType: 'input' | 'textarea';
   required: boolean;
   type?: 'text' | 'password' | 'email' | 'search' | 'tel' | 'url' | 'file';
@@ -17,6 +18,7 @@ export interface IFormInputProps {
 
 export const InputForm: React.FC<IFormInputProps> = ({
   label = 'Label',
+  size = 'default',
   editType = 'textarea',
   required = true,
   type = 'text',
@@ -48,7 +50,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
   return (
     <>
       {editType === 'input' ? (
-        <FormLabel htmlFor={label}>
+        <FormLabel htmlFor={label} size={size}>
           {label}
           <FormInlineWrapperStyles>
             <InputStyles
@@ -65,14 +67,14 @@ export const InputForm: React.FC<IFormInputProps> = ({
               value={inputValue}
             />
             {type === 'password' && <Eye tw="absolute right-16 cursor-pointer" onClick={showPassword} />}
-            {type === 'text' && inputValue && (
-              <Cancel data-testid={'svg_cancel'} tw="absolute right-16 cursor-pointer" onClick={clearForm} />
+            {type !== 'password' && inputValue && (
+              <Cancel data-testid={'svg_cancel'} tw="absolute top-[18px] right-12 cursor-pointer" onClick={clearForm} />
             )}
           </FormInlineWrapperStyles>
           <FormFieldError>{errorMessage}</FormFieldError>
         </FormLabel>
       ) : (
-        <FormLabel htmlFor={label}>
+        <FormLabel htmlFor={label} size={size}>
           {label}
           <TextArea
             id={label}
@@ -113,15 +115,20 @@ const FormFieldError = styled.p(() => [
   `,
 ]);
 
-const FormLabel = styled.label(() => [
+interface ILabelStyles {
+  size: string;
+}
+
+const FormLabel = styled.label(({ size }: ILabelStyles) => [
   tw`
-    block
-    text-slate-900 
-    font-semibold 
-    w-full 
-    mt-4
-    mb-24
+  block
+  text-slate-700
+  w-full 
+  mt-4
+  mb-24
   `,
+  size === 'default' && tw`text-sm font-semibold`,
+  size === 'small' && tw`text-xxs font-medium`,
 ]);
 
 const FormInlineWrapperStyles = styled.div(() => [
@@ -136,24 +143,27 @@ const FormInlineWrapperStyles = styled.div(() => [
 
 const TextArea = styled.textarea(({ error }: IStyled) => [
   tw`
+    flex
+    flex-row
+    justify-start
+    items-start
+
     text-slate-500
     bg-slate-100
     font-medium
     text-md
     leading-6
-    flex
-    flex-row
-    justify-start
-    items-start
+    
+    mt-6
     p-16
     rounded
     w-full
     h-[160px]
     min-h-[calc(4.375rem)]
+    
     border-0
-    outline-none
     ring-1
-    ring-slate-100
+    outline-none
     placeholder:(font-normal text-slate-500)
   `,
   error === 'true'
@@ -163,26 +173,28 @@ const TextArea = styled.textarea(({ error }: IStyled) => [
 
 const InputStyles = styled.input(({ error }: IStyled) => [
   tw`
+    flex
+    flex-row
+    justify-start
+    items-end
+    mt-6
+
+    form-input
     text-slate-500
     bg-slate-50
     font-medium
     text-sm
-    leading
-    flex
-    flex-row
-    justify-start
-    items-start
-    form-input
+    leading-none
+
     w-full
     rounded
     border-0
-    outline-none
     ring-1
+    outline-none
     ring-offset-0
-    ring-slate-50
     placeholder:(font-normal text-slate-500)
   `,
   error === 'true'
     ? tw`ring-1 ring-red hover:(ring-red) focus:(ring-red) focus-within:(ring-red)`
-    : tw`ring-2 ring-slate-50 hover:(ring-slate-300) focus:(ring-2 ring-violet-700) focus-within:(ring-2 ring-violet-700)`,
+    : tw`ring-1 ring-slate-200 hover:(ring-2 ring-slate-300) focus:(ring-2 ring-violet-700) focus-within:(ring-2 ring-violet-700)`,
 ]);
