@@ -111,9 +111,9 @@ FormInputStory.parameters = {
 FormInputStory.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
-  await userEvent.type(canvas.getByTestId('label'), 'Lorem ipsum dolor sit amet');
-  await expect(await canvas.findByTestId('svg_cancel')).toBeInTheDocument();
-  await userEvent.click(await within(canvasElement).getByTestId('svg_cancel'));
+  userEvent.type(canvas.getByTestId('label'), 'Lorem ipsum dolor sit amet');
+  expect(await canvas.findByTestId('svg_cancel')).toBeInTheDocument();
+  userEvent.click(within(canvasElement).getByTestId('svg_cancel'));
   expect(await canvas.findByTestId('label')).toHaveValue('');
 };
 
@@ -188,11 +188,11 @@ TextAreaStory.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   const textArea = 'testTextarea';
 
-  await userEvent.type(
+  userEvent.type(
     canvas.getByTestId(textArea),
     'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
   );
-  userEvent.clear(await within(canvasElement).getByTestId(textArea));
+  userEvent.clear(within(canvasElement).getByTestId(textArea));
   expect(await canvas.findByTestId(textArea)).toHaveValue('');
 };
 
