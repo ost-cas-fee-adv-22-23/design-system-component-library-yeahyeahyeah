@@ -8,9 +8,9 @@ export interface IHashtagProps {
 }
 
 export const Hashtag: React.FC<IHashtagProps> = ({ label, fCallBack, size }) => {
-  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    fCallBack(event);
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    fCallBack(e);
   };
 
   return (
@@ -26,7 +26,7 @@ interface IHashtagStyleProps {
 
 const StyledHashtag = styled.a(({ size }: IHashtagStyleProps) => [
   tw`transition cursor-pointer`,
-  size === 'small' && tw`text-violet-600 hover:text-violet-500 text-md [font-weight:500] hover:underline`,
+  size === 'small' && tw`text-violet-600 hover:text-violet-500 text-base [font-weight:500] hover:underline`,
   size === 'medium' && tw`text-violet-600 hover:text-violet-500 text-lg [font-weight:500] hover:underline`,
   size === 'large' && tw`text-slate-white hover:text-slate-white text-4xl [font-weight:700] hover:underline`,
 ]);
