@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TextBox } from '../../components/forms/TextBox';
 import { action } from '@storybook/addon-actions';
@@ -22,9 +22,13 @@ const Template: ComponentStory<typeof TextBox> = (args) => {
     setInputValue('');
   };
 
-  const setErrorDebounced = useCallback(
-    debounce(() => setErrorMessage(''), 100),
-    []
+  const setErrorDebounced = useMemo(
+    () =>
+      debounce(() => {
+        console.log('rendered debounce');
+        setErrorMessage('');
+      }, 100),
+    [debounce]
   );
 
   useEffect(() => {
