@@ -31,6 +31,10 @@ export const InputForm: React.FC<IFormInputProps> = ({
 }) => {
   const [buttonType, setbuttonType] = useState(type);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setInputValue && setInputValue(e.target.value);
+  };
+
   const showPassword = () => {
     buttonType === 'password' ? setbuttonType('text') : setbuttonType('password');
   };
@@ -60,7 +64,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
               required={required}
               maxLength={150}
               autoComplete={autoComplete}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputValue && setInputValue(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
               onKeyDown={handleKeyDown}
               error={errorMessage ? 'true' : 'false'}
               data-testid={label.toLowerCase()}
@@ -82,7 +86,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
             required={required}
             maxLength={500}
             autoComplete={autoComplete}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setInputValue && setInputValue(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleChange(e)}
             onKeyDown={handleKeyDown}
             rows={20}
             cols={30}

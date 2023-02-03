@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { expect } from '@storybook/jest';
 import { within, userEvent } from '@storybook/testing-library';
-import { InputForm } from '../../components/forms/InputForm';
+import { IFormInputProps, InputForm } from '../../components/forms/InputForm';
 import Readme from '../../docs/InputForm.md';
+import debounce from 'lodash.debounce';
 
 export default {
   title: 'Form/Input',
@@ -18,33 +19,35 @@ export default {
   },
 } as ComponentMeta<typeof InputForm>;
 
-const Template: ComponentStory<typeof InputForm> = (args) => {
-  const [text, setText] = useState<string>('');
+const Template: ComponentStory<typeof InputForm> = (args: IFormInputProps) => {
+  const [inputValue, setInputValue] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handlePressEnter = () => {
-    if (text === '') {
+    if (inputValue === '') {
       setErrorMessage(args.errorMessage);
       return;
     }
-    setText('');
+    setInputValue('');
   };
 
+  const setErrorDebounced = useCallback(
+    debounce(() => setErrorMessage(''), 100),
+    []
+  );
+
   useEffect(() => {
-    if (text !== '') {
-      setErrorMessage('');
+    if (inputValue !== '') {
+      setErrorDebounced();
     }
-    window.addEventListener('keypress', () => {
-      setErrorMessage('');
-    });
-  }, []);
+  }, [inputValue, setErrorDebounced]);
 
   return (
     <>
       <InputForm
         {...args}
-        setInputValue={setText}
-        inputValue={text}
+        setInputValue={setInputValue}
+        inputValue={inputValue}
         errorMessage={errorMessage}
         onPressEnter={handlePressEnter}
         data-testid={'label'}
@@ -203,7 +206,7 @@ TextAreaStory.play = async ({ canvasElement }) => {
     'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
   );
   userEvent.clear(within(canvasElement).getByTestId(textArea));
-  expect(await canvas.findByTestId(textArea)).toHaveValue('');
+  expect(canvas.findByTestId(textArea)).toHaveValue('');
 };
 
 TextAreaStory.storyName = 'TextArea';
