@@ -25,7 +25,6 @@ const Template: ComponentStory<typeof TextBox> = (args) => {
   const setErrorDebounced = useMemo(
     () =>
       debounce(() => {
-        console.log('rendered debounce');
         setErrorMessage('');
       }, 100),
     [debounce]

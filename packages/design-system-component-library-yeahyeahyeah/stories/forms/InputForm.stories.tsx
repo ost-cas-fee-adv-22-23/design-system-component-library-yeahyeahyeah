@@ -34,7 +34,6 @@ const Template: ComponentStory<typeof InputForm> = (args: IFormInputProps) => {
   const setErrorDebounced = useMemo(
     () =>
       debounce(() => {
-        console.log('rendered debounce');
         setErrorMessage('');
       }, 100),
     [debounce]
