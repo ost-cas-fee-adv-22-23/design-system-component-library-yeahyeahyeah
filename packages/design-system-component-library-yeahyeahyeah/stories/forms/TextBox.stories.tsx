@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TextBox } from '../../components/forms/TextBox';
 import { action } from '@storybook/addon-actions';
 import TextBoxReadme from '../../docs/TextBox.md';
+import debounce from 'lodash.debounce';
 
 export default {
   title: 'Form',
@@ -10,22 +11,27 @@ export default {
 } as ComponentMeta<typeof TextBox>;
 
 const Template: ComponentStory<typeof TextBox> = (args) => {
-  const [text, setText] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleSend = () => {
-    if (text === '') {
-      setErrorMessage('Bitte füllen sie das Formular aus.');
+    if (inputValue === '') {
+      setErrorMessage(args.form.errorMessage);
       return;
     }
-    setText('');
+    setInputValue('');
   };
 
+  const setErrorDebounced = useCallback(
+    debounce(() => setErrorMessage(''), 100),
+    []
+  );
+
   useEffect(() => {
-    if (text !== '') {
-      setErrorMessage('');
+    if (inputValue !== '') {
+      setErrorDebounced();
     }
-  }, [text]);
+  }, [inputValue, setErrorDebounced]);
 
   return (
     <TextBox
@@ -34,8 +40,8 @@ const Template: ComponentStory<typeof TextBox> = (args) => {
         errorMessage: errorMessage,
         placeholder: 'Hast du uns etwas mitzuteilen?',
       }}
-      inputValue={text}
-      setInputValue={setText}
+      setInputValue={setInputValue}
+      inputValue={inputValue}
       sendCallback={handleSend}
       uploadCallback={action('uploadCallback')}
     />
@@ -102,6 +108,7 @@ TextBoxStory.args = {
   startHeading: 'Hey, was läuft?',
   startParagraph: 'Schreib deinen ersten Mumble, oder folge einem User.',
   uploadCallback: action('uploadCallback'),
+  form: { errorMessage: 'Bitte füllen sie das Formular aus.' },
 };
 
 TextBoxStory.parameters = {
