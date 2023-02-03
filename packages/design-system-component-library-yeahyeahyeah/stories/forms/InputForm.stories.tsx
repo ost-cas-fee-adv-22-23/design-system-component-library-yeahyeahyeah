@@ -206,7 +206,7 @@ TextAreaStory.play = async ({ canvasElement }) => {
     'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
   );
   userEvent.clear(within(canvasElement).getByTestId(textArea));
-  expect(canvas.findByTestId(textArea)).toHaveValue('');
+  expect(await canvas.findByTestId(textArea)).toHaveValue('');
 };
 
 TextAreaStory.storyName = 'TextArea';
