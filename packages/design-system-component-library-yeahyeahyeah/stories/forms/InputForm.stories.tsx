@@ -34,7 +34,10 @@ const Template: ComponentStory<typeof InputForm> = (args) => {
     if (text !== '') {
       setErrorMessage('');
     }
-  }, [text]);
+    window.addEventListener('keypress', () => {
+      setErrorMessage('');
+    });
+  }, []);
 
   return (
     <>
