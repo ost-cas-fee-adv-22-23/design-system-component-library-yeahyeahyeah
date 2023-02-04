@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { expect } from '@storybook/jest';
 import { within, userEvent } from '@storybook/testing-library';
@@ -31,9 +31,12 @@ const Template: ComponentStory<typeof InputForm> = (args: IFormInputProps) => {
     setInputValue('');
   };
 
-  const setErrorDebounced = useCallback(
-    debounce(() => setErrorMessage(''), 100),
-    []
+  const setErrorDebounced = useMemo(
+    () =>
+      debounce(() => {
+        setErrorMessage('');
+      }, 100),
+    [debounce]
   );
 
   useEffect(() => {
