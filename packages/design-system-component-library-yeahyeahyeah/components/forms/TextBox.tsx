@@ -1,15 +1,17 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { User, IUserProps } from '../User';
 import { InputForm, IFormInputProps } from './InputForm';
 import { Button, IButtonProps } from '../buttons/Button';
-import { BottomSpacing } from '../Spacing';
+import { BottomSpacing } from '../../styles/Spacing';
 import { Heading, Paragraph } from '../index';
 import type { TmbSpacing } from '../../types/types';
 
 export interface ITextBoxProps {
   user?: Pick<IUserProps, 'label' | 'username' | 'avatar'>;
-  form: Pick<IFormInputProps, 'placeholder' | 'errorMessage' | 'setRef' | 'setText'>;
+  form: Pick<IFormInputProps, 'placeholder' | 'errorMessage'>;
+  inputValue: string;
+  setInputValue: React.Dispatch<React.SetStateAction<string>>;
   variant: 'write' | 'inline' | 'start';
   uploadCallback: () => void;
   sendCallback: () => void;
@@ -37,6 +39,8 @@ export const TextBox: React.FC<ITextBoxProps> = ({
     placeholder: 'Na, was meinste dazu ...?',
     errorMessage: 'Da ist etwas schief gelaufen',
   },
+  inputValue,
+  setInputValue,
   uploadCallback = () => {
     null;
   },
@@ -62,8 +66,6 @@ export const TextBox: React.FC<ITextBoxProps> = ({
     width: 'full',
   };
 
-  const ref = useRef<HTMLFormElement>(null);
-
   const onPressEnter = () => {
     sendCallback();
   };
@@ -74,7 +76,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
   };
 
   return (
-    <form ref={ref} onSubmit={handleSubmit} tw="container">
+    <form onSubmit={handleSubmit} tw="container">
       <Card variant={variant}>
         <UserWrapper variant={variant} mbSpacing={'16'}>
           {variant === 'write' && (
@@ -98,8 +100,8 @@ export const TextBox: React.FC<ITextBoxProps> = ({
           placeholder={form.placeholder}
           errorMessage={form.errorMessage}
           autoComplete={'off'}
-          setText={form.setText}
-          setRef={form.setRef}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
           onPressEnter={onPressEnter}
           data-testid={'testTextarea'}
         />

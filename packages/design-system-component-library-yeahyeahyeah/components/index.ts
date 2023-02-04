@@ -9,7 +9,5 @@ export * from './ImageContainer';
 export * from './modal';
 export * from './mumble';
 export * from './Navigation';
-export * from './Spacing';
-export * from './styles';
 export * from './typography';
 export * from './User';
