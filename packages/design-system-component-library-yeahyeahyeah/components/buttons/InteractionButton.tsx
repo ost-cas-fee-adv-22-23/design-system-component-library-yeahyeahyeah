@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import { HeartFilled, HeartOutlined, ReplyFilled, ReplyOutlined } from '../icons/index';
 
-export interface IInteractionButton {
+export interface IInteractionButtonProps {
   type?: 'like' | 'comment';
   quantity?: number;
   favourite?: boolean;
   fCallBack?: () => void;
 }
 
-export const InteractionButton: React.FC<IInteractionButton> = ({ type, quantity, favourite, fCallBack }) => {
+export const InteractionButton: React.FC<IInteractionButtonProps> = ({ type, quantity, favourite, fCallBack }) => {
   const [label, setLabel] = useState<string>('');
   const [count, setCount] = useState<number>(quantity || 0);
   const [isFavourite, setIsFavourite] = useState<boolean>(favourite || false);
