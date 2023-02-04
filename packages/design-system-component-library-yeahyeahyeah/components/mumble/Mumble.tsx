@@ -2,7 +2,7 @@ import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { IUserProps, User } from '../User';
 import { Paragraph } from '../typography/Paragraph';
-import { IInteractionButton, InteractionButton } from '../buttons/InteractionButton';
+import { IInteractionButtonProps, InteractionButton } from '../buttons/InteractionButton';
 import { IShareButton, ShareButton } from '../buttons/ShareButton';
 import { IImageContainerProps, ImageContainer } from '../ImageContainer';
 import { Avatar } from '../Avatar';
@@ -14,8 +14,8 @@ export interface IMumbleProps {
   user: IUserProps;
   text: string;
   img?: IImageContainerProps;
-  comment: IInteractionButton;
-  like: IInteractionButton;
+  comment: IInteractionButtonProps;
+  like: IInteractionButtonProps;
   share: IShareButton;
   mbSpacing?: TmbSpacing;
 }
