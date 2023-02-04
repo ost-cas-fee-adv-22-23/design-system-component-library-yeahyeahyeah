@@ -28,5 +28,6 @@
     }
   },
   "private": true,
-  "license": "MIT"
+  "license": "MIT",
+  "version": "0.0.0"
 }
