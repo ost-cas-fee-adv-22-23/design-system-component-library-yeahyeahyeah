@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { expect } from '@storybook/jest';
-import { within, userEvent } from '@storybook/testing-library';
 import { TextBox } from '../../components/forms/TextBox';
 import { action } from '@storybook/addon-actions';
 import TextBoxReadme from '../../docs/TextBox.md';
+import debounce from 'lodash.debounce';
 
 export default {
   title: 'Form',
@@ -12,24 +11,30 @@ export default {
 } as ComponentMeta<typeof TextBox>;
 
 const Template: ComponentStory<typeof TextBox> = (args) => {
-  const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
-  const [text, setText] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleSend = () => {
-    if (text === '') {
-      setErrorMessage('Bitte füllen sie das Formular aus.');
+    if (inputValue === '') {
+      setErrorMessage(args.form.errorMessage);
       return;
     }
-    if (ref?.current) ref.current.value = '';
-    setText('');
+    setInputValue('');
   };
 
+  const setErrorDebounced = useMemo(
+    () =>
+      debounce(() => {
+        setErrorMessage('');
+      }, 100),
+    [debounce]
+  );
+
   useEffect(() => {
-    if (text !== '') {
-      setErrorMessage('');
+    if (inputValue !== '') {
+      setErrorDebounced();
     }
-  }, [text]);
+  }, [inputValue, setErrorDebounced]);
 
   return (
     <TextBox
@@ -37,9 +42,9 @@ const Template: ComponentStory<typeof TextBox> = (args) => {
       form={{
         errorMessage: errorMessage,
         placeholder: 'Hast du uns etwas mitzuteilen?',
-        setRef: setRef,
-        setText: setText,
       }}
+      setInputValue={setInputValue}
+      inputValue={inputValue}
       sendCallback={handleSend}
       uploadCallback={action('uploadCallback')}
     />
@@ -106,6 +111,7 @@ TextBoxStory.args = {
   startHeading: 'Hey, was läuft?',
   startParagraph: 'Schreib deinen ersten Mumble, oder folge einem User.',
   uploadCallback: action('uploadCallback'),
+  form: { errorMessage: 'Bitte füllen sie das Formular aus.' },
 };
 
 TextBoxStory.parameters = {

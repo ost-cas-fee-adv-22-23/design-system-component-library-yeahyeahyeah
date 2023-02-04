@@ -1,51 +1,59 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { expect } from '@storybook/jest';
 import { within, userEvent } from '@storybook/testing-library';
-import { InputForm } from '../../components/forms/InputForm';
+import { IFormInputProps, InputForm } from '../../components/forms/InputForm';
 import Readme from '../../docs/InputForm.md';
+import debounce from 'lodash.debounce';
 
 export default {
   title: 'Form/Input',
   component: InputForm,
+  argTypes: {
+    labelSize: {
+      control: 'select',
+    },
+  },
   args: {
-    editType: 'input',
-    required: false,
-    errorMessage: 'Something went wrong!',
-    autoComplete: 'off',
+    labelSize: 'default',
   },
 } as ComponentMeta<typeof InputForm>;
 
-const Template: ComponentStory<typeof InputForm> = (args) => {
-  const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
-  const [text, setText] = useState<string>('');
+const Template: ComponentStory<typeof InputForm> = (args: IFormInputProps) => {
+  const [inputValue, setInputValue] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
 
-  const handleClick = () => {
-    if (text === '') {
+  const handlePressEnter = () => {
+    if (inputValue === '') {
       setErrorMessage(args.errorMessage);
       return;
     }
-    if (ref?.current) ref.current.value = '';
-    setText('');
+    setInputValue('');
   };
 
+  const setErrorDebounced = useMemo(
+    () =>
+      debounce(() => {
+        setErrorMessage('');
+      }, 100),
+    [debounce]
+  );
+
   useEffect(() => {
-    if (text !== '') {
-      setErrorMessage('');
+    if (inputValue !== '') {
+      setErrorDebounced();
     }
-  }, [text]);
+  }, [inputValue, setErrorDebounced]);
 
   return (
     <>
       <InputForm
         {...args}
-        setRef={setRef}
-        setText={setText}
+        setInputValue={setInputValue}
+        inputValue={inputValue}
         errorMessage={errorMessage}
-        onPressEnter={handleClick}
+        onPressEnter={handlePressEnter}
         data-testid={'label'}
-        type="text"
       />
     </>
   );
@@ -72,13 +80,13 @@ FormInputStory.argTypes = {
       disable: true,
     },
   },
-  setText: {
+  setInputValue: {
     control: false,
     table: {
       disable: true,
     },
   },
-  setRef: {
+  inputValue: {
     control: false,
     table: {
       disable: true,
@@ -90,14 +98,19 @@ FormInputStory.argTypes = {
       disable: true,
     },
   },
+  type: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
 };
 
 FormInputStory.args = {
   editType: 'input',
   label: 'Label',
   required: false,
-  type: 'text',
-  placeholder: 'Was gibt es neues ?',
+  placeholder: 'Was gibt es neues?',
   errorMessage: 'Bitte füllen Sie das Feld aus.',
 };
 
@@ -114,9 +127,9 @@ FormInputStory.parameters = {
 FormInputStory.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
-  await userEvent.type(canvas.getByTestId('label'), 'Lorem ipsum dolor sit amet');
-  await expect(await canvas.findByTestId('svg_cancel')).toBeInTheDocument();
-  await userEvent.click(await within(canvasElement).getByTestId('svg_cancel'));
+  userEvent.type(canvas.getByTestId('label'), 'Lorem ipsum dolor sit amet');
+  expect(await canvas.findByTestId('svg_cancel')).toBeInTheDocument();
+  userEvent.click(within(canvasElement).getByTestId('svg_cancel'));
   expect(await canvas.findByTestId('label')).toHaveValue('');
 };
 
@@ -143,19 +156,25 @@ TextAreaStory.argTypes = {
       disable: true,
     },
   },
-  setText: {
+  setInputValue: {
     control: false,
     table: {
       disable: true,
     },
   },
-  setRef: {
+  inputValue: {
     control: false,
     table: {
       disable: true,
     },
   },
   onPressEnter: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+  type: {
     control: false,
     table: {
       disable: true,
@@ -185,11 +204,11 @@ TextAreaStory.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   const textArea = 'testTextarea';
 
-  await userEvent.type(
+  userEvent.type(
     canvas.getByTestId(textArea),
     'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
   );
-  userEvent.clear(await within(canvasElement).getByTestId(textArea));
+  userEvent.clear(within(canvasElement).getByTestId(textArea));
   expect(await canvas.findByTestId(textArea)).toHaveValue('');
 };
 

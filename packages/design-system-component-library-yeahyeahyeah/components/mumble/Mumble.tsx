@@ -6,7 +6,7 @@ import { IInteractionButton, InteractionButton } from '../buttons/InteractionBut
 import { IShareButton, ShareButton } from '../buttons/ShareButton';
 import { IImageContainerProps, ImageContainer } from '../ImageContainer';
 import { Avatar } from '../Avatar';
-import { BottomSpacing } from '../Spacing';
+import { BottomSpacing } from '../../styles/Spacing';
 import type { TmbSpacing } from '../../types/types';
 
 export interface IMumbleProps {
