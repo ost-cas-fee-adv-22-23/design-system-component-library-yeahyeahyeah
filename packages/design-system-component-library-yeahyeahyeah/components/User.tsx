@@ -1,13 +1,14 @@
 import React from 'react';
 import tw, { styled, TwStyle } from 'twin.macro';
 import { Heading } from './typography/Heading';
+import { IconButton } from './buttons/IconButton';
 import { IconLink, IIconLinkProps } from './IconLink';
 import { Button } from './buttons/Button';
 import { Avatar } from './Avatar';
 
 export interface IUserProps {
   label: string;
-  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended' | 'write' | 'inline';
+  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended' | 'write' | 'inline' | 'header';
   username: IIconLinkProps;
   timestamp?: IIconLinkProps;
   location?: IIconLinkProps;
@@ -168,6 +169,37 @@ export const User: React.FC<IUserProps> = ({
           </Row>
         </Column>
       )}
+      {variant === 'header' && (
+        <Column>
+          <RowHeader>
+            <Heading tag="h4" color="dark" size={'xlarge'} label={label} />
+            <IconButton label="settings" variant="plain" icon="settings" />
+          </RowHeader>
+          <Row>
+            <IconLink
+              label={username.label}
+              type="username"
+              color="violet"
+              href={username.href}
+              fCallBack={username.fCallBack}
+            ></IconLink>
+            <IconLink
+              label={location.label}
+              type="location"
+              color="slate"
+              href={location.href}
+              fCallBack={location.fCallBack}
+            ></IconLink>
+            <IconLink
+              label={joined.label}
+              type="joined"
+              color="slate"
+              href={joined.href}
+              fCallBack={joined.fCallBack}
+            ></IconLink>
+          </Row>
+        </Column>
+      )}
       {variant === 'xlarge' && (
         <Column>
           <Heading tag="h4" color="dark" size={'large'} label={label} />
@@ -234,10 +266,6 @@ export const User: React.FC<IUserProps> = ({
   );
 };
 
-/**
- * @Button
- * @desc Button styles
- */
 interface IUserStyles {
   variant?: string;
 }
@@ -246,6 +274,15 @@ interface IRowStyles {
   gap?: string;
   spacing?: TwStyle;
 }
+
+const RowHeader = tw.div`
+  flex
+  flex-row
+  justify-start
+  items-center
+  
+  w-fit
+`;
 
 const Column = styled.div(({ variant }: IUserStyles) => [
   tw`

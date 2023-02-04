@@ -4,7 +4,6 @@ import { User, IUserProps } from '../User';
 import { Paragraph } from '../typography/Paragraph';
 import { IImageContainerProps, ImageContainer } from '../ImageContainer';
 import { Avatar, IAvatarProps } from '../Avatar';
-import type { TmbSpacing } from '../../types/types';
 
 export interface IMumbleHeaderProps {
   label: string;
@@ -13,7 +12,6 @@ export interface IMumbleHeaderProps {
   text: string;
   banner?: IImageContainerProps;
   avatar: IAvatarProps;
-  mbSpacing?: TmbSpacing;
 }
 
 export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
@@ -25,7 +23,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
     type: 'banner',
   },
   user = {
-    variant: 'large',
+    variant: 'header',
     username: {
       label: 'Username',
       type: 'joined',
@@ -60,9 +58,9 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
           variant={user.variant}
         />
       </div>
-      <div tw="flex justify-end items-end z-10 h-0 relative -top-16 overflow-visible">
+      <Row>
         <Avatar src={user.avatar?.src || ''} alt={user.avatar?.alt || ''} variant="edit" />
-      </div>
+      </Row>
       <div tw="p-8 mb-32">
         <Paragraph text={text} color={'light'} size={'default'} alignment={'left'} />
       </div>
@@ -77,3 +75,15 @@ const MumbleHeaderWrapper = styled.div(() => [
     justify-between
   `,
 ]);
+
+const Row = tw.div`
+  relative
+  -top-16
+
+  flex
+  justify-end
+  items-end
+  z-10
+  h-0
+  overflow-visible
+`;

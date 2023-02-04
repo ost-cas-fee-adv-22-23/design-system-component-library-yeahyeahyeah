@@ -6,7 +6,7 @@ import { IconsMapped, IconTypes } from '../icons/IconMap';
 export interface IconButtonProps {
   label: string;
   icon: IconTypes;
-  variant: 'default' | 'edit';
+  variant: 'default' | 'edit' | 'plain';
   fCallBack?: () => void;
 }
 
@@ -17,10 +17,12 @@ export const IconButton: React.FC<IconButtonProps> = ({
   fCallBack,
 }) => {
   const Icon = createIcon(icon);
+  const SettingIcon = createSettingIcon(icon);
 
   return (
     <ButtonStyles variant={variant} onClick={fCallBack} aria-label={label}>
-      <Icon />
+      {variant !== 'plain' && <Icon />}
+      {variant === 'plain' && <SettingIcon />}
       <p>{label}</p>
     </ButtonStyles>
   );
@@ -28,6 +30,10 @@ export const IconButton: React.FC<IconButtonProps> = ({
 
 const createIcon = (icon: IconTypes) => {
   return styled(IconsMapped[icon as IconTypes])(() => [tw`fill-slate-white`]);
+};
+
+const createSettingIcon = (icon: IconTypes) => {
+  return styled(IconsMapped[icon as IconTypes])(() => [tw`fill-violet-600`]);
 };
 
 /**
@@ -41,7 +47,7 @@ const buttonFont = tw`
 `;
 
 const buttonDefaults = tw`
-  bg-slate-500
+bg-slate-500
   flex
   flex-col-reverse
   justify-center
@@ -95,5 +101,17 @@ const ButtonStyles = styled.button(({ variant }: IButtonStyles) => [
     sm:(bottom-76 right-16)
     md:(bottom-64 right-4)
     lg:(bottom-[56px] right-4)
+  `,
+  variant === 'plain' &&
+    tw`
+    bg-opacity-0
+    rounded-full
+    w-32
+    h-32
+    min-w-[16px]
+    min-h-[16px]
+
+    hover:(border-0 outline-none duration-500 rotate-180 bg-opacity-0)
+    active:(rotate-0)
   `,
 ]);

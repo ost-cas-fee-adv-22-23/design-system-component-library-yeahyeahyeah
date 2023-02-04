@@ -19,7 +19,7 @@ export default {
         type: 'object',
       },
       defaultValue: {
-        variant: 'xlarge',
+        variant: 'header',
         username: {
           type: 'joined',
           label: 'Username',

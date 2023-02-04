@@ -38,7 +38,9 @@ const Row = tw.div`
   items-start
   grow-0
   overflow-hidden
-  mr-32
+  mr-0
+  sm:mr-16
+  md:mr-32
 
   relative
   top-64
