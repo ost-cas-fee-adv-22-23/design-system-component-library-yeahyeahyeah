@@ -18,9 +18,21 @@ export default {
     banner: {
       control: 'object',
     },
+    avatar: {
+      control: false,
+      table: {
+        disable: true,
+      },
+    },
   },
   args: {
     variant: 'edit',
+    banner: {
+      src: 'https://loremflickr.com/640/360',
+      alt: 'Picture',
+      type: 'banner',
+      fCallBack: action('edit clicked'),
+    },
     user: {
       variant: 'header',
       label: 'Display Name',
@@ -52,11 +64,7 @@ export default {
         imageCallBack: action('avatar image clicked'),
       },
     },
-    banner: {
-      src: 'https://placebeard.it/640x360',
-      alt: 'Picture',
-      type: 'banner',
-    },
+
     text: 'De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking.',
   },
 } as ComponentMeta<typeof MumbleHeader>;

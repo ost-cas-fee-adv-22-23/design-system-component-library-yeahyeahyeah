@@ -17,7 +17,7 @@ export const Avatar: React.FC<IAvatarProps> = ({ variant = 'small', alt = '', sr
         <Image src={src} alt={alt} variant={variant} onClick={imageCallBack} />
       ) : (
         <>
-          <Row>
+          <Row variant={variant}>
             <Image src={src} alt={alt} variant={variant} onClick={imageCallBack} />
             <IconButton variant="edit" icon="edit" label="Label" fCallBack={buttonCallBack} />
           </Row>
@@ -31,7 +31,8 @@ interface IImageProps {
   variant: string;
 }
 
-const Row = tw.div`
+const Row = styled.div(({ variant }: IImageProps) => [
+  tw`
   flex
   flex-col
   justify-center
@@ -43,8 +44,9 @@ const Row = tw.div`
   md:mr-32
 
   relative
-  top-64
-`;
+  top-48
+`,
+]);
 
 const ImageAnim = tw`
 	relative
@@ -87,9 +89,8 @@ const Image = styled.img(({ variant }: IImageProps) => [
       rounded-full    
       border-6
 
-      sm:(scale-75)
-      md:(scale-90)
-      lg:(scale-100)
+      sm:(scale-90)
+      md:(scale-100)
     `,
   tw`
   border-slate-200

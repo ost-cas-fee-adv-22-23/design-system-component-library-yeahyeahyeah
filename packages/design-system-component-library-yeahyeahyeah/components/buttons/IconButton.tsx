@@ -3,14 +3,14 @@ import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import { IconsMapped, IconTypes } from '../icons/IconMap';
 
-export interface IconButtonProps {
+export interface IIconButtonProps {
   label: string;
   icon: IconTypes;
   variant: 'default' | 'edit' | 'plain';
   fCallBack?: () => void;
 }
 
-export const IconButton: React.FC<IconButtonProps> = ({
+export const IconButton: React.FC<IIconButtonProps> = ({
   label = 'Label',
   icon = 'logo',
   variant = 'default',
@@ -98,9 +98,8 @@ const ButtonStyles = styled.button(({ variant }: IButtonStyles) => [
     bottom-96
     right-24
     self-end
-    sm:(bottom-76 right-16)
-    md:(bottom-64 right-4)
-    lg:(bottom-[56px] right-4)
+    sm:(bottom-64 right-8)
+    md:(bottom-[56px] right-0)
   `,
   variant === 'plain' &&
     tw`
