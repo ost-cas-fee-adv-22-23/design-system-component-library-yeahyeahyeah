@@ -28,5 +28,8 @@
     }
   },
   "private": true,
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "npm": "^9.2.0"
+  }
 }

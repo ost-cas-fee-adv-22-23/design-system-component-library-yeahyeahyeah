@@ -4,4 +4,4 @@ dist/
 .cache
 build/
 .DS_Store
-.yarn/install-state.gz
+.yarn/*
