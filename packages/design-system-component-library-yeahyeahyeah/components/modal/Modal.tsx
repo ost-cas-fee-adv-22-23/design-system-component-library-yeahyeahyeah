@@ -9,9 +9,10 @@ export interface IModalProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
   children: React.ReactNode;
   isOpen: boolean;
   onClose?: () => void;
+  wide?: boolean;
 }
 
-export const Modal: React.FC<IModalProps> = ({ label = 'Modal title', children, isOpen = false, onClose }) => {
+export const Modal: React.FC<IModalProps> = ({ label = 'Modal title', children, isOpen = false, onClose, wide = false }) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const handleClose = () => {
@@ -49,7 +50,7 @@ export const Modal: React.FC<IModalProps> = ({ label = 'Modal title', children, 
         <ModalOverlay></ModalOverlay>
         <ModalContainer>
           <ModalWrapper>
-            <ModalBox>
+            <ModalBox wide={wide}>
               <ModalHeader>
                 <Heading tag="h3" color="white" size="default" label={label} />
                 <IconWrapper>
@@ -67,9 +68,10 @@ export const Modal: React.FC<IModalProps> = ({ label = 'Modal title', children, 
 
 interface IModalStyles {
   open: boolean;
+  wide: boolean;
 }
 
-const ModalDialog = styled.div(({ open }: IModalStyles) => [
+const ModalDialog = styled.div(({ open }: Pick<IModalStyles, 'open'>) => [
   tw`
     relative
 		z-10
@@ -100,7 +102,7 @@ const ModalOverlay = styled.div(() => [
   `,
 ]);
 
-const ModalBox = styled.div(() => [
+const ModalBox = styled.div(({ wide }: Pick<IModalStyles, 'wide'>) => [
   tw`
 		flex
 		flex-col
@@ -111,8 +113,8 @@ const ModalBox = styled.div(() => [
     bg-slate-white
 		font-semibold
     transition-all
-    w-[465px]
   `,
+  wide === true ? tw`w-[623px]` : tw`w-[465px]`,
 ]);
 
 const ModalContainer = styled.div(() => [
