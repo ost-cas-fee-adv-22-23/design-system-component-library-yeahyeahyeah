@@ -6,7 +6,6 @@ import { IImageContainerProps, ImageContainer } from '../ImageContainer';
 import { Avatar, IAvatarProps } from '../Avatar';
 
 export interface IMumbleHeaderProps {
-  label: string;
   variant?: 'view' | 'edit';
   user: IUserProps;
   text: string;
@@ -15,7 +14,6 @@ export interface IMumbleHeaderProps {
 }
 
 export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
-  label = 'Display Name',
   text,
   banner = {
     src: 'https://placebeard.it/640x360',
@@ -23,6 +21,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
     type: 'banner',
   },
   user = {
+    label: 'Display Name',
     variant: 'header',
     username: {
       label: 'Username',
@@ -39,9 +38,20 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
       type: 'joined',
       href: '#',
     },
+    settings: {
+      fCallBack: () => {
+        return null;
+      },
+    },
     avatar: {
       src: 'https://placebeard.it/640x360',
       alt: 'Alttag',
+      imageCallBack: () => {
+        return null;
+      },
+      buttonCallBack: () => {
+        return null;
+      },
     },
   },
 }) => {
@@ -54,12 +64,19 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
           username={user.username}
           location={user.location}
           joined={user.joined}
-          label={label}
+          label={user.label}
           variant={user.variant}
+          settings={user.settings}
         />
       </div>
       <Row>
-        <Avatar src={user.avatar?.src || ''} alt={user.avatar?.alt || ''} variant="edit" />
+        <Avatar
+          src={user.avatar?.src || ''}
+          alt={user.avatar?.alt || ''}
+          variant="edit"
+          imageCallBack={user.avatar?.imageCallBack}
+          buttonCallBack={user.avatar?.buttonCallBack}
+        />
       </Row>
       <div tw="p-8 mb-32">
         <Paragraph text={text} color={'light'} size={'default'} alignment={'left'} />
@@ -78,7 +95,10 @@ const MumbleHeaderWrapper = styled.div(() => [
 
 const Row = tw.div`
   relative
-  -top-16
+  
+  -top-32
+  sm:-top-32
+  md:-top-16
 
   flex
   justify-end

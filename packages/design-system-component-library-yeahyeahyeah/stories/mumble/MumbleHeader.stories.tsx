@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MumbleHeader } from '../../components/mumble/MumbleHeader';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Mumble/Mumble-Header',
@@ -8,59 +9,55 @@ export default {
   argTypes: {
     variant: {
       control: 'select',
-      defaultValue: 'edit',
-    },
-    label: {
-      control: 'text',
-      defaultValue: 'Display Name',
     },
     user: {
       control: {
         type: 'object',
       },
-      defaultValue: {
-        variant: 'header',
-        username: {
-          type: 'joined',
-          label: 'Username',
-          href: '#',
-        },
-        location: {
-          label: 'Location',
-          type: 'joined',
-          href: '#',
-        },
-        joined: {
-          label: 'Joined',
-          type: 'joined',
-          href: '#',
-        },
-        avatar: {
-          src: 'https://placebeard.it/640x360',
-          alt: 'Alttag',
-        },
-      },
     },
     banner: {
       control: 'object',
-      defaultValue: {
+    },
+  },
+  args: {
+    variant: 'edit',
+    user: {
+      variant: 'header',
+      label: 'Display Name',
+      username: {
+        label: 'username',
+        type: 'joined',
+        href: '#',
+        fCallBack: action('username clicked'),
+      },
+      location: {
+        label: 'Location',
+        type: 'joined',
+        href: '#',
+        fCallBack: action('location clicked'),
+      },
+      joined: {
+        label: 'Joined',
+        type: 'joined',
+        href: '#',
+        fCallBack: action('joined clicked'),
+      },
+      settings: {
+        fCallBack: action('settings clicked'),
+      },
+      avatar: {
         src: 'https://placebeard.it/640x360',
-        alt: 'Picture',
-        type: 'banner',
+        alt: 'Alttag',
+        buttonCallBack: action('avatar button clicked'),
+        imageCallBack: action('avatar image clicked'),
       },
     },
-    text: {
-      defaultValue:
-        'De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking.',
+    banner: {
+      src: 'https://placebeard.it/640x360',
+      alt: 'Picture',
+      type: 'banner',
     },
-    avatar: {
-      control: 'object',
-      defaultValue: {
-        src: 'https://placebeard.it/640x360',
-        alt: 'Picture',
-        variant: 'edit',
-      },
-    },
+    text: 'De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking.',
   },
 } as ComponentMeta<typeof MumbleHeader>;
 

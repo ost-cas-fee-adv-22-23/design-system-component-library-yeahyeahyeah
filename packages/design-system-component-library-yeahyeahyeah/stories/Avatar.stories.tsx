@@ -32,10 +32,7 @@ export default {
 } as ComponentMeta<typeof Avatar>;
 
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
-/**
- * @button
- * @desc button standard slate
- */
+
 export const AvatarStory = Template.bind({});
 
 AvatarStory.parameters = {
