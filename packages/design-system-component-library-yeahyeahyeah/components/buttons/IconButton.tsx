@@ -115,9 +115,12 @@ const ButtonStyles = styled.button(({ variant }: IButtonStyles) => [
     min-w-[16px]
     min-h-[16px]
     ring-0
+    transition
+    ease-in-out
+    delay-100
 
-    hover:(outline-none border-0 duration-500 rotate-90 bg-opacity-0)
+    hover:(outline-none border-0 rotate-180 transform-gpu bg-opacity-0)
     active:(border-0  rotate-0)
-    focus:(border-0 outline-none rotate-180)
+    focus:(border-0 outline-none)
   `,
 ]);

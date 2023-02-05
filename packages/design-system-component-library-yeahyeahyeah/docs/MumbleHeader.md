@@ -9,7 +9,7 @@
 |settings|JS-callback function to *edit* profile.|
 |avatar|Set variant to *xlarge*. See all examples on [avatar](./?path=/docs/user--avatar-story).|
 
-## Include Image from the component library
+## Include MumbleHeader from the component library
 
 ```js
 // index.tsx, index.js, index.jsx
