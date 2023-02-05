@@ -94,6 +94,7 @@ const Figure = styled.figure.attrs({ className: 'group' })(() => [
     border
     border-dashed
     border-slate-200
+    overflow-hidden
   `,
 ]);
 
@@ -101,6 +102,6 @@ const StyledUploadIcon = styled(UploadIcon)(() => [tw`w-32 h-32 fill-slate-500 m
 
 const StyledRepost = styled(Repost)(() => [tw`w-32 h-32 fill-slate-500`]);
 
-const StyledLabel = styled.p(() => [tw`text-slate-500 text-xl [font-weight:600]`]);
+const StyledLabel = styled.p(() => [tw`text-slate-500 text-xl text-center [font-weight:600]`]);
 
-const StyledDescription = styled.p(() => [tw`text-slate-400 text-base [font-weight:500] mt-8`]);
+const StyledDescription = styled.p(() => [tw`text-slate-400 text-base text-center [font-weight:500] mt-8`]);

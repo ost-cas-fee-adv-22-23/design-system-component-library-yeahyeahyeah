@@ -23,7 +23,8 @@ import { Upload } from "@smartive-education/design-system-component-library-yeah
 
 <Upload
   label='Datei hierhin ziehen ...'
-  description='JPEG oder PNG, maximal 50 MB'
+  fileDescription='JPEG oder PNG, maximal 50 MB'
+  dragDescription='Jetzt loslassen ...'
   loading={false}
   fCallBack={() => console.log('Upload')}
 />
