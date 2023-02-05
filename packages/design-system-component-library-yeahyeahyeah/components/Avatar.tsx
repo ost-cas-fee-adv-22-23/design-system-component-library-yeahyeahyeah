@@ -1,28 +1,18 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
-import { IconButton } from './buttons/IconButton';
 
 export interface IAvatarProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
-  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'edit';
+  variant: 'small' | 'medium' | 'large' | 'xlarge';
   src: string;
   alt: string;
   buttonCallBack?: () => void;
   imageCallBack?: () => void;
 }
 
-export const Avatar: React.FC<IAvatarProps> = ({ variant = 'small', alt = '', src = '', buttonCallBack, imageCallBack }) => {
+export const Avatar: React.FC<IAvatarProps> = ({ variant = 'small', alt = '', src = '', imageCallBack }) => {
   return (
     <>
-      {variant !== 'edit' ? (
-        <Image src={src} alt={alt} variant={variant} onClick={imageCallBack} />
-      ) : (
-        <>
-          <Row variant={variant}>
-            <Image src={src} alt={alt} variant={variant} onClick={imageCallBack} />
-            <IconButton variant="edit" icon="edit" label="Label" fCallBack={buttonCallBack} />
-          </Row>
-        </>
-      )}
+      <Image src={src} alt={alt} variant={variant} onClick={imageCallBack} />
     </>
   );
 };
@@ -30,23 +20,6 @@ export const Avatar: React.FC<IAvatarProps> = ({ variant = 'small', alt = '', sr
 interface IImageProps {
   variant: string;
 }
-
-const Row = styled.div(({ variant }: IImageProps) => [
-  tw`
-  flex
-  flex-col
-  justify-center
-  items-start
-  grow-0
-  overflow-hidden
-  mr-0
-  sm:mr-16
-  md:mr-32
-
-  relative
-  top-48
-`,
-]);
 
 const ImageAnim = tw`
 	relative

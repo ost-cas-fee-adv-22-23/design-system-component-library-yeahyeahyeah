@@ -15,6 +15,7 @@ export interface IUserProps {
   joined?: IIconLinkProps;
   avatar?: { src: string; alt: string; imageCallBack?: () => void; buttonCallBack?: () => void };
   btn?: { label: string; fCallBack?: () => void };
+  settings?: { fCallBack?: () => void };
 }
 
 export const User: React.FC<IUserProps> = ({
@@ -53,6 +54,11 @@ export const User: React.FC<IUserProps> = ({
     alt: 'Alter Tag',
   },
   btn = { label: 'Follow' },
+  settings = {
+    fCallBack: () => {
+      return null;
+    },
+  },
 }) => {
   return (
     <>
@@ -172,8 +178,8 @@ export const User: React.FC<IUserProps> = ({
       {variant === 'header' && (
         <Column>
           <RowHeader>
-            <Heading tag="h4" color="dark" size={'xlarge'} label={label} />
-            <IconButton label="settings" variant="plain" icon="settings" />
+            <Heading tag="h3" color="dark" size={'default'} label={label} />
+            <IconButton label="settings" variant="plain" icon="settings" fCallBack={settings.fCallBack} />
           </RowHeader>
           <Row>
             <IconLink
@@ -202,7 +208,7 @@ export const User: React.FC<IUserProps> = ({
       )}
       {variant === 'xlarge' && (
         <Column>
-          <Heading tag="h4" color="dark" size={'large'} label={label} />
+          <Heading tag="h3" color="dark" size={'default'} label={label} />
           <Row>
             <IconLink
               label={username.label}

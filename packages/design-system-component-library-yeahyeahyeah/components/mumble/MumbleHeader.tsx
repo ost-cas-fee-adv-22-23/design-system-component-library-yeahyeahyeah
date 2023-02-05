@@ -4,6 +4,7 @@ import { User, IUserProps } from '../User';
 import { Paragraph } from '../typography/Paragraph';
 import { IImageContainerProps, ImageContainer } from '../ImageContainer';
 import { Avatar } from '../Avatar';
+import { IconButton } from '../buttons/IconButton';
 
 export interface IMumbleHeaderProps {
   variant?: 'view' | 'edit';
@@ -18,7 +19,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
   banner = {
     src: 'https://loremflickr.com/640/360',
     alt: 'Image alt tag',
-    type: 'banner',
+    type: 'banner-edit',
     fCallBack: () => {
       return null;
     },
@@ -78,19 +79,21 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
             <Avatar
               src={user.avatar?.src || ''}
               alt={user.avatar?.alt || ''}
-              variant="edit"
+              variant="xlarge"
               imageCallBack={user.avatar?.imageCallBack}
-              buttonCallBack={user.avatar?.buttonCallBack}
             />
+            <IconBox>
+              <IconButton label="label" icon="edit" variant="default" fCallBack={user.avatar?.buttonCallBack} />
+            </IconBox>
           </Row>
-          <div tw="p-8 mb-32">
-            <Paragraph text={text} color={'light'} size={'default'} alignment={'left'} />
+          <div tw="p-8">
+            <Paragraph text={text} color={'light'} size={'default'} alignment={'left'} mbSpacing={'32'} />
           </div>
         </MumbleHeaderWrapper>
       )}
       {variant === 'view' && (
         <MumbleHeaderWrapper>
-          <ImageContainer src={banner.src} alt={banner.alt} type={'container'} fCallBack={banner.fCallBack} />
+          <ImageContainer src={banner.src} alt={banner.alt} type={'banner-view'} fCallBack={banner.fCallBack} />
           <div tw="px-8 mb-16">
             <User
               avatar={user.avatar}
@@ -98,7 +101,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
               location={user.location}
               joined={user.joined}
               label={user.label}
-              variant={'xlarge'}
+              variant="xlarge"
               settings={user.settings}
             />
           </div>
@@ -110,8 +113,8 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
               imageCallBack={user.avatar?.imageCallBack}
             />
           </Row>
-          <div tw="p-8 mb-32">
-            <Paragraph text={text} color={'light'} size={'default'} alignment={'left'} />
+          <div tw="p-8">
+            <Paragraph text={text} color={'light'} size={'default'} alignment={'left'} mbSpacing={'32'} />
           </div>
         </MumbleHeaderWrapper>
       )}
@@ -131,17 +134,36 @@ const MumbleHeaderWrapper = styled.div(() => [
   `,
 ]);
 
-const Row = styled.div(({ variant }: IMumbleHeaderStyles) => [
+const IconBox = styled.div(() => [
   tw`
   relative
-  -top-8
+  right-44
+  bottom-6
+  sm:(right-48)
+`,
+]);
 
+const Row = styled.div(({ variant }: IMumbleHeaderStyles) => [
+  tw`
   flex
   justify-end
   items-end
   z-10
   h-0
   overflow-visible
-`,
-  variant === 'view' && tw`-top-0 pr-32`,
+  `,
+  variant === 'edit' &&
+    tw`
+      relative
+      -top-64
+      -right-16
+      sm:(-top-16)
+  `,
+  variant === 'view' &&
+    tw`
+      relative
+      -top-64
+      right-32
+      sm:(-top-16)
+  `,
 ]);

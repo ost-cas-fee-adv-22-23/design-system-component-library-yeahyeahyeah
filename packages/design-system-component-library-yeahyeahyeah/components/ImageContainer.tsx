@@ -7,7 +7,7 @@ export interface IImageContainerProps extends React.HtmlHTMLAttributes<HTMLImage
   src: string;
   alt: string;
   fCallBack?: (type: string) => void;
-  type?: 'container' | 'banner';
+  type?: 'container' | 'banner-edit' | 'banner-view';
   loading?: boolean;
 }
 
@@ -26,8 +26,10 @@ export const ImageContainer: React.FC<IImageContainerProps> = ({
     switch (type) {
       case 'container':
         return <StyledFullScreen />;
-      case 'banner':
+      case 'banner-edit':
         return <StyledEdit />;
+      case 'banner-view':
+        return <StyledFullScreen />;
     }
   };
 
@@ -63,7 +65,8 @@ const Image = styled.img(({ type }: IImageIcon) => [
     group-hover:opacity-20
   `,
 
-  type === 'banner' && tw`w-full h-auto`,
+  type === 'banner-edit' && tw`w-full h-auto`,
+  type === 'banner-view' && tw`w-full h-auto`,
 ]);
 
 const Container = styled.div(() => [
@@ -96,7 +99,7 @@ const ImageIcon = styled.div(({ loading }: IImageIcon) => [
     items-center
     w-32
     sm:w-64
-    hover:scale-110
+    hover:scale-125
     transition
     duration-300
     ease-in-out
@@ -146,7 +149,8 @@ const Figure = styled.figure.attrs({ className: 'group' })(({ type }: IImageIcon
     hover:bg-violet-600
   `,
   type === 'container' && tw`border-1 border-slate-white`,
-  type === 'banner' && tw`border-none`,
+  type === 'banner-edit' && tw`border-none`,
+  type === 'banner-view' && tw`border-none`,
 ]);
 
 const StyledFullScreen = styled(Fullscreen)(() => [tw`w-32 h-32 fill-slate-white`]);

@@ -6,7 +6,7 @@ import { IconsMapped, IconTypes } from '../icons/IconMap';
 export interface IIconButtonProps {
   label: string;
   icon: IconTypes;
-  variant: 'default' | 'edit' | 'plain';
+  variant: 'default' | 'plain';
   fCallBack?: () => void;
 }
 
@@ -36,10 +36,6 @@ const createSettingIcon = (icon: IconTypes) => {
   return styled(IconsMapped[icon as IconTypes])(() => [tw`fill-violet-600`]);
 };
 
-/**
- * @Button
- * @desc Button styles
- */
 const buttonFont = tw`
   text-skin-light
   font-semibold
@@ -67,13 +63,27 @@ bg-slate-500
   disabled:bg-slate-300
 `;
 
-const buttonHover = tw`
-  hover:(outline-3)
-`;
+const buttonHover = styled.button(({ variant }: IButtonStyles) => [
+  variant === 'default' &&
+    tw`
+      hover:(outline-3)
+  `,
+  variant === 'plain' &&
+    tw`
+      hover:(border-none outline-none)
+  `,
+]);
 
-const buttonFocus = tw`
-  focus:(outline-4)
-`;
+const buttonFocus = styled.button(({ variant }: IButtonStyles) => [
+  variant === 'default' &&
+    tw`
+      focus:(outline-4)
+    `,
+  variant === 'plain' &&
+    tw`
+      focus:(outline-none)
+    `,
+]);
 
 interface IButtonStyles {
   variant: string;
@@ -92,16 +102,11 @@ const ButtonStyles = styled.button(({ variant }: IButtonStyles) => [
       margin-left: 0;
     }
   `,
-  variant === 'edit' &&
-    tw`
-    relative
-    bottom-96
-    right-24
-    self-end
-    sm:(bottom-64 right-8)
-    md:(bottom-[56px] right-0)
-  `,
   variant === 'plain' &&
+    tw`
+    outline-none
+    border-0
+  ` &&
     tw`
     bg-opacity-0
     rounded-full
@@ -109,8 +114,10 @@ const ButtonStyles = styled.button(({ variant }: IButtonStyles) => [
     h-32
     min-w-[16px]
     min-h-[16px]
+    ring-0
 
-    hover:(border-0 outline-none duration-500 rotate-180 bg-opacity-0)
-    active:(rotate-0)
+    hover:(outline-none border-0 duration-500 rotate-90 bg-opacity-0)
+    active:(border-0  rotate-0)
+    focus:(border-0 outline-none rotate-180)
   `,
 ]);

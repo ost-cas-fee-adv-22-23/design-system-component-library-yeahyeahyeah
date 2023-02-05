@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MumbleHeader } from '../../components/mumble/MumbleHeader';
 import { action } from '@storybook/addon-actions';
+import MumbleHeaderReadme from '../../docs/MumbleHeader.md';
 
 export default {
   title: 'Mumble/Mumble-Header',
@@ -30,7 +31,7 @@ export default {
     banner: {
       src: 'https://loremflickr.com/640/360',
       alt: 'Picture',
-      type: 'banner',
+      type: 'banner-edit',
       fCallBack: action('edit clicked'),
     },
     user: {
@@ -65,7 +66,7 @@ export default {
       },
     },
 
-    text: 'De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking.',
+    text: 'Schreib etwas über dich.',
   },
 } as ComponentMeta<typeof MumbleHeader>;
 
@@ -76,6 +77,9 @@ export const MumbleStory = Template.bind({});
 MumbleStory.parameters = {
   docs: {
     source: { type: 'auto' },
+    description: {
+      component: MumbleHeaderReadme,
+    },
   },
 };
 
