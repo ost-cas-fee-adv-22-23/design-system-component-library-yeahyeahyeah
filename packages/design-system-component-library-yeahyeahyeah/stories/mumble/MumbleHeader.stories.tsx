@@ -28,6 +28,7 @@ export default {
   },
   args: {
     variant: 'edit',
+    mbSpacing: '32',
     banner: {
       src: 'https://loremflickr.com/640/360',
       alt: 'Picture',
