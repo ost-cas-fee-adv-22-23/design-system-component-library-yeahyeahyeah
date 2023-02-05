@@ -31,7 +31,7 @@ import { ImageContainer } from "@smartive-education/design-system-component-libr
 
 ```
 
-### Image with *banner* type
+### Image with *banner-edit* type
 
 ```js
 
@@ -39,7 +39,19 @@ import { ImageContainer } from "@smartive-education/design-system-component-libr
   alt="This is a profile picture"
   fCallBack={() => console.log('ImageContainer clicked')}
   src="https://shorturl.at/nEO01"
-  type="banner"
+  type="banner-edit"
+/>
+
+```
+### Image with *banner-view* type
+
+```js
+
+<ImageContainer
+  alt="This is a profile picture"
+  fCallBack={() => console.log('ImageContainer clicked')}
+  src="https://shorturl.at/nEO01"
+  type="banner-view"
 />
 
 ```
