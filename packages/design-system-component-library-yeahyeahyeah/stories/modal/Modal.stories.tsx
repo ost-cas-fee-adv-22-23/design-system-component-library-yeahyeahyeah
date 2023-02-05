@@ -75,7 +75,7 @@ const Row = styled.div(({ upload }: IRowStyle) => [
     gap-16
     flex-col
     sm:(flex-row)
-    mt-64
+    mt-48
   `,
   upload === 'upload' && tw`mt-24`,
 ]);
@@ -85,7 +85,8 @@ export const ModalStory = Template.bind({});
 ModalStory.args = {
   label: 'Modal title',
   children: 'Modal content',
-  isOpen: false,
+  isOpen: true,
+  wide: true,
 };
 
 ModalStory.parameters = {
