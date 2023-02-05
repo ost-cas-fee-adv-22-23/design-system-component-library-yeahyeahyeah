@@ -129,3 +129,52 @@ const props: IUserProps = {
     ));
 
 ```
+
+### User **xlarge** in *edit* mode - Explicit in MumbleHeader
+
+```js
+
+<User
+  avatar={{
+    alt: 'Alter Tag',
+    buttonCallBack: () => {},
+    imageCallBack: function noRefCheck() {},
+    src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif'
+  }}
+  btn={{
+    fCallBack: function noRefCheck() {},
+    label: 'Follow'
+  }}
+  joined={{
+    fCallBack: function noRefCheck() {},
+    href: '',
+    label: 'Joined',
+    type: 'joined'
+  }}
+  label="Display Name"
+  location={{
+    fCallBack: function noRefCheck() {},
+    href: '',
+    label: 'Location',
+    type: 'location'
+  }}
+  settings={{
+    fCallBack: function noRefCheck() {}
+  }}
+  timestamp={{
+    fCallBack: function noRefCheck() {},
+    href: '',
+    label: 'Timestamp',
+    type: 'timestamp'
+  }}
+  type="edit"
+  username={{
+    fCallBack: function noRefCheck() {},
+    href: '',
+    label: 'Username',
+    type: 'username'
+  }}
+  variant="xlarge"
+/>
+
+```
