@@ -8,8 +8,9 @@ import { Avatar } from './Avatar';
 
 export interface IUserProps {
   label: string;
-  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended' | 'write' | 'inline' | 'header';
+  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended' | 'write' | 'inline';
   username: IIconLinkProps;
+  type?: 'edit' | 'view';
   timestamp?: IIconLinkProps;
   location?: IIconLinkProps;
   joined?: IIconLinkProps;
@@ -21,6 +22,7 @@ export interface IUserProps {
 export const User: React.FC<IUserProps> = ({
   label = 'Display Name',
   variant = 'small',
+  type = 'view',
   username = {
     label: 'Username',
     href: '#',
@@ -175,40 +177,16 @@ export const User: React.FC<IUserProps> = ({
           </Row>
         </Column>
       )}
-      {variant === 'header' && (
-        <Column>
-          <RowHeader>
-            <Heading tag="h3" color="dark" size={'default'} label={label} />
-            <IconButton label="settings" variant="plain" icon="settings" fCallBack={settings.fCallBack} />
-          </RowHeader>
-          <Row>
-            <IconLink
-              label={username.label}
-              type="username"
-              color="violet"
-              href={username.href}
-              fCallBack={username.fCallBack}
-            ></IconLink>
-            <IconLink
-              label={location.label}
-              type="location"
-              color="slate"
-              href={location.href}
-              fCallBack={location.fCallBack}
-            ></IconLink>
-            <IconLink
-              label={joined.label}
-              type="joined"
-              color="slate"
-              href={joined.href}
-              fCallBack={joined.fCallBack}
-            ></IconLink>
-          </Row>
-        </Column>
-      )}
       {variant === 'xlarge' && (
         <Column>
-          <Heading tag="h3" color="dark" size={'default'} label={label} />
+          <Row type={type}>
+            <Heading tag="h3" color="dark" size={'default'} label={label} />
+            {type === 'edit' && (
+              <>
+                <IconButton label="settings" variant="plain" icon="settings" fCallBack={settings.fCallBack} />
+              </>
+            )}
+          </Row>
           <Row>
             <IconLink
               label={username.label}
@@ -279,16 +257,8 @@ interface IUserStyles {
 interface IRowStyles {
   gap?: string;
   spacing?: TwStyle;
+  type?: string;
 }
-
-const RowHeader = tw.div`
-  flex
-  flex-row
-  justify-start
-  items-center
-  
-  w-fit
-`;
 
 const Column = styled.div(({ variant }: IUserStyles) => [
   tw`
@@ -306,18 +276,17 @@ const Column = styled.div(({ variant }: IUserStyles) => [
   `,
 ]);
 
-const Row = styled.div(({ gap, spacing }: IRowStyles) => [
+const Row = styled.div(({ gap, spacing, type }: IRowStyles) => [
   tw`
     flex
     flex-row
-    flex-wrap
     justify-start
     items-center
-    max-w-lg
     gap-16
   `,
   gap === 'small' && tw`gap-8`,
   spacing && spacing,
+  type === 'edit' && tw`w-fit gap-0`,
 ]);
 
 const Article = styled.article(() => [tw`flex flex-col p-16 bg-slate-white rounded-16`]);

@@ -35,7 +35,7 @@ export default {
       fCallBack: action('edit clicked'),
     },
     user: {
-      variant: 'header',
+      variant: 'xlarge',
       label: 'Display Name',
       username: {
         label: 'username',

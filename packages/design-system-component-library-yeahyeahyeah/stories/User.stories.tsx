@@ -42,6 +42,9 @@ export default {
         type: 'object',
       },
     },
+    type: {
+      control: 'select',
+    },
   },
   args: {
     label: 'Display Name',

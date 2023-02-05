@@ -73,6 +73,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
               label={user.label}
               variant={user.variant}
               settings={user.settings}
+              type="edit"
             />
           </div>
           <Row variant={variant}>
@@ -103,6 +104,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
               label={user.label}
               variant="xlarge"
               settings={user.settings}
+              type="view"
             />
           </div>
           <Row variant={variant}>
