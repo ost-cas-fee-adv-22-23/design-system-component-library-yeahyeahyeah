@@ -29,5 +29,7 @@
   },
   "private": true,
   "license": "MIT",
-  "version": "v1.22.19"
+  "dependencies": {
+    "npm": "^9.2.0"
+  }
 }
