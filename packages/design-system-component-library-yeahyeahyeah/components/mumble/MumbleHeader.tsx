@@ -1,5 +1,7 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
+import { BottomSpacing } from '../../index';
+import type { TmbSpacing } from '../../types/types';
 import { User, IUserProps } from '../User';
 import { Paragraph } from '../typography/Paragraph';
 import { IImageContainerProps, ImageContainer } from '../ImageContainer';
@@ -11,11 +13,13 @@ export interface IMumbleHeaderProps {
   user: IUserProps;
   text: string;
   banner?: IImageContainerProps;
+  mbSpacing?: TmbSpacing;
 }
 
 export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
   text,
   variant = 'edit',
+  mbSpacing = '32',
   banner = {
     src: 'https://loremflickr.com/640/360',
     alt: 'Image alt tag',
@@ -62,7 +66,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
   return (
     <>
       {variant === 'edit' && (
-        <MumbleHeaderWrapper>
+        <MumbleHeaderWrapper mbSpacing={mbSpacing}>
           <ImageContainer src={banner.src} alt={banner.alt} type={banner.type} fCallBack={banner.fCallBack} />
           <div tw="px-8 mb-16">
             <User
@@ -76,7 +80,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
               type="edit"
             />
           </div>
-          <Row variant={variant}>
+          <Row variant={variant} mbSpacing={'0'}>
             <Avatar
               src={user.avatar?.src || ''}
               alt={user.avatar?.alt || ''}
@@ -93,7 +97,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
         </MumbleHeaderWrapper>
       )}
       {variant === 'view' && (
-        <MumbleHeaderWrapper>
+        <MumbleHeaderWrapper mbSpacing={mbSpacing}>
           <ImageContainer src={banner.src} alt={banner.alt} type={'banner-view'} fCallBack={banner.fCallBack} />
           <div tw="px-8 mb-16">
             <User
@@ -107,7 +111,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
               type="view"
             />
           </div>
-          <Row variant={variant}>
+          <Row variant={variant} mbSpacing={'0'}>
             <Avatar
               src={user.avatar?.src || ''}
               alt={user.avatar?.alt || ''}
@@ -126,6 +130,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
 
 interface IMumbleHeaderStyles {
   variant: string;
+  mbSpacing: string;
 }
 
 const MumbleHeaderWrapper = styled.div(() => [
@@ -134,6 +139,7 @@ const MumbleHeaderWrapper = styled.div(() => [
     flex-col
     justify-between
   `,
+  BottomSpacing,
 ]);
 
 const IconBox = styled.div(() => [
