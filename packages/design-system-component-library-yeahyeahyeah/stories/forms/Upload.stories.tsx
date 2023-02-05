@@ -22,7 +22,7 @@ export const UploadStory = Template.bind({});
 
 UploadStory.args = {
   label: 'Datei hierhin ziehen ...',
-  filedescription: 'JPEG oder PNG, maximal 50 MB',
+  fileDescription: 'JPEG oder PNG, maximal 50 MB',
   dragDescription: 'Jetzt loslassen ....',
   loading: false,
 };

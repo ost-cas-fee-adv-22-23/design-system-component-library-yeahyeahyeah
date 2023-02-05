@@ -6,7 +6,7 @@ import { useDropzone } from 'react-dropzone';
 
 export interface IDrapAndDrop {
   label: string;
-  filedescription?: string;
+  fileDescription?: string;
   dragDescription?: string;
   loading?: boolean;
   fCallBack?: () => void;
@@ -14,7 +14,7 @@ export interface IDrapAndDrop {
 
 export const Upload: React.FC<IDrapAndDrop> = ({
   label = 'Datei hierhin ziehen ...',
-  filedescription = 'JPEG oder PNG, maximal 50 MB',
+  fileDescription = 'JPEG oder PNG, maximal 50 MB',
   dragDescription = 'Jetzt loslassen ...',
   loading = false,
   fCallBack,
@@ -41,7 +41,7 @@ export const Upload: React.FC<IDrapAndDrop> = ({
               <>
                 <StyledUploadIcon />
                 <StyledLabel>{label}</StyledLabel>
-                <StyledDescription>{filedescription}</StyledDescription>
+                <StyledDescription>{fileDescription}</StyledDescription>
                 <input {...getInputProps()} />
               </>
             ) : (
@@ -87,13 +87,9 @@ const Figure = styled.figure.attrs({ className: 'group' })(() => [
     items-center
     w-full
     h-[194px]
-    overflow-hidden
     rounded-16
-    relative
-    mt-4
-    ml-0
-    mr-0
-    mb-16
+    cursor-default
+    m-0
     bg-slate-100
     border
     border-dashed
