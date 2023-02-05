@@ -26,7 +26,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
   },
   user = {
     label: 'Display Name',
-    variant: 'header',
+    variant: 'xlarge',
     username: {
       label: 'Username',
       type: 'joined',
