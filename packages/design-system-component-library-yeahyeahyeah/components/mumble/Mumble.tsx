@@ -101,6 +101,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
                 username={user.username}
                 variant="large"
                 avatar={user.avatar}
+                timestamp={user.timestamp}
               />
               <AvatarWrapper>
                 <Avatar

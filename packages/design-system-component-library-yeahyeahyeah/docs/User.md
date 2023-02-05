@@ -10,6 +10,7 @@
 |label|Label text.|
 |timestamp|See see settings of [Interaction Icon Link](./?path=/docs/interactions--icon-link-variants)|
 |username|See see settings of [Interaction Icon Link](./?path=/docs/interactions--icon-link-variants)|
+|type|For variant *xlarge* only. **edit** invokes an *settings* icon for further profile edits. *view* hides the settings icon.|
 
 
 ## Include User from the component library

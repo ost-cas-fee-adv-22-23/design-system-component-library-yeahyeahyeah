@@ -94,10 +94,7 @@ export default {
 } as ComponentMeta<typeof Mumble>;
 
 const Template: ComponentStory<typeof Mumble> = (args) => <Mumble {...args} />;
-/**
- * @button
- * @desc button standard slate
- */
+
 export const MumbleStory = Template.bind({});
 
 MumbleStory.parameters = {

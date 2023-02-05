@@ -86,6 +86,7 @@ export default {
       label: 'Follow',
       fCallBack: action('btn clicked'),
     },
+    type: 'edit',
   },
 } as ComponentMeta<typeof User>;
 
