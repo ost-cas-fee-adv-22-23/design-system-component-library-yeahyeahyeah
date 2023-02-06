@@ -10,6 +10,6 @@ export const ImageScale = () => [
 		delay-100
     ease-in-out
     group-hover:scale-125
-    group-hover:opacity-20
+    group-hover:opacity-20 // override this setting in your component to opacity-100 if you don't use opaque hover image
 	`,
 ];

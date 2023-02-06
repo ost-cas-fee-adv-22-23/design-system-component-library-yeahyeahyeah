@@ -46,6 +46,6 @@ const Image = styled.img(() => [
   ImageScale,
   tw`
     w-full
-    group-hover:opacity-100
+    group-hover:opacity-95
   `,
 ]);
