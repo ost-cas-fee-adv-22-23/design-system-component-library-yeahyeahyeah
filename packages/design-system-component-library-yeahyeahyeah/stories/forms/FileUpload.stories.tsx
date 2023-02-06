@@ -1,11 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Upload } from '../../components/forms/Upload';
+import { FileUpload } from '../../components/forms/FileUpload';
 import UploadReadme from '../../docs/Upload.md';
 
 export default {
   title: 'Form/Upload',
-  component: Upload,
+  component: FileUpload,
   argTypes: {
     fCallBack: {
       action: () => 'handleClick',
@@ -14,9 +14,9 @@ export default {
   args: {
     loading: false,
   },
-} as ComponentMeta<typeof Upload>;
+} as ComponentMeta<typeof FileUpload>;
 
-const Template: ComponentStory<typeof Upload> = (args) => <Upload {...args} />;
+const Template: ComponentStory<typeof FileUpload> = (args) => <FileUpload {...args} />;
 
 export const UploadStory = Template.bind({});
 

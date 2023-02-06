@@ -12,7 +12,7 @@ export interface IDrapAndDrop {
   fCallBack?: () => void;
 }
 
-export const Upload: React.FC<IDrapAndDrop> = ({
+export const FileUpload: React.FC<IDrapAndDrop> = ({
   label = 'Datei hierhin ziehen ...',
   fileDescription = 'JPEG oder PNG, maximal 50 MB',
   dragDescription = 'Jetzt loslassen ...',

@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Modal } from '../../components/modal/Modal';
 import { action } from '@storybook/addon-actions';
 import ModalReadme from '../../docs/Modal.md';
-import { Upload } from '../../components/forms/Upload';
+import { FileUpload } from '../../components/forms/FileUpload';
 import tw, { styled } from 'twin.macro';
 import { Button } from '../../index';
 
@@ -22,7 +22,7 @@ export default {
 const Template: ComponentStory<typeof Modal> = (args) => (
   <Modal {...args}>
     <form onSubmit={() => console.log('Submit')} tw="container">
-      <Upload
+      <FileUpload
         label="Datei hierhin ziehen ..."
         fileDescription="JPEG oder PNG, maximal 50 MB"
         dragDescription="Jetzt loslassen ..."
