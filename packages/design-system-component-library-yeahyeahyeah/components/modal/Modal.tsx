@@ -138,7 +138,7 @@ const ModalWrapper = styled.div(() => [
 
 const ModalContent = styled.div(() => [
   tw`
-    p-24
+    p-32
     overflow-y-auto
   `,
 ]);

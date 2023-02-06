@@ -91,7 +91,7 @@ const Figure = styled.figure.attrs({ className: 'group' })(() => [
     cursor-default
     m-0
     bg-slate-100
-    border
+    border-2
     border-dashed
     border-slate-200
     overflow-hidden

@@ -36,7 +36,7 @@ const Template: ComponentStory<typeof Modal> = (args) => (
           label="... oder Datei auswählen"
           size="large"
           type="button"
-          color="slate"
+          color="slate-300"
           width="full"
         />
       </Row>
@@ -77,13 +77,13 @@ const Row = styled.div(({ upload }: IRowStyle) => [
     sm:(flex-row)
     mt-48
   `,
-  upload === 'upload' && tw`mt-24`,
+  upload === 'upload' && tw`mt-16`,
 ]);
 
 export const ModalStory = Template.bind({});
 
 ModalStory.args = {
-  label: 'Modal title',
+  label: 'Bild hochladen',
   children: 'Modal content',
   isOpen: true,
   wide: true,
