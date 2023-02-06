@@ -60,7 +60,7 @@ export default {
         fCallBack: action('settings clicked'),
       },
       avatar: {
-        src: 'https://placebeard.it/640x360',
+        src: 'https://raw.githubusercontent.com/smartive-education/design-system-component-library-yeahyeahyeah/master/packages/design-system-component-library-yeahyeahyeah/stories/assets/avatar.png',
         alt: 'Alttag',
         buttonCallBack: action('avatar button clicked'),
         imageCallBack: action('avatar image clicked'),
