@@ -43,9 +43,8 @@ const Figure = styled.figure.attrs({ className: 'group' })(({ variant }: IImageP
 ]);
 
 const Image = styled.img(() => [
-  ImageScale,
+  ImageScale({ opacityLevel: '80' }),
   tw`
     w-full
-    group-hover:opacity-95
   `,
 ]);

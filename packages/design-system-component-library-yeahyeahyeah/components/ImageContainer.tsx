@@ -55,7 +55,7 @@ interface IImageIcon {
 }
 
 const Image = styled.img(({ type }: IImageIcon) => [
-  ImageScale,
+  ImageScale({ opacityLevel: '40' }),
   type === 'banner-edit' && tw`w-full h-auto`,
   type === 'banner-view' && tw`w-full h-auto`,
 ]);
