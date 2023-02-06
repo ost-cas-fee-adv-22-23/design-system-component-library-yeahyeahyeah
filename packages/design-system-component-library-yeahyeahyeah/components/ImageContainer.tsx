@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { Fullscreen, Edit, Repost } from './icons/default_index';
+import { ImageScale } from '../styles/ImageScale';
 
 export interface IImageContainerProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
   src: string;
@@ -54,17 +55,7 @@ interface IImageIcon {
 }
 
 const Image = styled.img(({ type }: IImageIcon) => [
-  tw`
-    w-full
-    object-cover
-    transition
-    duration-300
-    ease-in-out
-    z-10
-    group-hover:scale-110
-    group-hover:opacity-20
-  `,
-
+  ImageScale,
   type === 'banner-edit' && tw`w-full h-auto`,
   type === 'banner-view' && tw`w-full h-auto`,
 ]);

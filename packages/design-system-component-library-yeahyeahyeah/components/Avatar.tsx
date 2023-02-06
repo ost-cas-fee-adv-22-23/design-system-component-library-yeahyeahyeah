@@ -1,5 +1,6 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
+import { ImageScale } from '../styles/ImageScale';
 
 export interface IAvatarProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
   variant: 'small' | 'medium' | 'large' | 'xlarge';
@@ -29,8 +30,11 @@ const Figure = styled.figure.attrs({ className: 'group' })(({ variant }: IImageP
   variant === 'large' && tw`h-96 w-96 border-4`,
   variant === 'xlarge' && tw`h-160 w-160 border-4 min-w-[160px]`,
   tw`
+    flex
+    justify-center
+    items-center
   border-slate-200
-  bg-violet-200
+  bg-violet-600
 		rounded-full
 		cursor-pointer
     object-cover
@@ -41,12 +45,6 @@ const Figure = styled.figure.attrs({ className: 'group' })(({ variant }: IImageP
 const Image = styled.img(() => [
   tw`
     w-full
-    object-cover
-    transition
-    duration-300
-    ease-in-out
-    z-10
-    group-hover:scale-125
-    group-hover:opacity-100
   `,
+  ImageScale,
 ]);
