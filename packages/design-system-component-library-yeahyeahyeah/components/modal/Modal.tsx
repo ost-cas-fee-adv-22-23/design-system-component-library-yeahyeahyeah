@@ -138,7 +138,7 @@ const ModalWrapper = styled.div(() => [
 
 const ModalContent = styled.div(() => [
   tw`
-    p-24
+    p-32
     overflow-y-auto
   `,
 ]);
@@ -150,7 +150,6 @@ const IconWrapper = styled.div(() => [
     justify-center
     items-center
     transition ease-in-out delay-150
-    
     hover:(rotate-90 transform-gpu)
     cursor-pointer
   `,

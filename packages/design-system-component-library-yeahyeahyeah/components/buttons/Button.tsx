@@ -4,7 +4,7 @@ import { IconsMapped, IconTypes } from '../icons/IconMap';
 
 export interface IButtonProps {
   label: string;
-  color: 'slate' | 'violet' | 'gradient';
+  color: 'slate' | 'slate-300' | 'violet' | 'gradient';
   size?: 'small' | 'large';
   width?: 'default' | 'large' | 'full';
   type?: 'button' | 'reset' | 'submit';
@@ -37,15 +37,22 @@ export const Button: React.FC<IButtonProps> = ({
       role="button"
     >
       {label}
-      {icon !== 'none' && <Icon />}
+      {icon !== 'none' && <Icon color={color} />}
     </StyledButton>
   );
 };
 
 type ButtonProps = Pick<IButtonProps, 'color' | 'size' | 'width' | 'type'>;
 
+export interface IStyledIcon {
+  color: 'slate' | 'slate-300' | 'violet' | 'gradient';
+}
+
 const createIcon = (icon: IconTypes) => {
-  return styled(IconsMapped[icon as IconTypes])(() => [tw`ml-64 fill-slate-white`]);
+  return styled(IconsMapped[icon as IconTypes])(({ color }: IStyledIcon) => [
+    tw`fill-slate-white ml-8`,
+    color === 'slate-300' && tw`fill-slate-500`,
+  ]);
 };
 
 /**
@@ -80,16 +87,18 @@ const buttonFocus = tw`
 
 const Color = ({ color }: ButtonProps) => [
   tw`
-  !bg-slate-600
-  hover:(bg-slate-700 outline-slate-100)
-  focus:(outline-slate-200)
-  disabled:bg-slate-300`,
-  color === 'slate' &&
-    tw`
-  !bg-slate-600
+  transition ease-in-out duration-500 !bg-slate-600
   hover:(!bg-slate-700 outline-slate-100)
   focus:(!outline-slate-200)
   disabled:bg-slate-300
+`,
+  color === 'slate-300' &&
+    tw`
+  !bg-slate-300
+  text-slate-500
+  hover:(!bg-slate-300 outline-slate-100)
+  focus:(!outline-slate-200)
+  disabled:bg-slate-200
 `,
   color === 'violet' &&
     tw`
@@ -114,12 +123,6 @@ const ButtonWidth = ({ width }: ButtonProps) => [
 
 const ButtonSize = ({ size }: ButtonProps) => size === 'large' && tw`py-16 px-24`;
 
-const IconMargin = css`
-  svg {
-    margin-left: 8px;
-  }
-`;
-
 const StyledButton = styled.button(() => [
   buttonFont,
   buttonDefaults,
@@ -128,5 +131,4 @@ const StyledButton = styled.button(() => [
   ButtonWidth,
   ButtonSize,
   Color,
-  IconMargin,
 ]);
