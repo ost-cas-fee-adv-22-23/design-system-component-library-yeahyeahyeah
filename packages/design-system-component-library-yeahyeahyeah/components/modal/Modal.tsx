@@ -150,7 +150,6 @@ const IconWrapper = styled.div(() => [
     justify-center
     items-center
     transition ease-in-out delay-150
-    
     hover:(rotate-90 transform-gpu)
     cursor-pointer
   `,
