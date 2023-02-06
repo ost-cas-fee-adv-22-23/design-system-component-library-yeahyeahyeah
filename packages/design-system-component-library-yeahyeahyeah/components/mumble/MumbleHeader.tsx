@@ -65,65 +65,42 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
 }) => {
   return (
     <>
-      {variant === 'edit' && (
-        <MumbleHeaderWrapper mbSpacing={mbSpacing}>
-          <ImageContainer src={banner.src} alt={banner.alt} type={banner.type} fCallBack={banner.fCallBack} />
-          <div tw="px-8 mb-16">
-            <User
-              avatar={user.avatar}
-              username={user.username}
-              location={user.location}
-              joined={user.joined}
-              label={user.label}
-              variant={user.variant}
-              settings={user.settings}
-              type="edit"
-            />
-          </div>
-          <Row variant={variant} mbSpacing={'0'}>
-            <Avatar
-              src={user.avatar?.src || ''}
-              alt={user.avatar?.alt || ''}
-              variant="xlarge"
-              imageCallBack={user.avatar?.imageCallBack}
-            />
+      <MumbleHeaderWrapper mbSpacing={mbSpacing}>
+        <ImageContainer
+          src={banner.src}
+          alt={banner.alt}
+          type={variant === 'edit' ? 'banner-edit' : 'banner-view'}
+          fCallBack={banner.fCallBack}
+        />
+        <div tw="px-8 mb-16">
+          <User
+            avatar={user.avatar}
+            username={user.username}
+            location={user.location}
+            joined={user.joined}
+            label={user.label}
+            variant={user.variant}
+            settings={user.settings}
+            type={variant}
+          />
+        </div>
+        <Row variant={variant} mbSpacing={'0'}>
+          <Avatar
+            src={user.avatar?.src || ''}
+            alt={user.avatar?.alt || ''}
+            variant="xlarge"
+            imageCallBack={user.avatar?.imageCallBack}
+          />
+          {variant === 'edit' && (
             <IconBox>
               <IconButton label="label" icon="edit" variant="default" fCallBack={user.avatar?.buttonCallBack} />
             </IconBox>
-          </Row>
-          <div tw="p-8">
-            <Paragraph text={text} color={'light'} size={'default'} alignment={'left'} mbSpacing={'32'} />
-          </div>
-        </MumbleHeaderWrapper>
-      )}
-      {variant === 'view' && (
-        <MumbleHeaderWrapper mbSpacing={mbSpacing}>
-          <ImageContainer src={banner.src} alt={banner.alt} type={'banner-view'} fCallBack={banner.fCallBack} />
-          <div tw="px-8 mb-16">
-            <User
-              avatar={user.avatar}
-              username={user.username}
-              location={user.location}
-              joined={user.joined}
-              label={user.label}
-              variant="xlarge"
-              settings={user.settings}
-              type="view"
-            />
-          </div>
-          <Row variant={variant} mbSpacing={'0'}>
-            <Avatar
-              src={user.avatar?.src || ''}
-              alt={user.avatar?.alt || ''}
-              variant="xlarge"
-              imageCallBack={user.avatar?.imageCallBack}
-            />
-          </Row>
-          <div tw="p-8">
-            <Paragraph text={text} color={'light'} size={'default'} alignment={'left'} mbSpacing={'32'} />
-          </div>
-        </MumbleHeaderWrapper>
-      )}
+          )}
+        </Row>
+        <div tw="p-8">
+          <Paragraph text={text} color={'light'} size={'default'} alignment={'left'} mbSpacing={'32'} />
+        </div>
+      </MumbleHeaderWrapper>
     </>
   );
 };
@@ -159,19 +136,10 @@ const Row = styled.div(({ variant }: IMumbleHeaderStyles) => [
   z-10
   h-0
   overflow-visible
+  relative
+  -top-64
+  sm:(-top-16)
   `,
-  variant === 'edit' &&
-    tw`
-      relative
-      -top-64
-      -right-16
-      sm:(-top-16)
-  `,
-  variant === 'view' &&
-    tw`
-      relative
-      -top-64
-      right-32
-      sm:(-top-16)
-  `,
+  variant === 'edit' && tw`-right-16`,
+  variant === 'view' && tw`right-32`,
 ]);

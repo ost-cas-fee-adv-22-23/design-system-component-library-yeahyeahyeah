@@ -79,8 +79,8 @@ export default {
     avatar: {
       src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
       alt: 'Alter Tag',
-      buttonCallBack: action('button x clicked'),
-      imageCallBack: action('button x clicked'),
+      buttonCallBack: action('avatar button clicked'),
+      imageCallBack: action('avatar image clicked'),
     },
     btn: {
       label: 'Follow',

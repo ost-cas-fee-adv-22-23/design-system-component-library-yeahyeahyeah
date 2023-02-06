@@ -1,6 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import tw from 'twin.macro';
+import tw, { styled } from 'twin.macro';
 import { IconsMapped, IconTypes } from '../icons/IconMap';
 
 export interface IIconButtonProps {
@@ -17,32 +16,26 @@ export const IconButton: React.FC<IIconButtonProps> = ({
   fCallBack,
 }) => {
   const Icon = createIcon(icon);
-  const SettingIcon = createSettingIcon(icon);
 
   return (
     <ButtonStyles variant={variant} onClick={fCallBack} aria-label={label}>
-      {variant !== 'plain' && <Icon />}
-      {variant === 'plain' && <SettingIcon />}
+      <Icon variant={variant} />
       <p>{label}</p>
     </ButtonStyles>
   );
 };
 
 const createIcon = (icon: IconTypes) => {
-  return styled(IconsMapped[icon as IconTypes])(() => [tw`fill-slate-white`]);
+  return styled(IconsMapped[icon as IconTypes])(({ variant }: IButtonStyles) => [
+    variant === 'default' && tw`fill-slate-white relative ml-0 -top-[7px]`,
+    variant === 'plain' && tw`fill-violet-600 relative ml-0 -top-8`,
+  ]);
 };
 
-const createSettingIcon = (icon: IconTypes) => {
-  return styled(IconsMapped[icon as IconTypes])(() => [tw`fill-violet-600`]);
-};
-
-const buttonFont = tw`
+const buttonDefaults = tw`
   text-skin-light
   font-semibold
   leading-normal
-`;
-
-const buttonDefaults = tw`
 bg-slate-500
   flex
   flex-col-reverse
@@ -63,45 +56,22 @@ bg-slate-500
   disabled:bg-slate-300
 `;
 
-const buttonHover = styled.button(({ variant }: IButtonStyles) => [
-  variant === 'default' &&
-    tw`
-      hover:(outline-3)
-  `,
-  variant === 'plain' &&
-    tw`
-      hover:(border-none outline-none)
-  `,
-]);
-
-const buttonFocus = styled.button(({ variant }: IButtonStyles) => [
-  variant === 'default' &&
-    tw`
-      focus:(outline-4)
-    `,
-  variant === 'plain' &&
-    tw`
-      focus:(outline-none)
-    `,
-]);
-
 interface IButtonStyles {
   variant: string;
 }
 
 const ButtonStyles = styled.button(({ variant }: IButtonStyles) => [
-  buttonFont,
   buttonDefaults,
-  buttonHover,
-  buttonFocus,
-  css`
-    overflow: hidden;
-    svg {
-      position: relative;
-      top: -8px;
-      margin-left: 0;
-    }
-  `,
+  variant === 'default' &&
+    tw`
+      focus:(outline-4)
+      hover:(outline-3)
+    `,
+  variant === 'plain' &&
+    tw`
+      focus:(outline-none)
+      hover:(border-none outline-none)
+    `,
   variant === 'plain' &&
     tw`
     outline-none
