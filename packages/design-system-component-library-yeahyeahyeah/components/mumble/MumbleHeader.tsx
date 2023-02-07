@@ -120,9 +120,9 @@ const MumbleHeaderWrapper = styled.div(() => [
 const IconBox = styled.div(() => [
   tw`
   relative
-  right-44
+  -left-40
   bottom-6
-  sm:(right-48)
+  sm:(right-0)
 `,
 ]);
 
@@ -134,10 +134,11 @@ const Row = styled.div(({ variant }: IMumbleHeaderStyles) => [
   z-10
   h-0
   overflow-visible
+  pr-16
   relative
   -top-64
   sm:(-top-16)
   `,
-  variant === 'edit' && tw`-right-16`,
-  variant === 'view' && tw`right-32`,
+  variant === 'edit' && tw`left-32`,
+  variant === 'view' && tw`-left-16`,
 ]);
