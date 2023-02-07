@@ -1,14 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Upload } from '../../components/forms/Upload';
-import UploadReadme from '../../docs/Upload.md';
+import { FileUpload } from '../../components/forms/FileUpload';
+import UploadReadme from '../../docs/FileUpload.md';
 import { Button, Modal } from '../../index';
 import tw, { styled } from 'twin.macro';
 import { FileRejection } from 'react-dropzone';
 
 export default {
-  title: 'Form/Upload',
-  component: Upload,
+  title: 'Form/FileUpload',
+  component: FileUpload,
   argTypes: {
     label: {
       control: 'text',
@@ -35,9 +35,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Upload>;
+} as ComponentMeta<typeof FileUpload>;
 
-const Template: ComponentStory<typeof Upload> = (args) => {
+const Template: ComponentStory<typeof FileUpload> = (args) => {
   const [error, setError] = React.useState('');
 
   const setTimerForError = () =>
@@ -54,7 +54,7 @@ const Template: ComponentStory<typeof Upload> = (args) => {
   return (
     <Modal label={'Modal'} isOpen={true} wide={true}>
       <form onSubmit={() => console.log('Submit')} tw="container">
-        <Upload {...args} onDropCallBack={onDropCallBack} errorMessage={error} />
+        <FileUpload {...args} onDropCallBack={onDropCallBack} errorMessage={error} />
         <Row>
           <Button
             fCallBack={() => console.log('Cancel Button clicked')}
@@ -114,4 +114,4 @@ UploadStory.parameters = {
   },
 };
 
-UploadStory.storyName = 'Upload';
+UploadStory.storyName = 'FileUpload';

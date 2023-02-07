@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { Repost, Upload as UploadIcon } from '../icons/default_index';
+import { Repost, Upload } from '../icons/default_index';
 import { DropEvent, FileRejection, useDropzone } from 'react-dropzone';
-import { Button } from '../buttons/';
+import { Button } from '../buttons/index';
 
 export interface IDrapAndDrop {
   label: string;
@@ -16,7 +16,7 @@ export interface IDrapAndDrop {
 
 export type TOnDrop = <T extends File>(acceptedFiles: T[], fileRejections: FileRejection[], event: DropEvent) => void;
 
-export const Upload: React.FC<IDrapAndDrop> = ({
+export const FileUpload: React.FC<IDrapAndDrop> = ({
   label = 'Datei hierhin ziehen ...',
   fileDescription = 'JPEG oder PNG, maximal 50 MB',
   dragDescription = 'Jetzt loslassen ...',
@@ -147,7 +147,7 @@ const Figure = styled.figure.attrs({ className: 'group' })(() => [
   `,
 ]);
 
-const StyledUploadIcon = styled(UploadIcon)(() => [tw`w-32 h-32 fill-slate-500 mb-6`]);
+const StyledUploadIcon = styled(Upload)(() => [tw`w-32 h-32 fill-slate-500 mb-6`]);
 
 const StyledRepost = styled(Repost)(() => [tw`w-32 h-32 fill-slate-500`]);
 

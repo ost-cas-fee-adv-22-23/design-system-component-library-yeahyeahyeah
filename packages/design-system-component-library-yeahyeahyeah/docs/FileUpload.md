@@ -1,6 +1,6 @@
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/smartive-education/design-system-component-library-yeahyeahyeah)
-# Upload
-## Upload properties
+# FileUpload
+## FileUpload properties
 | Property|Description|
 |-|-|
 |label|The label text, that should be displayed. It's position is under the icon.|
@@ -9,24 +9,24 @@
 |loading|Show the loading spinner.|
 |fCallBack|A callback function, that can be triggered|
 
-## Include Upload from the component library
+## Include FileUpload from the component library
 
 ```js
 // index.tsx, index.js, index.jsx
 
-import { Upload } from "@smartive-education/design-system-component-library-yeahyeahyeah"
+import { FileUpload } from "@smartive-education/design-system-component-library-yeahyeahyeah"
 ```
 
-### Upload *default* example
+### FileUpload *default* example
 
 ```js
 
-<Upload
+<FileUpload
   label='Datei hierhin ziehen ...'
   fileDescription='JPEG oder PNG, maximal 50 MB'
   dragDescription='Jetzt loslassen ...'
   loading={false}
-  fCallBack={() => console.log('Upload')}
+  fCallBack={() => console.log('FileUpload')}
 />
 
 ```
