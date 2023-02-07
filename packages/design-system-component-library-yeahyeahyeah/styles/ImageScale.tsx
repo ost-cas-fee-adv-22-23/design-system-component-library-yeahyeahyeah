@@ -9,12 +9,13 @@ export const ImageScale = ({ opacityLevel }: IImageScaleProps) => [
   w-full
   h-full
   object-cover
-  transition
-  duration-300
-  delay-100
+  transform-gpu
+  transition-all
+  duration-500
+  delay-200
   ease-in-out
-  group-hover:scale-125
-  group-hover:opacity-80
+  group-hover:scale-105
+  group-hover:(delay-100 opacity-80)
   `,
   opacityLevel === '0' && tw`group-hover:opacity-0`,
   opacityLevel === '5' && tw`group-hover:opacity-5`,
