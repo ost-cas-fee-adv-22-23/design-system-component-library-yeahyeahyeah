@@ -20,6 +20,7 @@ export default {
     icon: {
       control: 'select',
       options: Object.keys(IconsMapped),
+      if: { arg: 'variant', eq: 'default' },
     },
     avatar: {
       control: 'object',
@@ -35,7 +36,7 @@ export const ProfileButtonStory = Template.bind({});
 // PROFILE BUTTON
 ProfileButtonStory.argTypes = {
   icon: {
-    control: false,
+    control: 'select',
   },
 };
 
