@@ -27,8 +27,9 @@ export const IconButton: React.FC<IIconButtonProps> = ({
 
 const createIcon = (icon: IconTypes) => {
   return styled(IconsMapped[icon as IconTypes])(({ variant }: IButtonStyles) => [
-    variant === 'default' && tw`fill-slate-white relative ml-0 -top-[7px]`,
-    variant === 'plain' && tw`fill-violet-600 relative ml-0 -top-8`,
+    tw`relative ml-0`,
+    variant === 'default' && tw`fill-slate-white -top-[7px]`,
+    variant === 'plain' && tw`fill-violet-600 -top-8`,
   ]);
 };
 
@@ -69,28 +70,23 @@ const ButtonStyles = styled.button(({ variant }: IButtonStyles) => [
     `,
   variant === 'plain' &&
     tw`
-      focus:(outline-none)
-      hover:(border-none outline-none)
-    `,
-  variant === 'plain' &&
+      outline-none
+      border-0
+    ` &&
     tw`
-    outline-none
-    border-0
-  ` &&
-    tw`
-    bg-opacity-0
-    rounded-full
-    w-32
-    h-32
-    min-w-[16px]
-    min-h-[16px]
-    ring-0
-    transition
-    ease-in-out
-    delay-100
+      bg-opacity-0
+      rounded-full
+      w-32
+      h-32
+      min-w-[16px]
+      min-h-[16px]
+      ring-0
+      transition
+      ease-in-out
+      delay-100
 
-    hover:(outline-none border-0 rotate-180 transform-gpu bg-opacity-0)
-    active:(border-0  rotate-0)
-    focus:(border-0 outline-none)
-  `,
+      hover:(outline-none border-0 rotate-180 transform-gpu bg-opacity-0)
+      active:(border-0  rotate-0)
+      focus:(border-0 outline-none)
+    `,
 ]);

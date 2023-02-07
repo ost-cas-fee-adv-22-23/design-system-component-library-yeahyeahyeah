@@ -33,28 +33,40 @@ import { MumbleHeader } from "@smartive-education/design-system-component-librar
   user={{
     avatar: {
       alt: 'Alttag',
-      buttonCallBack: function noRefCheck() {},
-      imageCallBack: function noRefCheck() {},
+      buttonCallBack: function noRefCheck() {
+        console.log('avatar button clicked');
+      },
+      imageCallBack: function noRefCheck() {
+        console.log('avatar image clicked');
+      },
       src: 'https://placebeard.it/640x360'
     },
     joined: {
-      fCallBack: function noRefCheck() {},
+      fCallBack: function noRefCheck() {
+        console.log('joined clicked');
+      },
       href: '#',
       label: 'Joined',
       type: 'joined'
     },
     label: 'Display Name',
     location: {
-      fCallBack: function noRefCheck() {},
+      fCallBack: function noRefCheck() {
+        console.log('location clicked');
+      },
       href: '#',
       label: 'Location',
       type: 'joined'
     },
     settings: {
-      fCallBack: function noRefCheck() {}
+      fCallBack: function noRefCheck() {
+        console.log('settings clicked');
+      }
     },
     username: {
-      fCallBack: function noRefCheck() {},
+      fCallBack: function noRefCheck() {
+        console.log('username clicked');
+      },
       href: '#',
       label: 'username',
       type: 'joined'

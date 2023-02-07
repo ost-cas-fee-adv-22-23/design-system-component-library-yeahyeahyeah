@@ -142,34 +142,46 @@ const props: IUserProps = {
     src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif'
   }}
   btn={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: function noRefCheck() {
+      console.log('button clicked');
+    },
     label: 'Follow'
   }}
   joined={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: function noRefCheck() {
+      console.log('joined clicked');
+    },
     href: '',
     label: 'Joined',
     type: 'joined'
   }}
   label="Display Name"
   location={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: function noRefCheck() {
+      console.log('location clicked');
+    },
     href: '',
     label: 'Location',
     type: 'location'
   }}
   settings={{
-    fCallBack: function noRefCheck() {}
+    fCallBack: function noRefCheck() {
+      console.log('settings clicked');
+    }
   }}
   timestamp={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: function noRefCheck() {
+      console.log('timestamp clicked');
+    },
     href: '',
     label: 'Timestamp',
     type: 'timestamp'
   }}
   type="edit"
   username={{
-    fCallBack: function noRefCheck() {},
+    fCallBack: function noRefCheck() {
+      console.log('username clicked');
+    },
     href: '',
     label: 'Username',
     type: 'username'

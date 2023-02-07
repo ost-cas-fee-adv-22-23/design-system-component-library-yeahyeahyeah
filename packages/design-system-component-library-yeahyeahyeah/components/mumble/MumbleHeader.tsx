@@ -64,44 +64,42 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
   },
 }) => {
   return (
-    <>
-      <MumbleHeaderWrapper mbSpacing={mbSpacing}>
-        <ImageContainer
-          src={banner.src}
-          alt={banner.alt}
-          type={variant === 'edit' ? 'banner-edit' : 'banner-view'}
-          fCallBack={banner.fCallBack}
+    <MumbleHeaderWrapper mbSpacing={mbSpacing}>
+      <ImageContainer
+        src={banner.src}
+        alt={banner.alt}
+        type={variant === 'edit' ? 'banner-edit' : 'banner-view'}
+        fCallBack={banner.fCallBack}
+      />
+      <div tw="px-8 mb-16">
+        <User
+          avatar={user.avatar}
+          username={user.username}
+          location={user.location}
+          joined={user.joined}
+          label={user.label}
+          variant={user.variant}
+          settings={user.settings}
+          type={variant}
         />
-        <div tw="px-8 mb-16">
-          <User
-            avatar={user.avatar}
-            username={user.username}
-            location={user.location}
-            joined={user.joined}
-            label={user.label}
-            variant={user.variant}
-            settings={user.settings}
-            type={variant}
-          />
-        </div>
-        <Row variant={variant} mbSpacing={'0'}>
-          <Avatar
-            src={user.avatar?.src || ''}
-            alt={user.avatar?.alt || ''}
-            variant="xlarge"
-            imageCallBack={user.avatar?.imageCallBack}
-          />
-          {variant === 'edit' && (
-            <IconBox>
-              <IconButton label="label" icon="edit" variant="default" fCallBack={user.avatar?.buttonCallBack} />
-            </IconBox>
-          )}
-        </Row>
-        <div tw="p-8">
-          <Paragraph text={text} color={'light'} size={'default'} alignment={'left'} mbSpacing={'32'} />
-        </div>
-      </MumbleHeaderWrapper>
-    </>
+      </div>
+      <Row variant={variant} mbSpacing={'0'}>
+        <Avatar
+          src={user.avatar?.src || ''}
+          alt={user.avatar?.alt || ''}
+          variant="xlarge"
+          imageCallBack={user.avatar?.imageCallBack}
+        />
+        {variant === 'edit' && (
+          <IconBox>
+            <IconButton label="label" icon="edit" variant="default" fCallBack={user.avatar?.buttonCallBack} />
+          </IconBox>
+        )}
+      </Row>
+      <div tw="p-8">
+        <Paragraph text={text} color={'light'} size={'default'} alignment={'left'} mbSpacing={'32'} />
+      </div>
+    </MumbleHeaderWrapper>
   );
 };
 
