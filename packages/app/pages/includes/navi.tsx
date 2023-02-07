@@ -18,10 +18,7 @@ export default function Navi() {
           logo={{
             title: 'Mumble Logo',
             href: '#',
-            color: 'white',
-            alignment: 'horizontal',
             fCallBack: () => console.log('logo'),
-            isNavigation: true,
           }}
           avatar={{
             label: 'Label',
