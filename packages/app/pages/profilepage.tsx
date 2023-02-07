@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Navi from './includes/navi';
 import {
   Switch,
@@ -12,42 +12,44 @@ import {
   Paragraph,
   IUserProps,
 } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import debounce from 'lodash.debounce';
 
 export default function Profilepage() {
   const [posts, setPosts] = useState(['']);
-  const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
-  const [text, setText] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
 
-  useEffect(() => {
-    console.log(posts);
-  }, [posts]);
+  const setErrorDebounced = useMemo(
+    () =>
+      debounce(() => {
+        setErrorMessage('');
+      }, 100),
+    [debounce]
+  );
 
   useEffect(() => {
-    console.log('text', text);
-    if (text !== '') {
-      setErrorMessage('');
+    if (inputValue !== '') {
+      setErrorDebounced();
     }
-  }, [text]);
-
-  const handleSend = () => {
-    if (ref?.current) ref.current.value = '';
-    addText();
-  };
+  }, [inputValue, setErrorDebounced]);
 
   const addText = () => {
-    if (text === '') {
+    if (inputValue === '') {
       setErrorMessage('Bitte füllen Sie das Feld aus.');
       return;
     }
 
     if (posts[0] === '') {
-      setPosts([text]);
-      setText('');
+      setPosts([inputValue]);
+      setInputValue('');
       return;
     }
-    setPosts([...posts, text]);
-    setText('');
+    setPosts([...posts, inputValue]);
+    setInputValue('');
+  };
+
+  const handleUpload = () => {
+    console.log('upload');
   };
 
   const props: IUserProps = {
@@ -179,24 +181,23 @@ export default function Profilepage() {
               user={{
                 label: 'Hey, was läuft?',
                 username: {
+                  type: 'joined',
                   label: 'Username',
                   href: '#',
-                  type: 'username',
                 },
                 avatar: {
                   src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-                  alt: 'Alter Tag',
-                  imageCallBack: () => console.log('avatar clicked'),
+                  alt: 'Family Guy goes Mumble',
                 },
               }}
               form={{
                 errorMessage: errorMessage,
-                placeholder: 'Hast du uns etwas mitzuteilen ?',
-                setRef: setRef,
-                setText: setText,
+                placeholder: 'Hast du uns etwas mitzuteilen?',
               }}
-              sendCallback={handleSend}
-              uploadCallback={() => console.log('uploadCallback')}
+              setInputValue={setInputValue}
+              inputValue={inputValue}
+              sendCallback={addText}
+              uploadCallback={handleUpload}
             />
           </div>
           {posts

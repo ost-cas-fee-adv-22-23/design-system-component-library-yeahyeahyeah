@@ -1,35 +1,60 @@
-import React, { useEffect, useState } from 'react';
-import { InputForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import React, { useEffect, useMemo, useState } from 'react';
+import { TextBox } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import debounce from 'lodash.debounce';
 
 export default function Profilepage() {
-  const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
-  const [text, setText] = useState<string>('');
+  const [posts, setPosts] = useState(['']);
+  const [inputValue, setInputValue] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
 
-  const handleClick = () => {
-    if (text === '') {
-      setErrorMessage('Bitte füllen sie das Feld aus.');
-      return;
-    }
-    if (ref?.current) ref.current.value = '';
-    setText('');
-  };
+  const setErrorDebounced = useMemo(
+    () =>
+      debounce(() => {
+        setErrorMessage('');
+      }, 100),
+    [debounce]
+  );
 
   useEffect(() => {
-    if (text !== '') {
-      setErrorMessage('');
+    if (inputValue !== '') {
+      setErrorDebounced();
     }
-  }, [text]);
+  }, [inputValue, setErrorDebounced]);
+
+  const addText = () => {
+    if (inputValue === '') {
+      setErrorMessage('Bitte füllen Sie das Feld aus.');
+      return;
+    }
+
+    if (posts[0] === '') {
+      setPosts([inputValue]);
+      setInputValue('');
+      return;
+    }
+    setPosts([...posts, inputValue]);
+    setInputValue('');
+  };
+
+  const handleUpload = () => {
+    console.log('upload');
+  };
 
   return (
-    <InputForm
-      editType={'textarea'}
-      required={true}
-      autoComplete={'off'}
-      setRef={setRef}
-      setText={setText}
-      errorMessage={errorMessage}
-      onPressEnter={handleClick}
-    />
+    <>
+      <div tw="flex flex-col justify-center items-center bg-slate-200 w-full h-full pb-64 pt-64">
+        <TextBox
+          variant="start"
+          form={{
+            errorMessage: errorMessage,
+            placeholder: 'Hast du uns etwas mitzuteilen?',
+          }}
+          setInputValue={setInputValue}
+          inputValue={inputValue}
+          sendCallback={addText}
+          uploadCallback={handleUpload}
+        />
+      </div>
+    </>
   );
 }

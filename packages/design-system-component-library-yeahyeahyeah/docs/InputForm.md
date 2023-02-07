@@ -4,61 +4,65 @@
 | Property|Description|
 |-|-|
 |label|Label|
+|labelSize|Size of the label|
 |editType|You can choose between *input* and *textarea*.|
 |required|Set the *required* attribute to *true* or *false*. Default is set to *true*.|
 |type|The type of the input. Default is set to *text*. You can choose between *text*, *password*, *email*, *search*, *tel*, *url*, *file*.|
 |placeholder|The placeholder of the input or textarea.|
 |errorMessage|The errormessage that should be seen.|
 |autoComplete|The *autocomplete* property of the *input* or *textarea*. Default is *off*. You can set it to *on* also.|
-|setText|Here you can pass a *setState* function. The text string that you type into the *textarea* or *input* will be passed into it.|
-|setRef|Here you can pass a *setState* function. You will get a reference to the *input* or *textarea* eg. to clear the element.|
+|inputValue|The *value* of the input element will be set with this *value*. You can also clear the *input*, with an empty *value*.|
+|setInputValue|Here you can pass a *setState* function. The input *value* of the form element will be set with this *setState* function|
 |onPressEnter|You can pass a callback function, to trigger whatever you want, when enter button is hit.|
-
-## Include the InputForm from the component library in your App
-
-```js
-// index.tsx, index.js, index.jsx
-
-import { InputForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
-import { useEffect, useState } from 'react';
-
-```
 
 ### InputForm example with type *input*
 
 ```js
 
-const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
-const [text, setText] = useState<string>('');
-const [errorMessage, setErrorMessage] = useState<string>('');
+import React, { useEffect, useMemo, useState } from 'react';
+import { InputForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import debounce from 'lodash.debounce';
 
-const handleClick = () => {
-  if (text === '') {
-    setErrorMessage('Bitte füllen sie das Feld aus.');
-    return;
-  }
-  if (ref?.current) ref.current.value = '';
-  setText('');
-};
+export default function Profilepage() {
+  const [inputValue, setInputValue] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
-useEffect(() => {
-  if (text !== '') {
-    setErrorMessage('');
-  }
-  console.log('text', text);
-}, [text]);
+  const handlePressEnter = () => {
+    if (inputValue === '') {
+      setErrorMessage('Bitte füllen Sie das Formular aus.');
+      return;
+    }
+    setInputValue('');
+  };
 
-return (
-  <InputForm
-    editType={'input'}
-    required={true}
-    autoComplete={'off'}
-    setRef={setRef}
-    setText={setText}
-    errorMessage={errorMessage}
-    onPressEnter={handleClick}
-  />
-);
+  const setErrorDebounced = useMemo(
+    () =>
+      debounce(() => {
+        setErrorMessage('');
+      }, 100),
+    [debounce]
+  );
+
+  useEffect(() => {
+    if (inputValue !== '') {
+      setErrorDebounced();
+    }
+  }, [inputValue, setErrorDebounced]);
+
+  return (
+    <InputForm
+      editType={'input'}
+      placeholder={'Bitte geben sie einen Text ein '}
+      required={true}
+      autoComplete={'off'}
+      setInputValue={setInputValue}
+      inputValue={inputValue}
+      errorMessage={errorMessage}
+      onPressEnter={handlePressEnter}
+      data-testid={'label'}
+    />
+  );
+}
 
 ```
 
@@ -66,36 +70,49 @@ return (
 
 ```js
 
-const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
-const [text, setText] = useState<string>('');
-const [errorMessage, setErrorMessage] = useState<string>('');
+import React, { useEffect, useMemo, useState } from 'react';
+import { InputForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import debounce from 'lodash.debounce';
 
-const handleClick = () => {
-  if (text === '') {
-    setErrorMessage('Bitte füllen sie das Feld aus.');
-    return;
-  }
-  if (ref?.current) ref.current.value = '';
-  setText('');
-};
+export default function Profilepage() {
+  const [inputValue, setInputValue] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
-useEffect(() => {
-  if (text !== '') {
-    setErrorMessage('');
-  }
-  console.log('text', text);
-}, [text]);
+  const handlePressEnter = () => {
+    if (inputValue === '') {
+      setErrorMessage('Bitte füllen Sie das Formular aus.');
+      return;
+    }
+    setInputValue('');
+  };
 
-return (
-  <InputForm
-    editType={'textarea'}
-    required={true}
-    autoComplete={'off'}
-    setRef={setRef}
-    setText={setText}
-    errorMessage={errorMessage}
-    onPressEnter={handleClick}
-  />
-);
+  const setErrorDebounced = useMemo(
+    () =>
+      debounce(() => {
+        setErrorMessage('');
+      }, 100),
+    [debounce]
+  );
+
+  useEffect(() => {
+    if (inputValue !== '') {
+      setErrorDebounced();
+    }
+  }, [inputValue, setErrorDebounced]);
+
+  return (
+    <InputForm
+      editType={'textarea'}
+      placeholder={'Bitte geben sie einen Text ein '}
+      required={true}
+      autoComplete={'off'}
+      setInputValue={setInputValue}
+      inputValue={inputValue}
+      errorMessage={errorMessage}
+      onPressEnter={handlePressEnter}
+      data-testid={'label'}
+    />
+  );
+}
 
 ```
