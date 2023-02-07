@@ -19,6 +19,7 @@ export default function Navi() {
         <Link href={'/'}>Timeline</Link>
         <Link href={'./detailview'}>Detailview</Link>
         <Link href={'./profilepage'}>Profilepage</Link>
+        <Link href={'./textbox'}>Textbox</Link>
       </div>
       <div tw="w-full mb-32">
         <Navigation

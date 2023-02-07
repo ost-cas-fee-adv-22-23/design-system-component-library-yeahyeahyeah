@@ -1,11 +1,18 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { TextBox } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { Hashtag, TextBox } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
+import { useRouter } from 'next/router';
 
 export default function Profilepage() {
   const [posts, setPosts] = useState(['']);
   const [inputValue, setInputValue] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
+
+  const router = useRouter();
+
+  const navigateToRoot = () => {
+    router.push('/');
+  };
 
   const setErrorDebounced = useMemo(
     () =>
@@ -55,6 +62,7 @@ export default function Profilepage() {
           uploadCallback={handleUpload}
         />
       </div>
+      <Hashtag fCallBack={navigateToRoot} label="TextBox" size="small" />
     </>
   );
 }

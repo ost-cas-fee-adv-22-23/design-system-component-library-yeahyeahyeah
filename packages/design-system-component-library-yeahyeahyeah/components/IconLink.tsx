@@ -1,22 +1,23 @@
 import tw, { styled, TwStyle } from 'twin.macro';
 import React, { useState } from 'react';
 import { Profile, Time, Location, Calendar } from './icons/index';
-import NextLink, { LinkProps } from 'next/link';
+import Link, { LinkProps } from 'next/link';
+import { Url } from 'url';
 
 export interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
   label: string;
   type: 'username' | 'timestamp' | 'location' | 'joined';
   color?: 'slate' | 'violet';
-  href: string;
+  href?: Url | string;
   fCallBack?: () => void;
-  link?: LinkProps;
+  link?: Pick<LinkProps, 'href' | 'as' | 'scroll'>;
 }
 
 export const IconLink: React.FC<IIconLinkProps> = ({
   label = 'username',
   type = 'username',
   color = 'violet',
-  href = '#',
+  href = '/',
   fCallBack,
   link,
 }) => {
@@ -42,20 +43,13 @@ export const IconLink: React.FC<IIconLinkProps> = ({
     fCallBack && fCallBack();
   };
 
-  return link ? (
-    <NextLink
-      as={link.as as string}
-      href={link.href}
-      passHref={link.passHref}
-      replace={link.replace}
-      scroll={link.scroll}
-      shallow={link.shallow}
-    >
-      <IconLinkDivStyles color={color} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+  return !fCallBack ? (
+    <Link href={link?.href || href} passHref legacyBehavior scroll={link?.scroll} as={link?.as as string}>
+      <IconLinkStyles color={color} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         {getIcon()}
         {label}
-      </IconLinkDivStyles>
-    </NextLink>
+      </IconLinkStyles>
+    </Link>
   ) : (
     <IconLinkStyles
       color={color}
@@ -66,7 +60,6 @@ export const IconLink: React.FC<IIconLinkProps> = ({
       title={label}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      href={href}
     >
       {getIcon()}
       {label}
@@ -89,12 +82,6 @@ const defaultStyles = tw`
 `;
 
 const IconLinkStyles = styled.a(({ color }: Pick<IStyled, 'color'>) => [
-  defaultStyles,
-  color === 'slate' && tw`text-slate-400 hover:(text-slate-600)`,
-  color === 'violet' && tw`text-violet-600 hover:(text-violet-900)`,
-]);
-
-const IconLinkDivStyles = styled.div(({ color }: Pick<IStyled, 'color'>) => [
   defaultStyles,
   color === 'slate' && tw`text-slate-400 hover:(text-slate-600)`,
   color === 'violet' && tw`text-violet-600 hover:(text-violet-900)`,
