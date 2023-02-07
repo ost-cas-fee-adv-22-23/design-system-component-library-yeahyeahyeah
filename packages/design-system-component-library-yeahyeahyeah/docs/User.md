@@ -3,7 +3,7 @@
 ## User properties and how to use
 | Property|Description|
 |-|-|
-|variant|Change *type* and *style* of user element.|
+|variant|Change *type* and *style* of user element. Variant **xlarge** triggers an additional control *type* with options **edit** and **view**. Only in use for [MumbleHeader](./?path=/story/mumble-mumble-header--mumble-story).|
 |avatar|See further details on [Avatar](./?path=/docs/user--avatar-story)
 |btn|See [Button](./?path=/docs/interactions--button-story).|
 |joined|See see settings of [Interaction Icon Link](./?path=/docs/interactions--icon-link-variants)|
