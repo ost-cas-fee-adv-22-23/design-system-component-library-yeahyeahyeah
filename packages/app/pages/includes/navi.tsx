@@ -1,10 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 import { Navigation } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { useRouter } from 'next/router';
 
 export default function Navi() {
+  const router = useRouter();
+
   const handleAvatar = () => {
-    console.log('avatar clicked');
+    router.push('/profilepage');
+  };
+
+  const handleLogoClick = () => {
+    router.push('/');
   };
   return (
     <>
@@ -18,7 +25,7 @@ export default function Navi() {
           logo={{
             title: 'Mumble Logo',
             href: '#',
-            fCallBack: () => console.log('logo'),
+            fCallBack: handleLogoClick,
           }}
           avatar={{
             label: 'Label',
