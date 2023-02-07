@@ -1,5 +1,5 @@
 import React from 'react';
-import tw, { css, styled } from 'twin.macro';
+import tw, { styled } from 'twin.macro';
 import { IconsMapped, IconTypes } from '../icons/IconMap';
 
 export interface IButtonProps {

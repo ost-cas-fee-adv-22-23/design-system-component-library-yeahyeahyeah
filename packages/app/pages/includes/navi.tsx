@@ -19,6 +19,8 @@ export default function Navi() {
         <Link href={'/'}>Timeline</Link>
         <Link href={'./detailview'}>Detailview</Link>
         <Link href={'./profilepage'}>Profilepage</Link>
+        <Link href={'./textbox'}>Textbox</Link>
+        <Link href={'./hashtag'}>Hashtag</Link>
       </div>
       <div tw="w-full mb-32">
         <Navigation
