@@ -6,7 +6,7 @@
 |src|Image source link.|
 |alt|Alternative tag for image.|
 |loading|Loading state. True creates an loading spinner in image center.|
-|type|*Container*Image can be used everywhere in the app. A mouse hover induces an *fullscreen* icon, *banner* type an *edit* icon. On both icon is an JS-CallBack handler.|
+|type|*container* Image can be used everywhere in mumble streams. A mouse hover induces an *fullscreen* icon, *banner-edit* induces an *edit* icon on image hover, *banner-view* an *fullscreen* icon. All icon are equiped with an JS-callback function. See an living example on [Mumble-Header](./?path=/story/mumble-mumble-header--mumble-story "Mumble-Header").|
 |fCallBack|JS-Callback function.|
 
 ## Include Image from the component library
@@ -31,7 +31,7 @@ import { ImageContainer } from "@smartive-education/design-system-component-libr
 
 ```
 
-### Image with *banner* type
+### Image with *banner-edit* type
 
 ```js
 
@@ -39,7 +39,19 @@ import { ImageContainer } from "@smartive-education/design-system-component-libr
   alt="This is a profile picture"
   fCallBack={() => console.log('ImageContainer clicked')}
   src="https://shorturl.at/nEO01"
-  type="banner"
+  type="banner-edit"
+/>
+
+```
+### Image with *banner-view* type
+
+```js
+
+<ImageContainer
+  alt="This is a profile picture"
+  fCallBack={() => console.log('ImageContainer clicked')}
+  src="https://shorturl.at/nEO01"
+  type="banner-view"
 />
 
 ```

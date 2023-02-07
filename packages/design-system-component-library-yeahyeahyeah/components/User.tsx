@@ -1,6 +1,7 @@
 import React from 'react';
 import tw, { styled, TwStyle } from 'twin.macro';
 import { Heading } from './typography/Heading';
+import { IconButton } from './buttons/IconButton';
 import { IconLink, IIconLinkProps } from './IconLink';
 import { Button } from './buttons/Button';
 import { Avatar } from './Avatar';
@@ -9,16 +10,19 @@ export interface IUserProps {
   label: string;
   variant: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended' | 'write' | 'inline';
   username: IIconLinkProps;
+  type?: 'edit' | 'view';
   timestamp?: IIconLinkProps;
   location?: IIconLinkProps;
   joined?: IIconLinkProps;
   avatar?: { src: string; alt: string; imageCallBack?: () => void; buttonCallBack?: () => void };
   btn?: { label: string; fCallBack?: () => void };
+  settings?: { fCallBack?: () => void };
 }
 
 export const User: React.FC<IUserProps> = ({
   label = 'Display Name',
   variant = 'small',
+  type = 'view',
   username = {
     label: 'Username',
     href: '#',
@@ -52,6 +56,11 @@ export const User: React.FC<IUserProps> = ({
     alt: 'Alter Tag',
   },
   btn = { label: 'Follow' },
+  settings = {
+    fCallBack: () => {
+      return null;
+    },
+  },
 }) => {
   return (
     <>
@@ -170,7 +179,14 @@ export const User: React.FC<IUserProps> = ({
       )}
       {variant === 'xlarge' && (
         <Column>
-          <Heading tag="h4" color="dark" size={'large'} label={label} />
+          <Row type={type}>
+            <Heading tag="h3" color="dark" size={'default'} label={label} />
+            {type === 'edit' && (
+              <>
+                <IconButton label="settings" variant="plain" icon="settings" fCallBack={settings.fCallBack} />
+              </>
+            )}
+          </Row>
           <Row>
             <IconLink
               label={username.label}
@@ -234,10 +250,6 @@ export const User: React.FC<IUserProps> = ({
   );
 };
 
-/**
- * @Button
- * @desc Button styles
- */
 interface IUserStyles {
   variant?: string;
 }
@@ -245,6 +257,7 @@ interface IUserStyles {
 interface IRowStyles {
   gap?: string;
   spacing?: TwStyle;
+  type?: string;
 }
 
 const Column = styled.div(({ variant }: IUserStyles) => [
@@ -263,18 +276,17 @@ const Column = styled.div(({ variant }: IUserStyles) => [
   `,
 ]);
 
-const Row = styled.div(({ gap, spacing }: IRowStyles) => [
+const Row = styled.div(({ gap, spacing, type }: IRowStyles) => [
   tw`
     flex
     flex-row
-    flex-wrap
     justify-start
     items-center
-    max-w-lg
     gap-16
   `,
   gap === 'small' && tw`gap-8`,
   spacing && spacing,
+  type === 'edit' && tw`w-fit gap-0`,
 ]);
 
 const Article = styled.article(() => [tw`flex flex-col p-16 bg-slate-white rounded-16`]);

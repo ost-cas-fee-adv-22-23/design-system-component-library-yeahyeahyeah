@@ -5,7 +5,7 @@
 |-|-|
 |label|Label of the button. Not visible, but required in conjunction with accessibility.|
 |Icon| Choose your Icon accordingly.|
-|Variant|Choose *edit* if you need a edit mode button. Only in *edit* mode avaliable. See [Avatar](./?path=/docs/user--avatar-story "Avatar") |
+|variant|Choose *default* if you need a edit mode button. Choose *plain* for a **only icon button** variant. See [Mumble-Header](./?path=/story/mumble-mumble-header--mumble-story "Mumble-Header") to see both variants.|
 |fCallBack|JS Callback Function|
 
 
@@ -18,7 +18,7 @@ import { IconButton } from "@smartive-education/design-system-component-library-
 
 ```
 ## IconButton Types
-### Default
+### Default button variant
 ```js
 
 <IconButton
@@ -30,14 +30,14 @@ import { IconButton } from "@smartive-education/design-system-component-library-
 
 ```
 
-### Edit
+### Plain button variation
 ```js
 
 <IconButton
-  fCallBack={() => console.log('IconButton clicked')}
+  fCallBack={() => {}}
   icon="logo"
   label="Label"
-  variant="edit"
+  variant="plain"
 />
 
 ```

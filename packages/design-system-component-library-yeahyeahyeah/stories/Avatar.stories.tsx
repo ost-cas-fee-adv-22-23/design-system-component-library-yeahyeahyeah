@@ -27,15 +27,12 @@ export default {
   args: {
     variant: 'large',
     src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-    alt: '',
+    alt: 'Image description',
   },
 } as ComponentMeta<typeof Avatar>;
 
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
-/**
- * @button
- * @desc button standard slate
- */
+
 export const AvatarStory = Template.bind({});
 
 AvatarStory.parameters = {

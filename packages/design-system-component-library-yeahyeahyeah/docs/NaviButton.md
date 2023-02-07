@@ -7,7 +7,7 @@
 |variant|Use *profile* for [Navigation Profile Button](./?path=/story/navigation-navigation--navigation-story). Use *default* for all other navigation links. For variant *profile* see [Avatar](./?path=/docs/user--avatar-story) and choose variant *small*.|
 |fCallBack|JS-Callback function.|
 |avatar|Only relevant for variant *profile*. See settings in [Avatar](./?path=/docs/user--avatar-story).|
-|icon|Choose icon accordingly. See details on [Icons](./?path=/docs/icons-collection--all).|
+|icon|Only available in variant **default**. Choose icon accordingly. See details on [Icons](./?path=/docs/icons-collection--all).|
 
 ## Include NaviButton from the component library
 

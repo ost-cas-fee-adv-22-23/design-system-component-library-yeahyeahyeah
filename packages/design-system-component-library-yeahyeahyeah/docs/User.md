@@ -3,13 +3,14 @@
 ## User properties and how to use
 | Property|Description|
 |-|-|
-|variant|Change *type* and *style* of user element.|
+|variant|Change *type* and *style* of user element. Variant **xlarge** triggers an additional control *type* with options **edit** and **view**. Only in use for [MumbleHeader](./?path=/story/mumble-mumble-header--mumble-story).|
 |avatar|See further details on [Avatar](./?path=/docs/user--avatar-story)
 |btn|See [Button](./?path=/docs/interactions--button-story).|
 |joined|See see settings of [Interaction Icon Link](./?path=/docs/interactions--icon-link-variants)|
 |label|Label text.|
 |timestamp|See see settings of [Interaction Icon Link](./?path=/docs/interactions--icon-link-variants)|
 |username|See see settings of [Interaction Icon Link](./?path=/docs/interactions--icon-link-variants)|
+|type|For variant *xlarge* only. **edit** invokes an *settings* icon for further profile edits. *view* hides the settings icon.|
 
 
 ## Include User from the component library
@@ -126,5 +127,66 @@ const props: IUserProps = {
         <User {...props} />
       </div>
     ));
+
+```
+
+### User **xlarge** in *edit* mode - Explicit in MumbleHeader
+
+```js
+
+<User
+  avatar={{
+    alt: 'Alter Tag',
+    buttonCallBack: () => {},
+    imageCallBack: function noRefCheck() {},
+    src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif'
+  }}
+  btn={{
+    fCallBack: function noRefCheck() {
+      console.log('button clicked');
+    },
+    label: 'Follow'
+  }}
+  joined={{
+    fCallBack: function noRefCheck() {
+      console.log('joined clicked');
+    },
+    href: '',
+    label: 'Joined',
+    type: 'joined'
+  }}
+  label="Display Name"
+  location={{
+    fCallBack: function noRefCheck() {
+      console.log('location clicked');
+    },
+    href: '',
+    label: 'Location',
+    type: 'location'
+  }}
+  settings={{
+    fCallBack: function noRefCheck() {
+      console.log('settings clicked');
+    }
+  }}
+  timestamp={{
+    fCallBack: function noRefCheck() {
+      console.log('timestamp clicked');
+    },
+    href: '',
+    label: 'Timestamp',
+    type: 'timestamp'
+  }}
+  type="edit"
+  username={{
+    fCallBack: function noRefCheck() {
+      console.log('username clicked');
+    },
+    href: '',
+    label: 'Username',
+    type: 'username'
+  }}
+  variant="xlarge"
+/>
 
 ```

@@ -1,16 +1,15 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import tw from 'twin.macro';
+import tw, { styled } from 'twin.macro';
 import { IconsMapped, IconTypes } from '../icons/IconMap';
 
-export interface IconButtonProps {
+export interface IIconButtonProps {
   label: string;
   icon: IconTypes;
-  variant: 'default' | 'edit';
+  variant: 'default' | 'plain';
   fCallBack?: () => void;
 }
 
-export const IconButton: React.FC<IconButtonProps> = ({
+export const IconButton: React.FC<IIconButtonProps> = ({
   label = 'Label',
   icon = 'logo',
   variant = 'default',
@@ -20,28 +19,25 @@ export const IconButton: React.FC<IconButtonProps> = ({
 
   return (
     <ButtonStyles variant={variant} onClick={fCallBack} aria-label={label}>
-      <Icon />
+      <Icon variant={variant} />
       <p>{label}</p>
     </ButtonStyles>
   );
 };
 
 const createIcon = (icon: IconTypes) => {
-  return styled(IconsMapped[icon as IconTypes])(() => [tw`fill-slate-white`]);
+  return styled(IconsMapped[icon as IconTypes])(({ variant }: IButtonStyles) => [
+    tw`relative ml-0`,
+    variant === 'default' && tw`fill-slate-white -top-[7px]`,
+    variant === 'plain' && tw`fill-violet-600 -top-8`,
+  ]);
 };
 
-/**
- * @Button
- * @desc Button styles
- */
-const buttonFont = tw`
+const buttonDefaults = tw`
   text-skin-light
   font-semibold
   leading-normal
-`;
-
-const buttonDefaults = tw`
-  bg-slate-500
+bg-slate-500
   flex
   flex-col-reverse
   justify-center
@@ -61,39 +57,36 @@ const buttonDefaults = tw`
   disabled:bg-slate-300
 `;
 
-const buttonHover = tw`
-  hover:(outline-3)
-`;
-
-const buttonFocus = tw`
-  focus:(outline-4)
-`;
-
 interface IButtonStyles {
   variant: string;
 }
 
 const ButtonStyles = styled.button(({ variant }: IButtonStyles) => [
-  buttonFont,
   buttonDefaults,
-  buttonHover,
-  buttonFocus,
-  css`
-    overflow: hidden;
-    svg {
-      position: relative;
-      top: -8px;
-      margin-left: 0;
-    }
-  `,
-  variant === 'edit' &&
+  variant === 'default' &&
     tw`
-    relative
-    bottom-96
-    right-24
-    self-end
-    sm:(bottom-76 right-16)
-    md:(bottom-64 right-4)
-    lg:(bottom-[56px] right-4)
-  `,
+      focus:(outline-4)
+      hover:(outline-3)
+    `,
+  variant === 'plain' &&
+    tw`
+      outline-none
+      border-0
+    ` &&
+    tw`
+      bg-opacity-0
+      rounded-full
+      w-32
+      h-32
+      min-w-[16px]
+      min-h-[16px]
+      ring-0
+      transition
+      ease-in-out
+      delay-100
+
+      hover:(outline-none border-0 rotate-180 transform-gpu bg-opacity-0)
+      active:(border-0  rotate-0)
+      focus:(border-0 outline-none)
+    `,
 ]);
