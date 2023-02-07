@@ -26,8 +26,8 @@ export default {
   args: {
     src: 'https://picsum.photos/640/360',
     alt: 'This is a profile picture',
-    loading: false,
     type: 'container',
+    loading: false,
   },
 } as ComponentMeta<typeof ImageContainer>;
 

@@ -18,9 +18,11 @@ export default {
       control: 'text',
     },
     imageCallBack: {
+      control: false,
       action: action('image clicked'),
     },
     buttonCallBack: {
+      control: false,
       action: action('button clicked'),
     },
   },

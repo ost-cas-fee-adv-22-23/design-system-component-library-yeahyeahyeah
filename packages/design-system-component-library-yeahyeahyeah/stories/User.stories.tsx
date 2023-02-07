@@ -50,6 +50,7 @@ export default {
   args: {
     label: 'Display Name',
     variant: 'small',
+    type: 'edit',
     username: {
       label: 'Username',
       href: '',
@@ -87,7 +88,6 @@ export default {
       label: 'Follow',
       fCallBack: action('btn clicked'),
     },
-    type: 'edit',
   },
 } as ComponentMeta<typeof User>;
 

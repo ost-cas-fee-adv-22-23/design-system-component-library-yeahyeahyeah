@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { NaviButton } from '../../components/buttons/NaviButton';
-import { IconsMapped } from '../../components/icons/IconMap';
 import NaviButtonReadme from '../../docs/NaviButton.md';
 
 export default {
@@ -19,11 +18,21 @@ export default {
     },
     icon: {
       control: 'select',
-      options: Object.keys(IconsMapped),
+      options: ['settings', 'logout'],
       if: { arg: 'variant', eq: 'default' },
     },
     avatar: {
       control: 'object',
+    },
+  },
+  args: {
+    label: 'Label',
+    variant: 'default',
+    icon: 'settings',
+    avatar: {
+      variant: 'small',
+      src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+      alt: 'Alternative text',
     },
   },
 } as ComponentMeta<typeof NaviButton>;

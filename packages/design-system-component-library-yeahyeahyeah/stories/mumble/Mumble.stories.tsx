@@ -37,6 +37,8 @@ export default {
   },
   args: {
     variant: 'timeline',
+    text: 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking.',
+    mbSpacing: '0',
     user: {
       avatar: {
         alt: 'avatar',
@@ -71,7 +73,6 @@ export default {
       },
       variant: 'xlarge',
     },
-    text: 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking.',
     img: {
       alt: 'This is a profile picture!',
       fCallBack: action('icon clicked'),
@@ -89,7 +90,6 @@ export default {
       fCallBack: action('share clicked'),
       label: 'Share',
     },
-    mbSpacing: '0',
   },
 } as ComponentMeta<typeof Mumble>;
 

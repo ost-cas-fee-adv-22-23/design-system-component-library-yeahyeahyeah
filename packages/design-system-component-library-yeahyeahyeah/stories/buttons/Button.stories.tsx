@@ -40,11 +40,11 @@ export default {
   args: {
     label: 'Button Label',
     type: 'button',
-    disabled: false,
     size: 'small',
     width: 'default',
     color: 'slate',
     icon: 'logo',
+    disabled: false,
   },
 } as ComponentMeta<typeof Button>;
 
