@@ -113,6 +113,7 @@ const MumbleHeaderWrapper = styled.div(() => [
     flex
     flex-col
     justify-between
+    overflow-hidden
   `,
   BottomSpacing,
 ]);
