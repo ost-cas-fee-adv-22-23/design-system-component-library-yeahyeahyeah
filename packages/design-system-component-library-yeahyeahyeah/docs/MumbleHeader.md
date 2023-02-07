@@ -25,53 +25,41 @@ import { MumbleHeader } from "@smartive-education/design-system-component-librar
 <MumbleHeader
   banner={{
     alt: 'Picture',
-    fCallBack: () => {},
+    fCallBack: () => console.log('banner clicked'),
     src: 'https://loremflickr.com/640/360',
-    type: 'banner-edit'
+    type: 'banner-edit',
   }}
   text="Schreib etwas über dich."
   user={{
     avatar: {
       alt: 'Alttag',
-      buttonCallBack: function noRefCheck() {
-        console.log('avatar button clicked');
-      },
-      imageCallBack: function noRefCheck() {
-        console.log('avatar image clicked');
-      },
-      src: 'https://placebeard.it/640x360'
+      buttonCallBack: () => console.log('buttonCallBack clicked'),
+      imageCallBack: () => console.log('imageCallBack clicked'),
+      src: 'https://placebeard.it/640x360',
     },
     joined: {
-      fCallBack: function noRefCheck() {
-        console.log('joined clicked');
-      },
+      fCallBack: () => console.log('joined clicked'),
       href: '#',
       label: 'Joined',
-      type: 'joined'
+      type: 'joined',
     },
     label: 'Display Name',
     location: {
-      fCallBack: function noRefCheck() {
-        console.log('location clicked');
-      },
+      fCallBack: () => console.log('location clicked'),
       href: '#',
       label: 'Location',
-      type: 'joined'
+      type: 'joined',
     },
     settings: {
-      fCallBack: function noRefCheck() {
-        console.log('settings clicked');
-      }
+      fCallBack: () => console.log('settings clicked'),
     },
     username: {
-      fCallBack: function noRefCheck() {
-        console.log('username clicked');
-      },
+      fCallBack: () => console.log('username clicked'),
       href: '#',
       label: 'username',
-      type: 'joined'
+      type: 'joined',
     },
-    variant: 'header'
+    variant: 'xlarge',
   }}
   variant="edit"
 />
@@ -85,41 +73,41 @@ import { MumbleHeader } from "@smartive-education/design-system-component-librar
 <MumbleHeader
   banner={{
     alt: 'Picture',
-    fCallBack: () => {},
+    fCallBack: () => console.log('banner clicked'),
     src: 'https://loremflickr.com/640/360',
-    type: 'banner-edit'
+    type: 'banner-edit',
   }}
   text="Schreib etwas über dich."
   user={{
     avatar: {
       alt: 'Alttag',
-      buttonCallBack: function noRefCheck() {},
-      imageCallBack: function noRefCheck() {},
-      src: 'https://placebeard.it/640x360'
+      buttonCallBack: () => console.log('buttonCallBack clicked'),
+      imageCallBack: () => console.log('imageCallBack clicked'),
+      src: 'https://placebeard.it/640x360',
     },
     joined: {
-      fCallBack: function noRefCheck() {},
+      fCallBack: () => console.log('joined clicked'),
       href: '#',
       label: 'Joined',
-      type: 'joined'
+      type: 'joined',
     },
     label: 'Display Name',
     location: {
-      fCallBack: function noRefCheck() {},
+      fCallBack: () => console.log('location clicked'),
       href: '#',
       label: 'Location',
-      type: 'joined'
+      type: 'joined',
     },
     settings: {
-      fCallBack: function noRefCheck() {}
+      fCallBack: () => console.log('settings clicked'),
     },
     username: {
-      fCallBack: function noRefCheck() {},
+      fCallBack: () => console.log('username clicked'),
       href: '#',
       label: 'username',
-      type: 'joined'
+      type: 'joined',
     },
-    variant: 'header'
+    variant: 'xlarge',
   }}
   variant="view"
 />
