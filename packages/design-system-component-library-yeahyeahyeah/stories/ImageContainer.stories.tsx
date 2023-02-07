@@ -24,7 +24,7 @@ export default {
     },
   },
   args: {
-    src: 'https://shorturl.at/nEO01',
+    src: 'https://picsum.photos/640/360',
     alt: 'This is a profile picture',
     loading: false,
     type: 'container',
