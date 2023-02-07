@@ -44,6 +44,7 @@ export default {
     },
     type: {
       control: 'select',
+      if: { arg: 'variant', eq: 'xlarge' },
     },
   },
   args: {
