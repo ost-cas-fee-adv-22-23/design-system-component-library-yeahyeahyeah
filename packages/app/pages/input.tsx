@@ -1,35 +1,44 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { InputForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import debounce from 'lodash.debounce';
 
 export default function Profilepage() {
-  const [ref, setRef] = useState<React.MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null> | null>(null);
-  const [text, setText] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
 
-  const handleClick = () => {
-    if (text === '') {
-      setErrorMessage('Bitte füllen sie das Feld aus.');
+  const handlePressEnter = () => {
+    if (inputValue === '') {
+      setErrorMessage('Bitte füllen Sie das Formular aus.');
       return;
     }
-    if (ref?.current) ref.current.value = '';
-    setText('');
+    setInputValue('');
   };
 
+  const setErrorDebounced = useMemo(
+    () =>
+      debounce(() => {
+        setErrorMessage('');
+      }, 100),
+    [debounce]
+  );
+
   useEffect(() => {
-    if (text !== '') {
-      setErrorMessage('');
+    if (inputValue !== '') {
+      setErrorDebounced();
     }
-  }, [text]);
+  }, [inputValue, setErrorDebounced]);
 
   return (
     <InputForm
-      editType={'input'}
+      editType={'textarea'}
+      placeholder={'Bitte geben sie einen Text ein '}
       required={true}
       autoComplete={'off'}
-      setRef={setRef}
-      setText={setText}
+      setInputValue={setInputValue}
+      inputValue={inputValue}
       errorMessage={errorMessage}
-      onPressEnter={handleClick}
+      onPressEnter={handlePressEnter}
+      data-testid={'label'}
     />
   );
 }

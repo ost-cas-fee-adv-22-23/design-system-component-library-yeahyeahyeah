@@ -5,9 +5,14 @@
 |-|-|
 |user|Is needed for variant *write* and *inline*. [Navigation To User](./?path=/docs/user-user--user-story)|
 |form|Property object for handling the form functionality. You will have to set *errorMessage*, *placeholder*, *setRef* and *setText* - see example or [Navigation To InputForm](./?path=/docs/form-input--form-input-story)|
+|inputValue|The *value* of the input element will be set with this *value*. You can also clear the *input*, with an empty *value*.|
+|setInputValue|Here you can pass a *setState* function. The input *value* of the form element will be set with this *setState* function|
 |variant|Possible options are *write*, *inline* and *start*. Default is set to *start*. If you choose *write* or *inline*, you will have to set the user property|
 |uploadCallBack|You can pass a callback function, to trigger whatever you want, when the upload button is hit.|
 |sendCallback|You can pass a callback function, to trigger whatever you want, when enter button is hit.|
+|mbSpacing|Here a margin bottom spacing can be set.|
+|startHeading|Heading for variant *start* can be set.|
+|startParagraph|Description for variant *start* can be set.|
 
 ### TextBox example with variant *"start"* without user object
 
