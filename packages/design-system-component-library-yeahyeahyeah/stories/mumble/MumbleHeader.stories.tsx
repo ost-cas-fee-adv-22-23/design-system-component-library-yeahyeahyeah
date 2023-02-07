@@ -29,6 +29,7 @@ export default {
   args: {
     variant: 'edit',
     mbSpacing: '32',
+    text: 'Schreib etwas über dich.',
     banner: {
       src: 'https://loremflickr.com/640/360',
       alt: 'Picture',
@@ -66,8 +67,6 @@ export default {
         imageCallBack: action('avatar image clicked'),
       },
     },
-
-    text: 'Schreib etwas über dich.',
   },
 } as ComponentMeta<typeof MumbleHeader>;
 
@@ -82,6 +81,7 @@ MumbleStory.parameters = {
       component: MumbleHeaderReadme,
     },
   },
+  // controls: { sort: 'requiredFirst' },
 };
 
 MumbleStory.storyName = 'Mumble-Header';

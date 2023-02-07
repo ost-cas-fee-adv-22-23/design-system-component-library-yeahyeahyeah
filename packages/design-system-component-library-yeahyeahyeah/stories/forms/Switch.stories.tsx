@@ -7,7 +7,11 @@ import { action } from '@storybook/addon-actions';
 export default {
   title: 'Form/Switch',
   component: Switch,
-  parameters: {},
+  argTypes: {
+    value: {
+      control: 'text',
+    },
+  },
 } as ComponentMeta<typeof Switch>;
 
 const Template: ComponentStory<typeof Switch> = (args) => <Switch {...args} />;

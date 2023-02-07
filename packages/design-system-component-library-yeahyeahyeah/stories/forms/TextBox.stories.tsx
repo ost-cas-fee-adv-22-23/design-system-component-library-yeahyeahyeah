@@ -8,6 +8,20 @@ import debounce from 'lodash.debounce';
 export default {
   title: 'Form',
   component: TextBox,
+  argTypes: {
+    inputValue: {
+      control: false,
+      table: {
+        disable: true,
+      },
+    },
+    setInputValue: {
+      control: false,
+      table: {
+        disable: true,
+      },
+    },
+  },
 } as ComponentMeta<typeof TextBox>;
 
 const Template: ComponentStory<typeof TextBox> = (args) => {
