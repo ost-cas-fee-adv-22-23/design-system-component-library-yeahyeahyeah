@@ -5,7 +5,7 @@
 |-|-|
 |variant|Set *view* for default view mode. Set *edit* to give user the ability to edit profile.|
 |banner|See *banner* variants in [ImageContainer](./?path=/docs/medias-image--image-container-story).|
-|user|Set *user* variant to **header** for *edit* mode. Choose *xlarge* for normal view mode. See all examples in [User](./?path=/docs/user-user--user-story).|
+|user|*user* variant is set static to **xlarge** variant. Further details on [User](./?path=/docs/user-user--user-story).|
 |settings|JS-callback function to *edit* profile.|
 |avatar|Set variant to *xlarge*. See all examples on [avatar](./?path=/docs/user--avatar-story).|
 
