@@ -56,8 +56,7 @@ interface IImageIcon {
 
 const Image = styled.img(({ type }: IImageIcon) => [
   ImageScale({ opacityLevel: '40' }),
-  type === 'banner-edit' && tw`w-full h-auto`,
-  type === 'banner-view' && tw`w-full h-auto`,
+  (type === 'banner-edit' || type === 'banner-view') && tw`w-full h-auto`,
 ]);
 
 const Container = styled.div(() => [
@@ -140,8 +139,7 @@ const Figure = styled.figure.attrs({ className: 'group' })(({ type }: IImageIcon
     hover:bg-violet-600
   `,
   type === 'container' && tw`border-1 border-slate-white`,
-  type === 'banner-edit' && tw`border-none`,
-  type === 'banner-view' && tw`border-none`,
+  (type === 'banner-edit' || type === 'banner-view') && tw`border-none`,
 ]);
 
 const StyledFullScreen = styled(Fullscreen)(() => [tw`w-32 h-32 fill-slate-white`]);
