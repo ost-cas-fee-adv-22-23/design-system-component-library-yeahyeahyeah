@@ -89,77 +89,57 @@ export default function Timeline() {
                 <Mumble
                   key={i}
                   comment={{
-                    fCallBack: function noRefCheck() {
-                      console.log('clicked');
-                    },
+                    fCallBack: () => console.log('comment clicked'),
                     quantity: 0,
                   }}
                   img={{
                     alt: 'This is a profile picture!',
-                    fCallBack: function noRefCheck() {
-                      console.log('clicked');
-                    },
+                    fCallBack: () => console.log('img clicked'),
                     src: 'https://picsum.photos/640/360',
                   }}
                   like={{
-                    fCallBack: function noRefCheck() {
-                      console.log('clicked');
-                    },
+                    fCallBack: () => console.log('like clicked'),
                     quantity: 999,
                   }}
-                  mbSpacing="32"
+                  mbSpacing="0"
                   share={{
-                    fCallBack: function noRefCheck() {
-                      console.log('clicked');
-                    },
+                    fCallBack: () => console.log('share clicked'),
                     label: 'Share',
                   }}
                   text={post}
                   user={{
                     avatar: {
                       alt: 'avatar',
-                      buttonCallBack: function noRefCheck() {
-                        console.log('clicked');
-                      },
-                      imageCallBack: function noRefCheck() {
-                        console.log('clicked');
-                      },
-                      src: 'https://picsum.photos/640/360',
+                      buttonCallBack: () => console.log('buttonCallBack clicked'),
+                      imageCallBack: () => console.log('imageCallBack clicked'),
+                      src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
                     },
                     joined: {
-                      type: 'joined',
-                      fCallBack: function noRefCheck() {
-                        console.log('clicked');
-                      },
+                      fCallBack: () => console.log('joined clicked'),
                       href: '',
                       label: 'Joined',
+                      type: 'joined',
                     },
                     label: 'Display Name',
                     location: {
-                      type: 'joined',
-                      fCallBack: function noRefCheck() {
-                        console.log('clicked');
-                      },
+                      fCallBack: () => console.log('location clicked'),
                       href: '',
                       label: 'Location',
+                      type: 'location',
                     },
                     timestamp: {
-                      type: 'joined',
-                      fCallBack: function noRefCheck() {
-                        console.log('clicked');
-                      },
+                      fCallBack: () => console.log('timestamp clicked'),
                       href: '',
                       label: 'Timestamp',
+                      type: 'timestamp',
                     },
                     username: {
-                      type: 'joined',
-                      fCallBack: function noRefCheck() {
-                        console.log('clicked');
-                      },
+                      fCallBack: () => console.log('username clicked'),
                       href: '',
                       label: 'Username',
+                      type: 'username',
                     },
-                    variant: 'xlarge',
+                    variant: 'large',
                   }}
                   variant="timeline"
                 />
