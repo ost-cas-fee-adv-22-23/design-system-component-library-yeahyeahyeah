@@ -76,7 +76,7 @@ export default {
     img: {
       alt: 'This is a profile picture!',
       fCallBack: action('icon clicked'),
-      src: 'https://picsum.photos/640/360',
+      src: '',
     },
     comment: {
       fCallBack: action('comment clicked'),
