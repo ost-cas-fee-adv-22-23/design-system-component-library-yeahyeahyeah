@@ -1,14 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import {
-  Button,
-  FileUpload,
-  IconLink,
-  Modal,
-  TextBox,
-} from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { IconLink, TextBox } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
-import tw, { styled } from 'twin.macro';
+import UploadForm from '../components/UploadForm';
 
 export default function Profilepage() {
   const [posts, setPosts] = useState(['']);
@@ -63,38 +57,12 @@ export default function Profilepage() {
 
   return (
     <>
-      <Modal label={'Modal'} isOpen={showModal} wide={true} onClose={() => setShowModal(false)}>
-        <form onSubmit={() => console.log('Submit')} tw="container">
-          <FileUpload
-            label="Datei hierhin ziehen ..."
-            fileDescription="JPEG oder PNG, maximal 50 MB"
-            dragDescription="Jetzt loslassen ..."
-            loading={false}
-            onDropCallBack={onDropCallBack}
-            errorMessage={fileUploadError}
-          />
-          <Row>
-            <Button
-              fCallBack={() => setShowModal(false)}
-              icon="cancel"
-              label="Abbrechen"
-              size="large"
-              type="button"
-              color="slate"
-              width="full"
-            />
-            <Button
-              fCallBack={() => console.log('Send Button clicked')}
-              icon="send"
-              label="Speichern"
-              size="small"
-              type="button"
-              color="violet"
-              width="full"
-            />
-          </Row>
-        </form>
-      </Modal>
+      <UploadForm
+        onDropCallBack={onDropCallBack}
+        showModal={showModal}
+        setShowModal={setShowModal}
+        fileUploadError={fileUploadError}
+      />
       <div tw="flex flex-col justify-center items-center bg-slate-200 w-full h-full pb-64 pt-64">
         <div tw="mb-32">
           <IconLink href="/profilepage" label="Back to profilepage" type="username" color="violet" />
@@ -115,19 +83,3 @@ export default function Profilepage() {
     </>
   );
 }
-
-export interface IRowStyle {
-  upload?: string;
-}
-
-const Row = styled.div(({ upload }: IRowStyle) => [
-  tw`
-    flex
-    justify-between
-    gap-16
-    flex-col
-    sm:(flex-row)
-    mt-48
-  `,
-  upload === 'upload' && tw`mt-16`,
-]);
