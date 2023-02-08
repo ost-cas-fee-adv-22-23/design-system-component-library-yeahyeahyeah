@@ -7,7 +7,7 @@
 |fileDescription|The description text, that should be displayed. It's position is under the label.|
 |dragDescription|The description text, that should be displayed, when you drag a file over the dropzone.|
 |loading|Show the loading spinner.|
-|fCallBack|A callback function, that can be triggered|
+|onDropCallBack|Callback function that returns an *acceptedFiles* array and a *fileRejections* array|
 
 ## Include FileUpload from the component library
 
@@ -21,12 +21,25 @@ import { FileUpload } from "@smartive-education/design-system-component-library-
 
 ```js
 
+const [error, setError] = React.useState('');
+
+const setTimerForError = () =>
+  setTimeout(() => {
+    setError('');
+  }, 2000);
+
+const onDropCallBack = (acceptedFiles: File[], fileRejections: FileRejection[]) => {
+  fileRejections?.length && setError(fileRejections[0].errors[0].message);
+  setTimerForError();
+};
+
 <FileUpload
-  label='Datei hierhin ziehen ...'
-  fileDescription='JPEG oder PNG, maximal 50 MB'
-  dragDescription='Jetzt loslassen ...'
+  label="Datei hierhin ziehen ..."
+  fileDescription="JPEG oder PNG, maximal 50 MB"
+  dragDescription="Jetzt loslassen ..."
   loading={false}
-  fCallBack={() => console.log('FileUpload')}
+  onDropCallBack={onDropCallBack}
+  errorMessage={error}
 />
 
 ```
