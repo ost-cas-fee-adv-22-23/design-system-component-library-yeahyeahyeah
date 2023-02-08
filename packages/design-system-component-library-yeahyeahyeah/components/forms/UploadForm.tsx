@@ -1,7 +1,7 @@
 import React from 'react';
-import { Modal, FileUpload, Button } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import { FileRejection } from 'react-dropzone';
 import tw, { styled } from 'twin.macro';
+import { Button, FileUpload, Modal } from '../index';
 
 export interface IUploadFormProps {
   onDropCallBack: (acceptedFiles: File[], fileRejections: FileRejection[]) => void;

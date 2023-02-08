@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { IconLink, TextBox } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { IconLink, TextBox, UploadForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
-import UploadForm from '../components/UploadForm';
 
 export default function Profilepage() {
   const [posts, setPosts] = useState(['']);

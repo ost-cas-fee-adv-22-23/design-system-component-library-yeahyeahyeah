@@ -1,9 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Navi from './includes/navi';
-import { Mumble, TextBox, Container } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { Mumble, TextBox, Container, UploadForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
-import UploadForm from '../components/UploadForm';
 
 export default function Detailview() {
   const [posts, setPosts] = useState(['']);

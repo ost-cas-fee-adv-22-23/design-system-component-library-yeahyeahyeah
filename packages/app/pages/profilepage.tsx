@@ -9,10 +9,10 @@ import {
   User,
   IUserProps,
   MumbleHeader,
+  UploadForm,
 } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
-import UploadForm from '../components/UploadForm';
 
 export default function Profilepage() {
   const [posts, setPosts] = useState(['']);

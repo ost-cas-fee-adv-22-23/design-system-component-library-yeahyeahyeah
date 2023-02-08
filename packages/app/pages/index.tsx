@@ -1,9 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Navi from './includes/navi';
-import { Mumble, TextBox, Heading, Container } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import {
+  Mumble,
+  TextBox,
+  Heading,
+  Container,
+  UploadForm,
+} from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
-import UploadForm from '../components/UploadForm';
 
 export default function Timeline() {
   const [posts, setPosts] = useState(['']);

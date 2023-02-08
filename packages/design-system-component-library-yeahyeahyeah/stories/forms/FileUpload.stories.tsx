@@ -2,8 +2,6 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { FileUpload } from '../../components/forms/FileUpload';
 import UploadReadme from '../../docs/FileUpload.md';
-import { Button, Modal } from '../../index';
-import tw, { styled } from 'twin.macro';
 import { FileRejection } from 'react-dropzone';
 
 export default {
@@ -51,50 +49,8 @@ const Template: ComponentStory<typeof FileUpload> = (args) => {
     setTimerForError();
   };
 
-  return (
-    <Modal label={'Modal'} isOpen={true} wide={true}>
-      <form onSubmit={() => console.log('Submit')} tw="container">
-        <FileUpload {...args} onDropCallBack={onDropCallBack} errorMessage={error} />
-        <Row>
-          <Button
-            fCallBack={() => console.log('Cancel Button clicked')}
-            icon="cancel"
-            label="Abbrechen"
-            size="large"
-            type="button"
-            color="slate"
-            width="full"
-          />
-          <Button
-            fCallBack={() => console.log('Send Button clicked')}
-            icon="send"
-            label="Speichern"
-            size="small"
-            type="button"
-            color="violet"
-            width="full"
-          />
-        </Row>
-      </form>
-    </Modal>
-  );
+  return <FileUpload {...args} onDropCallBack={onDropCallBack} errorMessage={error} />;
 };
-
-export interface IRowStyle {
-  upload?: string;
-}
-
-const Row = styled.div(({ upload }: IRowStyle) => [
-  tw`
-    flex
-    justify-between
-    gap-16
-    flex-col
-    sm:(flex-row)
-    mt-48
-  `,
-  upload === 'upload' && tw`mt-16`,
-]);
 
 export const UploadStory = Template.bind({});
 
