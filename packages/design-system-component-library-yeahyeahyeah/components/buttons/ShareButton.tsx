@@ -30,10 +30,10 @@ export const ShareButton: React.FC<IShareButton> = ({ label = 'Copy Link', fCall
         onClick={handleClick}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        hover={hover ? 'true' : 'false'}
+        hover={hover}
         aria-label={label}
       >
-        <Share hover={hover ? 'true' : 'false'} aria-label={label} />
+        <Share hover={hover} aria-label={label} />
         {labelText}
       </ButtonStyles>
     </>
@@ -49,12 +49,12 @@ const createIcon = (icon: IconTypes) => {
         ml-0
         mr-8
         focus:(text-slate-700)`,
-    hover === 'true' && tw`fill-slate-700`,
+    hover === true && tw`fill-slate-700`,
   ]);
 };
 
 interface IShareButtonStyles {
-  hover: string;
+  hover: boolean;
 }
 
 /**
@@ -78,5 +78,5 @@ const ButtonStyles = styled.button(({ hover }: IShareButtonStyles) => [
     bg-none
     focus:(text-slate-700)
   `,
-  hover === 'true' && tw`text-slate-700 bg-slate-100`,
+  hover === true && tw`text-slate-700 bg-slate-100`,
 ]);

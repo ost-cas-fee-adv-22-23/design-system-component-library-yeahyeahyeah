@@ -66,7 +66,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
               autoComplete={autoComplete}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
               onKeyDown={handleKeyDown}
-              error={errorMessage ? 'true' : 'false'}
+              error={errorMessage ? true : false}
               data-testid={label.toLowerCase()}
               value={inputValue}
             />
@@ -90,7 +90,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
             onKeyDown={handleKeyDown}
             rows={20}
             cols={30}
-            error={errorMessage ? 'true' : 'false'}
+            error={errorMessage ? true : false}
             data-testid={'testTextarea'}
             value={inputValue}
           />
@@ -102,7 +102,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
 };
 
 interface IStyled {
-  error: string;
+  error: boolean;
 }
 
 const FormFieldError = styled.p(() => [
@@ -170,7 +170,7 @@ const TextArea = styled.textarea(({ error }: IStyled) => [
     outline-none
     placeholder:(font-normal text-slate-500)
   `,
-  error === 'true'
+  error === true
     ? tw`ring-1 ring-red hover:(ring-red) focus:(ring-red) focus-within:(ring-red)`
     : tw`ring-1 ring-slate-200 hover:(ring-2 ring-slate-300) focus:(ring-2 ring-violet-700) focus-within:(ring-2 ring-violet-700)`,
 ]);
@@ -198,7 +198,7 @@ const InputStyles = styled.input(({ error }: IStyled) => [
     ring-offset-0
     placeholder:(font-normal text-slate-500)
   `,
-  error === 'true'
+  error === true
     ? tw`ring-1 ring-red hover:(ring-red) focus:(ring-red) focus-within:(ring-red)`
     : tw`ring-1 ring-slate-200 hover:(ring-2 ring-slate-300) focus:(ring-2 ring-violet-700) focus-within:(ring-2 ring-violet-700)`,
 ]);
