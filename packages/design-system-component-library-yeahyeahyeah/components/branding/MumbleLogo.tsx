@@ -32,21 +32,12 @@ export const MumbleLogo: React.FC<IMumbleLogoProps> = ({
         onMouseLeave={() => setHover(false)}
       >
         <MumbleLogoStyledDiv alignment={alignment}>
-          <StyledLogoMumble color={color} hover={hover ? 'true' : 'false'} navigation={isNavigation ? 'true' : 'false'} />
+          <StyledLogoMumble color={color} hover={hover} navigation={isNavigation} />
 
           {color !== 'gradient' ? (
-            <StyledMumbleText
-              color={color}
-              navigation={isNavigation ? 'true' : 'false'}
-              alignment={alignment}
-              hover={hover ? 'true' : 'false'}
-            />
+            <StyledMumbleText color={color} navigation={isNavigation} alignment={alignment} hover={hover} />
           ) : (
-            <StyledMumbleGradient
-              navigation={isNavigation ? 'true' : 'false'}
-              alignment={alignment}
-              hover={hover ? 'true' : 'false'}
-            />
+            <StyledMumbleGradient navigation={isNavigation} alignment={alignment} hover={hover} />
           )}
         </MumbleLogoStyledDiv>
       </MumbleLogoStyledLink>
@@ -55,10 +46,10 @@ export const MumbleLogo: React.FC<IMumbleLogoProps> = ({
 };
 
 type IStyled = {
-  hover: 'true' | 'false';
+  hover: boolean;
+  navigation: boolean;
   color: 'violet' | 'gradient' | 'white';
   alignment: 'horizontal' | 'vertical';
-  navigation: 'true' | 'false';
 };
 
 type IMumbleLogoStyledDiv = Pick<IStyled, 'alignment'>;
@@ -87,14 +78,14 @@ type IStyledLogoMumble = Pick<IStyled, 'color' | 'hover' | 'navigation'>;
 
 const StyledLogoMumble = styled(Logo)(({ color, hover, navigation }: IStyledLogoMumble) => [
   tw`fill-violet-600`,
-  navigation === 'true' ? tw`w-48 h-48` : tw`w-64 h-64 `,
+  navigation === true ? tw`w-48 h-48` : tw`w-64 h-64 `,
   IconColor(color, hover),
 ]);
 
 type IStyledMumbleText = Pick<IStyled, 'alignment' | 'navigation' | 'color' | 'hover'>;
 
 const StyledMumbleText = styled(MumbleText)(({ alignment, navigation, color, hover }: IStyledMumbleText) => [
-  navigation === 'true' ? tw`h-[30px] w-[154px]` : tw`h-[48px] w-[246px]`,
+  navigation === true ? tw`h-[30px] w-[154px]` : tw`h-[48px] w-[246px]`,
   TextSvgStyles(alignment, navigation),
   IconColor(color, hover),
 ]);
@@ -102,11 +93,11 @@ const StyledMumbleText = styled(MumbleText)(({ alignment, navigation, color, hov
 type IStyledMumbleGradient = Pick<IStyled, 'alignment' | 'navigation' | 'hover'>;
 
 const StyledMumbleGradient = styled(MumbleGradient)(({ alignment, navigation }: IStyledMumbleGradient) => [
-  navigation === 'true' ? tw`h-[30px] w-[154px]` : tw`h-[48px] w-[246px]`,
+  navigation === true ? tw`h-[30px] w-[154px]` : tw`h-[48px] w-[246px]`,
   TextSvgStyles(alignment, navigation),
 ]);
 
-const IconColor = (color: string, hover: string) => {
+const IconColor = (color: string, hover: boolean) => {
   let hoverColor: TwStyle;
   let defaultColor: TwStyle;
 
@@ -114,25 +105,25 @@ const IconColor = (color: string, hover: string) => {
     case 'violet':
       defaultColor = tw`fill-violet-600`;
       hoverColor = tw`fill-slate-white`;
-      return hover === 'true' ? hoverColor : defaultColor;
+      return hover === true ? hoverColor : defaultColor;
     case 'gradient':
       defaultColor = tw`fill-violet-600`;
       hoverColor = tw`fill-slate-white`;
-      return hover === 'true' ? hoverColor : defaultColor;
+      return hover === true ? hoverColor : defaultColor;
     case 'white':
       defaultColor = tw`fill-slate-white`;
       hoverColor = tw`fill-slate-300`;
-      return hover === 'true' ? hoverColor : defaultColor;
+      return hover === true ? hoverColor : defaultColor;
   }
   return null;
 };
 
-const TextSvgStyles = (alignment: string, navigation: string) => {
+const TextSvgStyles = (alignment: string, navigation: boolean) => {
   switch (alignment) {
     case 'horizontal':
-      return navigation === 'true' ? (tw`ml-8 sm:ml-16` as TwStyle) : (tw`ml-8 sm:ml-16 ` as TwStyle);
+      return navigation === true ? (tw`ml-8 sm:ml-16` as TwStyle) : (tw`ml-8 sm:ml-16 ` as TwStyle);
     case 'vertical':
-      return navigation === 'true' ? (tw`mt-8` as TwStyle) : (tw`mt-16` as TwStyle);
+      return navigation === true ? (tw`mt-8` as TwStyle) : (tw`mt-16` as TwStyle);
   }
   return null;
 };

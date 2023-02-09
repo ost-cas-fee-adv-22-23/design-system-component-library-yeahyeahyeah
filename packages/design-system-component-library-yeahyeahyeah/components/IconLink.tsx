@@ -26,13 +26,13 @@ export const IconLink: React.FC<IIconLinkProps> = ({
   const getIcon = () => {
     switch (type) {
       case 'username':
-        return <StyledProfile color={color} hover={hover ? 'true' : 'false'} />;
+        return <StyledProfile color={color} hover={hover} />;
       case 'timestamp':
-        return <StyledTime color={color} hover={hover ? 'true' : 'false'} />;
+        return <StyledTime color={color} hover={hover} />;
       case 'location':
-        return <StyledLocation color={color} hover={hover ? 'true' : 'false'} />;
+        return <StyledLocation color={color} hover={hover} />;
       case 'joined':
-        return <StyledCalendar color={color} hover={hover ? 'true' : 'false'} />;
+        return <StyledCalendar color={color} hover={hover} />;
       default:
         return null;
     }
@@ -69,7 +69,7 @@ export const IconLink: React.FC<IIconLinkProps> = ({
 
 interface IStyled {
   color: string;
-  hover: string;
+  hover: boolean;
 }
 
 const defaultStyles = tw`
@@ -87,7 +87,7 @@ const IconLinkStyles = styled.a(({ color }: Pick<IStyled, 'color'>) => [
   color === 'violet' && tw`text-violet-600 hover:(text-violet-900)`,
 ]);
 
-const IconColor = (color: string, hover: string) => {
+const IconColor = (color: string, hover: boolean) => {
   let hoverColor: TwStyle;
   let defaultColor: TwStyle;
 
@@ -95,11 +95,11 @@ const IconColor = (color: string, hover: string) => {
     case 'slate':
       hoverColor = tw`fill-slate-600`;
       defaultColor = tw`fill-slate-400`;
-      return hover === 'true' ? hoverColor : defaultColor;
+      return hover === true ? hoverColor : defaultColor;
     case 'violet':
       hoverColor = tw`fill-violet-900`;
       defaultColor = tw`fill-violet-600`;
-      return hover === 'true' ? hoverColor : defaultColor;
+      return hover === true ? hoverColor : defaultColor;
   }
   return null;
 };

@@ -36,9 +36,9 @@ export const ImageContainer: React.FC<IImageContainerProps> = ({
 
   return (
     <Figure type={type}>
-      <Wrapper loading={loading ? 'true' : 'false'}>
+      <Wrapper loading={loading}>
         <Container>
-          <ImageIcon loading={loading ? 'true' : 'false'} onClick={handleClick}>
+          <ImageIcon loading={loading} onClick={handleClick}>
             {loading === true ? <StyledRepost /> : getIcon()}
           </ImageIcon>
         </Container>
@@ -50,7 +50,7 @@ export const ImageContainer: React.FC<IImageContainerProps> = ({
 };
 
 interface IImageIcon {
-  loading?: string;
+  loading?: boolean;
   type?: string;
 }
 
@@ -95,7 +95,7 @@ const ImageIcon = styled.div(({ loading }: IImageIcon) => [
     ease-in-out
     z-50
 `,
-  loading === 'true' && LoadingSpinner,
+  loading === true && LoadingSpinner,
 ]);
 
 const Wrapper = styled.div(({ loading }: IImageIcon) => [
@@ -115,7 +115,7 @@ const Wrapper = styled.div(({ loading }: IImageIcon) => [
     -translate-x-1/2 
     -translate-y-1/2
 	`,
-  loading === 'true' && tw`opacity-100`,
+  loading === true && tw`opacity-100`,
 ]);
 
 const Figure = styled.figure.attrs({ className: 'group' })(({ type }: IImageIcon) => [

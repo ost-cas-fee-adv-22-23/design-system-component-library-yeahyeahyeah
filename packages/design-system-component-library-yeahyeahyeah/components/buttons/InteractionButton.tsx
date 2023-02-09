@@ -62,9 +62,9 @@ export const InteractionButton: React.FC<IInteractionButtonProps> = ({ type, qua
         onMouseLeave={() => setHover(false)}
       >
         {count === 0 ? (
-          <StyledReplyOutlined hover={hover ? 'true' : 'false'} count={count} />
+          <StyledReplyOutlined hover={hover} count={count} />
         ) : (
-          <StyledReplyFilled hover={hover ? 'true' : 'false'} count={count} />
+          <StyledReplyFilled hover={hover} count={count} />
         )}
         {count === 0 ? false : `${count}`} {label}
       </CommentStyles>
@@ -81,9 +81,9 @@ export const InteractionButton: React.FC<IInteractionButtonProps> = ({ type, qua
         aria-pressed={isFavourite}
       >
         {isFavourite ? (
-          <StyledHeartFilled hover={hover ? 'true' : 'false'} count={count} />
+          <StyledHeartFilled hover={hover} count={count} />
         ) : (
-          <StyledHeartOutlined hover={hover ? 'true' : 'false'} count={count} />
+          <StyledHeartOutlined hover={hover} count={count} />
         )}
         {(count === 1 && isFavourite === true) || count === 0 ? '' : count} {label}
       </LikeStyles>
@@ -102,7 +102,7 @@ interface IInteractionButtonStyles {
 }
 
 interface IInteractionSvgStyles {
-  hover: string;
+  hover: boolean;
   count?: number;
 }
 
@@ -155,7 +155,7 @@ const StyledReplyOutlined = styled(ReplyOutlined)(({ hover }: IInteractionSvgSty
       w-16
       mr-8
     `,
-  hover === 'true' && tw`fill-violet-600`,
+  hover === true && tw`fill-violet-600`,
 ]);
 
 const StyledReplyFilled = styled(ReplyFilled)(({ hover, count }: IInteractionSvgStyles) => [
@@ -165,7 +165,7 @@ const StyledReplyFilled = styled(ReplyFilled)(({ hover, count }: IInteractionSvg
       w-16
       mr-8
     `,
-  hover === 'true' && tw`fill-violet-600`,
+  hover === true && tw`fill-violet-600`,
   count && count >= 1 && tw`fill-violet-600`,
 ]);
 
@@ -176,8 +176,8 @@ const StyledHeartOutlined = styled(HeartOutlined)(({ hover, count }: IInteractio
       w-16
       mr-8
     `,
-  hover === 'true' && tw`fill-pink-500`,
-  count === 0 && hover === 'false' ? tw`fill-slate-600` : tw`fill-pink-500`,
+  hover === true && tw`fill-pink-500`,
+  count === 0 && hover === false ? tw`fill-slate-600` : tw`fill-pink-500`,
 ]);
 
 const StyledHeartFilled = styled(HeartFilled)(({ hover, count }: IInteractionSvgStyles) => [
@@ -187,6 +187,6 @@ const StyledHeartFilled = styled(HeartFilled)(({ hover, count }: IInteractionSvg
       w-16
       mr-8
     `,
-  hover === 'true' && tw`fill-pink-500`,
+  hover === true && tw`fill-pink-500`,
   count === 0 && !hover ? tw`fill-slate-600` : tw`fill-pink-500`,
 ]);
