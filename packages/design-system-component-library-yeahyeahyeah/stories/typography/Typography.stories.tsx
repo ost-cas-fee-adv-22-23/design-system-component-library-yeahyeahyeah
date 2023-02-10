@@ -5,7 +5,7 @@ import { Heading } from '../../components/typography/Heading';
 import { Paragraph } from '../../components/index';
 
 export default {
-  title: 'Typography/All Font Styles',
+  title: 'Typography/Overview',
   component: Heading,
   argTypes: {
     label: {
@@ -77,4 +77,11 @@ const Template: ComponentStory<typeof Heading> = () => (
 
 export const HeadingStory = Template.bind({});
 
-HeadingStory.storyName = 'All Font Styles';
+HeadingStory.parameters = {
+  previewTabs: {
+    'storybook/docs/panel': { hidden: true },
+  },
+  options: { showPanel: false },
+};
+
+HeadingStory.storyName = 'Overview';
