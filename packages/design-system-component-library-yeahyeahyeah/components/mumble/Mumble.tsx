@@ -114,7 +114,15 @@ export const Mumble: React.FC<IMumbleProps> = ({
             </UserWrapper>
             <Row>
               <Paragraph size={'large'} color={'dark'} text={text} mbSpacing={'16'} alignment={'left'} />
-              <ImageContainer type="container" alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
+              {img.src !== '' && (
+                <ImageContainer
+                  type="container"
+                  alt={img.alt}
+                  fCallBack={img.fCallBack}
+                  src={img.src}
+                  loading={img.loading}
+                />
+              )}
               <InteractionButton fCallBack={comment.fCallBack} quantity={comment.quantity} type="comment" />
               <InteractionButton fCallBack={like.fCallBack} quantity={like.quantity} type="like" />
               <ShareButton fCallBack={share.fCallBack} label={share.label} />

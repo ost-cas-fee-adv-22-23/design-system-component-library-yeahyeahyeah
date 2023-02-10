@@ -44,7 +44,7 @@ export const ImageContainer: React.FC<IImageContainerProps> = ({
         </Container>
       </Wrapper>
 
-      {src !== '' ? <Image alt={alt} src={src} /> : <Image tw="aspect-video border-none" />}
+      {src !== '' && <Image alt={alt} src={src} />}
     </Figure>
   );
 };
