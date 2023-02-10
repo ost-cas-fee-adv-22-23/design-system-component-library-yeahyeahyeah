@@ -95,31 +95,19 @@ const IconColor = (color: string, hover: boolean) => {
     case 'slate':
       hoverColor = tw`fill-slate-600`;
       defaultColor = tw`fill-slate-400`;
-      return hover === true ? hoverColor : defaultColor;
+      return hover ? hoverColor : defaultColor;
     case 'violet':
       hoverColor = tw`fill-violet-900`;
       defaultColor = tw`fill-violet-600`;
-      return hover === true ? hoverColor : defaultColor;
+      return hover ? hoverColor : defaultColor;
   }
   return null;
 };
 
-const StyledProfile = styled(Profile)(({ color, hover }: IStyled) => [
-  tw`w-12 h-12 mr-6 mt-1`,
-  color && hover && IconColor(color, hover),
-]);
+const StyledProfile = styled(Profile)(({ color, hover }: IStyled) => [tw`w-12 h-12 mr-6 mt-1`, IconColor(color, hover)]);
 
-const StyledTime = styled(Time)(({ color, hover }: IStyled) => [
-  tw`w-12 h-12 mr-6 mt-1`,
-  color && hover && IconColor(color, hover),
-]);
+const StyledTime = styled(Time)(({ color, hover }: IStyled) => [tw`w-12 h-12 mr-6 mt-1`, IconColor(color, hover)]);
 
-const StyledLocation = styled(Location)(({ color, hover }: IStyled) => [
-  tw`w-12 h-12 mr-6 mt-1`,
-  color && hover && IconColor(color, hover),
-]);
+const StyledLocation = styled(Location)(({ color, hover }: IStyled) => [tw`w-12 h-12 mr-6 mt-1`, IconColor(color, hover)]);
 
-const StyledCalendar = styled(Calendar)(({ color, hover }: IStyled) => [
-  tw`w-12 h-12 mr-6 mt-1`,
-  color && hover && IconColor(color, hover),
-]);
+const StyledCalendar = styled(Calendar)(({ color, hover }: IStyled) => [tw`w-12 h-12 mr-6 mt-1`, IconColor(color, hover)]);
