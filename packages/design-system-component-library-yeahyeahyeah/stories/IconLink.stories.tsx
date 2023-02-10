@@ -20,8 +20,17 @@ export default {
     type: {
       control: 'select',
     },
+    link: {
+      control: 'select',
+      table: {
+        disable: true,
+      },
+    },
     fCallBack: {
       defaultValue: action('IconLink clicked'),
+      table: {
+        disable: true,
+      },
     },
   },
   args: {
