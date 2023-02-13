@@ -11,15 +11,11 @@ export interface IParagraphProps {
   mbSpacing?: TmbSpacing;
 }
 
-export const Paragraph: React.FC<IParagraphProps> = ({ size = 'medium', color = 'default', mbSpacing, text, alignment }) => {
-  return (
-    <>
-      <ParagraphStyles size={size} color={color} mbSpacing={mbSpacing} alignment={alignment}>
-        {text}
-      </ParagraphStyles>
-    </>
-  );
-};
+export const Paragraph: React.FC<IParagraphProps> = ({ size = 'medium', color = 'default', mbSpacing, text, alignment }) => (
+  <ParagraphStyles size={size} color={color} mbSpacing={mbSpacing} alignment={alignment}>
+    {text}
+  </ParagraphStyles>
+);
 
 interface IParagraphStylesProps {
   size: string;

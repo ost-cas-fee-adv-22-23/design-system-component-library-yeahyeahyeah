@@ -1,11 +1,11 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
-import { IUserProps, User } from '../User';
+import { IUserProps, User } from '../user/User';
 import { Paragraph } from '../typography/Paragraph';
-import { IInteractionButtonProps, InteractionButton } from '../buttons/InteractionButton';
-import { IShareButton, ShareButton } from '../buttons/ShareButton';
-import { IImageContainerProps, ImageContainer } from '../ImageContainer';
-import { Avatar } from '../Avatar';
+import { IInteractionButtonProps, InteractionButton } from '../button/InteractionButton';
+import { IShareButton, ShareButton } from '../button/ShareButton';
+import { IImageContainerProps, ImageContainer } from '../image/ImageContainer';
+import { Avatar } from '../user/Avatar';
 import { BottomSpacing } from '../../styles/Spacing';
 import type { TmbSpacing } from '../../types/types';
 

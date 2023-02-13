@@ -1,6 +1,6 @@
 import '@storybook/addon-console';
 import { configureActions } from '@storybook/addon-actions';
-import GlobalStyles from '../stories/layouts/GlobalStyles';
+import GlobalStyles from '../stories/layout/GlobalStyles';
 
 export const parameters = {
   layout: 'fullscreen',
