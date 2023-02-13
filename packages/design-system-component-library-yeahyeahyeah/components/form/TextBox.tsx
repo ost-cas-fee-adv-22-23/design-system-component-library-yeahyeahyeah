@@ -4,7 +4,7 @@ import { User, IUserProps } from '../user/User';
 import { InputForm, IFormInputProps } from './InputForm';
 import { Button, IButtonProps } from '../button/Button';
 import { BottomSpacing } from '../../styles/Spacing';
-import { Heading, Paragraph } from '../index';
+import { Heading, Paragraph } from '../typography';
 import type { TmbSpacing } from '../../types/types';
 
 export interface ITextBoxProps {
