@@ -1,11 +1,11 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
-import { IUserProps, User } from '../User';
+import { IUserProps, User } from '../user/User';
 import { Paragraph } from '../typography/Paragraph';
-import { IInteractionButtonProps, InteractionButton } from '../buttons/InteractionButton';
-import { IShareButton, ShareButton } from '../buttons/ShareButton';
-import { IImageContainerProps, ImageContainer } from '../ImageContainer';
-import { Avatar } from '../Avatar';
+import { IInteractionButtonProps, InteractionButton } from '../button/InteractionButton';
+import { IShareButton, ShareButton } from '../button/ShareButton';
+import { IImageContainerProps, ImageContainer } from '../image/ImageContainer';
+import { Avatar } from '../user/Avatar';
 import { BottomSpacing } from '../../styles/Spacing';
 import type { TmbSpacing } from '../../types/types';
 
@@ -92,7 +92,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
       {variant === 'detailpage' && (
         <>
           <Article variant={variant} mbSpacing={mbSpacing}>
-            <UserWrapper mbSpacing={'0'}>
+            <UserWrapper mbSpacing="0">
               <User
                 btn={user.btn}
                 joined={user.joined}
@@ -107,13 +107,13 @@ export const Mumble: React.FC<IMumbleProps> = ({
                 <Avatar
                   alt={user.avatar?.alt || ''}
                   src={user.avatar?.src || ''}
-                  variant={'medium'}
+                  variant="medium"
                   imageCallBack={user.avatar?.imageCallBack}
                 />
               </AvatarWrapper>
             </UserWrapper>
             <Row>
-              <Paragraph size={'large'} color={'dark'} text={text} mbSpacing={'16'} alignment={'left'} />
+              <Paragraph size="large" color="dark" text={text} mbSpacing="16" alignment="left" />
               {img.src !== '' && (
                 <ImageContainer
                   type="container"
@@ -132,7 +132,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
       )}
       {variant === 'timeline' && (
         <Article variant={variant} mbSpacing={mbSpacing}>
-          <UserWrapper mbSpacing={'0'}>
+          <UserWrapper mbSpacing="0">
             <User
               avatar={user.avatar}
               btn={user.btn}
@@ -145,13 +145,13 @@ export const Mumble: React.FC<IMumbleProps> = ({
               <Avatar
                 alt={user.avatar?.alt || ''}
                 src={user.avatar?.src || ''}
-                variant={'medium'}
+                variant="medium"
                 imageCallBack={user.avatar?.imageCallBack}
               />
             </AvatarWrapper>
           </UserWrapper>
           <Row>
-            <Paragraph size={'medium'} color={'dark'} text={text} mbSpacing={'16'} alignment={'left'} />
+            <Paragraph size="medium" color="dark" text={text} mbSpacing="16" alignment="left" />
             <ImageContainer type="container" alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
             <InteractionButton fCallBack={comment.fCallBack} quantity={comment.quantity} type="comment" />
             <InteractionButton fCallBack={like.fCallBack} quantity={like.quantity} type="like" />
@@ -161,7 +161,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
       )}
       {variant === 'response' && (
         <Article mbSpacing={mbSpacing}>
-          <Row mbSpacing={'0'}>
+          <Row mbSpacing="0">
             <User
               avatar={user.avatar}
               btn={user.btn}
@@ -172,7 +172,7 @@ export const Mumble: React.FC<IMumbleProps> = ({
             />
           </Row>
           <Row>
-            <Paragraph size={'medium'} color={'dark'} text={text} mbSpacing={'16'} alignment={'left'} />
+            <Paragraph size="medium" color="dark" text={text} mbSpacing="16" alignment="left" />
             <ImageContainer type="container" alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
             <InteractionButton fCallBack={comment.fCallBack} quantity={comment.quantity} type="comment" />
             <InteractionButton fCallBack={like.fCallBack} quantity={like.quantity} type="like" />

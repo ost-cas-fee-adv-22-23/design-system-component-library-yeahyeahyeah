@@ -16,11 +16,11 @@ export default function Navi() {
   return (
     <>
       <div tw="flex flex-row justify-start items-center font-medium p-16 gap-16">
-        <Link href={'/'}>Timeline</Link>
-        <Link href={'./detailview'}>Detailview</Link>
-        <Link href={'./profilepage'}>Profilepage</Link>
-        <Link href={'./textbox'}>Textbox</Link>
-        <Link href={'./hashtag'}>Hashtag</Link>
+        <Link href="/">Timeline</Link>
+        <Link href="./detailview">Detailview</Link>
+        <Link href="./profilepage">Profilepage</Link>
+        <Link href="./textbox">Textbox</Link>
+        <Link href="./hashtag">Hashtag</Link>
       </div>
       <div tw="w-full mb-32">
         <Navigation

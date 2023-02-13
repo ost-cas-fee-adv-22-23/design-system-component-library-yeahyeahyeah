@@ -2,7 +2,7 @@ import React from 'react';
 import tw from 'twin.macro';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Heading } from '../../components/typography/Heading';
-import { Paragraph } from '../../components/index';
+import { Paragraph } from '../../components/typography/Paragraph';
 
 export default {
   title: 'Typography/Overview',

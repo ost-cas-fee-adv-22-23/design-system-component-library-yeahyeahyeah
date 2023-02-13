@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { Heading } from '../typography/Heading';
-import { Cancel } from '../icons';
+import { Cancel } from '../icon/index';
 
 export interface IModalProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
   label: string;

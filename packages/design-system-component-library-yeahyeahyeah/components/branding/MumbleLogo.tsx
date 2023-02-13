@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import tw, { styled, TwStyle } from 'twin.macro';
-import { MumbleText, MumbleGradient, LogoMumble as Logo } from '../icons/index';
+import { MumbleText, MumbleGradient, LogoMumble as Logo } from '../icon/index';
 
 export interface IMumbleLogoProps {
   title: string;
@@ -26,7 +26,7 @@ export const MumbleLogo: React.FC<IMumbleLogoProps> = ({
       <MumbleLogoStyledLink
         title={title}
         href={href}
-        target={'_self'}
+        target="_self"
         onClick={fCallBack}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}

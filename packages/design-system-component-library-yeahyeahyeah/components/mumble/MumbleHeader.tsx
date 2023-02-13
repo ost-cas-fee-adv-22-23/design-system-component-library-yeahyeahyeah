@@ -2,11 +2,11 @@ import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { BottomSpacing } from '../../index';
 import type { TmbSpacing } from '../../types/types';
-import { User, IUserProps } from '../User';
+import { User, IUserProps } from '../user/User';
 import { Paragraph } from '../typography/Paragraph';
-import { IImageContainerProps, ImageContainer } from '../ImageContainer';
-import { Avatar } from '../Avatar';
-import { IconButton } from '../buttons/IconButton';
+import { IImageContainerProps, ImageContainer } from '../image/ImageContainer';
+import { Avatar } from '../user/Avatar';
+import { IconButton } from '../button/IconButton';
 
 export interface IMumbleHeaderProps {
   variant?: 'view' | 'edit';
@@ -83,7 +83,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
           type={variant}
         />
       </div>
-      <Row variant={variant} mbSpacing={'0'}>
+      <Row variant={variant} mbSpacing="0">
         <Avatar
           src={user.avatar?.src || ''}
           alt={user.avatar?.alt || ''}
@@ -97,7 +97,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
         )}
       </Row>
       <div tw="p-8">
-        <Paragraph text={text} color={'light'} size={'default'} alignment={'left'} mbSpacing={'32'} />
+        <Paragraph text={text} color="light" size="default" alignment="left" mbSpacing="32" />
       </div>
     </MumbleHeaderWrapper>
   );
