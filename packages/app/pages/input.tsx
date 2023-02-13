@@ -30,15 +30,15 @@ export default function Profilepage() {
 
   return (
     <InputForm
-      editType={'textarea'}
-      placeholder={'Bitte geben sie einen Text ein '}
+      editType="textarea"
+      placeholder="Bitte geben sie einen Text ein "
       required={true}
-      autoComplete={'off'}
+      autoComplete="off"
       setInputValue={setInputValue}
       inputValue={inputValue}
       errorMessage={errorMessage}
       onPressEnter={handlePressEnter}
-      data-testid={'label'}
+      data-testid="label"
     />
   );
 }

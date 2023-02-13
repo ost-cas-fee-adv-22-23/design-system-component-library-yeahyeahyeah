@@ -83,7 +83,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
           type={variant}
         />
       </div>
-      <Row variant={variant} mbSpacing={'0'}>
+      <Row variant={variant} mbSpacing="0">
         <Avatar
           src={user.avatar?.src || ''}
           alt={user.avatar?.alt || ''}
@@ -97,7 +97,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
         )}
       </Row>
       <div tw="p-8">
-        <Paragraph text={text} color={'light'} size={'default'} alignment={'left'} mbSpacing={'32'} />
+        <Paragraph text={text} color="light" size="default" alignment="left" mbSpacing="32" />
       </div>
     </MumbleHeaderWrapper>
   );

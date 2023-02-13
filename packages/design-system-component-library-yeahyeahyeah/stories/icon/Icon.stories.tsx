@@ -43,7 +43,7 @@ const TemplateIcon: ComponentStory<(IconsMapped: React.SVGProps<SVGSVGElement>) 
           <Heading
             tag="h3"
             label={iconType}
-            color={'light'}
+            color="light"
             size="small"
             alignment="center"
             tw="text-justify font-semibold hover:text-slate-white"

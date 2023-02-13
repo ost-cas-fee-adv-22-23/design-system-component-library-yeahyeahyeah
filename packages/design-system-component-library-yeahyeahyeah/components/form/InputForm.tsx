@@ -72,7 +72,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
             />
             {type === 'password' && <Eye tw="absolute right-16 cursor-pointer" onClick={showPassword} />}
             {type !== 'password' && inputValue && (
-              <Cancel data-testid={'svg_cancel'} tw="absolute top-[18px] right-12 cursor-pointer" onClick={clearForm} />
+              <Cancel data-testid="svg_cancel" tw="absolute top-[18px] right-12 cursor-pointer" onClick={clearForm} />
             )}
           </FormInlineWrapperStyles>
           <FormFieldError>{errorMessage}</FormFieldError>
@@ -91,7 +91,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
             rows={20}
             cols={30}
             error={errorMessage ? true : false}
-            data-testid={'testTextarea'}
+            data-testid="testTextarea"
             value={inputValue}
           />
           <FormFieldError>{errorMessage}</FormFieldError>

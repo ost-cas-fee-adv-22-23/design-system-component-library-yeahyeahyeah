@@ -78,12 +78,10 @@ export const TextBox: React.FC<ITextBoxProps> = ({
   return (
     <form onSubmit={handleSubmit} tw="container">
       <Card variant={variant}>
-        <UserWrapper variant={variant} mbSpacing={'16'}>
-          {variant === 'write' && (
-            <User avatar={user.avatar} label={user.label} username={user.username} variant={'write'} />
-          )}
+        <UserWrapper variant={variant} mbSpacing="16">
+          {variant === 'write' && <User avatar={user.avatar} label={user.label} username={user.username} variant="write" />}
           {variant === 'inline' && (
-            <User avatar={user.avatar} label={user.label} username={user.username} variant={'inline'} />
+            <User avatar={user.avatar} label={user.label} username={user.username} variant="inline" />
           )}
           {variant === 'start' && (
             <>
@@ -94,16 +92,16 @@ export const TextBox: React.FC<ITextBoxProps> = ({
         </UserWrapper>
 
         <InputForm
-          editType={'textarea'}
-          label={''}
+          editType="textarea"
+          label=""
           required={false}
           placeholder={form.placeholder}
           errorMessage={form.errorMessage}
-          autoComplete={'off'}
+          autoComplete="off"
           inputValue={inputValue}
           setInputValue={setInputValue}
           onPressEnter={onPressEnter}
-          data-testid={'testTextarea'}
+          data-testid="testTextarea"
         />
 
         <Row>
@@ -116,14 +114,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
             width={upload.width}
             icon={upload.icon}
           />
-          <Button
-            label={send.label}
-            size={send.size}
-            type={'submit'}
-            color={send.color}
-            width={send.width}
-            icon={send.icon}
-          />
+          <Button label={send.label} size={send.size} type="submit" color={send.color} width={send.width} icon={send.icon} />
         </Row>
       </Card>
     </form>
