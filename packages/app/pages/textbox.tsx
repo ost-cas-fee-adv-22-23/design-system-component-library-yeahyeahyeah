@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { IconLink, TextBox, UploadForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
+import Link from 'next/link';
 
 export default function Profilepage() {
   const [posts, setPosts] = useState(['']);
@@ -64,9 +65,16 @@ export default function Profilepage() {
       />
       <div tw="flex flex-col justify-center items-center bg-slate-200 w-full h-full pb-64 pt-64">
         <div tw="mb-32">
-          <IconLink href="/profilepage" label="Back to profilepage" type="username" color="violet" />
+          <IconLink
+            label="Back to profilepage"
+            type="username"
+            color="violet"
+            href="/profilepage"
+            legacyBehavior
+            passHref
+            linkComponent={Link}
+          />
         </div>
-
         <TextBox
           variant="start"
           form={{

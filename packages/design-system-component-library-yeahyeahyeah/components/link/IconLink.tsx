@@ -1,25 +1,22 @@
 import tw, { styled, TwStyle } from 'twin.macro';
 import React, { useState } from 'react';
 import { Profile, Time, Location, Calendar } from '../icon/index';
-import Link, { LinkProps } from 'next/link';
-import { Url } from 'url';
+import { Link, LinkProps } from './Link';
 
-export interface IIconLinkProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
+export interface IIconLinkProps extends LinkProps<any> {
   label: string;
   type: 'username' | 'timestamp' | 'location' | 'joined';
   color?: 'slate' | 'violet';
-  href?: Url | string;
   fCallBack?: () => void;
-  link?: Pick<LinkProps, 'href' | 'as' | 'scroll'>;
 }
 
 export const IconLink: React.FC<IIconLinkProps> = ({
   label = 'username',
   type = 'username',
   color = 'violet',
-  href = '/',
   fCallBack,
-  link,
+  newTab = false,
+  ...props
 }) => {
   const [hover, setHover] = useState<boolean>(false);
 
@@ -44,7 +41,7 @@ export const IconLink: React.FC<IIconLinkProps> = ({
   };
 
   return !fCallBack ? (
-    <Link href={link?.href || href} passHref legacyBehavior scroll={link?.scroll} as={link?.as as string}>
+    <Link {...props} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
       <IconLinkStyles color={color} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         {getIcon()}
         {label}
