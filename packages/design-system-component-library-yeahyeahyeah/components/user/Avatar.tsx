@@ -1,22 +1,38 @@
-import React from 'react';
+import React, { LinkHTMLAttributes } from 'react';
 import tw, { styled } from 'twin.macro';
 import { ImageScale } from '../../styles/ImageScale';
+import { Link, LinkProps } from '../link/Link';
 
-export interface IAvatarProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
-  variant: 'small' | 'medium' | 'large' | 'xlarge';
+export type AvatarProps<T> = {
+  variant?: 'small' | 'medium' | 'large' | 'xlarge';
   src: string;
   alt: string;
-  buttonCallBack?: () => void;
   imageCallBack?: () => void;
-}
+} & LinkProps<T>;
 
-export const Avatar: React.FC<IAvatarProps> = ({ variant = 'small', alt = '', src = '', imageCallBack }) => {
-  return (
-    <>
-      <Figure variant={variant}>
-        <Image src={src} alt={alt} onClick={imageCallBack} />
-      </Figure>
-    </>
+export const Avatar = <
+  T extends {
+    rel?: string;
+    target?: string;
+  } = LinkHTMLAttributes<HTMLElement>
+>({
+  variant = 'small',
+  alt,
+  src,
+  imageCallBack,
+  newTab = false,
+  ...props
+}: AvatarProps<T>) => {
+  return !imageCallBack ? (
+    <Link {...(props as any)} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
+      <StyledLink variant={variant}>
+        <Image src={src} alt={alt} />
+      </StyledLink>
+    </Link>
+  ) : (
+    <Figure variant={variant}>
+      <Image src={src} alt={alt} onClick={imageCallBack} />
+    </Figure>
   );
 };
 
@@ -24,7 +40,11 @@ interface IImageProps {
   variant: string;
 }
 
-const Figure = styled.figure.attrs({ className: 'group' })(({ variant }: IImageProps) => [
+const StyledLink = styled.a(() => Styles);
+
+const Figure = styled.figure.attrs({ className: 'group' })(() => Styles);
+
+const Styles = ({ variant }: IImageProps) => [
   variant === 'small' && tw`h-40 w-40 min-w-[40px]`,
   variant === 'medium' && tw`h-[72px] w-[72px] min-w-[72px] border-4`,
   variant === 'large' && tw`h-96 w-96 border-4`,
@@ -40,7 +60,7 @@ const Figure = styled.figure.attrs({ className: 'group' })(({ variant }: IImageP
     object-cover
     overflow-hidden
 	`,
-]);
+];
 
 const Image = styled.img(() => [
   ImageScale({ opacityLevel: '80' }),

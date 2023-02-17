@@ -4,7 +4,7 @@ import { Heading } from '../typography/Heading';
 import { IconButton } from '../button/IconButton';
 import { IconLink, IconLinkProps } from '../link/IconLink';
 import { Button } from '../button/Button';
-import { Avatar } from './Avatar';
+import { Avatar, AvatarProps } from './Avatar';
 
 export interface IUserProps {
   label: string;
@@ -14,7 +14,7 @@ export interface IUserProps {
   timestamp?: IconLinkProps<any>;
   location?: IconLinkProps<any>;
   joined?: IconLinkProps<any>;
-  avatar?: { src: string; alt: string; imageCallBack?: () => void; buttonCallBack?: () => void };
+  avatar?: AvatarProps<any>;
   btn?: { label: string; fCallBack?: () => void };
   settings?: { fCallBack?: () => void };
 }
@@ -87,7 +87,6 @@ export const User: React.FC<IUserProps> = ({
           </Column>
         </Row>
       )}
-
       {variant === 'write' && (
         <Row gap="small">
           <Column variant={variant}>

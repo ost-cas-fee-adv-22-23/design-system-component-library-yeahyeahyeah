@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import {
+  Avatar,
   IconLink,
   IUserProps,
   TextBox,
@@ -63,10 +64,12 @@ export default function Profilepage() {
 
   const props: IUserProps = {
     avatar: {
-      alt: 'Alter Tag',
-      buttonCallBack: () => console.log('button clicked'),
-      imageCallBack: () => console.log('image clicked'),
       src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+      alt: 'Alter Tag',
+      href: '/',
+      legacyBehavior: true,
+      passHref: true,
+      linkComponent: Link,
     },
     btn: {
       fCallBack: () => console.log('button clicked'),
@@ -133,6 +136,17 @@ export default function Profilepage() {
             inputValue={inputValue}
             sendCallback={addText}
             uploadCallback={handleUpload}
+          />
+        </div>
+        <div tw="mb-32">
+          <Avatar
+            src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif"
+            alt="Alter Tag"
+            variant="small"
+            href="/"
+            legacyBehavior={true}
+            passHref={true}
+            linkComponent={Link}
           />
         </div>
         <User {...props} />
