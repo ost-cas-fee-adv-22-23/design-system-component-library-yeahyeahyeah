@@ -1,5 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { IconLink, TextBox, UploadForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import {
+  IconLink,
+  IUserProps,
+  TextBox,
+  UploadForm,
+  User,
+} from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
 import Link from 'next/link';
@@ -55,6 +61,47 @@ export default function Profilepage() {
     setShowModal(true);
   };
 
+  const props: IUserProps = {
+    avatar: {
+      alt: 'Alter Tag',
+      buttonCallBack: () => console.log('button clicked'),
+      imageCallBack: () => console.log('image clicked'),
+      src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+    },
+    btn: {
+      fCallBack: () => console.log('button clicked'),
+      label: 'Follow',
+    },
+    joined: {
+      type: 'joined',
+      fCallBack: () => console.log('joined clicked'),
+      href: '',
+      label: 'Joined',
+    },
+    label: 'Display Name',
+    location: {
+      type: 'joined',
+      fCallBack: () => console.log('location clicked'),
+      href: '',
+      label: 'Location',
+    },
+    timestamp: {
+      type: 'joined',
+      fCallBack: () => console.log('timestamp clicked'),
+      href: '',
+      label: 'Timestamp',
+    },
+    username: {
+      type: 'joined',
+      href: '/',
+      label: 'Username',
+      legacyBehavior: true,
+      passHref: true,
+      linkComponent: Link,
+    },
+    variant: 'recommended',
+  };
+
   return (
     <>
       <UploadForm
@@ -75,17 +122,20 @@ export default function Profilepage() {
             linkComponent={Link}
           />
         </div>
-        <TextBox
-          variant="start"
-          form={{
-            errorMessage: errorMessage,
-            placeholder: 'Hast du uns etwas mitzuteilen?',
-          }}
-          setInputValue={setInputValue}
-          inputValue={inputValue}
-          sendCallback={addText}
-          uploadCallback={handleUpload}
-        />
+        <div tw="mb-32">
+          <TextBox
+            variant="start"
+            form={{
+              errorMessage: errorMessage,
+              placeholder: 'Hast du uns etwas mitzuteilen?',
+            }}
+            setInputValue={setInputValue}
+            inputValue={inputValue}
+            sendCallback={addText}
+            uploadCallback={handleUpload}
+          />
+        </div>
+        <User {...props} />
       </div>
     </>
   );
