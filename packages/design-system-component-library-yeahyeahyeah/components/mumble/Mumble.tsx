@@ -93,39 +93,17 @@ export const Mumble: React.FC<IMumbleProps> = ({
         <>
           <Article variant={variant} mbSpacing={mbSpacing}>
             <UserWrapper mbSpacing="0">
-              <User
-                btn={user.btn}
-                joined={user.joined}
-                label={user.label}
-                location={user.location}
-                username={user.username}
-                variant="large"
-                avatar={user.avatar}
-                timestamp={user.timestamp}
-              />
+              <User {...user} variant="large" />
               <AvatarWrapper>
-                <Avatar
-                  alt={user.avatar?.alt || ''}
-                  src={user.avatar?.src || ''}
-                  variant="medium"
-                  imageCallBack={user.avatar?.imageCallBack}
-                />
+                <Avatar {...user.avatar} alt={user.avatar?.alt || ''} src={user.avatar?.src || ''} variant="medium" />
               </AvatarWrapper>
             </UserWrapper>
             <Row>
               <Paragraph size="large" color="dark" text={text} mbSpacing="16" alignment="left" />
-              {img.src !== '' && (
-                <ImageContainer
-                  type="container"
-                  alt={img.alt}
-                  fCallBack={img.fCallBack}
-                  src={img.src}
-                  loading={img.loading}
-                />
-              )}
-              <InteractionButton fCallBack={comment.fCallBack} quantity={comment.quantity} type="comment" />
-              <InteractionButton fCallBack={like.fCallBack} quantity={like.quantity} type="like" />
-              <ShareButton fCallBack={share.fCallBack} label={share.label} />
+              {img.src !== '' && <ImageContainer {...img} type="container" />}
+              <InteractionButton {...comment} type="comment" />
+              <InteractionButton {...like} type="like" />
+              <ShareButton {...share} />
             </Row>
           </Article>
         </>
@@ -133,50 +111,31 @@ export const Mumble: React.FC<IMumbleProps> = ({
       {variant === 'timeline' && (
         <Article variant={variant} mbSpacing={mbSpacing}>
           <UserWrapper mbSpacing="0">
-            <User
-              avatar={user.avatar}
-              btn={user.btn}
-              label={user.label}
-              timestamp={user.timestamp}
-              username={user.username}
-              variant="medium"
-            />
+            <User {...user} variant="medium" />
             <AvatarWrapper>
-              <Avatar
-                alt={user.avatar?.alt || ''}
-                src={user.avatar?.src || ''}
-                variant="medium"
-                imageCallBack={user.avatar?.imageCallBack}
-              />
+              <Avatar {...user.avatar} alt={user.avatar?.alt || ''} src={user.avatar?.src || ''} variant="medium" />
             </AvatarWrapper>
           </UserWrapper>
           <Row>
             <Paragraph size="medium" color="dark" text={text} mbSpacing="16" alignment="left" />
-            <ImageContainer type="container" alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
-            <InteractionButton fCallBack={comment.fCallBack} quantity={comment.quantity} type="comment" />
-            <InteractionButton fCallBack={like.fCallBack} quantity={like.quantity} type="like" />
-            <ShareButton fCallBack={share.fCallBack} label={share.label} />
+            <ImageContainer {...img} type="container" />
+            <InteractionButton {...comment} type="comment" />
+            <InteractionButton {...like} type="like" />
+            <ShareButton {...share} />
           </Row>
         </Article>
       )}
       {variant === 'response' && (
         <Article mbSpacing={mbSpacing}>
           <Row mbSpacing="0">
-            <User
-              avatar={user.avatar}
-              btn={user.btn}
-              label={user.label}
-              timestamp={user.timestamp}
-              username={user.username}
-              variant="small"
-            />
+            <User {...user} variant="small" />
           </Row>
           <Row>
             <Paragraph size="medium" color="dark" text={text} mbSpacing="16" alignment="left" />
-            <ImageContainer type="container" alt={img.alt} fCallBack={img.fCallBack} src={img.src} loading={img.loading} />
-            <InteractionButton fCallBack={comment.fCallBack} quantity={comment.quantity} type="comment" />
-            <InteractionButton fCallBack={like.fCallBack} quantity={like.quantity} type="like" />
-            <ShareButton fCallBack={share.fCallBack} label={share.label} />
+            <ImageContainer {...img} type="container" />
+            <InteractionButton {...comment} type="comment" />
+            <InteractionButton {...like} type="like" />
+            <ShareButton {...share} />
           </Row>
         </Article>
       )}

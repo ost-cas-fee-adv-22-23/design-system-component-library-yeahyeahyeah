@@ -127,7 +127,7 @@ export default function Timeline() {
                     fCallBack: () => console.log('like clicked'),
                     quantity: 999,
                   }}
-                  mbSpacing="0"
+                  mbSpacing="32"
                   share={{
                     fCallBack: () => console.log('share clicked'),
                     label: 'Share',
