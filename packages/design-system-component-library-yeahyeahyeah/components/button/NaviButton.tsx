@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { IconsMapped, IconTypes } from '../icon/IconMap';
-import { Avatar, IAvatarProps } from '../user/Avatar';
+import { Avatar, AvatarProps } from '../user/Avatar';
 
 export interface INaviButtonProps {
   label: string;
   variant?: 'default' | 'profile';
   fCallBack?: () => void;
   icon?: IconTypes;
-  avatar?: IAvatarProps;
+  avatar?: AvatarProps<any>;
 }
 
 export const NaviButton: React.FC<INaviButtonProps> = ({

@@ -33,7 +33,14 @@ export default function Navi() {
             label: 'Label',
             variant: 'profile',
             fCallBack: handleAvatar,
-            avatar: { src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif', variant: 'small', alt: 'Avatar' },
+            avatar: {
+              src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
+              alt: 'Alter Tag',
+              href: '/profilepage',
+              legacyBehavior: true,
+              passHref: true,
+              linkComponent: Link,
+            },
           }}
           settings={{
             label: 'Detailview',

@@ -13,6 +13,7 @@ import {
 } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
+import Link from 'next/link';
 
 export default function Profilepage() {
   const [posts, setPosts] = useState(['']);
@@ -238,9 +239,12 @@ export default function Profilepage() {
                   text={post}
                   user={{
                     avatar: {
-                      alt: 'avatar',
                       src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-                      imageCallBack: () => console.log('avatar clicked'),
+                      alt: 'Alter Tag',
+                      href: '/detailview',
+                      legacyBehavior: true,
+                      passHref: true,
+                      linkComponent: Link,
                     },
                     joined: {
                       fCallBack: () => console.log('joined clicked'),
@@ -256,16 +260,20 @@ export default function Profilepage() {
                       type: 'location',
                     },
                     timestamp: {
-                      fCallBack: () => console.log('timestamp clicked'),
-                      href: '',
-                      label: 'Timestamp',
                       type: 'timestamp',
+                      href: '/',
+                      label: 'Timestamp',
+                      legacyBehavior: true,
+                      passHref: true,
+                      linkComponent: Link,
                     },
                     username: {
-                      fCallBack: () => console.log('username clicked'),
-                      href: '',
-                      label: 'Username',
                       type: 'username',
+                      href: '/',
+                      label: 'Username',
+                      legacyBehavior: true,
+                      passHref: true,
+                      linkComponent: Link,
                     },
                     variant: 'large',
                   }}
@@ -295,9 +303,12 @@ export default function Profilepage() {
             text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
             user={{
               avatar: {
-                alt: 'avatar',
                 src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-                imageCallBack: () => console.log('avatar clicked'),
+                alt: 'Alter Tag',
+                href: '/detailview',
+                legacyBehavior: true,
+                passHref: true,
+                linkComponent: Link,
               },
               joined: {
                 fCallBack: () => console.log('joined clicked'),
@@ -313,16 +324,20 @@ export default function Profilepage() {
                 type: 'location',
               },
               timestamp: {
-                fCallBack: () => console.log('timestamp clicked'),
-                href: '',
-                label: 'Timestamp',
                 type: 'timestamp',
+                href: '/',
+                label: 'Timestamp',
+                legacyBehavior: true,
+                passHref: true,
+                linkComponent: Link,
               },
               username: {
-                fCallBack: () => console.log('username clicked'),
-                href: '',
-                label: 'Username',
                 type: 'username',
+                href: '/',
+                label: 'Username',
+                legacyBehavior: true,
+                passHref: true,
+                linkComponent: Link,
               },
               variant: 'large',
             }}
@@ -350,9 +365,12 @@ export default function Profilepage() {
             text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
             user={{
               avatar: {
-                alt: 'avatar',
                 src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-                imageCallBack: () => console.log('avatar clicked'),
+                alt: 'Alter Tag',
+                href: '/detailview',
+                legacyBehavior: true,
+                passHref: true,
+                linkComponent: Link,
               },
               joined: {
                 fCallBack: () => console.log('joined clicked'),
@@ -368,16 +386,20 @@ export default function Profilepage() {
                 type: 'location',
               },
               timestamp: {
-                fCallBack: () => console.log('timestamp clicked'),
-                href: '',
-                label: 'Timestamp',
                 type: 'timestamp',
+                href: '/',
+                label: 'Timestamp',
+                legacyBehavior: true,
+                passHref: true,
+                linkComponent: Link,
               },
               username: {
-                fCallBack: () => console.log('username clicked'),
-                href: '',
-                label: 'Username',
                 type: 'username',
+                href: '/',
+                label: 'Username',
+                legacyBehavior: true,
+                passHref: true,
+                linkComponent: Link,
               },
               variant: 'large',
             }}
@@ -405,9 +427,12 @@ export default function Profilepage() {
             text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
             user={{
               avatar: {
-                alt: 'avatar',
                 src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-                imageCallBack: () => console.log('avatar clicked'),
+                alt: 'Alter Tag',
+                href: '/detailview',
+                legacyBehavior: true,
+                passHref: true,
+                linkComponent: Link,
               },
               joined: {
                 fCallBack: () => console.log('joined clicked'),
@@ -423,16 +448,20 @@ export default function Profilepage() {
                 type: 'location',
               },
               timestamp: {
-                fCallBack: () => console.log('timestamp clicked'),
-                href: '',
-                label: 'Timestamp',
                 type: 'timestamp',
+                href: '/',
+                label: 'Timestamp',
+                legacyBehavior: true,
+                passHref: true,
+                linkComponent: Link,
               },
               username: {
-                fCallBack: () => console.log('username clicked'),
-                href: '',
-                label: 'Username',
                 type: 'username',
+                href: '/',
+                label: 'Username',
+                legacyBehavior: true,
+                passHref: true,
+                linkComponent: Link,
               },
               variant: 'large',
             }}
