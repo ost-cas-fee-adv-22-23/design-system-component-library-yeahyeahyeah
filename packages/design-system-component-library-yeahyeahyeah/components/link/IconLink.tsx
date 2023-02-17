@@ -1,23 +1,31 @@
 import tw, { styled, TwStyle } from 'twin.macro';
-import React, { useState } from 'react';
+import React, { FC, LinkHTMLAttributes, useState } from 'react';
 import { Profile, Time, Location, Calendar } from '../icon/index';
-import { Link, LinkProps } from './Link';
 
-export interface IIconLinkProps extends LinkProps<any> {
+export type IconLinkProps<T> = {
   label: string;
   type: 'username' | 'timestamp' | 'location' | 'joined';
   color?: 'slate' | 'violet';
   fCallBack?: () => void;
-}
+  newTab?: boolean;
+  linkComponent?: FC<T>;
+} & Omit<T, 'className' | 'target' | 'rel'>;
 
-export const IconLink: React.FC<IIconLinkProps> = ({
+export const IconLink = <
+  T extends {
+    rel?: string;
+    target?: string;
+  } = LinkHTMLAttributes<HTMLElement>
+>({
   label = 'username',
   type = 'username',
   color = 'violet',
   fCallBack,
   newTab = false,
+  linkComponent,
   ...props
-}) => {
+}: IconLinkProps<T>) => {
+  const LinkComponent = linkComponent || 'a';
   const [hover, setHover] = useState<boolean>(false);
 
   const getIcon = () => {
@@ -41,12 +49,12 @@ export const IconLink: React.FC<IIconLinkProps> = ({
   };
 
   return !fCallBack ? (
-    <Link {...props} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
+    <LinkComponent {...(props as any)} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
       <IconLinkStyles color={color} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         {getIcon()}
         {label}
       </IconLinkStyles>
-    </Link>
+    </LinkComponent>
   ) : (
     <IconLinkStyles
       color={color}

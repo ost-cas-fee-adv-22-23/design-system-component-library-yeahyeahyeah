@@ -2,18 +2,18 @@ import React from 'react';
 import tw, { styled, TwStyle } from 'twin.macro';
 import { Heading } from '../typography/Heading';
 import { IconButton } from '../button/IconButton';
-import { IconLink, IIconLinkProps } from '../link/IconLink';
+import { IconLink, IconLinkProps } from '../link/IconLink';
 import { Button } from '../button/Button';
 import { Avatar } from './Avatar';
 
 export interface IUserProps {
   label: string;
   variant: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended' | 'write' | 'inline';
-  username: IIconLinkProps;
+  username: IconLinkProps<any>;
   type?: 'edit' | 'view';
-  timestamp?: IIconLinkProps;
-  location?: IIconLinkProps;
-  joined?: IIconLinkProps;
+  timestamp?: IconLinkProps<any>;
+  location?: IconLinkProps<any>;
+  joined?: IconLinkProps<any>;
   avatar?: { src: string; alt: string; imageCallBack?: () => void; buttonCallBack?: () => void };
   btn?: { label: string; fCallBack?: () => void };
   settings?: { fCallBack?: () => void };
