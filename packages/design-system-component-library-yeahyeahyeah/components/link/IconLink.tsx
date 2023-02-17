@@ -1,15 +1,14 @@
 import tw, { styled, TwStyle } from 'twin.macro';
-import React, { FC, LinkHTMLAttributes, useState } from 'react';
+import React, { LinkHTMLAttributes, useState } from 'react';
 import { Profile, Time, Location, Calendar } from '../icon/index';
+import { Link, LinkProps } from './Link';
 
 export type IconLinkProps<T> = {
   label: string;
   type: 'username' | 'timestamp' | 'location' | 'joined';
   color?: 'slate' | 'violet';
   fCallBack?: () => void;
-  newTab?: boolean;
-  linkComponent?: FC<T>;
-} & Omit<T, 'className' | 'target' | 'rel'>;
+} & LinkProps<T>;
 
 export const IconLink = <
   T extends {
@@ -22,10 +21,8 @@ export const IconLink = <
   color = 'violet',
   fCallBack,
   newTab = false,
-  linkComponent,
   ...props
 }: IconLinkProps<T>) => {
-  const LinkComponent = linkComponent || 'a';
   const [hover, setHover] = useState<boolean>(false);
 
   const getIcon = () => {
@@ -49,12 +46,12 @@ export const IconLink = <
   };
 
   return !fCallBack ? (
-    <LinkComponent {...(props as any)} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
+    <Link {...(props as any)} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
       <IconLinkStyles color={color} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         {getIcon()}
         {label}
       </IconLinkStyles>
-    </LinkComponent>
+    </Link>
   ) : (
     <IconLinkStyles
       color={color}
