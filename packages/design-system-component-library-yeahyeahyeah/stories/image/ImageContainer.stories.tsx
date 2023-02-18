@@ -19,6 +19,9 @@ export default {
     isLoading: {
       control: 'boolean',
     },
+    loading: {
+      control: 'select',
+    },
     type: {
       control: 'select',
     },
@@ -34,6 +37,7 @@ export default {
     alt: 'This is a profile picture',
     type: 'container',
     isLoading: false,
+    loading: 'lazy',
   },
 } as ComponentMeta<typeof ImageContainer>;
 

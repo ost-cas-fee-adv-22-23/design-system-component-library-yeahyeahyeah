@@ -10,12 +10,13 @@ export type ImageContainerProps<T> = {
   onImageIconClick?: (type: string) => void;
   type?: 'container' | 'banner-edit' | 'banner-view';
   isLoading?: boolean;
+  loading?: 'lazy' | 'eager';
 } & ImageProps<T>;
 
 export const ImageContainer = <
   T extends {
-    src?: string | undefined;
-    alt?: string | undefined;
+    loading?: string;
+    decoding?: string;
   } = ImgHTMLAttributes<HTMLImageElement>
 >({
   src = '',
@@ -23,6 +24,8 @@ export const ImageContainer = <
   onImageIconClick,
   type = 'container',
   isLoading = false,
+  loading = 'lazy',
+  decoding = 'async',
   ...props
 }: ImageContainerProps<T>) => {
   const handleClick = () => {
@@ -54,7 +57,7 @@ export const ImageContainer = <
         </Container>
       </Wrapper>
 
-      {src !== '' && <Picture {...(props as any)} alt={alt} src={src} />}
+      {src !== '' && <Picture {...(props as any)} alt={alt} src={src} loading={loading} decoding={decoding} />}
     </Figure>
   );
 };
