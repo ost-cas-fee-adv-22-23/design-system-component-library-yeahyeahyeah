@@ -69,7 +69,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
         src={banner.src}
         alt={banner.alt}
         type={variant === 'edit' ? 'banner-edit' : 'banner-view'}
-        fCallBack={banner.fCallBack}
+        onImageIconClick={banner.fCallBack}
       />
       <div tw="px-8 mb-16">
         <User
