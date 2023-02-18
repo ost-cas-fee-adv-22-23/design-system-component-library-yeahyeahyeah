@@ -22,6 +22,9 @@ export default {
     loading: {
       control: 'select',
     },
+    decoding: {
+      control: 'select',
+    },
     type: {
       control: 'select',
     },
@@ -38,6 +41,7 @@ export default {
     type: 'container',
     isLoading: false,
     loading: 'lazy',
+    decoding: 'async',
   },
 } as ComponentMeta<typeof ImageContainer>;
 

@@ -11,6 +11,7 @@ export type ImageContainerProps<T> = {
   type?: 'container' | 'banner-edit' | 'banner-view';
   isLoading?: boolean;
   loading?: 'lazy' | 'eager';
+  decoding?: 'auto' | 'async' | 'sync';
 } & ImageProps<T>;
 
 export const ImageContainer = <
