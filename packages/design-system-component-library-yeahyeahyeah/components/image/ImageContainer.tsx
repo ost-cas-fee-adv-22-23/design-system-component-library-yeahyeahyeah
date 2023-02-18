@@ -52,7 +52,9 @@ export const ImageContainer = <
               <StyledRepost />
             </ImageIcon>
           ) : (
-            getIcon()
+            <ImageIcon isLoading={isLoading} onClick={handleClick}>
+              {getIcon()}
+            </ImageIcon>
           )}
         </Container>
       </Wrapper>

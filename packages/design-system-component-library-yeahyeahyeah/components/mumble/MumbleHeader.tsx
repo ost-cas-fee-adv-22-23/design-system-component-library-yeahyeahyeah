@@ -24,7 +24,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
     src: 'https://loremflickr.com/640/360',
     alt: 'Image alt tag',
     type: 'banner-edit',
-    fCallBack: () => {
+    onImageIconClick: () => {
       return null;
     },
   },
@@ -69,7 +69,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
         src={banner.src}
         alt={banner.alt}
         type={variant === 'edit' ? 'banner-edit' : 'banner-view'}
-        onImageIconClick={banner.fCallBack}
+        onImageIconClick={banner.onImageIconClick}
       />
       <div tw="px-8 mb-16">
         <User
