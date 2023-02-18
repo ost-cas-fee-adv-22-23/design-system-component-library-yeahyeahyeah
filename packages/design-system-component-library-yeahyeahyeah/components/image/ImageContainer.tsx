@@ -1,24 +1,30 @@
-import React from 'react';
-import styled from 'styled-components';
-import tw from 'twin.macro';
+import React, { ImgHTMLAttributes } from 'react';
+import tw, { styled } from 'twin.macro';
 import { Fullscreen, Edit, Repost } from '../icon/default_index';
 import { ImageScale } from '../../styles/ImageScale';
+import { ImageProps } from './Image';
 
-export interface IImageContainerProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
+export type ImageContainerProps<T> = {
   src: string;
   alt: string;
   fCallBack?: (type: string) => void;
   type?: 'container' | 'banner-edit' | 'banner-view';
   loading?: boolean;
-}
+} & ImageProps<T>;
 
-export const ImageContainer: React.FC<IImageContainerProps> = ({
+export const ImageContainer = <
+  T extends {
+    src?: string | undefined;
+    alt?: string | undefined;
+  } = ImgHTMLAttributes<HTMLImageElement>
+>({
   src = '',
   alt = '',
   fCallBack,
   type = 'container',
   loading = false,
-}) => {
+  ...props
+}: ImageContainerProps<T>) => {
   const handleClick = () => {
     fCallBack && fCallBack(type);
   };
@@ -44,7 +50,7 @@ export const ImageContainer: React.FC<IImageContainerProps> = ({
         </Container>
       </Wrapper>
 
-      {src !== '' && <Image alt={alt} src={src} />}
+      {src !== '' && <Picture {...(props as any)} alt={alt} src={src} />}
     </Figure>
   );
 };
@@ -54,7 +60,7 @@ interface IImageIcon {
   type?: string;
 }
 
-const Image = styled.img(({ type }: IImageIcon) => [
+const Picture = styled.img(({ type }: IImageIcon) => [
   ImageScale({ opacityLevel: '60' }),
   (type === 'banner-edit' || type === 'banner-view') && tw`w-full h-auto`,
 ]);

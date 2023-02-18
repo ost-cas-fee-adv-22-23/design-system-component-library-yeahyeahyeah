@@ -22,6 +22,12 @@ export default {
     type: {
       control: 'select',
     },
+    imageComponent: {
+      control: false,
+      table: {
+        disable: true,
+      },
+    },
   },
   args: {
     src: 'https://picsum.photos/640/360',
@@ -33,7 +39,7 @@ export default {
 
 const Template: ComponentStory<typeof ImageContainer> = (args) => <ImageContainer {...args} />;
 
-export const ImageContainerStory = Template.bind({});
+export const ImageContainerStory = Template;
 
 ImageContainerStory.parameters = {
   docs: {

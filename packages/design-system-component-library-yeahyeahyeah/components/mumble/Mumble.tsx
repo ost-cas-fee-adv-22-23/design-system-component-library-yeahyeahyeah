@@ -4,7 +4,7 @@ import { IUserProps, User } from '../user/User';
 import { Paragraph } from '../typography/Paragraph';
 import { IInteractionButtonProps, InteractionButton } from '../button/InteractionButton';
 import { IShareButton, ShareButton } from '../button/ShareButton';
-import { IImageContainerProps, ImageContainer } from '../image/ImageContainer';
+import { ImageContainer, ImageProps } from '../image/';
 import { Avatar } from '../user/Avatar';
 import { BottomSpacing } from '../../styles/Spacing';
 import type { TmbSpacing } from '../../types/types';
@@ -13,7 +13,7 @@ export interface IMumbleProps {
   variant?: 'detailpage' | 'timeline' | 'response';
   user: IUserProps;
   text: string;
-  img?: IImageContainerProps;
+  img?: ImageProps<any>;
   comment: IInteractionButtonProps;
   like: IInteractionButtonProps;
   share: IShareButton;
