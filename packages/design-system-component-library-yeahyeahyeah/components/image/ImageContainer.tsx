@@ -9,7 +9,7 @@ export type ImageContainerProps<T> = {
   alt: string;
   onImageIconClick?: (type: string) => void;
   type?: 'container' | 'banner-edit' | 'banner-view';
-  loading?: boolean;
+  isLoading?: boolean;
 } & ImageProps<T>;
 
 export const ImageContainer = <
@@ -22,7 +22,7 @@ export const ImageContainer = <
   alt = '',
   onImageIconClick,
   type = 'container',
-  loading = false,
+  isLoading = false,
   ...props
 }: ImageContainerProps<T>) => {
   const handleClick = () => {
@@ -42,11 +42,15 @@ export const ImageContainer = <
 
   return (
     <Figure type={type}>
-      <Wrapper loading={loading}>
+      <Wrapper>
         <Container>
-          <ImageIcon loading={loading} onClick={handleClick}>
-            {loading === true ? <StyledRepost /> : getIcon()}
-          </ImageIcon>
+          {isLoading === true ? (
+            <ImageIcon isLoading={isLoading} onClick={handleClick}>
+              <StyledRepost />
+            </ImageIcon>
+          ) : (
+            getIcon()
+          )}
         </Container>
       </Wrapper>
 
@@ -56,7 +60,7 @@ export const ImageContainer = <
 };
 
 interface IImageIcon {
-  loading?: boolean;
+  isLoading?: boolean;
   type?: string;
 }
 
@@ -77,7 +81,7 @@ const Container = styled.div(() => [
 `,
 ]);
 
-const LoadingSpinner = tw`
+const isLoadingSpinner = tw`
   animate-spin
   flex
   justify-center
@@ -88,7 +92,7 @@ const LoadingSpinner = tw`
   opacity-50
 `;
 
-const ImageIcon = styled.div(({ loading }: IImageIcon) => [
+const ImageIcon = styled.div(({ isLoading }: IImageIcon) => [
   tw`
     flex
     justify-center
@@ -101,10 +105,10 @@ const ImageIcon = styled.div(({ loading }: IImageIcon) => [
     ease-in-out
     z-50
 `,
-  loading === true && LoadingSpinner,
+  isLoading === true && isLoadingSpinner,
 ]);
 
-const Wrapper = styled.div(({ loading }: IImageIcon) => [
+const Wrapper = styled.div(({ isLoading }: IImageIcon) => [
   tw`
 		rounded-xl
     z-50
@@ -121,7 +125,7 @@ const Wrapper = styled.div(({ loading }: IImageIcon) => [
     -translate-x-1/2 
     -translate-y-1/2
 	`,
-  loading === true && tw`opacity-100`,
+  isLoading === true && tw`opacity-100`,
 ]);
 
 const Figure = styled.figure.attrs({ className: 'group' })(({ type }: IImageIcon) => [

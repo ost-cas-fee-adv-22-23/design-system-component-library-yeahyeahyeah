@@ -16,7 +16,7 @@ export default {
     onImageIconClick: {
       action: () => 'handleClick',
     },
-    loading: {
+    isLoading: {
       control: 'boolean',
     },
     type: {
@@ -33,7 +33,7 @@ export default {
     src: 'https://picsum.photos/640/360',
     alt: 'This is a profile picture',
     type: 'container',
-    loading: false,
+    isLoading: false,
   },
 } as ComponentMeta<typeof ImageContainer>;
 
