@@ -87,7 +87,7 @@ const Container = styled.div(() => [
 `,
 ]);
 
-const isLoadingSpinner = tw`
+const LoadingSpinner = tw`
   animate-spin
   flex
   justify-center
@@ -111,7 +111,7 @@ const ImageIcon = styled.div(({ isLoading }: IImageIcon) => [
     ease-in-out
     z-50
 `,
-  isLoading === true && isLoadingSpinner,
+  isLoading === true && LoadingSpinner,
 ]);
 
 const Wrapper = styled.div(({ isLoading }: IImageIcon) => [
