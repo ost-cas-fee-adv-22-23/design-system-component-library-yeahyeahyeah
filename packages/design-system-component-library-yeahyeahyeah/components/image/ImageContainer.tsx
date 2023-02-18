@@ -7,7 +7,7 @@ import { ImageProps } from './Image';
 export type ImageContainerProps<T> = {
   src: string;
   alt: string;
-  fCallBack?: (type: string) => void;
+  onImageIconClick?: (type: string) => void;
   type?: 'container' | 'banner-edit' | 'banner-view';
   loading?: boolean;
 } & ImageProps<T>;
@@ -20,13 +20,13 @@ export const ImageContainer = <
 >({
   src = '',
   alt = '',
-  fCallBack,
+  onImageIconClick,
   type = 'container',
   loading = false,
   ...props
 }: ImageContainerProps<T>) => {
   const handleClick = () => {
-    fCallBack && fCallBack(type);
+    onImageIconClick && onImageIconClick(type);
   };
 
   const getIcon = () => {

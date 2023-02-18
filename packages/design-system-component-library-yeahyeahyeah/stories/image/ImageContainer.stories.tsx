@@ -13,7 +13,7 @@ export default {
     alt: {
       control: 'text',
     },
-    fCallBack: {
+    onImageIconClick: {
       action: () => 'handleClick',
     },
     loading: {
