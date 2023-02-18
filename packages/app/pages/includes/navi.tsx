@@ -32,27 +32,33 @@ export default function Navi() {
           avatar={{
             label: 'Label',
             variant: 'profile',
-            fCallBack: handleAvatar,
+
             avatar: {
               src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
               alt: 'Alter Tag',
-              href: '/profilepage',
+              href: '/',
               legacyBehavior: true,
               passHref: true,
               linkComponent: Link,
             },
           }}
           settings={{
-            label: 'Detailview',
+            label: 'Settings',
             variant: 'default',
-            fCallBack: () => console.log('settings'),
             icon: 'settings',
+            href: '/',
+            legacyBehavior: true,
+            passHref: true,
+            linkComponent: Link,
           }}
           logout={{
             label: 'Logout',
             variant: 'default',
-            fCallBack: () => console.log('logout'),
             icon: 'logout',
+            href: '/profilepage',
+            legacyBehavior: true,
+            passHref: true,
+            linkComponent: Link,
           }}
         />
       </div>

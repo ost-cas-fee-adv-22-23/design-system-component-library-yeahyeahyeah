@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { LinkHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { IconsMapped, IconTypes } from '../icon/IconMap';
+import { Link, LinkProps } from '../link/Link';
 import { Avatar, AvatarProps } from '../user/Avatar';
 
-export interface INaviButtonProps {
+export type NaviButtonProps<T> = {
   label: string;
   variant?: 'default' | 'profile';
   fCallBack?: () => void;
   icon?: IconTypes;
   avatar?: AvatarProps<any>;
-}
+} & LinkProps<T>;
 
-export const NaviButton: React.FC<INaviButtonProps> = ({
+export const NaviButton = <
+  T extends {
+    rel?: string;
+    target?: string;
+  } = LinkHTMLAttributes<HTMLElement>
+>({
   label = 'Label',
   variant = 'default',
   fCallBack,
@@ -22,23 +28,36 @@ export const NaviButton: React.FC<INaviButtonProps> = ({
     src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
     alt: 'Alternative text',
   },
-}) => {
+  newTab = false,
+  ...props
+}: NaviButtonProps<T>) => {
   const Icon = createIcon(icon);
 
-  return (
+  return !fCallBack ? (
     <>
       {variant === 'default' && (
-        <ButtonStyles onClick={fCallBack} aria-label={label}>
-          <Icon />
-          <Span>{label}</Span>
-        </ButtonStyles>
+        <Link {...(props as any)} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
+          <ButtonStyles aria-label={label}>
+            <>
+              <Icon />
+              <Span>{label}</Span>
+            </>
+          </ButtonStyles>
+        </Link>
       )}
-
-      {variant === 'profile' && (
-        <ButtonStyles onClick={fCallBack} aria-label={label}>
-          <Avatar alt={avatar.alt} src={avatar.src} variant={avatar.variant} />
-        </ButtonStyles>
-      )}
+      {variant === 'profile' && <Avatar {...avatar} />}
+    </>
+  ) : (
+    <>
+      <ButtonStyles onClick={fCallBack} aria-label={label}>
+        {variant === 'default' && (
+          <>
+            <Icon />
+            <Span>{label}</Span>
+          </>
+        )}
+        {variant === 'profile' && <Avatar {...avatar} />}
+      </ButtonStyles>
     </>
   );
 };
@@ -82,4 +101,4 @@ const buttonFocus = tw`
   focus:(bg-violet-700)
 `;
 
-const ButtonStyles = styled.button(() => [buttonFont, buttonDefaults, buttonHover, buttonFocus]);
+const ButtonStyles = styled.a(() => [buttonFont, buttonDefaults, buttonHover, buttonFocus]);

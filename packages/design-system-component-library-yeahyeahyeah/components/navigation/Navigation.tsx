@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { MumbleLogo, IMumbleLogoProps } from '../branding/MumbleLogo';
-import { NaviButton, INaviButtonProps } from '../button/NaviButton';
+import { NaviButton, NaviButtonProps } from '../button/NaviButton';
 export interface INavigationProps {
   logo: Pick<IMumbleLogoProps, 'title' | 'href' | 'fCallBack'>;
-  avatar: Pick<INaviButtonProps, 'label' | 'variant' | 'fCallBack' | 'avatar'>;
-  settings: INaviButtonProps;
-  logout: INaviButtonProps;
+  avatar: Pick<NaviButtonProps<any>, 'label' | 'variant' | 'fCallBack' | 'avatar'>;
+  settings: NaviButtonProps<any>;
+  logout: NaviButtonProps<any>;
 }
 
 export const Navigation: React.FC<INavigationProps> = ({
@@ -62,19 +62,9 @@ export const Navigation: React.FC<INavigationProps> = ({
                 isNavigation={true}
               />
               <Row>
-                <NaviButton
-                  variant={avatar.variant}
-                  label={avatar.label}
-                  fCallBack={avatar.fCallBack}
-                  avatar={avatar.avatar}
-                />
-                <NaviButton
-                  icon={settings.icon}
-                  label={settings.label}
-                  variant={settings.variant}
-                  fCallBack={settings.fCallBack}
-                />
-                <NaviButton icon={logout.icon} label={logout.label} variant={logout.variant} fCallBack={logout.fCallBack} />
+                <NaviButton {...avatar} />
+                <NaviButton {...settings} />
+                <NaviButton {...logout} />
               </Row>
             </Column>
           </Container>
