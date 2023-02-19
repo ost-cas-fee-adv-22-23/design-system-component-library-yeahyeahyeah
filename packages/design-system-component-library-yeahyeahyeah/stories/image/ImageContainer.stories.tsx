@@ -20,10 +20,16 @@ export default {
       control: 'boolean',
     },
     loading: {
-      control: 'select',
+      control: false,
+      table: {
+        disable: true,
+      },
     },
     decoding: {
-      control: 'select',
+      control: false,
+      table: {
+        disable: true,
+      },
     },
     type: {
       control: 'select',
@@ -40,8 +46,6 @@ export default {
     alt: 'This is a profile picture',
     type: 'container',
     isLoading: false,
-    loading: 'lazy',
-    decoding: 'async',
   },
 } as ComponentMeta<typeof ImageContainer>;
 

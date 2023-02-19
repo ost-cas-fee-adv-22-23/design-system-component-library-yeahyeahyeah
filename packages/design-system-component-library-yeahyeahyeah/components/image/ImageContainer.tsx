@@ -2,7 +2,7 @@ import React, { ImgHTMLAttributes } from 'react';
 import tw, { styled } from 'twin.macro';
 import { Fullscreen, Edit, Repost } from '../icon/default_index';
 import { ImageScale } from '../../styles/ImageScale';
-import { ImageProps } from './Image';
+import { Image, ImageProps } from './Image';
 
 export type ImageContainerProps<T> = {
   src: string;
@@ -10,8 +10,6 @@ export type ImageContainerProps<T> = {
   onImageIconClick?: (type: string) => void;
   type?: 'container' | 'banner-edit' | 'banner-view';
   isLoading?: boolean;
-  loading?: 'lazy' | 'eager';
-  decoding?: 'auto' | 'async' | 'sync';
 } & ImageProps<T>;
 
 export const ImageContainer = <
@@ -25,11 +23,9 @@ export const ImageContainer = <
   onImageIconClick,
   type = 'container',
   isLoading = false,
-  loading = 'lazy',
-  decoding = 'async',
   ...props
 }: ImageContainerProps<T>) => {
-  const handleClick = () => {
+  const handleImageIconClick = () => {
     onImageIconClick && onImageIconClick(type);
   };
 
@@ -49,31 +45,31 @@ export const ImageContainer = <
       <Wrapper>
         <Container>
           {isLoading === true ? (
-            <ImageIcon isLoading={isLoading} onClick={handleClick}>
+            <ImageIcon onClick={handleImageIconClick}>
               <StyledRepost />
             </ImageIcon>
           ) : (
-            <ImageIcon isLoading={isLoading} onClick={handleClick}>
-              {getIcon()}
-            </ImageIcon>
+            <ImageIcon onClick={handleImageIconClick}>{getIcon()}</ImageIcon>
           )}
         </Container>
       </Wrapper>
 
-      {src !== '' && <Picture {...(props as any)} alt={alt} src={src} loading={loading} decoding={decoding} />}
+      {src !== '' && <Image {...(props as any)} alt={alt} src={src} css={ImageStyles.img({ type })} />}
     </Figure>
   );
 };
 
-interface IImageIcon {
+interface ImageStyles {
   isLoading?: boolean;
   type?: string;
 }
 
-const Picture = styled.img(({ type }: IImageIcon) => [
-  ImageScale({ opacityLevel: '60' }),
-  (type === 'banner-edit' || type === 'banner-view') && tw`w-full h-auto`,
-]);
+const ImageStyles = {
+  img: ({ type }: ImageStyles) => [
+    ImageScale({ opacityLevel: '60' }),
+    (type === 'banner-edit' || type === 'banner-view') && tw`w-full h-auto`,
+  ],
+};
 
 const Container = styled.div(() => [
   tw`
@@ -98,7 +94,7 @@ const LoadingSpinner = tw`
   opacity-50
 `;
 
-const ImageIcon = styled.div(({ isLoading }: IImageIcon) => [
+const ImageIcon = styled.div(({ isLoading }: ImageStyles) => [
   tw`
     flex
     justify-center
@@ -114,7 +110,7 @@ const ImageIcon = styled.div(({ isLoading }: IImageIcon) => [
   isLoading === true && LoadingSpinner,
 ]);
 
-const Wrapper = styled.div(({ isLoading }: IImageIcon) => [
+const Wrapper = styled.div(({ isLoading }: ImageStyles) => [
   tw`
 		rounded-xl
     z-50
@@ -134,7 +130,7 @@ const Wrapper = styled.div(({ isLoading }: IImageIcon) => [
   isLoading === true && tw`opacity-100`,
 ]);
 
-const Figure = styled.figure.attrs({ className: 'group' })(({ type }: IImageIcon) => [
+const Figure = styled.figure.attrs({ className: 'group' })(({ type }: ImageStyles) => [
   tw`
     flex
     justify-center
