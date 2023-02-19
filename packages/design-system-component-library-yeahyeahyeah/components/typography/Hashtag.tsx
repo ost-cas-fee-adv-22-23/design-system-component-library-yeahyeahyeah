@@ -1,24 +1,32 @@
-import React, { MouseEvent } from 'react';
+import React, { LinkHTMLAttributes, MouseEvent } from 'react';
 import tw, { styled } from 'twin.macro';
-import Link, { LinkProps } from 'next/link';
-import { Url } from 'url';
+import { Link, LinkProps } from '../link/Link';
 
-export interface IHashtagProps {
+export type HashtagProps<T> = {
   label?: string;
   fCallBack?: (e: MouseEvent<HTMLAnchorElement>) => void;
   size: 'small' | 'medium' | 'large';
-  href?: Url | string;
-  link?: Pick<LinkProps, 'href' | 'as' | 'scroll'>;
-}
+} & LinkProps<T>;
 
-export const Hashtag: React.FC<IHashtagProps> = ({ label, fCallBack, size, link, href = '/' }) => {
+export const Hashtag = <
+  T extends {
+    rel?: string;
+    target?: string;
+  } = LinkHTMLAttributes<HTMLElement>
+>({
+  label,
+  fCallBack,
+  size,
+  newTab = false,
+  ...props
+}: HashtagProps<T>) => {
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     fCallBack && fCallBack(e);
   };
 
   return !fCallBack ? (
-    <Link href={link?.href || href} passHref legacyBehavior scroll={link?.scroll} as={link?.as as string}>
+    <Link {...(props as any)} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
       <StyledHashtag title={label} size={size}>
         #{label}
       </StyledHashtag>
