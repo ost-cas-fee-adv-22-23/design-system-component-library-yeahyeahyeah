@@ -14,7 +14,7 @@ export interface IUserProps {
   timestamp?: IconLinkProps<any>;
   location?: IconLinkProps<any>;
   joined?: IconLinkProps<any>;
-  avatar?: AvatarProps<any>;
+  avatar?: AvatarProps;
   btn?: { label: string; fCallBack?: () => void };
   settings?: { fCallBack?: () => void };
 }
@@ -54,6 +54,9 @@ export const User: React.FC<IUserProps> = ({
   avatar = {
     src: 'https://i.stack.imgur.com/5xd5n.png',
     alt: 'Alter Tag',
+    fCallBack: () => {
+      return null;
+    },
   },
   btn = { label: 'Follow' },
   settings = {

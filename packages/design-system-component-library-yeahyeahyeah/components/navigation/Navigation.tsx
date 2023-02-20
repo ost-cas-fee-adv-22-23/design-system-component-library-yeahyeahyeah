@@ -1,76 +1,27 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { MumbleLogo, IMumbleLogoProps } from '../branding/MumbleLogo';
-import { NaviButton, NaviButtonProps } from '../button/NaviButton';
-export interface INavigationProps {
-  logo: Pick<IMumbleLogoProps, 'title' | 'href' | 'fCallBack'>;
-  avatar: Pick<NaviButtonProps<any>, 'label' | 'variant' | 'fCallBack' | 'avatar'>;
-  settings: NaviButtonProps<any>;
-  logout: NaviButtonProps<any>;
-}
 
-export const Navigation: React.FC<INavigationProps> = ({
-  logo = {
-    title: 'Mumble Logo',
-    href: '#',
-    fCallBack: () => {
-      return null;
-    },
-  },
-  avatar = {
-    variant: 'profile',
-    label: 'Profile',
-    fCallBack: () => {
-      return null;
-    },
-    avatar: {
-      variant: 'small',
-      src: 'https://media.giphy.com/media/12HZukMBlutpoQ/giphy.gif',
-      alt: 'Alternative text',
-    },
-  },
-  settings = {
-    icon: 'settings',
-    label: 'Settings',
-    variant: 'default',
-    fCallBack: () => {
-      return null;
-    },
-  },
-  logout = {
-    icon: 'logout',
-    label: 'Logout',
-    variant: 'default',
-    fCallBack: () => {
-      return null;
-    },
-  },
-}) => {
+export type NavigationProps<T> = {
+  title: 'Mumble Logo';
+  onLogoClick?: () => void;
+  href?: '#';
+  logo: FC<T>;
+  children?: React.ReactNode;
+};
+
+export const Navigation = ({ title, logo: Logo, children, onLogoClick }: NavigationProps<any>) => {
   return (
-    <>
-      <HeaderStyles>
-        <NavigationStyles>
-          <Container>
-            <Column>
-              <MumbleLogo
-                title={logo.title}
-                href={logo.href}
-                color="white"
-                alignment="horizontal"
-                fCallBack={logo.fCallBack}
-                isNavigation={true}
-              />
-              <Row>
-                <NaviButton {...avatar} />
-                <NaviButton {...settings} />
-                <NaviButton {...logout} />
-              </Row>
-            </Column>
-          </Container>
-        </NavigationStyles>
-      </HeaderStyles>
-    </>
+    <HeaderStyles>
+      <NavigationStyles>
+        <Container>
+          <Column>
+            <Logo title={title} onLogoClick={onLogoClick} />
+            <Row>{children}</Row>
+          </Column>
+        </Container>
+      </NavigationStyles>
+    </HeaderStyles>
   );
 };
 

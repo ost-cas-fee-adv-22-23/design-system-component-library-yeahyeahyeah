@@ -27,9 +27,6 @@ export const Mumble: React.FC<IMumbleProps> = ({
     avatar: {
       alt: '',
       src: 'https://i.stack.imgur.com/5xd5n.png',
-      imageCallBack: () => {
-        return null;
-      },
     },
     btn: {
       fCallBack: () => {

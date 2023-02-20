@@ -1,37 +1,18 @@
-import React, { LinkHTMLAttributes } from 'react';
+import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { ImageScale } from '../../styles/ImageScale';
-import { Link, LinkProps } from '../link/Link';
 
-export type AvatarProps<T> = {
+export type AvatarProps = {
   variant?: 'small' | 'medium' | 'large' | 'xlarge';
   src: string;
   alt: string;
-  imageCallBack?: () => void;
-} & LinkProps<T>;
+  onImageClick?: () => void;
+};
 
-export const Avatar = <
-  T extends {
-    rel?: string;
-    target?: string;
-  } = LinkHTMLAttributes<HTMLElement>
->({
-  variant = 'small',
-  alt,
-  src,
-  imageCallBack,
-  newTab = false,
-  ...props
-}: AvatarProps<T>) => {
-  return !imageCallBack ? (
-    <Link {...(props as any)} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
-      <StyledLink variant={variant}>
-        <Image src={src} alt={alt} />
-      </StyledLink>
-    </Link>
-  ) : (
+export const Avatar = ({ variant = 'small', alt, src, onImageClick }: AvatarProps) => {
+  return (
     <Figure variant={variant}>
-      <Image src={src} alt={alt} onClick={imageCallBack} />
+      <Image src={src} alt={alt} onClick={onImageClick} />
     </Figure>
   );
 };
@@ -39,8 +20,6 @@ export const Avatar = <
 interface IImageProps {
   variant: string;
 }
-
-const StyledLink = styled.a(() => Styles);
 
 const Figure = styled.figure.attrs({ className: 'group' })(() => Styles);
 

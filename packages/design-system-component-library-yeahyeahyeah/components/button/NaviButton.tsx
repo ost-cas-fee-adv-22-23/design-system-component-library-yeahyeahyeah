@@ -3,14 +3,12 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import { IconsMapped, IconTypes } from '../icon/IconMap';
 import { Link, LinkProps } from '../link/Link';
-import { Avatar, AvatarProps } from '../user/Avatar';
 
 export type NaviButtonProps<T> = {
   label: string;
   variant?: 'default' | 'profile';
-  fCallBack?: () => void;
   icon?: IconTypes;
-  avatar?: AvatarProps<any>;
+  children?: React.ReactNode;
 } & LinkProps<T>;
 
 export const NaviButton = <
@@ -21,44 +19,25 @@ export const NaviButton = <
 >({
   label = 'Label',
   variant = 'default',
-  fCallBack,
   icon = 'settings',
-  avatar = {
-    variant: 'small',
-    src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-    alt: 'Alternative text',
-  },
   newTab = false,
+  children,
   ...props
 }: NaviButtonProps<T>) => {
   const Icon = createIcon(icon);
 
-  return !fCallBack ? (
-    <>
-      {variant === 'default' && (
-        <Link {...(props as any)} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
-          <ButtonStyles aria-label={label}>
-            <>
-              <Icon />
-              <Span>{label}</Span>
-            </>
-          </ButtonStyles>
-        </Link>
-      )}
-      {variant === 'profile' && <Avatar {...avatar} />}
-    </>
-  ) : (
-    <>
-      <ButtonStyles onClick={fCallBack} aria-label={label}>
+  return (
+    <Link {...(props as any)} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
+      <ButtonStyles aria-label={label}>
         {variant === 'default' && (
           <>
             <Icon />
             <Span>{label}</Span>
           </>
         )}
-        {variant === 'profile' && <Avatar {...avatar} />}
+        {variant === 'profile' && children}
       </ButtonStyles>
-    </>
+    </Link>
   );
 };
 

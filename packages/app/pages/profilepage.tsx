@@ -69,8 +69,7 @@ export default function Profilepage() {
   const props: IUserProps = {
     avatar: {
       alt: 'Alter Tag',
-      buttonCallBack: () => console.log('button clicked'),
-      imageCallBack: () => console.log('image clicked'),
+      onImageClick: () => console.log('image clicked'),
       src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
     },
     btn: {
@@ -136,8 +135,7 @@ export default function Profilepage() {
               user={{
                 avatar: {
                   alt: 'Alttag',
-                  buttonCallBack: () => console.log('buttonCallBack clicked'),
-                  imageCallBack: () => console.log('imageCallBack clicked'),
+                  onImageClick: () => console.log('imageCallBack clicked'),
                   src: 'https://placebeard.it/640x360',
                 },
                 joined: {
@@ -178,7 +176,7 @@ export default function Profilepage() {
                 },
               ]}
               value="mumbles"
-              fCallBack={(value) => console.log(`${value} clicked`)}
+              fCallBack={(value: string) => console.log(`${value} clicked`)}
             />
           </div>
         </div>
@@ -199,6 +197,7 @@ export default function Profilepage() {
                 avatar: {
                   src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
                   alt: 'Family Guy goes Mumble',
+                  onImageClick: () => console.log('avatar clicked'),
                 },
               }}
               form={{
@@ -241,10 +240,6 @@ export default function Profilepage() {
                     avatar: {
                       src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
                       alt: 'Alter Tag',
-                      href: '/detailview',
-                      legacyBehavior: true,
-                      passHref: true,
-                      linkComponent: Link,
                     },
                     joined: {
                       fCallBack: () => console.log('joined clicked'),
@@ -305,10 +300,6 @@ export default function Profilepage() {
               avatar: {
                 src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
                 alt: 'Alter Tag',
-                href: '/detailview',
-                legacyBehavior: true,
-                passHref: true,
-                linkComponent: Link,
               },
               joined: {
                 fCallBack: () => console.log('joined clicked'),
@@ -367,10 +358,6 @@ export default function Profilepage() {
               avatar: {
                 src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
                 alt: 'Alter Tag',
-                href: '/detailview',
-                legacyBehavior: true,
-                passHref: true,
-                linkComponent: Link,
               },
               joined: {
                 fCallBack: () => console.log('joined clicked'),
@@ -429,10 +416,6 @@ export default function Profilepage() {
               avatar: {
                 src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
                 alt: 'Alter Tag',
-                href: '/detailview',
-                legacyBehavior: true,
-                passHref: true,
-                linkComponent: Link,
               },
               joined: {
                 fCallBack: () => console.log('joined clicked'),
