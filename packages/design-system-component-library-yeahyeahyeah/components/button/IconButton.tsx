@@ -1,24 +1,38 @@
-import React from 'react';
+import React, { LinkHTMLAttributes } from 'react';
 import tw, { styled } from 'twin.macro';
 import { IconsMapped, IconTypes } from '../icon/IconMap';
+import { Link, LinkProps } from '../link/Link';
 
-export interface IIconButtonProps {
+export type IconButtonProps<T> = {
   label: string;
   icon: IconTypes;
   variant: 'default' | 'plain';
-  fCallBack?: () => void;
-}
+  onClick?: () => void;
+} & LinkProps<T>;
 
-export const IconButton: React.FC<IIconButtonProps> = ({
+export const IconButton = <
+  T extends {
+    rel?: string;
+    target?: string;
+  } = LinkHTMLAttributes<HTMLElement>
+>({
   label = 'Label',
   icon = 'logo',
   variant = 'default',
-  fCallBack,
-}) => {
+  onClick,
+  ...props
+}: IconButtonProps<T>) => {
   const Icon = createIcon(icon);
 
-  return (
-    <ButtonStyles variant={variant} onClick={fCallBack} aria-label={label}>
+  return !onClick ? (
+    <Link {...(props as any)}>
+      <ButtonStyles variant={variant} aria-label={label}>
+        <Icon variant={variant} />
+        <p>{label}</p>
+      </ButtonStyles>
+    </Link>
+  ) : (
+    <ButtonStyles variant={variant} onClick={onClick} aria-label={label}>
       <Icon variant={variant} />
       <p>{label}</p>
     </ButtonStyles>
@@ -37,7 +51,7 @@ const buttonDefaults = tw`
   text-skin-light
   font-semibold
   leading-normal
-bg-slate-500
+  bg-slate-500
   flex
   flex-col-reverse
   justify-center
@@ -61,7 +75,7 @@ interface IButtonStyles {
   variant: string;
 }
 
-const ButtonStyles = styled.button(({ variant }: IButtonStyles) => [
+const ButtonStyles = styled.a(({ variant }: IButtonStyles) => [
   buttonDefaults,
   variant === 'default' &&
     tw`

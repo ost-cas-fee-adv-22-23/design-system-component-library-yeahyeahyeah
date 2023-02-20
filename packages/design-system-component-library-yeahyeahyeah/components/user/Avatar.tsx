@@ -1,18 +1,38 @@
-import React from 'react';
+import React, { LinkHTMLAttributes } from 'react';
 import tw, { styled } from 'twin.macro';
 import { ImageScale } from '../../styles/ImageScale';
+import { Link, LinkProps } from '../link/Link';
 
-export type AvatarProps = {
+export type AvatarProps<T> = {
   variant?: 'small' | 'medium' | 'large' | 'xlarge';
   src: string;
   alt: string;
+  href?: string;
   onImageClick?: () => void;
-};
+} & LinkProps<T>;
 
-export const Avatar = ({ variant = 'small', alt, src, onImageClick }: AvatarProps) => {
-  return (
+export const Avatar = <
+  T extends {
+    rel?: string;
+    target?: string;
+  } = LinkHTMLAttributes<HTMLElement>
+>({
+  variant = 'small',
+  alt,
+  src,
+  href,
+  onImageClick,
+  ...props
+}: AvatarProps<T>) => {
+  return href ? (
+    <Link {...(props as any)} href={href}>
+      <Figure variant={variant}>
+        <StyledImage src={src} alt={alt} />
+      </Figure>
+    </Link>
+  ) : (
     <Figure variant={variant}>
-      <Image src={src} alt={alt} onClick={onImageClick} />
+      <StyledImage src={src} alt={alt} onClick={onImageClick} />
     </Figure>
   );
 };
@@ -32,8 +52,8 @@ const Styles = ({ variant }: IImageProps) => [
     flex
     justify-center
     items-center
-  border-slate-200
-  bg-violet-600
+    border-slate-200
+    bg-violet-600
 		rounded-full
 		cursor-pointer
     object-cover
@@ -41,7 +61,7 @@ const Styles = ({ variant }: IImageProps) => [
 	`,
 ];
 
-const Image = styled.img(() => [
+const StyledImage = styled.img(() => [
   ImageScale({ opacityLevel: '80' }),
   tw`
     w-full

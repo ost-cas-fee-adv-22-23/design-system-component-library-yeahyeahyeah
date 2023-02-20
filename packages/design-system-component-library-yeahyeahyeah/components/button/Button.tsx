@@ -2,25 +2,25 @@ import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { IconsMapped, IconTypes } from '../icon/IconMap';
 
-export interface IButtonProps {
+export interface ButtonProps {
   label: string;
   color: 'slate' | 'slate-300' | 'violet' | 'gradient';
   size?: 'small' | 'large';
   width?: 'default' | 'large' | 'full';
   type?: 'button' | 'reset' | 'submit';
   disabled?: boolean;
-  fCallBack?: () => void;
+  onClick?: () => void;
   icon?: IconTypes;
 }
 
-export const Button: React.FC<IButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   label = 'Button Label',
   color = 'slate',
   size = 'small',
   width = 'default',
   type = 'button',
   disabled = false,
-  fCallBack = () => null,
+  onClick,
   icon = 'none',
 }) => {
   const Icon = createIcon(icon);
@@ -32,7 +32,7 @@ export const Button: React.FC<IButtonProps> = ({
       width={width}
       type={type}
       disabled={disabled}
-      onClick={fCallBack}
+      onClick={onClick}
       aria-label={label}
       role="button"
     >
@@ -42,7 +42,7 @@ export const Button: React.FC<IButtonProps> = ({
   );
 };
 
-type ButtonProps = Pick<IButtonProps, 'color' | 'size' | 'width' | 'type'>;
+type ButtonPropsStyle = Pick<ButtonProps, 'color' | 'size' | 'width' | 'type'>;
 
 export interface IStyledIcon {
   color: 'slate' | 'slate-300' | 'violet' | 'gradient';
@@ -85,7 +85,7 @@ const buttonFocus = tw`
   focus:(outline-4 outline-offset-0)
 `;
 
-const Color = ({ color }: ButtonProps) => [
+const Color = ({ color }: ButtonPropsStyle) => [
   tw`
   transition ease-in-out duration-500 !bg-slate-600
   hover:(!bg-slate-700 outline-slate-100)
@@ -116,12 +116,12 @@ const Color = ({ color }: ButtonProps) => [
 `,
 ];
 
-const ButtonWidth = ({ width }: ButtonProps) => [
+const ButtonWidth = ({ width }: ButtonPropsStyle) => [
   width === 'default' ? null : tw`w-full`,
   width === 'large' && tw`w-[184px] h-[40px]`,
 ];
 
-const ButtonSize = ({ size }: ButtonProps) => size === 'large' && tw`py-16 px-24`;
+const ButtonSize = ({ size }: ButtonPropsStyle) => size === 'large' && tw`py-16 px-24`;
 
 const StyledButton = styled.button(() => [
   buttonFont,

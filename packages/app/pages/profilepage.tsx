@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import tw, { styled } from 'twin.macro';
 import Navi from './includes/navi';
 import {
   Switch,
@@ -7,13 +8,13 @@ import {
   Mumble,
   TextBox,
   User,
-  IUserProps,
+  UserProps,
   MumbleHeader,
   UploadForm,
+  BottomSpacing,
 } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
-import Link from 'next/link';
 
 export default function Profilepage() {
   const [posts, setPosts] = useState(['']);
@@ -66,41 +67,13 @@ export default function Profilepage() {
     setShowModal(true);
   };
 
-  const props: IUserProps = {
+  const props: UserProps = {
     avatar: {
       alt: 'Alter Tag',
       onImageClick: () => console.log('image clicked'),
       src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
     },
-    btn: {
-      fCallBack: () => console.log('button clicked'),
-      label: 'Follow',
-    },
-    joined: {
-      type: 'joined',
-      fCallBack: () => console.log('joined clicked'),
-      href: '',
-      label: 'Joined',
-    },
     label: 'Display Name',
-    location: {
-      type: 'joined',
-      fCallBack: () => console.log('location clicked'),
-      href: '',
-      label: 'Location',
-    },
-    timestamp: {
-      type: 'joined',
-      fCallBack: () => console.log('timestamp clicked'),
-      href: '',
-      label: 'Timestamp',
-    },
-    username: {
-      type: 'joined',
-      fCallBack: () => console.log('username clicked'),
-      href: '',
-      label: 'Username',
-    },
     variant: 'recommended',
   };
 
@@ -138,28 +111,7 @@ export default function Profilepage() {
                   onImageClick: () => console.log('imageCallBack clicked'),
                   src: 'https://placebeard.it/640x360',
                 },
-                joined: {
-                  fCallBack: () => console.log('joined clicked'),
-                  href: '#',
-                  label: 'Joined',
-                  type: 'joined',
-                },
                 label: 'Display Name',
-                location: {
-                  fCallBack: () => console.log('location clicked'),
-                  href: '#',
-                  label: 'Location',
-                  type: 'joined',
-                },
-                settings: {
-                  fCallBack: () => console.log('settings clicked'),
-                },
-                username: {
-                  fCallBack: () => console.log('username clicked'),
-                  href: '#',
-                  label: 'username',
-                  type: 'joined',
-                },
                 variant: 'xlarge',
               }}
               variant="edit"
@@ -189,11 +141,6 @@ export default function Profilepage() {
               variant="write"
               user={{
                 label: 'Hey, was läuft?',
-                username: {
-                  type: 'joined',
-                  label: 'Username',
-                  href: '#',
-                },
                 avatar: {
                   src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
                   alt: 'Family Guy goes Mumble',
@@ -215,243 +162,87 @@ export default function Profilepage() {
             .reverse()
             .map((post, i) => {
               return (
-                <Mumble
-                  key={i}
-                  comment={{
-                    fCallBack: () => console.log('comment clicked'),
-                    quantity: 0,
-                  }}
-                  img={{
-                    alt: 'This is a profile picture!',
-                    fCallBack: () => console.log('img clicked'),
-                    src: 'https://picsum.photos/640/360',
-                  }}
-                  like={{
-                    fCallBack: () => console.log('like clicked'),
-                    quantity: 999,
-                  }}
-                  mbSpacing="32"
-                  share={{
-                    fCallBack: () => console.log('share clicked'),
-                    label: 'Share',
-                  }}
-                  text={post}
-                  user={{
-                    avatar: {
-                      src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-                      alt: 'Alter Tag',
-                    },
-                    joined: {
-                      fCallBack: () => console.log('joined clicked'),
-                      href: '',
-                      label: 'Joined',
-                      type: 'joined',
-                    },
-                    label: 'Display Name',
-                    location: {
-                      fCallBack: () => console.log('location clicked'),
-                      href: '',
-                      label: 'Location',
-                      type: 'location',
-                    },
-                    timestamp: {
-                      type: 'timestamp',
-                      href: '/',
-                      label: 'Timestamp',
-                      legacyBehavior: true,
-                      passHref: true,
-                      linkComponent: Link,
-                    },
-                    username: {
-                      type: 'username',
-                      href: '/',
-                      label: 'Username',
-                      legacyBehavior: true,
-                      passHref: true,
-                      linkComponent: Link,
-                    },
-                    variant: 'large',
-                  }}
-                  variant="timeline"
-                />
+                <Mumble key={i} variant="timeline">
+                  {/* <UserWrapper mbSpacing="0">
+                    <User {...user} variant="large" />
+                    <AvatarWrapper>
+                      <Avatar {...user.avatar} alt={user.avatar?.alt || ''} src={user.avatar?.src || ''} variant="medium" />
+                    </AvatarWrapper>
+                  </UserWrapper>
+                  <Row>
+                    <Paragraph size="large" color="dark" text={text} mbSpacing="16" alignment="left" />
+                    {img.src !== '' && <ImageContainer {...img} type="container" />}
+                    <InteractionButton {...comment} type="comment" />
+                    <InteractionButton {...like} type="like" />
+                    <ShareButton {...share} />
+                  </Row> */}
+                </Mumble>
               );
             })}
-          <Mumble
-            comment={{
-              fCallBack: () => console.log('comment clicked'),
-              quantity: 0,
-            }}
-            img={{
-              alt: 'This is a profile picture!',
-              fCallBack: () => console.log('img clicked'),
-              src: 'https://picsum.photos/640/360',
-            }}
-            like={{
-              fCallBack: () => console.log('like clicked'),
-              quantity: 999,
-            }}
-            mbSpacing="32"
-            share={{
-              fCallBack: () => console.log('share clicked'),
-              label: 'Share',
-            }}
-            text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
-            user={{
-              avatar: {
-                src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-                alt: 'Alter Tag',
-              },
-              joined: {
-                fCallBack: () => console.log('joined clicked'),
-                href: '',
-                label: 'Joined',
-                type: 'joined',
-              },
-              label: 'Display Name',
-              location: {
-                fCallBack: () => console.log('location clicked'),
-                href: '',
-                label: 'Location',
-                type: 'location',
-              },
-              timestamp: {
-                type: 'timestamp',
-                href: '/',
-                label: 'Timestamp',
-                legacyBehavior: true,
-                passHref: true,
-                linkComponent: Link,
-              },
-              username: {
-                type: 'username',
-                href: '/',
-                label: 'Username',
-                legacyBehavior: true,
-                passHref: true,
-                linkComponent: Link,
-              },
-              variant: 'large',
-            }}
-            variant="timeline"
-          />
-          <Mumble
-            comment={{
-              fCallBack: () => console.log('comment clicked'),
-              quantity: 0,
-            }}
-            img={{
-              alt: 'This is a profile picture!',
-              fCallBack: () => console.log('img clicked'),
-              src: 'https://picsum.photos/640/360',
-            }}
-            like={{
-              fCallBack: () => console.log('like clicked'),
-              quantity: 999,
-            }}
-            mbSpacing="32"
-            share={{
-              fCallBack: () => console.log('share clicked'),
-              label: 'Share',
-            }}
-            text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
-            user={{
-              avatar: {
-                src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-                alt: 'Alter Tag',
-              },
-              joined: {
-                fCallBack: () => console.log('joined clicked'),
-                href: '',
-                label: 'Joined',
-                type: 'joined',
-              },
-              label: 'Display Name',
-              location: {
-                fCallBack: () => console.log('location clicked'),
-                href: '',
-                label: 'Location',
-                type: 'location',
-              },
-              timestamp: {
-                type: 'timestamp',
-                href: '/',
-                label: 'Timestamp',
-                legacyBehavior: true,
-                passHref: true,
-                linkComponent: Link,
-              },
-              username: {
-                type: 'username',
-                href: '/',
-                label: 'Username',
-                legacyBehavior: true,
-                passHref: true,
-                linkComponent: Link,
-              },
-              variant: 'large',
-            }}
-            variant="timeline"
-          />
-          <Mumble
-            comment={{
-              fCallBack: () => console.log('comment clicked'),
-              quantity: 0,
-            }}
-            img={{
-              alt: 'This is a profile picture!',
-              fCallBack: () => console.log('img clicked'),
-              src: 'https://picsum.photos/640/360',
-            }}
-            like={{
-              fCallBack: () => console.log('like clicked'),
-              quantity: 999,
-            }}
-            mbSpacing="32"
-            share={{
-              fCallBack: () => console.log('share clicked'),
-              label: 'Share',
-            }}
-            text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
-            user={{
-              avatar: {
-                src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-                alt: 'Alter Tag',
-              },
-              joined: {
-                fCallBack: () => console.log('joined clicked'),
-                href: '',
-                label: 'Joined',
-                type: 'joined',
-              },
-              label: 'Display Name',
-              location: {
-                fCallBack: () => console.log('location clicked'),
-                href: '',
-                label: 'Location',
-                type: 'location',
-              },
-              timestamp: {
-                type: 'timestamp',
-                href: '/',
-                label: 'Timestamp',
-                legacyBehavior: true,
-                passHref: true,
-                linkComponent: Link,
-              },
-              username: {
-                type: 'username',
-                href: '/',
-                label: 'Username',
-                legacyBehavior: true,
-                passHref: true,
-                linkComponent: Link,
-              },
-              variant: 'large',
-            }}
-            variant="timeline"
-          />
+          <Mumble mbSpacing="32" variant="timeline"></Mumble>
+          <Mumble mbSpacing="32" variant="timeline"></Mumble>
+          <Mumble mbSpacing="32" variant="timeline"></Mumble>
         </Container>
       </div>
     </>
   );
 }
+
+interface IRowStyles {
+  gap?: string;
+  mbSpacing?: string;
+}
+
+interface IArticleStyles {
+  variant?: string;
+  mbSpacing: string;
+}
+
+const Row = styled.div(({ gap }: IRowStyles) => [
+  tw`
+    flex
+    flex-row
+    flex-wrap
+    justify-start
+    items-center
+    w-full
+    mt-16
+    `,
+  gap === 'small' && tw`gap-8`,
+  BottomSpacing,
+]);
+
+const Article = styled.article(({ variant }: IArticleStyles) => [
+  tw`
+    flex
+    flex-col
+    justify-start
+    items-start
+    w-full
+    bg-slate-white
+    py-32
+    px-16
+    sm:px-48
+  `,
+  (variant === 'timeline' || variant === 'detailpage') && tw`rounded-xl`,
+  BottomSpacing,
+]);
+
+const AvatarWrapper = styled.div(() => [
+  tw`
+   mr-16
+  `,
+]);
+
+const UserWrapper = styled.div(() => [
+  BottomSpacing,
+  tw`
+    flex
+    flex-row-reverse
+    justify-between
+    items-center
+    relative
+    left-0
+    sm:(-left-[84px])
+  `,
+]);

@@ -2,7 +2,7 @@ import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { BottomSpacing } from '../../index';
 import type { TmbSpacing } from '../../types/types';
-import { User, IUserProps } from '../user/User';
+import { User, UserProps } from '../user/User';
 import { Paragraph } from '../typography/Paragraph';
 import { IImageContainerProps, ImageContainer } from '../image/ImageContainer';
 import { Avatar } from '../user/Avatar';
@@ -10,7 +10,7 @@ import { IconButton } from '../button/IconButton';
 
 export interface IMumbleHeaderProps {
   variant?: 'view' | 'edit';
-  user: IUserProps;
+  user: UserProps;
   text: string;
   banner?: IImageContainerProps;
   mbSpacing?: TmbSpacing;
@@ -31,33 +31,10 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
   user = {
     label: 'Display Name',
     variant: 'xlarge',
-    username: {
-      label: 'Username',
-      type: 'joined',
-      href: '#',
-    },
-    location: {
-      label: 'location',
-      type: 'joined',
-      href: '#',
-    },
-    joined: {
-      label: 'Joined',
-      type: 'joined',
-      href: '#',
-    },
-    settings: {
-      fCallBack: () => {
-        return null;
-      },
-    },
     avatar: {
       src: 'https://placebeard.it/640x360',
       alt: 'Alttag',
-      imageCallBack: () => {
-        return null;
-      },
-      buttonCallBack: () => {
+      onImageClick: () => {
         return null;
       },
     },
@@ -72,27 +49,18 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
         fCallBack={banner.fCallBack}
       />
       <div tw="px-8 mb-16">
-        <User
-          avatar={user.avatar}
-          username={user.username}
-          location={user.location}
-          joined={user.joined}
-          label={user.label}
-          variant={user.variant}
-          settings={user.settings}
-          type={variant}
-        />
+        <User avatar={user.avatar} label={user.label} variant={user.variant} type={variant} />
       </div>
       <Row variant={variant} mbSpacing="0">
         <Avatar
           src={user.avatar?.src || ''}
           alt={user.avatar?.alt || ''}
           variant="xlarge"
-          imageCallBack={user.avatar?.imageCallBack}
+          onImageClick={user.avatar?.onImageClick}
         />
         {variant === 'edit' && (
           <IconBox>
-            <IconButton label="label" icon="edit" variant="default" fCallBack={user.avatar?.buttonCallBack} />
+            <IconButton label="label" icon="edit" variant="default" onClick={user.avatar?.onImageClick} />
           </IconBox>
         )}
       </Row>

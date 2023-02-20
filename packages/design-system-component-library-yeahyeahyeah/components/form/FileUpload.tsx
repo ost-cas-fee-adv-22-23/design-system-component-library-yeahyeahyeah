@@ -72,7 +72,7 @@ export const FileUpload: React.FC<IDrapAndDrop> = ({
       </Figure>
       <Row upload="upload">
         <Button
-          fCallBack={() => open()}
+          onClick={() => open()}
           icon="upload"
           label="... oder Datei auswählen"
           size="large"
