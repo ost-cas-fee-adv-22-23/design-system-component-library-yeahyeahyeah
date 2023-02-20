@@ -3,40 +3,25 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Navigation } from '../../components/navigation/Navigation';
 import { Modal } from '../../components/modal/Modal';
 import NavigationReadme from '../../docs/Navigation.md';
-import { action } from '@storybook/addon-actions';
-import { Avatar, NaviButton } from '../../index';
+import { Avatar, MumbleLogo, NaviButton } from '../../index';
 import Link from 'next/link';
 
 export default {
   title: 'Navigation/Navigation',
   component: Navigation,
   parameters: { actions: { argTypesRegex: '^on.*' } },
-  argTypes: {
-    logo: {
-      control: 'object',
-      description: 'Description of mumbleLogo',
-      defaultValue: {
-        title: 'Mumble Logo',
-        href: '#',
-        fCallBack: action('logo'),
-      },
-    },
-  },
+  argTypes: {},
 } as ComponentMeta<typeof Navigation>;
 
 const Template: ComponentStory<typeof Navigation> = (args) => {
   const [open, setOpen] = useState(false);
-
-  const handleClick = () => {
-    setOpen((open) => !open);
-  };
 
   const handleClose = () => {
     setOpen((open) => !open);
   };
 
   return !open ? (
-    <Navigation {...args}>
+    <Navigation {...args} logo={MumbleLogo} title="Mumble Logo">
       <NaviButton
         label="Profile"
         variant="profile"

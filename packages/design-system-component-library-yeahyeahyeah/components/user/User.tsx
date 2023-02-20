@@ -14,7 +14,7 @@ export interface IUserProps {
   timestamp?: IconLinkProps<any>;
   location?: IconLinkProps<any>;
   joined?: IconLinkProps<any>;
-  avatar?: AvatarProps<any>;
+  avatar?: AvatarProps;
   btn?: { label: string; fCallBack?: () => void };
   settings?: { fCallBack?: () => void };
 }

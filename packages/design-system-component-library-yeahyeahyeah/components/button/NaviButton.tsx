@@ -27,19 +27,17 @@ export const NaviButton = <
   const Icon = createIcon(icon);
 
   return (
-    <>
-      <Link {...(props as any)} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
-        <ButtonStyles aria-label={label}>
-          {variant === 'default' && (
-            <>
-              <Icon />
-              <Span>{label}</Span>
-            </>
-          )}
-          {variant === 'profile' && children}
-        </ButtonStyles>
-      </Link>
-    </>
+    <Link {...(props as any)} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
+      <ButtonStyles aria-label={label}>
+        {variant === 'default' && (
+          <>
+            <Icon />
+            <Span>{label}</Span>
+          </>
+        )}
+        {variant === 'profile' && children}
+      </ButtonStyles>
+    </Link>
   );
 };
 
@@ -82,4 +80,4 @@ const buttonFocus = tw`
   focus:(bg-violet-700)
 `;
 
-const ButtonStyles = styled.div(() => [buttonFont, buttonDefaults, buttonHover, buttonFocus]);
+const ButtonStyles = styled.a(() => [buttonFont, buttonDefaults, buttonHover, buttonFocus]);

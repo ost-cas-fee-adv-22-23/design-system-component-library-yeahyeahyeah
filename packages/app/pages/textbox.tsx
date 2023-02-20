@@ -66,10 +66,6 @@ export default function Profilepage() {
     avatar: {
       src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
       alt: 'Alter Tag',
-      href: '/',
-      legacyBehavior: true,
-      passHref: true,
-      linkComponent: Link,
     },
     btn: {
       fCallBack: () => console.log('button clicked'),
@@ -139,15 +135,7 @@ export default function Profilepage() {
           />
         </div>
         <div tw="mb-32">
-          <Avatar
-            src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif"
-            alt="Alter Tag"
-            variant="small"
-            href="/"
-            legacyBehavior={true}
-            passHref={true}
-            linkComponent={Link}
-          />
+          <Avatar src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif" alt="Alter Tag" variant="small" />
         </div>
         <User {...props} />
       </div>

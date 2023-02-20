@@ -136,8 +136,7 @@ export default function Timeline() {
                   user={{
                     avatar: {
                       alt: 'avatar',
-                      buttonCallBack: () => console.log('buttonCallBack clicked'),
-                      imageCallBack: () => console.log('imageCallBack clicked'),
+                      onImageClick: () => console.log('imageCallBack clicked'),
                       src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
                     },
                     joined: {

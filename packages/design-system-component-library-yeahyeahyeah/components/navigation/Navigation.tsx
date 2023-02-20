@@ -1,42 +1,27 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { MumbleLogo, IMumbleLogoProps } from '../branding/MumbleLogo';
-export interface INavigationProps {
-  logo: Pick<IMumbleLogoProps, 'title' | 'href' | 'fCallBack'>;
-  children?: React.ReactNode;
-}
 
-export const Navigation: React.FC<INavigationProps> = ({
-  logo = {
-    title: 'Mumble Logo',
-    href: '#',
-    fCallBack: () => {
-      return null;
-    },
-  },
-  children,
-}) => {
+export type NavigationProps<T> = {
+  title: 'Mumble Logo';
+  onLogoClick?: () => void;
+  href?: '#';
+  logo: FC<T>;
+  children?: React.ReactNode;
+};
+
+export const Navigation = ({ title, logo: Logo, children, onLogoClick }: NavigationProps<any>) => {
   return (
-    <>
-      <HeaderStyles>
-        <NavigationStyles>
-          <Container>
-            <Column>
-              <MumbleLogo
-                title={logo.title}
-                href={logo.href}
-                color="white"
-                alignment="horizontal"
-                fCallBack={logo.fCallBack}
-                isNavigation={true}
-              />
-              <Row>{children}</Row>
-            </Column>
-          </Container>
-        </NavigationStyles>
-      </HeaderStyles>
-    </>
+    <HeaderStyles>
+      <NavigationStyles>
+        <Container>
+          <Column>
+            <Logo title={title} onLogoClick={onLogoClick} />
+            <Row>{children}</Row>
+          </Column>
+        </Container>
+      </NavigationStyles>
+    </HeaderStyles>
   );
 };
 

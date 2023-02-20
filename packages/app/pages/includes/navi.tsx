@@ -1,16 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
-import { Avatar, NaviButton, Navigation } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import {
+  Avatar,
+  NaviButton,
+  Navigation,
+  MumbleLogo,
+} from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import { useRouter } from 'next/router';
 
 export default function Navi() {
   const router = useRouter();
 
-  const handleAvatar = () => {
-    router.push('/profilepage');
-  };
-
   const handleLogoClick = () => {
+    console.log('logo clicked');
     router.push('/');
   };
   return (
@@ -23,13 +25,7 @@ export default function Navi() {
         <Link href="./hashtag">Hashtag</Link>
       </div>
       <div tw="w-full mb-32">
-        <Navigation
-          logo={{
-            title: 'Mumble Logo',
-            href: '#',
-            fCallBack: handleLogoClick,
-          }}
-        >
+        <Navigation logo={MumbleLogo} title="Mumble Logo" onLogoClick={handleLogoClick}>
           <NaviButton
             label="Profile"
             variant="profile"
