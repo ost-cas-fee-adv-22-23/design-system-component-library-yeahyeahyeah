@@ -54,6 +54,9 @@ export const User: React.FC<IUserProps> = ({
   avatar = {
     src: 'https://i.stack.imgur.com/5xd5n.png',
     alt: 'Alter Tag',
+    fCallBack: () => {
+      return null;
+    },
   },
   btn = { label: 'Follow' },
   settings = {

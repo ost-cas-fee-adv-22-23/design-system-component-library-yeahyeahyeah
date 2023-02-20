@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Navigation } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { Avatar, NaviButton, Navigation } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import { useRouter } from 'next/router';
 
 export default function Navi() {
@@ -29,38 +29,36 @@ export default function Navi() {
             href: '#',
             fCallBack: handleLogoClick,
           }}
-          avatar={{
-            label: 'Label',
-            variant: 'profile',
-
-            avatar: {
-              src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-              alt: 'Alter Tag',
-              href: '/',
-              legacyBehavior: true,
-              passHref: true,
-              linkComponent: Link,
-            },
-          }}
-          settings={{
-            label: 'Settings',
-            variant: 'default',
-            icon: 'settings',
-            href: '/',
-            legacyBehavior: true,
-            passHref: true,
-            linkComponent: Link,
-          }}
-          logout={{
-            label: 'Logout',
-            variant: 'default',
-            icon: 'logout',
-            href: '/profilepage',
-            legacyBehavior: true,
-            passHref: true,
-            linkComponent: Link,
-          }}
-        />
+        >
+          <NaviButton
+            label="Profile"
+            variant="profile"
+            href="/profilepage"
+            legacyBehavior={true}
+            passHref={true}
+            linkComponent={Link}
+          >
+            <Avatar alt="Small Avatar" src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif" variant="small" />
+          </NaviButton>
+          <NaviButton
+            label="Settings"
+            variant="default"
+            icon="settings"
+            href="/"
+            legacyBehavior={true}
+            passHref={true}
+            linkComponent={Link}
+          />
+          <NaviButton
+            label="Logout"
+            variant="default"
+            icon="logout"
+            href="/detailview"
+            legacyBehavior={true}
+            passHref={true}
+            linkComponent={Link}
+          />
+        </Navigation>
       </div>
     </>
   );

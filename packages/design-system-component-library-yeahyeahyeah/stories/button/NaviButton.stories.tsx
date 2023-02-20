@@ -21,9 +21,6 @@ export default {
       options: ['settings', 'logout'],
       if: { arg: 'variant', eq: 'default' },
     },
-    avatar: {
-      control: 'object',
-    },
   },
   args: {
     label: 'Label',
@@ -52,11 +49,6 @@ ProfileButtonStory.argTypes = {
 ProfileButtonStory.args = {
   label: 'Label',
   variant: 'profile',
-  avatar: {
-    variant: 'small',
-    src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-    alt: 'Alternative text',
-  },
 };
 
 ProfileButtonStory.parameters = {

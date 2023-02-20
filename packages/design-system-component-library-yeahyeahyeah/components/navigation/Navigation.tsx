@@ -2,12 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { MumbleLogo, IMumbleLogoProps } from '../branding/MumbleLogo';
-import { NaviButton, NaviButtonProps } from '../button/NaviButton';
 export interface INavigationProps {
   logo: Pick<IMumbleLogoProps, 'title' | 'href' | 'fCallBack'>;
-  avatar: Pick<NaviButtonProps<any>, 'label' | 'variant' | 'fCallBack' | 'avatar'>;
-  settings: NaviButtonProps<any>;
-  logout: NaviButtonProps<any>;
+  children?: React.ReactNode;
 }
 
 export const Navigation: React.FC<INavigationProps> = ({
@@ -18,34 +15,7 @@ export const Navigation: React.FC<INavigationProps> = ({
       return null;
     },
   },
-  avatar = {
-    variant: 'profile',
-    label: 'Profile',
-    fCallBack: () => {
-      return null;
-    },
-    avatar: {
-      variant: 'small',
-      src: 'https://media.giphy.com/media/12HZukMBlutpoQ/giphy.gif',
-      alt: 'Alternative text',
-    },
-  },
-  settings = {
-    icon: 'settings',
-    label: 'Settings',
-    variant: 'default',
-    fCallBack: () => {
-      return null;
-    },
-  },
-  logout = {
-    icon: 'logout',
-    label: 'Logout',
-    variant: 'default',
-    fCallBack: () => {
-      return null;
-    },
-  },
+  children,
 }) => {
   return (
     <>
@@ -61,11 +31,7 @@ export const Navigation: React.FC<INavigationProps> = ({
                 fCallBack={logo.fCallBack}
                 isNavigation={true}
               />
-              <Row>
-                <NaviButton {...avatar} />
-                <NaviButton {...settings} />
-                <NaviButton {...logout} />
-              </Row>
+              <Row>{children}</Row>
             </Column>
           </Container>
         </NavigationStyles>

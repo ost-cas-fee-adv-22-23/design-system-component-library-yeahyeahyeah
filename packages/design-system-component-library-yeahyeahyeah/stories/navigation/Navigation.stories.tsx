@@ -4,6 +4,8 @@ import { Navigation } from '../../components/navigation/Navigation';
 import { Modal } from '../../components/modal/Modal';
 import NavigationReadme from '../../docs/Navigation.md';
 import { action } from '@storybook/addon-actions';
+import { Avatar, NaviButton } from '../../index';
+import Link from 'next/link';
 
 export default {
   title: 'Navigation/Navigation',
@@ -17,40 +19,6 @@ export default {
         title: 'Mumble Logo',
         href: '#',
         fCallBack: action('logo'),
-      },
-    },
-    avatar: {
-      control: 'object',
-      description: 'User image',
-      defaultValue: {
-        variant: 'profile',
-        label: 'Profile',
-        fCallBack: action('avatar'),
-        avatar: {
-          variant: 'small',
-          src: 'https://media.giphy.com/media/3oEduQAsYcJKQH2XsI/giphy.gif',
-          alt: 'Alternative text',
-        },
-      },
-    },
-    settings: {
-      control: 'object',
-      description: 'User settings',
-      defaultValue: {
-        icon: 'settings',
-        label: 'Settings',
-        variant: 'default',
-        fCallBack: action('settings'),
-      },
-    },
-    logout: {
-      control: 'object',
-      description: 'Logout',
-      defaultValue: {
-        icon: 'logout',
-        label: 'Logout',
-        variant: 'default',
-        fCallBack: action('logout'),
       },
     },
   },
@@ -68,15 +36,36 @@ const Template: ComponentStory<typeof Navigation> = (args) => {
   };
 
   return !open ? (
-    <Navigation
-      {...args}
-      settings={{
-        icon: 'settings',
-        label: 'Settings',
-        variant: 'default',
-        fCallBack: handleClick,
-      }}
-    />
+    <Navigation {...args}>
+      <NaviButton
+        label="Profile"
+        variant="profile"
+        href="/profilepage"
+        legacyBehavior={true}
+        passHref={true}
+        linkComponent={Link}
+      >
+        <Avatar alt="Small Avatar" src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif" variant="small" />
+      </NaviButton>
+      <NaviButton
+        label="Settings"
+        variant="default"
+        icon="settings"
+        href="/"
+        legacyBehavior={true}
+        passHref={true}
+        linkComponent={Link}
+      />
+      <NaviButton
+        label="Logout"
+        variant="default"
+        icon="logout"
+        href="/detailview"
+        legacyBehavior={true}
+        passHref={true}
+        linkComponent={Link}
+      />
+    </Navigation>
   ) : (
     <Modal label="Settings" isOpen={open} onClose={handleClose}>
       Settings

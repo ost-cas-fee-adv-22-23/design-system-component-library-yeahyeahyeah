@@ -178,7 +178,7 @@ export default function Profilepage() {
                 },
               ]}
               value="mumbles"
-              fCallBack={(value) => console.log(`${value} clicked`)}
+              fCallBack={(value: string) => console.log(`${value} clicked`)}
             />
           </div>
         </div>
@@ -199,6 +199,7 @@ export default function Profilepage() {
                 avatar: {
                   src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
                   alt: 'Family Guy goes Mumble',
+                  fCallBack: () => console.log('avatar clicked'),
                 },
               }}
               form={{
