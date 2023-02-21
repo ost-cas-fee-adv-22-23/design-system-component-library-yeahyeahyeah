@@ -1,6 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
-import { Avatar, NaviButton, Navigation } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import {
+  Avatar,
+  MumbleLogo,
+  NaviButton,
+  Navigation,
+  NavigationContainer,
+  NavigationColumn,
+  NavigationRow,
+} from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import { useRouter } from 'next/router';
 
 export default function Navi() {
@@ -21,34 +29,47 @@ export default function Navi() {
       </div>
       <div tw="w-full mb-32">
         <Navigation title="Mumble Logo">
-          <NaviButton
-            label="Profile"
-            variant="profile"
-            href="/profilepage"
-            legacyBehavior={true}
-            passHref={true}
-            linkComponent={Link}
-          >
-            <Avatar alt="Small Avatar" src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif" variant="small" />
-          </NaviButton>
-          <NaviButton
-            label="Settings"
-            variant="default"
-            icon="settings"
-            href="/"
-            legacyBehavior={true}
-            passHref={true}
-            linkComponent={Link}
-          />
-          <NaviButton
-            label="Logout"
-            variant="default"
-            icon="logout"
-            href="/detailview"
-            legacyBehavior={true}
-            passHref={true}
-            linkComponent={Link}
-          />
+          <NavigationContainer>
+            <NavigationColumn>
+              <Link href="/" title="Startpage" target="_self">
+                <MumbleLogo isNavigation={true} color="white" alignment="horizontal" />
+              </Link>
+              <NavigationRow>
+                <NaviButton
+                  label="Profile"
+                  variant="profile"
+                  href="/profilepage"
+                  legacyBehavior={true}
+                  passHref={true}
+                  linkComponent={Link}
+                >
+                  <Avatar
+                    alt="Small Avatar"
+                    src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif"
+                    variant="small"
+                  />
+                </NaviButton>
+                <NaviButton
+                  label="Settings"
+                  variant="default"
+                  icon="settings"
+                  href="/"
+                  legacyBehavior={true}
+                  passHref={true}
+                  linkComponent={Link}
+                />
+                <NaviButton
+                  label="Logout"
+                  variant="default"
+                  icon="logout"
+                  href="/detailview"
+                  legacyBehavior={true}
+                  passHref={true}
+                  linkComponent={Link}
+                />
+              </NavigationRow>
+            </NavigationColumn>
+          </NavigationContainer>
         </Navigation>
       </div>
     </>
