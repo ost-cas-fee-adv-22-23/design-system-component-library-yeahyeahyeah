@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import NavigationReadme from '../../docs/Navigation.md';
-import { Avatar, NaviButton, Navigation, Modal, NavigationContainer, NavigationColumn, NavigationRow } from '../../index';
+import {
+  Avatar,
+  NaviButton,
+  Navigation,
+  Modal,
+  MumbleLogo,
+  NavigationContainer,
+  NavigationColumn,
+  NavigationRow,
+} from '../../index';
 import Link from 'next/link';
 
 export default {
@@ -22,7 +31,9 @@ const Template: ComponentStory<typeof Navigation> = (args) => {
     <Navigation {...args} title="Mumble Logo">
       <NavigationContainer>
         <NavigationColumn>
-          <div tw="text-slate-white">Logo</div>
+          <Link href="#" title="Startpage">
+            <MumbleLogo isNavigation={true} color="white" alignment="horizontal" />
+          </Link>
           <NavigationRow>
             <NaviButton
               label="Profile"
