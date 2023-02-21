@@ -85,7 +85,7 @@ const buttonFocus = tw`
   focus:(outline-4 outline-offset-0)
 `;
 
-const Color = ({ color }: ButtonPropsStyle) => [
+const ButtonColor = ({ color }: ButtonPropsStyle) => [
   tw`
   transition ease-in-out duration-500 !bg-slate-600
   hover:(!bg-slate-700 outline-slate-100)
@@ -130,5 +130,5 @@ const StyledButton = styled.button(() => [
   buttonFocus,
   ButtonWidth,
   ButtonSize,
-  Color,
+  ButtonColor,
 ]);

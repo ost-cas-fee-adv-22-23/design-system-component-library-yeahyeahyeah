@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Navi from './includes/navi';
-import { Mumble, TextBox, Container, UploadForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { TextBox, Container, UploadForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
 
@@ -67,9 +67,6 @@ export default function Detailview() {
         <Navi />
         <Container layout="box">
           <div tw="border-b-1 border-slate-200">
-            <Mumble mbSpacing="0" variant="detailpage" />
-          </div>
-          <div tw="border-b-1 border-slate-200">
             <TextBox
               variant="write"
               user={{
@@ -89,12 +86,8 @@ export default function Detailview() {
               uploadCallback={handleUpload}
             />
           </div>
-          {posts
-            .slice(0)
-            .reverse()
-            .map((post, i) => {
-              return <Mumble key={i} mbSpacing="0" variant="timeline" />;
-            })}
+          <br />
+          <br />
         </Container>
       </div>
     </>

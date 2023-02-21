@@ -5,11 +5,9 @@ import {
   Switch,
   Container,
   Heading,
-  Mumble,
   TextBox,
   User,
   UserProps,
-  MumbleHeader,
   UploadForm,
   BottomSpacing,
 } from '@smartive-education/design-system-component-library-yeahyeahyeah';
@@ -97,25 +95,6 @@ export default function Profilepage() {
         <Navi />
         <div tw="container py-16">
           <div tw="flex flex-col justify-between">
-            <MumbleHeader
-              banner={{
-                alt: 'Picture',
-                fCallBack: () => console.log('banner clicked'),
-                src: 'https://loremflickr.com/640/360',
-                type: 'banner-edit',
-              }}
-              text="Schreib etwas über dich."
-              user={{
-                avatar: {
-                  alt: 'Alttag',
-                  onImageClick: () => console.log('imageCallBack clicked'),
-                  src: 'https://placebeard.it/640x360',
-                },
-                label: 'Display Name',
-                variant: 'xlarge',
-              }}
-              variant="edit"
-            />
             <Switch
               options={[
                 {
@@ -157,31 +136,6 @@ export default function Profilepage() {
               uploadCallback={handleUpload}
             />
           </div>
-          {posts
-            .slice(0)
-            .reverse()
-            .map((post, i) => {
-              return (
-                <Mumble key={i} variant="timeline">
-                  {/* <UserWrapper mbSpacing="0">
-                    <User {...user} variant="large" />
-                    <AvatarWrapper>
-                      <Avatar {...user.avatar} alt={user.avatar?.alt || ''} src={user.avatar?.src || ''} variant="medium" />
-                    </AvatarWrapper>
-                  </UserWrapper>
-                  <Row>
-                    <Paragraph size="large" color="dark" text={text} mbSpacing="16" alignment="left" />
-                    {img.src !== '' && <ImageContainer {...img} type="container" />}
-                    <InteractionButton {...comment} type="comment" />
-                    <InteractionButton {...like} type="like" />
-                    <ShareButton {...share} />
-                  </Row> */}
-                </Mumble>
-              );
-            })}
-          <Mumble mbSpacing="32" variant="timeline"></Mumble>
-          <Mumble mbSpacing="32" variant="timeline"></Mumble>
-          <Mumble mbSpacing="32" variant="timeline"></Mumble>
         </Container>
       </div>
     </>

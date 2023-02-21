@@ -8,6 +8,8 @@ import {
   User,
   UserRecommended,
   UserRecommendedProps,
+  LikeButton,
+  CommentButton,
 } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -113,6 +115,19 @@ export default function HashtagComponent() {
             linkComponent={Link}
           />
         </UserRecommended>
+      </div>
+      <div tw="mb-32">
+        <LikeButton onClick={() => console.log('clicked')} quantity={0} favourite={false} />
+      </div>
+      <div tw="mb-32">
+        <CommentButton
+          onClick={() => console.log('clicked')}
+          quantity={999}
+          href="/detailview"
+          legacyBehavior={true}
+          passHref={true}
+          linkComponent={Link}
+        />
       </div>
     </div>
   );

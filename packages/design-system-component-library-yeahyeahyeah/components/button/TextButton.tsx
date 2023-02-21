@@ -4,12 +4,12 @@ import tw from 'twin.macro';
 
 export interface TextButtonProps {
   label: string;
-  handleClick?: () => void;
+  onClick?: () => void;
 }
 
-export const TextButton: React.FC<TextButtonProps> = ({ label = 'Button Label', handleClick }) => {
+export const TextButton: React.FC<TextButtonProps> = ({ label = 'Button Label', onClick }) => {
   return (
-    <StyledTextButton onClick={handleClick} aria-label={label}>
+    <StyledTextButton onClick={onClick} aria-label={label}>
       {label}
     </StyledTextButton>
   );

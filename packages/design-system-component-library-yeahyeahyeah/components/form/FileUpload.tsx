@@ -110,7 +110,7 @@ const Row = styled.div(({ upload }: IRowStyle) => [
   upload === 'upload' && tw`mt-16`,
 ]);
 
-const LoadingSpinner = tw`
+const loadingSpinner = tw`
   animate-spin
   flex
   justify-center
@@ -126,7 +126,7 @@ const IconWrapper = styled.div(({ loading }: IUploadIcon) => [
     justify-center
     items-center
 `,
-  loading === true && LoadingSpinner,
+  loading === true && loadingSpinner,
 ]);
 
 const Figure = styled.figure.attrs({ className: 'group' })(() => [

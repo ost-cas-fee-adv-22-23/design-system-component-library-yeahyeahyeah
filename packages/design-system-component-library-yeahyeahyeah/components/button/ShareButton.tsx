@@ -5,10 +5,10 @@ import { IconsMapped, IconTypes } from '../icon/IconMap';
 
 export interface IShareButton {
   label: string;
-  fCallBack?: () => void;
+  onClick?: () => void;
 }
 
-export const ShareButton: React.FC<IShareButton> = ({ label = 'Copy Link', fCallBack }) => {
+export const ShareButton: React.FC<IShareButton> = ({ label = 'Copy Link', onClick }) => {
   const [labelText, setLabelText] = useState<string>(label);
   const [hover, setHover] = useState(false);
 
@@ -19,14 +19,14 @@ export const ShareButton: React.FC<IShareButton> = ({ label = 'Copy Link', fCall
       setLabelText(label);
     }, 1000);
 
-    fCallBack && fCallBack();
+    onClick && onClick();
   };
 
   const Share = createIcon('share');
 
   return (
     <>
-      <ButtonStyles
+      <StyledButton
         onClick={handleClick}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
@@ -35,7 +35,7 @@ export const ShareButton: React.FC<IShareButton> = ({ label = 'Copy Link', fCall
       >
         <Share hover={hover} aria-label={label} />
         {labelText}
-      </ButtonStyles>
+      </StyledButton>
     </>
   );
 };
@@ -57,11 +57,7 @@ interface IShareButtonStyles {
   hover: boolean;
 }
 
-/**
- * @Button
- * @desc Button styles
- */
-const ButtonStyles = styled.button(({ hover }: IShareButtonStyles) => [
+const StyledButton = styled.button(({ hover }: IShareButtonStyles) => [
   tw`
     text-skin-light
     font-semibold

@@ -31,7 +31,7 @@ export const NaviButton = <
 
   return (
     <Link {...(props as any)} href={href}>
-      <ButtonStyles aria-label={label} onClick={onClick}>
+      <StyledButton aria-label={label} onClick={onClick}>
         {variant === 'default' && (
           <>
             <Icon />
@@ -39,7 +39,7 @@ export const NaviButton = <
           </>
         )}
         {variant === 'profile' && children}
-      </ButtonStyles>
+      </StyledButton>
     </Link>
   );
 };
@@ -83,4 +83,4 @@ const buttonFocus = tw`
   focus:(bg-violet-700)
 `;
 
-const ButtonStyles = styled.a(() => [buttonFont, buttonDefaults, buttonHover, buttonFocus]);
+const StyledButton = styled.a(() => [buttonFont, buttonDefaults, buttonHover, buttonFocus]);

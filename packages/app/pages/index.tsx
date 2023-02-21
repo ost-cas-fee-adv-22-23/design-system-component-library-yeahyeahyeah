@@ -1,12 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Navi from './includes/navi';
-import {
-  Mumble,
-  TextBox,
-  Heading,
-  Container,
-  UploadForm,
-} from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { TextBox, Heading, Container, UploadForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
 
@@ -102,12 +96,6 @@ export default function Timeline() {
               uploadCallback={handleUpload}
             />
           </div>
-          {posts
-            .slice(0)
-            .reverse()
-            .map((post, i) => {
-              return <Mumble key={i} mbSpacing="32" variant="timeline" />;
-            })}
         </Container>
       </div>
     </>

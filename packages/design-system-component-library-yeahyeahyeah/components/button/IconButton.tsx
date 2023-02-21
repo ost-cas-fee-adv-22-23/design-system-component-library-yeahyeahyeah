@@ -47,7 +47,7 @@ const createIcon = (icon: IconTypes) => {
   ]);
 };
 
-const buttonDefaults = tw`
+const buttonDefaultStyles = tw`
   text-skin-light
   font-semibold
   leading-normal
@@ -76,7 +76,7 @@ interface IButtonStyles {
 }
 
 const ButtonStyles = styled.a(({ variant }: IButtonStyles) => [
-  buttonDefaults,
+  buttonDefaultStyles,
   variant === 'default' &&
     tw`
       focus:(outline-4)
