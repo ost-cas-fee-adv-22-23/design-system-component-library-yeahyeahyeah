@@ -1,12 +1,12 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { InteractionButton } from '../../components/button/InteractionButton';
+import { LikeButton } from '../../components/button/LikeButton';
 import { useArgs } from '@storybook/client-api';
 import InterActionReadme from '../../docs/InteractionButton.md';
 
 export default {
   title: 'Interactions',
-  component: InteractionButton,
+  component: LikeButton,
   argTypes: {
     type: {
       control: false,
@@ -23,16 +23,16 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof InteractionButton>;
+} as ComponentMeta<typeof LikeButton>;
 
-const Template: ComponentStory<typeof InteractionButton> = (args) => {
+const Template: ComponentStory<typeof LikeButton> = (args) => {
   const [{ favourite, quantity }, updateArgs] = useArgs();
 
-  const fCallBack = () => {
-    if (args.type === 'like') updateArgs({ favourite: !favourite, quantity: favourite ? quantity - 1 : quantity + 1 });
+  const onClick = () => {
+    updateArgs({ favourite: !favourite, quantity: favourite ? quantity - 1 : quantity + 1 });
   };
 
-  return <InteractionButton {...args} fCallBack={fCallBack} />;
+  return <LikeButton {...args} onClick={onClick} />;
 };
 
 // LIKE STORY
@@ -44,7 +44,6 @@ LikeButtonStory.argTypes = {
 };
 
 LikeButtonStory.args = {
-  type: 'like',
   quantity: 0,
   favourite: false,
 };
@@ -59,32 +58,3 @@ LikeButtonStory.parameters = {
 };
 
 LikeButtonStory.storyName = 'Like';
-
-// COMMENT STORY
-export const CommentButtonStory = Template.bind({});
-
-CommentButtonStory.argTypes = {
-  favourite: {
-    control: false,
-    table: {
-      disable: true,
-    },
-  },
-};
-
-CommentButtonStory.args = {
-  type: 'comment',
-  quantity: 0,
-  favourite: false,
-};
-
-CommentButtonStory.parameters = {
-  docs: {
-    source: { type: 'dynamic' },
-    description: {
-      component: InterActionReadme,
-    },
-  },
-};
-
-CommentButtonStory.storyName = 'Comment';
