@@ -3,12 +3,10 @@ import tw from 'twin.macro';
 import { Heading } from '../typography/Heading';
 import { Button } from '../button/Button';
 import { Avatar, AvatarProps } from './Avatar';
-import { Article, Column, Row } from './UserStyles';
+import { UserArticle, UserColumn, UserRow } from './UserStyles';
 
 export interface UserRecommendedProps {
   label: string;
-  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended' | 'write' | 'inline';
-  type?: 'edit' | 'view';
   avatar?: AvatarProps<any>;
   btn?: { label: string; onClick?: () => void };
   children?: React.ReactNode;
@@ -27,15 +25,15 @@ export const UserRecommended: React.FC<UserRecommendedProps> = ({
   children,
 }) => {
   return (
-    <Article>
-      <Column variant="recommended">
+    <UserArticle>
+      <UserColumn variant="recommended">
         <Avatar {...avatar} variant="large" />
-        <Row spacing={tw`mb-8`}>
+        <UserRow spacing={tw`mb-8`}>
           <Heading tag="h4" color="dark" size="large" label={label} />
-        </Row>
+        </UserRow>
         <div tw="mb-16">{children}</div>
         {btn && <Button {...btn} icon="logo" size="small" type="button" width="large" color="violet" />}
-      </Column>
-    </Article>
+      </UserColumn>
+    </UserArticle>
   );
 };

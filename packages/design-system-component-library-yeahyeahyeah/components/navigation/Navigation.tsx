@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import { NavigationContainer } from './NavigationStyles';
 
 export type NavigationProps = {
   title: 'Mumble Logo';
@@ -11,7 +12,7 @@ export const Navigation = ({ children }: NavigationProps) => {
   return (
     <HeaderStyles>
       <NavigationStyles>
-        <Container>{children}</Container>
+        <NavigationContainer>{children}</NavigationContainer>
       </NavigationStyles>
     </HeaderStyles>
   );
@@ -19,16 +20,6 @@ export const Navigation = ({ children }: NavigationProps) => {
 
 const HeaderStyles = tw.header`
   w-full
-`;
-
-const Container = tw.div`
-  flex
-  flex-col
-  sm:flex-row
-  justify-center
-  items-center
-  container
-  px-16
 `;
 
 const NavigationStyles = styled.nav(() => [

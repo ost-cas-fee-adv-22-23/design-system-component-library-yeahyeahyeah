@@ -36,7 +36,6 @@ export default function HashtagComponent() {
 
   const recommendedProps: UserRecommendedProps = {
     label: 'Display Name',
-    variant: 'small',
     btn: {
       label: 'Follow',
       onClick: () => console.log('clicked'),

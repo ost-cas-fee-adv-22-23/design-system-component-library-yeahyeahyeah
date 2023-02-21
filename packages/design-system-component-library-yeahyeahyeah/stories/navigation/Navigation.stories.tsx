@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import NavigationReadme from '../../docs/Navigation.md';
-import { Avatar, Container, NaviButton, Navigation, Column, Row, Modal } from '../../index';
+import { Avatar, NaviButton, Navigation, Modal, NavigationContainer, NavigationColumn, NavigationRow } from '../../index';
 import Link from 'next/link';
 
 export default {
@@ -20,9 +20,10 @@ const Template: ComponentStory<typeof Navigation> = (args) => {
 
   return !open ? (
     <Navigation {...args} title="Mumble Logo">
-      <Container layout="plain">
-        <Column>
-          <Row>
+      <NavigationContainer>
+        <NavigationColumn>
+          <div tw="text-slate-white">Logo</div>
+          <NavigationRow>
             <NaviButton
               label="Profile"
               variant="profile"
@@ -51,9 +52,9 @@ const Template: ComponentStory<typeof Navigation> = (args) => {
               passHref={true}
               linkComponent={Link}
             />
-          </Row>
-        </Column>
-      </Container>
+          </NavigationRow>
+        </NavigationColumn>
+      </NavigationContainer>
     </Navigation>
   ) : (
     <Modal label="Settings" isOpen={open} onClose={handleClose}>

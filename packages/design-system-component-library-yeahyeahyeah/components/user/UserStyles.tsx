@@ -10,7 +10,7 @@ export interface RowStyles {
   type?: string;
 }
 
-export const Column = styled.div(({ variant }: UserStyles) => [
+export const UserColumn = styled.div(({ variant }: UserStyles) => [
   tw`
     flex
     flex-col
@@ -26,7 +26,7 @@ export const Column = styled.div(({ variant }: UserStyles) => [
   `,
 ]);
 
-export const Row = styled.div(({ gap, spacing, type }: RowStyles) => [
+export const UserRow = styled.div(({ gap, spacing, type }: RowStyles) => [
   tw`
     flex
     flex-row
@@ -39,7 +39,7 @@ export const Row = styled.div(({ gap, spacing, type }: RowStyles) => [
   type === 'edit' && tw`w-fit gap-0`,
 ]);
 
-export const Article = styled.article(() => [tw`flex flex-col p-16 bg-slate-white rounded-16`]);
+export const UserArticle = styled.article(() => [tw`flex flex-col p-16 bg-slate-white rounded-16`]);
 
 export const HeadingWrapper = tw.div`
   ml-12

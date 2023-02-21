@@ -3,6 +3,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { User } from '../../components/user/User';
 import { action } from '@storybook/addon-actions';
 import UserReadme from '../../docs/User.md';
+import { IconLink } from '../../index';
+import Link from 'next/link';
 
 export default {
   title: 'User/User',
@@ -13,29 +15,6 @@ export default {
     },
     variant: {
       control: 'select',
-    },
-    username: {
-      control: 'object',
-    },
-    timestamp: {
-      control: {
-        type: 'object',
-      },
-    },
-    location: {
-      control: {
-        type: 'object',
-      },
-    },
-    joined: {
-      control: {
-        type: 'object',
-      },
-    },
-    btn: {
-      control: {
-        type: 'object',
-      },
     },
     avatar: {
       control: {
@@ -51,33 +30,6 @@ export default {
     label: 'Display Name',
     variant: 'small',
     type: 'edit',
-    username: {
-      label: 'Username',
-      href: '',
-      fCallBack: action('username clicked'),
-      type: 'username',
-    },
-    timestamp: {
-      label: 'Timestamp',
-      href: '',
-      fCallBack: action('timestamp clicked'),
-      type: 'timestamp',
-    },
-    location: {
-      label: 'Location',
-      href: '',
-      fCallBack: action('location clicked'),
-      type: 'location',
-    },
-    joined: {
-      label: 'Joined',
-      href: '',
-      fCallBack: action('joined clicked'),
-      type: 'joined',
-    },
-    settings: {
-      fCallBack: action('settings clicked'),
-    },
     avatar: {
       src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
       alt: 'Alter Tag',
@@ -91,13 +43,16 @@ export default {
   },
 } as ComponentMeta<typeof User>;
 
-const Template: ComponentStory<typeof User> = (args) => <User {...args} />;
+const Template: ComponentStory<typeof User> = (args) => (
+  <User {...args}>
+    <IconLink label="User" type="username" color="violet" href="/" legacyBehavior passHref linkComponent={Link} />
+    <IconLink label="Joined" type="timestamp" color="slate" href="/" legacyBehavior passHref linkComponent={Link} />
+  </User>
+);
 
 export const UserStory = Template.bind({});
 
-UserStory.args = {
-  variant: 'recommended',
-};
+UserStory.args = {};
 
 UserStory.parameters = {
   docs: {
