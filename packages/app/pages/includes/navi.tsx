@@ -27,51 +27,49 @@ export default function Navi() {
         <Link href="./textbox">Textbox</Link>
         <Link href="./hashtag">Hashtag</Link>
       </div>
-      <div tw="w-full mb-32">
-        <Navigation>
-          <NavigationContainer>
-            <NavigationColumn>
-              <Link href="/" title="Startpage" target="_self">
-                <MumbleLogo isNavigation={true} color="white" alignment="horizontal" />
-              </Link>
-              <NavigationRow>
-                <NaviButton
-                  label="Profile"
-                  variant="profile"
-                  href="/profilepage"
-                  legacyBehavior={true}
-                  passHref={true}
-                  linkComponent={Link}
-                >
-                  <Avatar
-                    alt="Small Avatar"
-                    src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif"
-                    variant="small"
-                  />
-                </NaviButton>
-                <NaviButton
-                  label="Settings"
-                  variant="default"
-                  icon="settings"
-                  href="/"
-                  legacyBehavior={true}
-                  passHref={true}
-                  linkComponent={Link}
+      <Navigation mbSpacing="32">
+        <NavigationContainer>
+          <NavigationColumn>
+            <Link href="/" title="Startpage" target="_self">
+              <MumbleLogo isNavigation={true} color="white" alignment="horizontal" />
+            </Link>
+            <NavigationRow>
+              <NaviButton
+                label="Profile"
+                variant="profile"
+                href="/profilepage"
+                legacyBehavior={true}
+                passHref={true}
+                linkComponent={Link}
+              >
+                <Avatar
+                  alt="Small Avatar"
+                  src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif"
+                  variant="small"
                 />
-                <NaviButton
-                  label="Logout"
-                  variant="default"
-                  icon="logout"
-                  href="/detailview"
-                  legacyBehavior={true}
-                  passHref={true}
-                  linkComponent={Link}
-                />
-              </NavigationRow>
-            </NavigationColumn>
-          </NavigationContainer>
-        </Navigation>
-      </div>
+              </NaviButton>
+              <NaviButton
+                label="Settings"
+                variant="default"
+                icon="settings"
+                href="/"
+                legacyBehavior={true}
+                passHref={true}
+                linkComponent={Link}
+              />
+              <NaviButton
+                label="Logout"
+                variant="default"
+                icon="logout"
+                href="/detailview"
+                legacyBehavior={true}
+                passHref={true}
+                linkComponent={Link}
+              />
+            </NavigationRow>
+          </NavigationColumn>
+        </NavigationContainer>
+      </Navigation>
     </>
   );
 }
