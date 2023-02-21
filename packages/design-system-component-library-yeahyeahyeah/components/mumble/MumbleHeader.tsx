@@ -4,7 +4,7 @@ import { BottomSpacing } from '../../index';
 import type { TmbSpacing } from '../../types/types';
 import { User, IUserProps } from '../user/User';
 import { Paragraph } from '../typography/Paragraph';
-import { IImageContainerProps, ImageContainer } from '../image/ImageContainer';
+import { ImageContainer, ImageProps } from '../image';
 import { Avatar } from '../user/Avatar';
 import { IconButton } from '../button/IconButton';
 
@@ -12,7 +12,7 @@ export interface IMumbleHeaderProps {
   variant?: 'view' | 'edit';
   user: IUserProps;
   text: string;
-  banner?: IImageContainerProps;
+  banner?: ImageProps<any>;
   mbSpacing?: TmbSpacing;
 }
 
@@ -24,7 +24,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
     src: 'https://loremflickr.com/640/360',
     alt: 'Image alt tag',
     type: 'banner-edit',
-    fCallBack: () => {
+    onImageIconClick: () => {
       return null;
     },
   },
@@ -69,7 +69,7 @@ export const MumbleHeader: React.FC<IMumbleHeaderProps> = ({
         src={banner.src}
         alt={banner.alt}
         type={variant === 'edit' ? 'banner-edit' : 'banner-view'}
-        fCallBack={banner.fCallBack}
+        onImageIconClick={banner.onImageIconClick}
       />
       <div tw="px-8 mb-16">
         <User
