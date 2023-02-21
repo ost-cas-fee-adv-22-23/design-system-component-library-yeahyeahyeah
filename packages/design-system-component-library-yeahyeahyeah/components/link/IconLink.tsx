@@ -27,13 +27,13 @@ export const IconLink = <
   const getIcon = () => {
     switch (type) {
       case 'username':
-        return <StyledProfile color={color} hover={hover} />;
+        return <StyledProfile $color={color} $hover={hover} />;
       case 'timestamp':
-        return <StyledTime color={color} hover={hover} />;
+        return <StyledTime $color={color} $hover={hover} />;
       case 'location':
-        return <StyledLocation color={color} hover={hover} />;
+        return <StyledLocation $color={color} $hover={hover} />;
       case 'joined':
-        return <StyledCalendar color={color} hover={hover} />;
+        return <StyledCalendar $color={color} $hover={hover} />;
       default:
         return null;
     }
@@ -46,14 +46,14 @@ export const IconLink = <
 
   return !onClick ? (
     <Link {...(props as any)}>
-      <IconLinkStyles color={color} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+      <IconLinkStyles $color={color} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         {getIcon()}
         {label}
       </IconLinkStyles>
     </Link>
   ) : (
     <IconLinkStyles
-      color={color}
+      $color={color}
       onClick={(event: React.MouseEvent) => {
         handleClick(event);
       }}
@@ -69,8 +69,8 @@ export const IconLink = <
 };
 
 interface IStyled {
-  color: string;
-  hover: boolean;
+  $color: string;
+  $hover: boolean;
 }
 
 const defaultStyles = tw`
@@ -82,10 +82,10 @@ const defaultStyles = tw`
   cursor-pointer
 `;
 
-const IconLinkStyles = styled.a(({ color }: Pick<IStyled, 'color'>) => [
+const IconLinkStyles = styled.a(({ $color }: Pick<IStyled, '$color'>) => [
   defaultStyles,
-  color === 'slate' && tw`text-slate-400 hover:(text-slate-600)`,
-  color === 'violet' && tw`text-violet-600 hover:(text-violet-900)`,
+  $color === 'slate' && tw`text-slate-400 hover:(text-slate-600)`,
+  $color === 'violet' && tw`text-violet-600 hover:(text-violet-900)`,
 ]);
 
 const IconColor = (color: string, hover: boolean) => {
@@ -105,10 +105,16 @@ const IconColor = (color: string, hover: boolean) => {
   return null;
 };
 
-const StyledProfile = styled(Profile)(({ color, hover }: IStyled) => [tw`w-12 h-12 mr-6 mt-1`, IconColor(color, hover)]);
+const StyledProfile = styled(Profile)(({ $color, $hover }: IStyled) => [tw`w-12 h-12 mr-6 mt-1`, IconColor($color, $hover)]);
 
-const StyledTime = styled(Time)(({ color, hover }: IStyled) => [tw`w-12 h-12 mr-6 mt-1`, IconColor(color, hover)]);
+const StyledTime = styled(Time)(({ $color, $hover }: IStyled) => [tw`w-12 h-12 mr-6 mt-1`, IconColor($color, $hover)]);
 
-const StyledLocation = styled(Location)(({ color, hover }: IStyled) => [tw`w-12 h-12 mr-6 mt-1`, IconColor(color, hover)]);
+const StyledLocation = styled(Location)(({ $color, $hover }: IStyled) => [
+  tw`w-12 h-12 mr-6 mt-1`,
+  IconColor($color, $hover),
+]);
 
-const StyledCalendar = styled(Calendar)(({ color, hover }: IStyled) => [tw`w-12 h-12 mr-6 mt-1`, IconColor(color, hover)]);
+const StyledCalendar = styled(Calendar)(({ $color, $hover }: IStyled) => [
+  tw`w-12 h-12 mr-6 mt-1`,
+  IconColor($color, $hover),
+]);

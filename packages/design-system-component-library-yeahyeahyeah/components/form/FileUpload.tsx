@@ -45,7 +45,7 @@ export const FileUpload: React.FC<IDrapAndDrop> = ({
   return (
     <>
       <Figure {...getRootProps()}>
-        <IconWrapper loading={loading}>
+        <IconWrapper $loading={loading}>
           {loading === true ? (
             <StyledRepost />
           ) : (
@@ -86,7 +86,7 @@ export const FileUpload: React.FC<IDrapAndDrop> = ({
 };
 
 interface IUploadIcon {
-  loading?: boolean;
+  $loading?: boolean;
   type?: string;
 }
 
@@ -119,14 +119,14 @@ const loadingSpinner = tw`
   rounded-full
 `;
 
-const IconWrapper = styled.div(({ loading }: IUploadIcon) => [
+const IconWrapper = styled.div(({ $loading }: IUploadIcon) => [
   tw`
     flex
     flex-col
     justify-center
     items-center
 `,
-  loading === true && loadingSpinner,
+  $loading === true && loadingSpinner,
 ]);
 
 const Figure = styled.figure.attrs({ className: 'group' })(() => [

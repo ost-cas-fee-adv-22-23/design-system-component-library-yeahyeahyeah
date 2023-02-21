@@ -51,7 +51,11 @@ export const LikeButton: React.FC<LikeButtonProps> = ({ quantity, favourite, onC
       onMouseLeave={() => setHover(false)}
       aria-pressed={isFavourite}
     >
-      {isFavourite ? <StyledHeartFilled hover={hover} count={count} /> : <StyledHeartOutlined hover={hover} count={count} />}
+      {isFavourite ? (
+        <StyledHeartFilled $hover={hover} count={count} />
+      ) : (
+        <StyledHeartOutlined $hover={hover} count={count} />
+      )}
       {(count === 1 && isFavourite === true) || count === 0 ? '' : count} {label}
     </StyledLikeButton>
   );
@@ -62,7 +66,7 @@ interface InteractionButtonStyles {
 }
 
 interface InteractionSvgStyles {
-  hover: boolean;
+  $hover: boolean;
   count?: number;
 }
 
@@ -87,24 +91,24 @@ const StyledLikeButton = styled.button(({ count }: InteractionButtonStyles) => [
   count === 0 && tw`text-slate-600 hover:(text-pink-600 bg-pink-50)`,
 ]);
 
-const StyledHeartOutlined = styled(HeartOutlined)(({ hover, count }: InteractionSvgStyles) => [
+const StyledHeartOutlined = styled(HeartOutlined)(({ $hover, count }: InteractionSvgStyles) => [
   tw`
       fill-slate-600
       h-16
       w-16
       mr-8
     `,
-  hover === true && tw`fill-pink-500`,
-  count === 0 && hover === false ? tw`fill-slate-600` : tw`fill-pink-500`,
+  $hover === true && tw`fill-pink-500`,
+  count === 0 && $hover === false ? tw`fill-slate-600` : tw`fill-pink-500`,
 ]);
 
-const StyledHeartFilled = styled(HeartFilled)(({ hover, count }: InteractionSvgStyles) => [
+const StyledHeartFilled = styled(HeartFilled)(({ $hover, count }: InteractionSvgStyles) => [
   tw`
       fill-slate-600
       h-16
       w-16
       mr-8
     `,
-  hover === true && tw`fill-pink-500`,
-  count === 0 && !hover ? tw`fill-slate-600` : tw`fill-pink-500`,
+  $hover === true && tw`fill-pink-500`,
+  count === 0 && !$hover ? tw`fill-slate-600` : tw`fill-pink-500`,
 ]);

@@ -26,7 +26,7 @@ export default {
         disable: true,
       },
     },
-    fCallBack: {
+    onClick: {
       defaultValue: action('IconLink clicked'),
       table: {
         disable: true,

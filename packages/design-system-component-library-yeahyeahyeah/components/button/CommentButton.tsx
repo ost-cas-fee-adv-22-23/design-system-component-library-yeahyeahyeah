@@ -45,14 +45,14 @@ export const CommentButton = <
     <Link {...(props as any)}>
       <StyledCommentButton
         onClick={onClick}
-        count={count}
+        $count={count}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
         {count === 0 ? (
-          <StyledReplyOutlined hover={hover} count={count} />
+          <StyledReplyOutlined $hover={hover} $count={count} />
         ) : (
-          <StyledReplyFilled hover={hover} count={count} />
+          <StyledReplyFilled $hover={hover} $count={count} />
         )}
         {count === 0 ? false : `${count}`} {label}
       </StyledCommentButton>
@@ -61,15 +61,15 @@ export const CommentButton = <
 };
 
 interface IInteractionButtonStyles {
-  count: number;
+  $count: number;
 }
 
 interface IInteractionSvgStyles {
-  hover: boolean;
-  count?: number;
+  $hover: boolean;
+  $count?: number;
 }
 
-const StyledCommentButton = styled.button(({ count }: IInteractionButtonStyles) => [
+const StyledCommentButton = styled.button(({ $count }: IInteractionButtonStyles) => [
   tw`
     font-semibold
     leading-normal
@@ -87,26 +87,26 @@ const StyledCommentButton = styled.button(({ count }: IInteractionButtonStyles) 
     hover:(text-violet-600 bg-violet-50)
     
 `,
-  count === 0 && tw`text-slate-600 hover:(text-violet-600 bg-violet-50)`,
+  $count === 0 && tw`text-slate-600 hover:(text-violet-600 bg-violet-50)`,
 ]);
 
-const StyledReplyOutlined = styled(ReplyOutlined)(({ hover }: IInteractionSvgStyles) => [
+const StyledReplyOutlined = styled(ReplyOutlined)(({ $hover }: IInteractionSvgStyles) => [
   tw`
       fill-slate-600
       h-16
       w-16
       mr-8
     `,
-  hover === true && tw`fill-violet-600`,
+  $hover === true && tw`fill-violet-600`,
 ]);
 
-const StyledReplyFilled = styled(ReplyFilled)(({ hover, count }: IInteractionSvgStyles) => [
+const StyledReplyFilled = styled(ReplyFilled)(({ $hover, $count }: IInteractionSvgStyles) => [
   tw`
       fill-slate-600
       h-16
       w-16
       mr-8
     `,
-  hover === true && tw`fill-violet-600`,
-  count && count >= 1 && tw`fill-violet-600`,
+  $hover === true && tw`fill-violet-600`,
+  $count && $count >= 1 && tw`fill-violet-600`,
 ]);
