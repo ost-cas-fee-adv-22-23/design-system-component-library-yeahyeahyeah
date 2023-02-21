@@ -6,13 +6,15 @@ import {
   Container,
   Heading,
   TextBox,
-  User,
-  UserProps,
   UploadForm,
   BottomSpacing,
+  UserRecommendedProps,
+  UserRecommended,
+  IconLink,
 } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
+import Link from 'next/link';
 
 export default function Profilepage() {
   const [posts, setPosts] = useState(['']);
@@ -65,21 +67,23 @@ export default function Profilepage() {
     setShowModal(true);
   };
 
-  const props: UserProps = {
+  const props: UserRecommendedProps = {
+    label: 'Display Name',
     avatar: {
       alt: 'Alter Tag',
       onImageClick: () => console.log('image clicked'),
       src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
     },
-    label: 'Display Name',
-    variant: 'recommended',
+    btn: { label: 'Follow', onClick: () => console.log('btn clicked') },
   };
 
   const users = Array(12)
     .fill('user')
     .map((u, i) => (
       <div tw="flex-[30%]" key={i}>
-        <User {...props} />
+        <UserRecommended {...props}>
+          <IconLink label="User" type="username" color="violet" href="/" legacyBehavior passHref linkComponent={Link} />
+        </UserRecommended>
       </div>
     ));
 

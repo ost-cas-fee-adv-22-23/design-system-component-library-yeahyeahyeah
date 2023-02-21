@@ -1,6 +1,6 @@
 import tw from 'twin.macro';
 
-export const Container = tw.div`
+export const NavigationContainer = tw.div`
   flex
   flex-col
   sm:flex-row
@@ -10,14 +10,14 @@ export const Container = tw.div`
   px-16
 `;
 
-export const Column = tw.div`
+export const NavigationColumn = tw.div`
   flex
   justify-between
   items-center
   w-full
 `;
 
-export const Row = tw.div`
+export const NavigationRow = tw.div`
   flex
   flex-row
   justify-between

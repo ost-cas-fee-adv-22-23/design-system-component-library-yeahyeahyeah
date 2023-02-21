@@ -1,11 +1,11 @@
 import React from 'react';
 import { Heading } from '../typography/Heading';
 import { Avatar, AvatarProps } from './Avatar';
-import { Column, HeadingWrapper, Row } from './UserStyles';
+import { UserColumn, HeadingWrapper, UserRow } from './UserStyles';
 
 export interface UserProps {
   label: string;
-  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'recommended' | 'write' | 'inline';
+  variant: 'small' | 'medium' | 'large' | 'xlarge' | 'write' | 'inline';
   type?: 'edit' | 'view';
   avatar?: AvatarProps<any>;
   children?: React.ReactNode;
@@ -27,52 +27,52 @@ export const User: React.FC<UserProps> = ({
   return (
     <>
       {variant === 'small' && (
-        <Row gap="small">
+        <UserRow gap="small">
           <Avatar {...avatar} variant="small" />
-          <Column variant={variant}>
+          <UserColumn variant={variant}>
             <Heading tag="h4" color="dark" size="medium" label={label} />
-            <Row>{children}</Row>
-          </Column>
-        </Row>
+            <UserRow>{children}</UserRow>
+          </UserColumn>
+        </UserRow>
       )}
       {variant === 'medium' && (
-        <Column>
+        <UserColumn>
           <Heading tag="h4" color="dark" size="large" label={label} />
-          <Row>{children}</Row>
-        </Column>
+          <UserRow>{children}</UserRow>
+        </UserColumn>
       )}
       {variant === 'large' && (
-        <Column>
+        <UserColumn>
           <Heading tag="h4" color="dark" size="xlarge" label={label} />
-          <Row>{children}</Row>
-        </Column>
+          <UserRow>{children}</UserRow>
+        </UserColumn>
       )}
       {variant === 'xlarge' && (
-        <Column>
-          <Row type={type}>
+        <UserColumn>
+          <UserRow type={type}>
             <Heading tag="h3" color="dark" size="default" label={label} />
-          </Row>
-          <Row>{children}</Row>
-        </Column>
+          </UserRow>
+          <UserRow>{children}</UserRow>
+        </UserColumn>
       )}
       {variant === 'inline' && (
-        <Row gap="small">
+        <UserRow gap="small">
           <Avatar {...avatar} variant="small" />
-          <Column variant={variant}>
+          <UserColumn variant={variant}>
             <Heading tag="h4" color="dark" size="default" label={label} />
-            <Row>{children}</Row>
-          </Column>
-        </Row>
+            <UserRow>{children}</UserRow>
+          </UserColumn>
+        </UserRow>
       )}
       {variant === 'write' && (
-        <Row gap="small">
-          <Column variant={variant}>
+        <UserRow gap="small">
+          <UserColumn variant={variant}>
             <Avatar {...avatar} variant="medium" />
             <HeadingWrapper>
               <Heading tag="h4" color="dark" size="default" label={label} />
             </HeadingWrapper>
-          </Column>
-        </Row>
+          </UserColumn>
+        </UserRow>
       )}
     </>
   );
