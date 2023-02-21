@@ -13,27 +13,45 @@ export default {
     alt: {
       control: 'text',
     },
-    fCallBack: {
+    onImageIconClick: {
       action: () => 'handleClick',
     },
-    loading: {
+    isLoading: {
       control: 'boolean',
+    },
+    loading: {
+      control: false,
+      table: {
+        disable: true,
+      },
+    },
+    decoding: {
+      control: false,
+      table: {
+        disable: true,
+      },
     },
     type: {
       control: 'select',
+    },
+    imageComponent: {
+      control: false,
+      table: {
+        disable: true,
+      },
     },
   },
   args: {
     src: 'https://picsum.photos/640/360',
     alt: 'This is a profile picture',
     type: 'container',
-    loading: false,
+    isLoading: false,
   },
 } as ComponentMeta<typeof ImageContainer>;
 
 const Template: ComponentStory<typeof ImageContainer> = (args) => <ImageContainer {...args} />;
 
-export const ImageContainerStory = Template.bind({});
+export const ImageContainerStory = Template;
 
 ImageContainerStory.parameters = {
   docs: {

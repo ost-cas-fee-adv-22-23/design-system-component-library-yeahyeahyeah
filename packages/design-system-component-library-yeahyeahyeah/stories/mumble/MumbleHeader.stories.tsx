@@ -34,7 +34,7 @@ export default {
       src: 'https://loremflickr.com/640/360',
       alt: 'Picture',
       type: 'banner-edit',
-      fCallBack: action('edit clicked'),
+      onImageIconClick: action('edit clicked'),
     },
     user: {
       variant: 'xlarge',
@@ -72,7 +72,7 @@ export default {
 
 const Template: ComponentStory<typeof MumbleHeader> = (args) => <MumbleHeader {...args} />;
 
-export const MumbleStory = Template.bind({});
+export const MumbleStory = Template;
 
 MumbleStory.parameters = {
   docs: {
@@ -81,7 +81,6 @@ MumbleStory.parameters = {
       component: MumbleHeaderReadme,
     },
   },
-  // controls: { sort: 'requiredFirst' },
 };
 
 MumbleStory.storyName = 'Mumble-Header';
