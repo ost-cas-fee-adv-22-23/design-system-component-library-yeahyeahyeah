@@ -1,6 +1,7 @@
 import React, { LinkHTMLAttributes } from 'react';
 import tw, { styled } from 'twin.macro';
 import { Link, LinkProps } from '../link/Link';
+import { Image, ImageProps } from '../image/Image';
 
 export type MumbleLogoProps<T> = {
   title: string;
@@ -23,13 +24,11 @@ export const MumbleLogo = <
 }: MumbleLogoProps<T>) => {
   return (
     <Link {...(props as any)} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})} title={title}>
-      <Image src={src} alt={alt} />
+      <Image {...(props as any)} alt={alt} src={src} css={ImageStyles.img} />
     </Link>
   );
 };
 
-const Image = styled.img(() => [
-  tw`
-    w-full
-  `,
-]);
+const ImageStyles = {
+  img: tw`w-full h-auto`,
+};
