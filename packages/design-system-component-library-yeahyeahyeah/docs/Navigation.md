@@ -3,7 +3,6 @@
 ## Navigation properties
 | Property|Description|
 |-|-|
-|logo|Include **mumbleLogo**. See details on [MumbleLogo](./?path=/docs/medias-logo--logo-variants)|
 |avatar|Include **avatar**. See details on [Avatar](./?path=/docs/user--avatar-story). For **navigation** always choose **small** variant.|
 |settings|JS-Callback function. Example: **open** [Modal](./?path=/story/modal-modal--modal-story).|
 |logout|JS-Callback function. Close session.|

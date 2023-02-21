@@ -1,4 +1,3 @@
-export * from './components/branding';
 export * from './components/button';
 export * from './components/form';
 export * from './components/icon';
