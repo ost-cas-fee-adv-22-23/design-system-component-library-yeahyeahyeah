@@ -31,7 +31,7 @@ const Template: ComponentStory<typeof Navigation> = (args) => {
     <Navigation {...args} title="Mumble Logo">
       <NavigationContainer>
         <NavigationColumn>
-          <Link href="#" title="Startpage">
+          <Link href="#" title="Startpage" target="_self">
             <MumbleLogo isNavigation={true} color="white" alignment="horizontal" />
           </Link>
           <NavigationRow>
