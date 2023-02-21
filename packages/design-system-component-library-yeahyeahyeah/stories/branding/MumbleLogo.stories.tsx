@@ -13,25 +13,30 @@ export default {
     href: {
       control: 'text',
     },
-    alignment: {
-      control: 'select',
+    src: {
+      control: 'text',
     },
-    color: {
-      control: 'select',
+    alt: {
+      control: 'text',
     },
-    fCallBack: {
-      action: () => 'handleClick',
+    newTab: {
+      control: false,
+      table: {
+        disable: true,
+      },
     },
-    isNavigation: {
-      control: 'boolean',
+    linkComponent: {
+      control: false,
+      table: {
+        disable: true,
+      },
     },
   },
   args: {
     title: 'Homepage',
-    href: '#',
-    alignment: 'vertical',
-    color: 'violet',
-    isNavigation: false,
+    href: '/',
+    src: 'https://raw.githubusercontent.com/smartive-education/design-system-component-library-yeahyeahyeah/master/packages/design-system-component-library-yeahyeahyeah/stories/assets/mumble-logo.svg',
+    alt: 'Logo description',
   },
 } as ComponentMeta<typeof MumbleLogo>;
 
