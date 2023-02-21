@@ -1,14 +1,16 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
-import { User, IUserProps } from '../user/User';
+import { User, UserProps } from '../user/User';
 import { InputForm, IFormInputProps } from './InputForm';
-import { Button, IButtonProps } from '../button/Button';
+import { Button, ButtonProps } from '../button/Button';
 import { BottomSpacing } from '../../styles/Spacing';
 import { Heading, Paragraph } from '../typography';
 import type { TmbSpacing } from '../../types/types';
+import { IconLink } from '../link/IconLink';
+import Link from 'next/link';
 
 export interface ITextBoxProps {
-  user?: Pick<IUserProps, 'label' | 'username' | 'avatar'>;
+  user?: Pick<UserProps, 'label' | 'avatar'>;
   form: Pick<IFormInputProps, 'placeholder' | 'errorMessage'>;
   inputValue: string;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
@@ -48,7 +50,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
     null;
   },
 }) => {
-  const upload: IButtonProps = {
+  const upload: ButtonProps = {
     label: 'Bild hochladen',
     icon: 'upload',
     size: 'small',
@@ -57,7 +59,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
     width: 'full',
   };
 
-  const send: IButtonProps = {
+  const send: ButtonProps = {
     label: 'Absenden',
     icon: 'send',
     size: 'small',
@@ -79,9 +81,31 @@ export const TextBox: React.FC<ITextBoxProps> = ({
     <form onSubmit={handleSubmit} tw="container">
       <Card variant={variant}>
         <UserWrapper variant={variant} mbSpacing="16">
-          {variant === 'write' && <User avatar={user.avatar} label={user.label} username={user.username} variant="write" />}
+          {variant === 'write' && (
+            <User avatar={user.avatar} label={user.label} variant="write">
+              <IconLink
+                label="User"
+                type="username"
+                color="violet"
+                href="/profilepage"
+                legacyBehavior
+                passHref
+                linkComponent={Link}
+              />
+            </User>
+          )}
           {variant === 'inline' && (
-            <User avatar={user.avatar} label={user.label} username={user.username} variant="inline" />
+            <User avatar={user.avatar} label={user.label} variant="inline">
+              <IconLink
+                label="User"
+                type="username"
+                color="violet"
+                href="/profilepage"
+                legacyBehavior
+                passHref
+                linkComponent={Link}
+              />
+            </User>
           )}
           {variant === 'start' && (
             <>
@@ -106,7 +130,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
 
         <Row>
           <Button
-            fCallBack={uploadCallback}
+            onClick={uploadCallback}
             label={upload.label}
             size={upload.size}
             type={upload.type}

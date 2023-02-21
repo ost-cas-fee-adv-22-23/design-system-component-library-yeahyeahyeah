@@ -1,12 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import {
-  Avatar,
-  IconLink,
-  IUserProps,
-  TextBox,
-  UploadForm,
-  User,
-} from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { Avatar, IconLink, TextBox, UploadForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
 import Link from 'next/link';
@@ -62,45 +55,6 @@ export default function Profilepage() {
     setShowModal(true);
   };
 
-  const props: IUserProps = {
-    avatar: {
-      src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-      alt: 'Alter Tag',
-    },
-    btn: {
-      fCallBack: () => console.log('button clicked'),
-      label: 'Follow',
-    },
-    joined: {
-      type: 'joined',
-      fCallBack: () => console.log('joined clicked'),
-      href: '',
-      label: 'Joined',
-    },
-    label: 'Display Name',
-    location: {
-      type: 'joined',
-      fCallBack: () => console.log('location clicked'),
-      href: '',
-      label: 'Location',
-    },
-    timestamp: {
-      type: 'joined',
-      fCallBack: () => console.log('timestamp clicked'),
-      href: '',
-      label: 'Timestamp',
-    },
-    username: {
-      type: 'joined',
-      href: '/',
-      label: 'Username',
-      legacyBehavior: true,
-      passHref: true,
-      linkComponent: Link,
-    },
-    variant: 'recommended',
-  };
-
   return (
     <>
       <UploadForm
@@ -137,7 +91,6 @@ export default function Profilepage() {
         <div tw="mb-32">
           <Avatar src="https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif" alt="Alter Tag" variant="small" />
         </div>
-        <User {...props} />
       </div>
     </>
   );

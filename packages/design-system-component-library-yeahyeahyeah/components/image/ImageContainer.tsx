@@ -1,26 +1,32 @@
-import React from 'react';
-import styled from 'styled-components';
-import tw from 'twin.macro';
+import React, { ImgHTMLAttributes } from 'react';
+import tw, { styled } from 'twin.macro';
 import { Fullscreen, Edit, Repost } from '../icon/default_index';
 import { ImageScale } from '../../styles/ImageScale';
+import { Image, ImageProps } from './Image';
 
-export interface IImageContainerProps extends React.HtmlHTMLAttributes<HTMLImageElement> {
+export type ImageContainerProps<T> = {
   src: string;
   alt: string;
-  fCallBack?: (type: string) => void;
+  onImageIconClick?: (type: string) => void;
   type?: 'container' | 'banner-edit' | 'banner-view';
-  loading?: boolean;
-}
+  isLoading?: boolean;
+} & ImageProps<T>;
 
-export const ImageContainer: React.FC<IImageContainerProps> = ({
+export const ImageContainer = <
+  T extends {
+    loading?: string;
+    decoding?: string;
+  } = ImgHTMLAttributes<HTMLImageElement>
+>({
   src = '',
   alt = '',
-  fCallBack,
+  onImageIconClick,
   type = 'container',
-  loading = false,
-}) => {
-  const handleClick = () => {
-    fCallBack && fCallBack(type);
+  isLoading = false,
+  ...props
+}: ImageContainerProps<T>) => {
+  const handleImageIconClick = () => {
+    onImageIconClick && onImageIconClick(type);
   };
 
   const getIcon = () => {
@@ -36,28 +42,34 @@ export const ImageContainer: React.FC<IImageContainerProps> = ({
 
   return (
     <Figure type={type}>
-      <Wrapper loading={loading}>
+      <Wrapper>
         <Container>
-          <ImageIcon loading={loading} onClick={handleClick}>
-            {loading === true ? <StyledRepost /> : getIcon()}
-          </ImageIcon>
+          {isLoading === true ? (
+            <ImageIcon onClick={handleImageIconClick}>
+              <StyledRepost />
+            </ImageIcon>
+          ) : (
+            <ImageIcon onClick={handleImageIconClick}>{getIcon()}</ImageIcon>
+          )}
         </Container>
       </Wrapper>
 
-      {src !== '' && <Image alt={alt} src={src} />}
+      {src !== '' && <Image {...(props as any)} alt={alt} src={src} css={ImageStyles.img({ type })} />}
     </Figure>
   );
 };
 
-interface IImageIcon {
-  loading?: boolean;
+interface ImageStyles {
+  isLoading?: boolean;
   type?: string;
 }
 
-const Image = styled.img(({ type }: IImageIcon) => [
-  ImageScale({ opacityLevel: '60' }),
-  (type === 'banner-edit' || type === 'banner-view') && tw`w-full h-auto`,
-]);
+const ImageStyles = {
+  img: ({ type }: ImageStyles) => [
+    ImageScale({ opacityLevel: '60' }),
+    (type === 'banner-edit' || type === 'banner-view') && tw`w-full h-auto`,
+  ],
+};
 
 const Container = styled.div(() => [
   tw`
@@ -82,7 +94,7 @@ const LoadingSpinner = tw`
   opacity-50
 `;
 
-const ImageIcon = styled.div(({ loading }: IImageIcon) => [
+const ImageIcon = styled.div(({ isLoading }: ImageStyles) => [
   tw`
     flex
     justify-center
@@ -95,10 +107,10 @@ const ImageIcon = styled.div(({ loading }: IImageIcon) => [
     ease-in-out
     z-50
 `,
-  loading === true && LoadingSpinner,
+  isLoading === true && LoadingSpinner,
 ]);
 
-const Wrapper = styled.div(({ loading }: IImageIcon) => [
+const Wrapper = styled.div(({ isLoading }: ImageStyles) => [
   tw`
 		rounded-xl
     z-50
@@ -115,10 +127,10 @@ const Wrapper = styled.div(({ loading }: IImageIcon) => [
     -translate-x-1/2 
     -translate-y-1/2
 	`,
-  loading === true && tw`opacity-100`,
+  isLoading === true && tw`opacity-100`,
 ]);
 
-const Figure = styled.figure.attrs({ className: 'group' })(({ type }: IImageIcon) => [
+const Figure = styled.figure.attrs({ className: 'group' })(({ type }: ImageStyles) => [
   tw`
     flex
     justify-center

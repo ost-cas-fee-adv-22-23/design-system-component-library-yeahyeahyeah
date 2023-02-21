@@ -26,7 +26,7 @@ export default function UploadForm({ onDropCallBack, showModal, setShowModal, fi
         />
         <Row>
           <Button
-            fCallBack={() => setShowModal(false)}
+            onClick={() => setShowModal(false)}
             icon="cancel"
             label="Abbrechen"
             size="large"
@@ -35,7 +35,7 @@ export default function UploadForm({ onDropCallBack, showModal, setShowModal, fi
             width="full"
           />
           <Button
-            fCallBack={() => console.log('Send Button clicked')}
+            onClick={() => console.log('Send Button clicked')}
             icon="send"
             label="Speichern"
             size="small"

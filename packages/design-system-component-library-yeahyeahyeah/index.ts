@@ -6,7 +6,6 @@ export * from './components/image';
 export * from './components/layout';
 export * from './components/link';
 export * from './components/modal';
-export * from './components/mumble';
 export * from './components/navigation';
 export * from './components/typography';
 export * from './components/user';
