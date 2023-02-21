@@ -4,7 +4,6 @@ import tw from 'twin.macro';
 import { NavigationContainer } from './NavigationStyles';
 
 export type NavigationProps = {
-  title: 'Mumble Logo';
   children?: React.ReactNode;
 };
 

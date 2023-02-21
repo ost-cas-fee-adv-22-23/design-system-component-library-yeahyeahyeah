@@ -28,7 +28,7 @@ export default function Navi() {
         <Link href="./hashtag">Hashtag</Link>
       </div>
       <div tw="w-full mb-32">
-        <Navigation title="Mumble Logo">
+        <Navigation>
           <NavigationContainer>
             <NavigationColumn>
               <Link href="/" title="Startpage" target="_self">

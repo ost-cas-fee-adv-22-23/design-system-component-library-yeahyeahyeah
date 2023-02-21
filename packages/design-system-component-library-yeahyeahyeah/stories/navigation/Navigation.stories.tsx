@@ -17,7 +17,6 @@ export default {
   title: 'Navigation/Navigation',
   component: Navigation,
   parameters: { actions: { argTypesRegex: '^on.*' } },
-  argTypes: {},
 } as ComponentMeta<typeof Navigation>;
 
 const Template: ComponentStory<typeof Navigation> = (args) => {
@@ -28,7 +27,7 @@ const Template: ComponentStory<typeof Navigation> = (args) => {
   };
 
   return !open ? (
-    <Navigation {...args} title="Mumble Logo">
+    <Navigation {...args}>
       <NavigationContainer>
         <NavigationColumn>
           <Link href="#" title="Startpage" target="_self">
