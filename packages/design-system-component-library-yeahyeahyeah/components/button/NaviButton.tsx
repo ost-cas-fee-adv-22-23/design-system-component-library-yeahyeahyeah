@@ -8,6 +8,8 @@ export type NaviButtonProps<T> = {
   label: string;
   variant?: 'default' | 'profile';
   icon?: IconTypes;
+  href?: string;
+  onClick?: () => void;
   children?: React.ReactNode;
 } & LinkProps<T>;
 
@@ -20,15 +22,16 @@ export const NaviButton = <
   label = 'Label',
   variant = 'default',
   icon = 'settings',
-  newTab = false,
+  href,
+  onClick,
   children,
   ...props
 }: NaviButtonProps<T>) => {
   const Icon = createIcon(icon);
 
   return (
-    <Link {...(props as any)} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
-      <ButtonStyles aria-label={label}>
+    <Link {...(props as any)} href={href}>
+      <StyledButton aria-label={label} onClick={onClick}>
         {variant === 'default' && (
           <>
             <Icon />
@@ -36,7 +39,7 @@ export const NaviButton = <
           </>
         )}
         {variant === 'profile' && children}
-      </ButtonStyles>
+      </StyledButton>
     </Link>
   );
 };
@@ -80,4 +83,4 @@ const buttonFocus = tw`
   focus:(bg-violet-700)
 `;
 
-const ButtonStyles = styled.a(() => [buttonFont, buttonDefaults, buttonHover, buttonFocus]);
+const StyledButton = styled.a(() => [buttonFont, buttonDefaults, buttonHover, buttonFocus]);

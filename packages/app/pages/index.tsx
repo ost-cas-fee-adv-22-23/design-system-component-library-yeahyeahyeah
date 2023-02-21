@@ -1,12 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Navi from './includes/navi';
-import {
-  Mumble,
-  TextBox,
-  Heading,
-  Container,
-  UploadForm,
-} from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { TextBox, Heading, Container, UploadForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
 
@@ -87,11 +81,6 @@ export default function Timeline() {
               variant="write"
               user={{
                 label: 'Hey, was läuft?',
-                username: {
-                  type: 'joined',
-                  label: 'Username',
-                  href: '#',
-                },
                 avatar: {
                   src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
                   alt: 'Family Guy goes Mumble',
@@ -107,69 +96,6 @@ export default function Timeline() {
               uploadCallback={handleUpload}
             />
           </div>
-          {posts
-            .slice(0)
-            .reverse()
-            .map((post, i) => {
-              return (
-                <Mumble
-                  key={i}
-                  comment={{
-                    fCallBack: () => console.log('comment clicked'),
-                    quantity: 0,
-                  }}
-                  img={{
-                    alt: 'This is a profile picture!',
-                    fCallBack: () => console.log('img clicked'),
-                    src: 'https://picsum.photos/640/360',
-                  }}
-                  like={{
-                    fCallBack: () => console.log('like clicked'),
-                    quantity: 999,
-                  }}
-                  mbSpacing="32"
-                  share={{
-                    fCallBack: () => console.log('share clicked'),
-                    label: 'Share',
-                  }}
-                  text={post}
-                  user={{
-                    avatar: {
-                      alt: 'avatar',
-                      onImageClick: () => console.log('imageCallBack clicked'),
-                      src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-                    },
-                    joined: {
-                      fCallBack: () => console.log('joined clicked'),
-                      href: '',
-                      label: 'Joined',
-                      type: 'joined',
-                    },
-                    label: 'Display Name',
-                    location: {
-                      fCallBack: () => console.log('location clicked'),
-                      href: '',
-                      label: 'Location',
-                      type: 'location',
-                    },
-                    timestamp: {
-                      fCallBack: () => console.log('timestamp clicked'),
-                      href: '',
-                      label: 'Timestamp',
-                      type: 'timestamp',
-                    },
-                    username: {
-                      fCallBack: () => console.log('username clicked'),
-                      href: '',
-                      label: 'Username',
-                      type: 'username',
-                    },
-                    variant: 'large',
-                  }}
-                  variant="timeline"
-                />
-              );
-            })}
         </Container>
       </div>
     </>

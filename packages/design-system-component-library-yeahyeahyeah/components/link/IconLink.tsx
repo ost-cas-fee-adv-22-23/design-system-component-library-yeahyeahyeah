@@ -7,7 +7,7 @@ export type IconLinkProps<T> = {
   label: string;
   type: 'username' | 'timestamp' | 'location' | 'joined';
   color?: 'slate' | 'violet';
-  fCallBack?: () => void;
+  onClick?: () => void;
 } & LinkProps<T>;
 
 export const IconLink = <
@@ -19,8 +19,7 @@ export const IconLink = <
   label = 'username',
   type = 'username',
   color = 'violet',
-  fCallBack,
-  newTab = false,
+  onClick,
   ...props
 }: IconLinkProps<T>) => {
   const [hover, setHover] = useState<boolean>(false);
@@ -42,11 +41,11 @@ export const IconLink = <
 
   const handleClick = (event: React.MouseEvent) => {
     event.preventDefault();
-    fCallBack && fCallBack();
+    onClick && onClick();
   };
 
-  return !fCallBack ? (
-    <Link {...(props as any)} {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}>
+  return !onClick ? (
+    <Link {...(props as any)}>
       <IconLinkStyles color={color} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         {getIcon()}
         {label}

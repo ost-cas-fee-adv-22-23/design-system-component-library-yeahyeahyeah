@@ -5,7 +5,6 @@ import tw from 'twin.macro';
 export type NavigationProps<T> = {
   title: 'Mumble Logo';
   onLogoClick?: () => void;
-  href?: '#';
   logo: FC<T>;
   children?: React.ReactNode;
 };

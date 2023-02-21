@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Navi from './includes/navi';
-import { Mumble, TextBox, Container, UploadForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
+import { TextBox, Container, UploadForm } from '@smartive-education/design-system-component-library-yeahyeahyeah';
 import debounce from 'lodash.debounce';
 import { FileRejection } from 'react-dropzone';
 
@@ -67,72 +67,10 @@ export default function Detailview() {
         <Navi />
         <Container layout="box">
           <div tw="border-b-1 border-slate-200">
-            <Mumble
-              comment={{
-                fCallBack: () => console.log('comment clicked'),
-                quantity: 0,
-              }}
-              img={{
-                alt: 'This is a profile picture!',
-                fCallBack: () => console.log('img clicked'),
-                src: 'https://picsum.photos/640/360',
-              }}
-              like={{
-                fCallBack: () => console.log('like clicked'),
-                quantity: 999,
-              }}
-              mbSpacing="0"
-              share={{
-                fCallBack: () => console.log('share clicked'),
-                label: 'Share',
-              }}
-              text="Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking."
-              user={{
-                avatar: {
-                  alt: 'avatar',
-                  onImageClick: () => console.log('imageCallBack clicked'),
-                  src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
-                },
-                joined: {
-                  fCallBack: () => console.log('joined clicked'),
-                  href: '',
-                  label: 'Joined',
-                  type: 'joined',
-                },
-                label: 'Display Name',
-                location: {
-                  fCallBack: () => console.log('location clicked'),
-                  href: '',
-                  label: 'Location',
-                  type: 'location',
-                },
-                timestamp: {
-                  fCallBack: () => console.log('timestamp clicked'),
-                  href: '',
-                  label: 'Timestamp',
-                  type: 'timestamp',
-                },
-                username: {
-                  fCallBack: () => console.log('username clicked'),
-                  href: '',
-                  label: 'Username',
-                  type: 'username',
-                },
-                variant: 'large',
-              }}
-              variant="detailpage"
-            />
-          </div>
-          <div tw="border-b-1 border-slate-200">
             <TextBox
               variant="write"
               user={{
                 label: 'Hey, was läuft?',
-                username: {
-                  type: 'joined',
-                  label: 'Username',
-                  href: '#',
-                },
                 avatar: {
                   src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
                   alt: 'Family Guy goes Mumble',
@@ -148,69 +86,8 @@ export default function Detailview() {
               uploadCallback={handleUpload}
             />
           </div>
-          {posts
-            .slice(0)
-            .reverse()
-            .map((post, i) => {
-              return (
-                <Mumble
-                  key={i}
-                  comment={{
-                    fCallBack: () => console.log('comment clicked'),
-                    quantity: 0,
-                  }}
-                  img={{
-                    alt: 'This is a profile picture!',
-                    fCallBack: () => console.log('img clicked'),
-                    src: 'https://picsum.photos/640/360',
-                  }}
-                  like={{
-                    fCallBack: () => console.log('like clicked'),
-                    quantity: 999,
-                  }}
-                  mbSpacing="32"
-                  share={{
-                    fCallBack: () => console.log('share clicked'),
-                    label: 'Share',
-                  }}
-                  text={post}
-                  user={{
-                    avatar: {
-                      alt: 'avatar',
-                      onImageClick: () => console.log('imageCallBack clicked'),
-                      src: 'https://picsum.photos/640/360',
-                    },
-                    joined: {
-                      type: 'joined',
-                      fCallBack: () => console.log('joined clicked'),
-                      href: '',
-                      label: 'Joined',
-                    },
-                    label: 'Display Name',
-                    location: {
-                      type: 'joined',
-                      fCallBack: () => console.log('location clicked'),
-                      href: '',
-                      label: 'Location',
-                    },
-                    timestamp: {
-                      type: 'joined',
-                      fCallBack: () => console.log('timestamp clicked'),
-                      href: '',
-                      label: 'Timestamp',
-                    },
-                    username: {
-                      type: 'joined',
-                      fCallBack: () => console.log('username clicked'),
-                      href: '',
-                      label: 'Username',
-                    },
-                    variant: 'xlarge',
-                  }}
-                  variant="timeline"
-                />
-              );
-            })}
+          <br />
+          <br />
         </Container>
       </div>
     </>
