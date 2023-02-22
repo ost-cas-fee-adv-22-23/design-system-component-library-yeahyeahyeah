@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import NavigationReadme from '../../docs/Navigation.md';
-import { Avatar, NaviButton, Navigation, Modal, NavigationContainer, NavigationColumn, NavigationRow } from '../../index';
+import {
+  Avatar,
+  NaviButton,
+  Navigation,
+  Modal,
+  MumbleLogo,
+  NavigationContainer,
+  NavigationColumn,
+  NavigationRow,
+} from '../../index';
 import Link from 'next/link';
 
 export default {
   title: 'Navigation/Navigation',
   component: Navigation,
   parameters: { actions: { argTypesRegex: '^on.*' } },
-  argTypes: {},
 } as ComponentMeta<typeof Navigation>;
 
 const Template: ComponentStory<typeof Navigation> = (args) => {
@@ -19,10 +27,12 @@ const Template: ComponentStory<typeof Navigation> = (args) => {
   };
 
   return !open ? (
-    <Navigation {...args} title="Mumble Logo">
+    <Navigation {...args}>
       <NavigationContainer>
         <NavigationColumn>
-          <div tw="text-slate-white">Logo</div>
+          <Link href="#" title="Startpage" target="_self">
+            <MumbleLogo isNavigation={true} color="white" alignment="horizontal" />
+          </Link>
           <NavigationRow>
             <NaviButton
               label="Profile"

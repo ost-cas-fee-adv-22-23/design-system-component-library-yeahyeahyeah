@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import type { TmbSpacing } from '../../types/types';
+import { BottomSpacing } from '../../styles/Spacing';
 import { NavigationContainer } from './NavigationStyles';
 
 export type NavigationProps = {
-  title: 'Mumble Logo';
   children?: React.ReactNode;
+  mbSpacing?: TmbSpacing;
 };
 
-export const Navigation = ({ children }: NavigationProps) => {
+export const Navigation = ({ children, mbSpacing }: NavigationProps) => {
   return (
-    <HeaderStyles>
+    <HeaderStyles mbSpacing={mbSpacing}>
       <NavigationStyles>
         <NavigationContainer>{children}</NavigationContainer>
       </NavigationStyles>
@@ -18,9 +20,12 @@ export const Navigation = ({ children }: NavigationProps) => {
   );
 };
 
-const HeaderStyles = tw.header`
-  w-full
-`;
+const HeaderStyles = styled.header(() => [
+  tw`
+    w-full    
+	`,
+  BottomSpacing,
+]);
 
 const NavigationStyles = styled.nav(() => [
   tw`

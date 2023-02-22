@@ -7,7 +7,9 @@ export const NavigationContainer = tw.div`
   justify-center
   items-center
   container
-  px-16
+  px-0
+  pl-8
+  sm:(px-16 pl-0)
 `;
 
 export const NavigationColumn = tw.div`
