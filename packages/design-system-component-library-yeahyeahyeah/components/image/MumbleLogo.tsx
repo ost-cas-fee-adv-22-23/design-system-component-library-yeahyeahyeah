@@ -3,7 +3,6 @@ import tw, { styled, TwStyle } from 'twin.macro';
 import { MumbleText, MumbleGradient, LogoMumble as Logo } from '../icon/index';
 
 export interface IMumbleLogoProps {
-  title: string;
   color: 'violet' | 'gradient' | 'white';
   alignment: 'horizontal' | 'vertical';
   onLogoClick?: () => void;
@@ -19,17 +18,20 @@ export const MumbleLogo: React.FC<IMumbleLogoProps> = ({
   const [hover, setHover] = useState(false);
 
   return (
-    <MumbleLogoStyledLink onClick={onLogoClick} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-      <MumbleLogoStyledDiv alignment={alignment}>
-        <StyledLogoMumble color={color} $hover={hover} $navigation={isNavigation} />
+    <MumbleLogoStyledDiv
+      alignment={alignment}
+      onClick={onLogoClick}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <StyledLogoMumble color={color} $hover={hover} $navigation={isNavigation} />
 
-        {color !== 'gradient' ? (
-          <StyledMumbleText color={color} $navigation={isNavigation} alignment={alignment} $hover={hover} />
-        ) : (
-          <StyledMumbleGradient $navigation={isNavigation} alignment={alignment} $hover={hover} />
-        )}
-      </MumbleLogoStyledDiv>
-    </MumbleLogoStyledLink>
+      {color !== 'gradient' ? (
+        <StyledMumbleText color={color} $navigation={isNavigation} alignment={alignment} $hover={hover} />
+      ) : (
+        <StyledMumbleGradient $navigation={isNavigation} alignment={alignment} $hover={hover} />
+      )}
+    </MumbleLogoStyledDiv>
   );
 };
 
@@ -54,12 +56,6 @@ const MumbleLogoStyledDiv = styled.div(({ alignment }: IMumbleLogoStyledDiv) => 
   `,
   alignment === 'vertical' && tw`flex-col`,
   alignment === 'horizontal' && tw`flex-row`,
-]);
-
-const MumbleLogoStyledLink = styled.a(() => [
-  tw`
-    cursor-pointer
-  `,
 ]);
 
 type IStyledLogoMumble = Pick<IStyled, 'color' | '$hover' | '$navigation'>;
