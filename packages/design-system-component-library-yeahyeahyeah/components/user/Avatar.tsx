@@ -67,5 +67,7 @@ const StyledImage = styled.img(() => [
   tw`
     w-full
     overflow-hidden
+    rounded-full
+    z-0
   `,
 ]);
