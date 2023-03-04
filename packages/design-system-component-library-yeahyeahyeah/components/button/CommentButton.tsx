@@ -69,7 +69,7 @@ interface IInteractionSvgStyles {
   $count?: number;
 }
 
-const StyledCommentButton = styled.button(({ $count }: IInteractionButtonStyles) => [
+const StyledCommentButton = styled.a(({ $count }: IInteractionButtonStyles) => [
   tw`
     font-semibold
     leading-normal
