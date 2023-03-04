@@ -58,6 +58,7 @@ const Styles = ({ variant }: IImageProps) => [
 		cursor-pointer
     object-cover
     overflow-hidden
+    z-10
 	`,
 ];
 
@@ -65,5 +66,6 @@ const StyledImage = styled.img(() => [
   ImageScale({ opacityLevel: '80' }),
   tw`
     w-full
+    overflow-hidden
   `,
 ]);
