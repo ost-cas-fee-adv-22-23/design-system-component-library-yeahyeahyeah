@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import tw, { styled } from 'twin.macro';
 import { Eye, Cancel } from '../icon/index';
 
@@ -30,6 +30,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
   onPressEnter,
 }) => {
   const [buttonType, setbuttonType] = useState(type);
+  const id = useId();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setInputValue && setInputValue(e.target.value);
@@ -54,11 +55,11 @@ export const InputForm: React.FC<IFormInputProps> = ({
   return (
     <>
       {editType === 'input' ? (
-        <FormLabel htmlFor={label} labelSize={labelSize}>
+        <FormLabel htmlFor={id} labelSize={labelSize}>
           {label}
           <FormInlineWrapperStyles>
             <InputStyles
-              id={label.toLowerCase()}
+              id={id}
               placeholder={placeholder}
               type={buttonType}
               required={required}
@@ -78,10 +79,10 @@ export const InputForm: React.FC<IFormInputProps> = ({
           <FormFieldError>{errorMessage}</FormFieldError>
         </FormLabel>
       ) : (
-        <FormLabel htmlFor={label} labelSize={labelSize}>
+        <FormLabel htmlFor={id} labelSize={labelSize}>
           {label}
           <TextArea
-            id={label}
+            id={id}
             placeholder={placeholder}
             required={required}
             maxLength={500}
