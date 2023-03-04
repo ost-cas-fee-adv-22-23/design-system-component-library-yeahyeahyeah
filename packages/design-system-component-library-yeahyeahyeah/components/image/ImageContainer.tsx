@@ -149,6 +149,7 @@ const Figure = styled.figure.attrs({ className: 'group' })(({ type }: ImageStyle
 
     bg-violet-200
     hover:bg-violet-600
+    z-10
   `,
   type === 'container' && tw`border-1 border-slate-white`,
   (type === 'banner-edit' || type === 'banner-view') && tw`border-none`,
