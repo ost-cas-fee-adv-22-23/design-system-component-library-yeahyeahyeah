@@ -53,7 +53,7 @@ const Template: ComponentStory<typeof InputForm> = (args: IFormInputProps) => {
         inputValue={inputValue}
         errorMessage={errorMessage}
         onPressEnter={handlePressEnter}
-        data-testid={'label'}
+        data-testid="label"
       />
     </>
   );
@@ -62,6 +62,9 @@ const Template: ComponentStory<typeof InputForm> = (args: IFormInputProps) => {
 export const FormInputStory = Template.bind({});
 
 FormInputStory.argTypes = {
+  name: {
+    control: 'text',
+  },
   editType: {
     control: false,
     table: {
@@ -107,6 +110,7 @@ FormInputStory.argTypes = {
 };
 
 FormInputStory.args = {
+  name: 'fieldname',
   editType: 'input',
   label: 'Label',
   required: false,
@@ -138,6 +142,9 @@ FormInputStory.storyName = 'InputForm';
 export const TextAreaStory = Template.bind({});
 
 TextAreaStory.argTypes = {
+  name: {
+    control: 'text',
+  },
   editType: {
     control: false,
     table: {
@@ -183,6 +190,7 @@ TextAreaStory.argTypes = {
 };
 
 TextAreaStory.args = {
+  name: 'fieldname',
   editType: 'textarea',
   label: 'Label',
   required: false,
