@@ -110,7 +110,7 @@ FormInputStory.argTypes = {
 };
 
 FormInputStory.args = {
-  name: 'fieldname',
+  name: '',
   editType: 'input',
   label: 'Label',
   required: false,
@@ -190,7 +190,7 @@ TextAreaStory.argTypes = {
 };
 
 TextAreaStory.args = {
-  name: 'fieldname',
+  name: '',
   editType: 'textarea',
   label: 'Label',
   required: false,

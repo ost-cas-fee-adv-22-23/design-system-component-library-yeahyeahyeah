@@ -22,7 +22,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
   labelSize = 'default',
   editType = 'textarea',
   required = true,
-  name = 'formfieldname',
+  name,
   type = 'text',
   placeholder = 'Placeholder',
   errorMessage,
