@@ -105,7 +105,7 @@ const ImageIcon = styled.div(({ isLoading }: ImageStyles) => [
     transition
     duration-300
     ease-in-out
-    z-50
+    z-10
 `,
   isLoading === true && LoadingSpinner,
 ]);
@@ -113,7 +113,7 @@ const ImageIcon = styled.div(({ isLoading }: ImageStyles) => [
 const Wrapper = styled.div(({ isLoading }: ImageStyles) => [
   tw`
 		rounded-xl
-    z-50
+    z-10
     opacity-0
     group-hover:opacity-100
     transition
@@ -149,7 +149,7 @@ const Figure = styled.figure.attrs({ className: 'group' })(({ type }: ImageStyle
 
     bg-violet-200
     hover:bg-violet-600
-    z-10
+    z-0
   `,
   type === 'container' && tw`border-1 border-slate-white`,
   (type === 'banner-edit' || type === 'banner-view') && tw`border-none`,
