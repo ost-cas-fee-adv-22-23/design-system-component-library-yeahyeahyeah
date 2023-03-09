@@ -3,6 +3,7 @@ import tw, { styled } from 'twin.macro';
 import { Eye, Cancel } from '../icon/index';
 
 export interface IFormInputProps {
+  name: string;
   label?: string;
   labelSize?: 'default' | 'small';
   editType: 'input' | 'textarea';
@@ -21,6 +22,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
   labelSize = 'default',
   editType = 'textarea',
   required = true,
+  name,
   type = 'text',
   placeholder = 'Placeholder',
   errorMessage,
@@ -60,6 +62,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
           <FormInlineWrapperStyles>
             <InputStyles
               id={id}
+              name={name}
               placeholder={placeholder}
               type={buttonType}
               required={required}
@@ -83,6 +86,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
           {label}
           <TextArea
             id={id}
+            name={name}
             placeholder={placeholder}
             required={required}
             maxLength={500}
