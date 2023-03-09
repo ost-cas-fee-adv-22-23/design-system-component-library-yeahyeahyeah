@@ -124,7 +124,7 @@ const H3Styles = styled.h3(() => [
 
 const H4Styles = styled.h4(() => [
   tw`
-    text-xl w-full
+    text-xl w-full leading-6
 	`,
   HeadingColor,
   HeadingSize,
