@@ -39,6 +39,7 @@ export const FileUpload: React.FC<IDrapAndDrop> = ({
     accept: {
       'image/png': ['.png'],
       'image/jpeg': ['.jpeg', '.jpg'],
+      'image/gif': ['.gif'],
     },
   });
 
