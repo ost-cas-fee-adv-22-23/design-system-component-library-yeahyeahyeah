@@ -19,7 +19,7 @@ export interface IFormInputProps {
 
 export const InputForm: React.FC<IFormInputProps> = ({
   name,
-  label = 'Label',
+  label,
   labelSize = 'default',
   editType,
   required,

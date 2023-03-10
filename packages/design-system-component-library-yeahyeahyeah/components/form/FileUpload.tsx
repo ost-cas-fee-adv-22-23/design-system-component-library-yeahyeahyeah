@@ -18,7 +18,7 @@ export type TOnDrop = <T extends File>(acceptedFiles: T[], fileRejections: FileR
 
 export const FileUpload: React.FC<IDrapAndDrop> = ({
   label = 'Datei hierhin ziehen ...',
-  fileDescription = 'JPEG oder PNG, maximal 50 MB',
+  fileDescription = 'JPEG, GIF oder PNG, maximal 50 MB',
   dragDescription = 'Jetzt loslassen ...',
   loading = false,
   onDropCallBack,
