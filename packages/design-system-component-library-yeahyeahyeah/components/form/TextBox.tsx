@@ -116,6 +116,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
         </UserWrapper>
 
         <InputForm
+          name=""
           editType="textarea"
           label=""
           required={false}
