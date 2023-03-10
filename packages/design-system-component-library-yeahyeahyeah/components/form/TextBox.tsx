@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 export interface ITextBoxProps {
   user?: Pick<UserProps, 'label' | 'avatar'>;
-  form: Pick<IFormInputProps, 'placeholder' | 'errorMessage'>;
+  form: Pick<IFormInputProps, 'name' | 'placeholder' | 'errorMessage'>;
   inputValue: string;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
   variant: 'write' | 'inline' | 'start';
@@ -38,6 +38,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
     },
   },
   form = {
+    name: 'mumble-input-form',
     placeholder: 'Na, was meinste dazu ...?',
     errorMessage: 'Da ist etwas schief gelaufen',
   },
@@ -116,9 +117,8 @@ export const TextBox: React.FC<ITextBoxProps> = ({
         </UserWrapper>
 
         <InputForm
-          name=""
+          name={form.name}
           editType="textarea"
-          label=""
           required={false}
           placeholder={form.placeholder}
           errorMessage={form.errorMessage}

@@ -18,15 +18,15 @@ export interface IFormInputProps {
 }
 
 export const InputForm: React.FC<IFormInputProps> = ({
+  name,
   label = 'Label',
   labelSize = 'default',
-  editType = 'textarea',
-  required = true,
-  name,
+  editType,
+  required,
   type = 'text',
   placeholder = 'Placeholder',
   errorMessage,
-  autoComplete = 'off',
+  autoComplete,
   inputValue,
   setInputValue,
   onPressEnter,
@@ -71,7 +71,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
               onKeyDown={handleKeyDown}
               error={errorMessage ? true : false}
-              data-testid={label.toLowerCase()}
+              data-testid={name.toLowerCase()}
               value={inputValue}
             />
             {type === 'password' && <Eye tw="absolute right-16 cursor-pointer" onClick={showPassword} />}
