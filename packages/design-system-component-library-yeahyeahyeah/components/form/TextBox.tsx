@@ -10,7 +10,7 @@ import { IconLink } from '../link/IconLink';
 import Link from 'next/link';
 
 export interface ITextBoxProps {
-  user?: Pick<UserProps, 'label' | 'avatar'>;
+  user?: Pick<UserProps, 'label' | 'avatar'> & { username: string; href: string };
   form: Pick<IFormInputProps, 'name' | 'placeholder' | 'errorMessage'>;
   inputValue: string;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
@@ -27,11 +27,8 @@ export const TextBox: React.FC<ITextBoxProps> = ({
   startParagraph = 'Schreib deinen ersten Mumble, oder folge einem User',
   user = {
     label: 'Display Name',
-    username: {
-      label: 'Username',
-      href: '#',
-      type: 'username',
-    },
+    username: 'Username',
+    href: '/',
     avatar: {
       src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
       alt: 'Alter Tag',
@@ -85,10 +82,10 @@ export const TextBox: React.FC<ITextBoxProps> = ({
           {variant === 'write' && (
             <User avatar={user.avatar} label={user.label} variant="write">
               <IconLink
-                label="User"
+                label={user.username}
                 type="username"
                 color="violet"
-                href="/profilepage"
+                href={user.href}
                 legacyBehavior
                 passHref
                 linkComponent={Link}
@@ -98,10 +95,10 @@ export const TextBox: React.FC<ITextBoxProps> = ({
           {variant === 'inline' && (
             <User avatar={user.avatar} label={user.label} variant="inline">
               <IconLink
-                label="User"
+                label={user.username}
                 type="username"
                 color="violet"
-                href="/profilepage"
+                href={user.href}
                 legacyBehavior
                 passHref
                 linkComponent={Link}
