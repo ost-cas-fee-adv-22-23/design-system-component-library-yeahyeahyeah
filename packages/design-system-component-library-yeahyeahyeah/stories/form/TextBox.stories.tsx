@@ -56,6 +56,7 @@ const Template: ComponentStory<typeof TextBox> = (args) => {
       form={{
         errorMessage: errorMessage,
         placeholder: 'Hast du uns etwas mitzuteilen?',
+        name: 'Username',
       }}
       setInputValue={setInputValue}
       inputValue={inputValue}
@@ -87,12 +88,8 @@ TextBoxStory.argTypes = {
     },
     defaultValue: {
       label: 'Hey, was läuft?',
-      username: {
-        type: 'joined',
-        label: 'Username',
-        href: '#',
-        fCallBack: action('user clicked'),
-      },
+      username: 'Username',
+      href: '/',
       avatar: {
         src: 'https://media.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif',
         alt: 'Family Guy goes Mumble',
@@ -125,7 +122,11 @@ TextBoxStory.args = {
   startHeading: 'Hey, was läuft?',
   startParagraph: 'Schreib deinen ersten Mumble, oder folge einem User.',
   uploadCallback: action('uploadCallback'),
-  form: { errorMessage: 'Bitte füllen sie das Formular aus.' },
+  form: {
+    errorMessage: 'Bitte füllen sie das Formular aus.',
+    placeholder: 'Hast du uns etwas mitzuteilen?',
+    name: 'Username',
+  },
 };
 
 TextBoxStory.parameters = {
