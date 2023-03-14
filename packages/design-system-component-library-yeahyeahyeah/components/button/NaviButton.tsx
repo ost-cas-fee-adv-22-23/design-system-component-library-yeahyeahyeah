@@ -29,7 +29,7 @@ export const NaviButton = <
 }: NaviButtonProps<T>) => {
   const Icon = createIcon(icon);
 
-  return (
+  return !onClick ? (
     <Link {...(props as any)} href={href}>
       <StyledButton aria-label={label} onClick={onClick}>
         {variant === 'default' && (
@@ -41,6 +41,16 @@ export const NaviButton = <
         {variant === 'profile' && children}
       </StyledButton>
     </Link>
+  ) : (
+    <StyledButton aria-label={label} onClick={onClick}>
+      {variant === 'default' && (
+        <>
+          <Icon />
+          <Span>{label}</Span>
+        </>
+      )}
+      {variant === 'profile' && children}
+    </StyledButton>
   );
 };
 
