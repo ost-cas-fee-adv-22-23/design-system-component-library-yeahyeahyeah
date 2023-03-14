@@ -79,19 +79,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
     <form onSubmit={handleSubmit} tw="container">
       <Card variant={variant}>
         <UserWrapper variant={variant} mbSpacing="16">
-          {variant === 'write' && (
-            <User avatar={user.avatar} label={user.label} variant="write">
-              <IconLink
-                label={user.username}
-                type="username"
-                color="violet"
-                href={user.href}
-                legacyBehavior
-                passHref
-                linkComponent={Link}
-              />
-            </User>
-          )}
+          {variant === 'write' && <User avatar={user.avatar} label={user.label} variant="write" />}
           {variant === 'inline' && (
             <User avatar={user.avatar} label={user.label} variant="inline">
               <IconLink
