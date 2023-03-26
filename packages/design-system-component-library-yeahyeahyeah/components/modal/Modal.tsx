@@ -9,10 +9,16 @@ export interface IModalProps extends React.HtmlHTMLAttributes<HTMLLinkElement> {
   children: React.ReactNode;
   isOpen: boolean;
   onClose?: () => void;
-  wide?: boolean;
+  wide?: 'small' | 'large' | 'full';
 }
 
-export const Modal: React.FC<IModalProps> = ({ label = 'Modal title', children, isOpen = false, onClose, wide = false }) => {
+export const Modal: React.FC<IModalProps> = ({
+  label = 'Modal title',
+  children,
+  isOpen = false,
+  onClose,
+  wide = 'small',
+}) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const handleClose = () => {
@@ -33,7 +39,7 @@ export const Modal: React.FC<IModalProps> = ({ label = 'Modal title', children, 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyCode);
     return () => window.removeEventListener('keydown', handleKeyCode);
-  }, [open, handleKeyCode]);
+  }, [open]);
 
   return (
     <>
@@ -68,7 +74,7 @@ export const Modal: React.FC<IModalProps> = ({ label = 'Modal title', children, 
 
 interface IModalStyles {
   open: boolean;
-  wide: boolean;
+  wide: string;
 }
 
 const ModalDialog = styled.div(({ open }: Pick<IModalStyles, 'open'>) => [
@@ -99,6 +105,9 @@ const ModalOverlay = styled.div(() => [
     bg-slate-900
     bg-opacity-75
     transition-opacity
+    opacity-0 
+    duration-300
+    ease-in-out
   `,
 ]);
 
@@ -114,7 +123,9 @@ const ModalBox = styled.div(({ wide }: Pick<IModalStyles, 'wide'>) => [
 		font-semibold
     transition-all
   `,
-  wide === true ? tw`w-[623px]` : tw`w-[465px]`,
+  wide === 'small' && tw`w-[465px]`,
+  wide === 'large' && tw`w-[623px]`,
+  wide === 'full' && tw`w-3/4`,
 ]);
 
 const ModalContainer = styled.div(() => [
@@ -139,6 +150,7 @@ const ModalWrapper = styled.div(() => [
 const ModalContent = styled.div(() => [
   tw`
     p-32
+    mx-auto
     overflow-y-auto
   `,
 ]);
