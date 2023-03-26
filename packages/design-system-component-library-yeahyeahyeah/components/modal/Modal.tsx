@@ -105,9 +105,6 @@ const ModalOverlay = styled.div(() => [
     bg-slate-900
     bg-opacity-75
     transition-opacity
-    opacity-0 
-    duration-300
-    ease-in-out
   `,
 ]);
 
@@ -125,7 +122,7 @@ const ModalBox = styled.div(({ wide }: Pick<IModalStyles, 'wide'>) => [
   `,
   wide === 'small' && tw`w-[465px]`,
   wide === 'large' && tw`w-[623px]`,
-  wide === 'full' && tw`w-3/4`,
+  wide === 'full' && tw`w-auto`,
 ]);
 
 const ModalContainer = styled.div(() => [
