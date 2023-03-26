@@ -14,7 +14,7 @@ export interface IUploadFormProps {
 
 export default function UploadForm({ onDropCallBack, showModal, setShowModal, fileUploadError }: IUploadFormProps) {
   return (
-    <Modal label="Modal" isOpen={showModal} wide={true} onClose={() => setShowModal(false)}>
+    <Modal label="Modal" isOpen={showModal} wide="large" onClose={() => setShowModal(false)}>
       <form onSubmit={() => console.log('Submit')} tw="container">
         <FileUpload
           label="Datei hierhin ziehen ..."

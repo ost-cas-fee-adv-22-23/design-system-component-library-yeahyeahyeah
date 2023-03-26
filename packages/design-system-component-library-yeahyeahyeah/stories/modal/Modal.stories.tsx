@@ -14,17 +14,22 @@ export default {
     },
     action: action('Modal closed'),
   },
+  argTypes: {
+    wide: {
+      control: 'select',
+    },
+  },
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args}>Here comes the content ...</Modal>;
 
-export const ModalStory = Template.bind({});
+export const ModalStory = Template;
 
 ModalStory.args = {
   label: 'Bild hochladen',
   children: 'Modal content',
   isOpen: true,
-  wide: true,
+  wide: 'small',
 };
 
 ModalStory.parameters = {
