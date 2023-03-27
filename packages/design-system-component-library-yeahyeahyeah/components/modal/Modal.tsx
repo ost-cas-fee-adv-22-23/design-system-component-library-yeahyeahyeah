@@ -93,7 +93,7 @@ const ModalHeader = styled.div(() => [
     items-center
     bg-violet-600
     px-32
-    py-24
+    py-16
     text-slate-white
   `,
 ]);
@@ -149,6 +149,7 @@ const ModalContent = styled.div(() => [
     p-32
     mx-auto
     overflow-y-auto
+    w-full
   `,
 ]);
 
