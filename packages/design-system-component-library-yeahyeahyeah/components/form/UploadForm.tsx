@@ -18,7 +18,7 @@ export default function UploadForm({ onDropCallBack, showModal, setShowModal, fi
       <form onSubmit={() => console.log('Submit')} tw="container">
         <FileUpload
           label="Datei hierhin ziehen ..."
-          fileDescription="JPEG oder PNG, maximal 50 MB"
+          fileDescription="JPEG, GIF oder PNG, maximal 5 MB"
           dragDescription="Jetzt loslassen ..."
           loading={false}
           onDropCallBack={onDropCallBack}
