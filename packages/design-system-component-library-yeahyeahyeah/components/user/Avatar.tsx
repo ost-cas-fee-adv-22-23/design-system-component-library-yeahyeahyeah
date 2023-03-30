@@ -52,8 +52,8 @@ const Styles = ({ variant }: IImageProps) => [
     flex
     justify-center
     items-center
-    border-slate-200
-    bg-slate-200
+    border-slate-100
+    bg-slate-100
 		rounded-full
 		cursor-pointer
     object-cover
