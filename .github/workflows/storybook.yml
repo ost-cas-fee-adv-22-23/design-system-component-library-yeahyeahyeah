@@ -23,7 +23,12 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 16.19.1
+      - name: Setup yarn
+      - run: yarn set version berry
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.19.1
           cache: yarn
       - run: yarn install
       - run: yarn build-storybook
