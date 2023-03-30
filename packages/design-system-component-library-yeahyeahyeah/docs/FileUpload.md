@@ -35,7 +35,7 @@ const onDropCallBack = (acceptedFiles: File[], fileRejections: FileRejection[]) 
 
 <FileUpload
   label="Datei hierhin ziehen ..."
-  fileDescription="JPEG oder PNG, maximal 50 MB"
+  fileDescription="JPEG, GIF oder PNG, maximal 5 MB"
   dragDescription="Jetzt loslassen ..."
   loading={false}
   onDropCallBack={onDropCallBack}
