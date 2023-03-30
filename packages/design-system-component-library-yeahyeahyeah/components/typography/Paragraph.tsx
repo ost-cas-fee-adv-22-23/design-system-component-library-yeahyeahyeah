@@ -4,7 +4,7 @@ import { BottomSpacing } from '../../styles/Spacing';
 import type { TmbSpacing } from '../../types/types';
 
 export interface IParagraphProps {
-  children: string;
+  children: React.ReactNode;
   size?: 'default' | 'medium' | 'large';
   color?: 'default' | 'dark' | 'light' | 'white';
   alignment?: 'left' | 'center' | 'right';
