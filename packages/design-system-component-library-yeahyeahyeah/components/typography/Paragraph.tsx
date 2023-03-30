@@ -4,16 +4,22 @@ import { BottomSpacing } from '../../styles/Spacing';
 import type { TmbSpacing } from '../../types/types';
 
 export interface IParagraphProps {
-  text: string;
+  children: React.ReactNode;
   size?: 'default' | 'medium' | 'large';
   color?: 'default' | 'dark' | 'light' | 'white';
   alignment?: 'left' | 'center' | 'right';
   mbSpacing?: TmbSpacing;
 }
 
-export const Paragraph: React.FC<IParagraphProps> = ({ size = 'medium', color = 'default', mbSpacing, text, alignment }) => (
+export const Paragraph: React.FC<IParagraphProps> = ({
+  size = 'medium',
+  color = 'default',
+  mbSpacing,
+  children,
+  alignment,
+}) => (
   <ParagraphStyles size={size} color={color} mbSpacing={mbSpacing} alignment={alignment}>
-    {text}
+    {children}
   </ParagraphStyles>
 );
 
