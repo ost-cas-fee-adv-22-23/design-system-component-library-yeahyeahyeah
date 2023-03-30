@@ -44,7 +44,7 @@ interface IImageProps {
 const Figure = styled.figure.attrs({ className: 'group' })(() => Styles);
 
 const Styles = ({ variant }: IImageProps) => [
-  variant === 'small' && tw`h-40 w-40 min-w-[40px]`,
+  variant === 'small' && tw`h-40 w-40 min-w-[40px] bg-none border-0`,
   variant === 'medium' && tw`h-[72px] w-[72px] min-w-[72px] border-4`,
   variant === 'large' && tw`h-96 w-96 border-4`,
   variant === 'xlarge' && tw`h-160 w-160 border-4 min-w-[160px]`,
@@ -53,7 +53,7 @@ const Styles = ({ variant }: IImageProps) => [
     justify-center
     items-center
     border-slate-200
-    bg-violet-600
+    bg-slate-200
 		rounded-full
 		cursor-pointer
     object-cover
