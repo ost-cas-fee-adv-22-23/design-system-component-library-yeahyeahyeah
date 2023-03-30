@@ -51,21 +51,17 @@ const Template: ComponentStory<typeof Heading> = () => (
       <Heading tag="h2" color="light" label="Heading H2" size="default" />
       <Heading tag="h3" color="light" label="Heading H3" size="default" />
       <Heading tag="h4" color="light" label="Heading H4" size="default" mbSpacing="32" />
-      <Paragraph
-        text="Paragraph L – Quia aut et aut. Sunt et eligendi similique enim qui quo minus. optio sed quis cumque error magni.
+      <Paragraph size="large" mbSpacing="32">
+        Paragraph L – Quia aut et aut. Sunt et eligendi similique enim qui quo minus. optio sed quis cumque error magni.
         Deserunt pariatur molestiae incidunt. Omnis deserunt ratione et recusandae quos excepturi ut deleniti ut repellat
-        magni."
-        size="large"
-        mbSpacing="32"
-      />
+        magni.
+      </Paragraph>
 
-      <Paragraph
-        text="Paragraph M – Quia aut et aut. Sunt et eligendi similique enim qui quo minus. optio sed quis cumque error magni.
+      <Paragraph size="medium" mbSpacing="32">
+        Paragraph M – Quia aut et aut. Sunt et eligendi similique enim qui quo minus. optio sed quis cumque error magni.
         Deserunt pariatur molestiae incidunt. Omnis deserunt ratione et recusandae quos excepturi ut deleniti ut repellat
-        magni."
-        size="medium"
-        mbSpacing="32"
-      />
+        magni.
+      </Paragraph>
 
       <Heading tag="h4" color="light" label="Label XL" size="xlarge" mbSpacing="8" />
       <Heading tag="h4" color="light" label="Label L" size="large" mbSpacing="8" />
