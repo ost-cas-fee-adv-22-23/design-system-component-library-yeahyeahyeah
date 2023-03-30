@@ -42,10 +42,10 @@ export const TextBox: React.FC<ITextBoxProps> = ({
   inputValue,
   setInputValue,
   uploadCallback = () => {
-    null;
+    return null;
   },
   sendCallback = () => {
-    null;
+    return null;
   },
 }) => {
   const upload: ButtonProps = {
@@ -96,7 +96,9 @@ export const TextBox: React.FC<ITextBoxProps> = ({
           {variant === 'start' && (
             <>
               <Heading tag="h3" label={startHeading} color="light" size="default" />
-              <Paragraph text={startParagraph} color="light" size="default" alignment="left" />
+              <Paragraph color="light" size="default" alignment="left">
+                {startParagraph}
+              </Paragraph>
             </>
           )}
         </UserWrapper>
