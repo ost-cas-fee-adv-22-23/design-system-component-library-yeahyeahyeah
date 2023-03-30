@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: 16.19.1
       - name: Setup yarn
-      - run: yarn set version berry
+        run: yarn set version berry
       - uses: actions/setup-node@v3
         with:
           node-version: 16.19.1
