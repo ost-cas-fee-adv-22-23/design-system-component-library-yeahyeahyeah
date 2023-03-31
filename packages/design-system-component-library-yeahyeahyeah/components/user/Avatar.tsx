@@ -58,7 +58,7 @@ const Styles = ({ variant }: IImageProps) => [
 		cursor-pointer
     object-cover
     overflow-hidden
-    z-10
+    z-0
 	`,
 ];
 
