@@ -27,7 +27,7 @@ export const MumbleLogo: React.FC<IMumbleLogoProps> = ({
       <StyledLogoMumble color={color} $hover={hover} $navigation={isNavigation} />
 
       {color !== 'gradient' ? (
-        <StyledMumbleText color={color} $navigation={isNavigation} alignment={alignment} $hover={hover} />
+        <StyledMumbleText $navigation={isNavigation} alignment={alignment} color={color} />
       ) : (
         <StyledMumbleGradient $navigation={isNavigation} alignment={alignment} $hover={hover} />
       )}
@@ -66,12 +66,14 @@ const StyledLogoMumble = styled(Logo)(({ color, $hover, $navigation }: IStyledLo
   IconColor(color, $hover),
 ]);
 
-type IStyledMumbleText = Pick<IStyled, 'alignment' | '$navigation' | 'color' | '$hover'>;
+type IStyledMumbleText = Pick<IStyled, 'alignment' | '$navigation' | 'color'>;
 
-const StyledMumbleText = styled(MumbleText)(({ alignment, $navigation, color, $hover }: IStyledMumbleText) => [
+const StyledMumbleText = styled(MumbleText)(({ alignment, $navigation, color }: IStyledMumbleText) => [
+  tw`fill-slate-white`,
   $navigation === true ? tw`h-[30px] w-[154px]` : tw`h-[48px] w-[246px]`,
   TextSvgStyles(alignment, $navigation),
-  IconColor(color, $hover),
+  color === 'violet' && tw`fill-violet-600`,
+  color === 'white' && tw`fill-slate-white`,
 ]);
 
 type IStyledMumbleGradient = Pick<IStyled, 'alignment' | '$navigation' | '$hover'>;
@@ -87,16 +89,16 @@ const IconColor = (color: string, $hover: boolean) => {
 
   switch (color) {
     case 'violet':
-      defaultColor = tw`fill-violet-600`;
-      hoverColor = tw`fill-slate-white`;
+      defaultColor = tw`fill-violet-600 scale-100 transition-all duration-300 ease-in-out`;
+      hoverColor = tw`fill-violet-600 scale-110 transition-all duration-300 ease-in-out`;
       return $hover === true ? hoverColor : defaultColor;
     case 'gradient':
-      defaultColor = tw`fill-violet-600`;
-      hoverColor = tw`fill-slate-white`;
+      defaultColor = tw`fill-violet-600 scale-100 transition-all duration-300 ease-in-out`;
+      hoverColor = tw`fill-slate-white scale-110 transition-all duration-300 ease-in-out`;
       return $hover === true ? hoverColor : defaultColor;
     case 'white':
-      defaultColor = tw`fill-slate-white`;
-      hoverColor = tw`fill-slate-300`;
+      defaultColor = tw`fill-slate-white scale-100 transition-all duration-300 ease-in-out`;
+      hoverColor = tw`fill-slate-white scale-110 transition-all duration-300 ease-in-out`;
       return $hover === true ? hoverColor : defaultColor;
   }
   return null;
