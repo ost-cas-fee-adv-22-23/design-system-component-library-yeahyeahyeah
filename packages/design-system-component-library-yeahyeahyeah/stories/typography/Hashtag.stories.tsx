@@ -14,6 +14,9 @@ export default {
     size: {
       control: 'select',
     },
+    color: {
+      control: 'select',
+    },
     fCallBack: {
       control: false,
       table: {
@@ -25,6 +28,7 @@ export default {
   args: {
     label: 'Mumble',
     size: 'small',
+    color: 'pink',
   },
 } as ComponentMeta<typeof Hashtag>;
 
