@@ -47,11 +47,11 @@ interface IHashtagStyleProps {
 
 const StyledHashtag = styled.a(({ size, color }: IHashtagStyleProps) => [
   tw`transition cursor-pointer`,
-  size === 'small' && tw`text-violet-600 hover:text-violet-500 text-base [font-weight:500] hover:underline`,
-  size === 'medium' && tw`text-violet-600 hover:text-violet-500 text-md [font-weight:500] hover:underline`,
-  size === 'large' && tw`text-violet-600 hover:text-violet-500 text-lg [font-weight:500] hover:underline`,
-  size === 'xlarge' && tw`text-slate-white hover:text-slate-white text-2xl [font-weight:700] hover:underline`,
-  size === 'xxlarge' && tw`text-slate-white hover:text-slate-white text-4xl [font-weight:700] hover:underline`,
+  size === 'small' && tw`text-violet-600 hover:text-violet-500 text-base [font-weight:500] hover:underline break-words`,
+  size === 'medium' && tw`text-violet-600 hover:text-violet-500 text-md [font-weight:500] hover:underline break-words`,
+  size === 'large' && tw`text-violet-600 hover:text-violet-500 text-lg [font-weight:500] hover:underline break-words`,
+  size === 'xlarge' && tw`text-slate-white hover:text-slate-white text-2xl [font-weight:700] hover:underline break-words`,
+  size === 'xxlarge' && tw`text-slate-white hover:text-slate-white text-4xl [font-weight:700] hover:underline break-words`,
   color === 'slate' && tw`text-slate-500`,
   color === 'slate-300' && tw`text-slate-300`,
   color === 'violet' && tw`text-violet-600`,
