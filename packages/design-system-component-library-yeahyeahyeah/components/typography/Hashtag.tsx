@@ -46,15 +46,15 @@ interface IHashtagStyleProps {
 }
 
 const StyledHashtag = styled.a(({ size, color }: IHashtagStyleProps) => [
-  tw`transition cursor-pointer`,
-  size === 'small' && tw`text-violet-600 hover:text-violet-500 text-base [font-weight:500] hover:underline break-words`,
-  size === 'medium' && tw`text-violet-600 hover:text-violet-500 text-md [font-weight:500] hover:underline break-words`,
-  size === 'large' && tw`text-violet-600 hover:text-violet-500 text-lg [font-weight:500] hover:underline break-words`,
-  size === 'xlarge' && tw`text-slate-white hover:text-slate-white text-2xl [font-weight:700] hover:underline break-words`,
-  size === 'xxlarge' && tw`text-slate-white hover:text-slate-white text-4xl [font-weight:700] hover:underline break-words`,
-  color === 'slate' && tw`text-slate-500`,
-  color === 'slate-300' && tw`text-slate-300`,
-  color === 'violet' && tw`text-violet-600`,
-  color === 'pink' && tw`text-pink-600`,
-  color === 'white' && tw`text-slate-white`,
+  tw`transition cursor-pointer hover:underline break-words`,
+  size === 'small' && tw`text-violet-600 hover:text-violet-500 text-base [font-weight:500]`,
+  size === 'medium' && tw`text-violet-600 hover:text-violet-500 text-md [font-weight:500]`,
+  size === 'large' && tw`text-violet-600 hover:text-violet-500 text-lg [font-weight:500]`,
+  size === 'xlarge' && tw`text-slate-white hover:text-slate-white text-2xl [font-weight:700]`,
+  size === 'xxlarge' && tw`text-slate-white hover:text-slate-white text-4xl [font-weight:700]`,
+  color === 'slate' && tw`text-slate-500 hover:text-slate-400`,
+  color === 'slate-300' && tw`text-slate-300 hover:text-slate-200`,
+  color === 'violet' && tw`text-violet-600 hover:text-violet-500`,
+  color === 'pink' && tw`text-pink-600 hover:text-pink-500`,
+  color === 'white' && tw`text-slate-white  hover:text-slate-white`,
 ]);
