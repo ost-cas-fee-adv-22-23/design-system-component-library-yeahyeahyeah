@@ -46,7 +46,7 @@ interface IHashtagStyleProps {
 }
 
 const StyledHashtag = styled.a(({ size, color }: IHashtagStyleProps) => [
-  tw`transition cursor-pointer hover:underline break-words`,
+  tw`transition cursor-pointer hover:underline break-all`,
   size === 'small' && tw`text-violet-600 hover:text-violet-500 text-base [font-weight:500]`,
   size === 'medium' && tw`text-violet-600 hover:text-violet-500 text-md [font-weight:500]`,
   size === 'large' && tw`text-violet-600 hover:text-violet-500 text-lg [font-weight:500]`,

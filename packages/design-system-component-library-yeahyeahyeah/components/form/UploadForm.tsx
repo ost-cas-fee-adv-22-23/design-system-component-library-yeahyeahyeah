@@ -8,13 +8,25 @@ import { Modal } from '../modal';
 export interface IUploadFormProps {
   onDropCallBack: (acceptedFiles: File[], fileRejections: FileRejection[]) => void;
   showModal: boolean;
-  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowModal?: React.Dispatch<React.SetStateAction<boolean>>;
+  dispatch?: React.Dispatch<any>;
   fileUploadError: string;
 }
 
-export default function UploadForm({ onDropCallBack, showModal, setShowModal, fileUploadError }: IUploadFormProps) {
+export default function UploadForm({
+  onDropCallBack,
+  showModal,
+  setShowModal,
+  dispatch,
+  fileUploadError,
+}: IUploadFormProps) {
+  const handleCloseModal = () => {
+    setShowModal && setShowModal(false);
+    dispatch && dispatch({ type: 'CLOSE_MODAL' });
+  };
+
   return (
-    <Modal label="Modal" isOpen={showModal} wide="large" onClose={() => setShowModal(false)}>
+    <Modal label="Modal" isOpen={showModal} wide="large" onClose={handleCloseModal}>
       <form onSubmit={() => console.log('Submit')} tw="container">
         <FileUpload
           label="Datei hierhin ziehen ..."
@@ -26,7 +38,7 @@ export default function UploadForm({ onDropCallBack, showModal, setShowModal, fi
         />
         <Row>
           <Button
-            onClick={() => setShowModal(false)}
+            onClick={handleCloseModal}
             icon="cancel"
             label="Abbrechen"
             size="large"

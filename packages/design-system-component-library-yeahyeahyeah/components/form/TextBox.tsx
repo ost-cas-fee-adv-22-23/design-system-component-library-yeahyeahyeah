@@ -14,6 +14,7 @@ export interface ITextBoxProps {
   form: Pick<IFormInputProps, 'name' | 'placeholder' | 'errorMessage'>;
   inputValue: string;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
+  dispatch?: React.Dispatch<any>;
   variant: 'write' | 'inline' | 'start';
   uploadCallback: () => void;
   sendCallback: () => void;
@@ -41,6 +42,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
   },
   inputValue,
   setInputValue,
+  dispatch,
   uploadCallback = () => {
     return null;
   },
@@ -112,6 +114,7 @@ export const TextBox: React.FC<ITextBoxProps> = ({
           autoComplete="off"
           inputValue={inputValue}
           setInputValue={setInputValue}
+          dispatch={dispatch}
           onPressEnter={onPressEnter}
           data-testid="testTextarea"
         />
