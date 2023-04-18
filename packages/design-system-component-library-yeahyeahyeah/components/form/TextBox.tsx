@@ -13,7 +13,7 @@ export interface ITextBoxProps {
   user?: Pick<UserProps, 'label' | 'avatar'> & { username: string; href: string };
   form: Pick<IFormInputProps, 'name' | 'placeholder' | 'errorMessage'>;
   inputValue: string;
-  setInputValue: React.Dispatch<React.SetStateAction<string>>;
+  setInputValue?: React.Dispatch<React.SetStateAction<string>>;
   dispatch?: React.Dispatch<any>;
   variant: 'write' | 'inline' | 'start';
   uploadCallback: () => void;
