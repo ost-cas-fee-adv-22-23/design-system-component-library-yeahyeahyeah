@@ -13,7 +13,8 @@ export interface IFormInputProps {
   errorMessage: string;
   autoComplete: 'off' | 'on';
   inputValue: string;
-  setInputValue: React.Dispatch<React.SetStateAction<string>>;
+  setInputValue?: React.Dispatch<React.SetStateAction<string>>;
+  dispatch?: React.Dispatch<any>;
   onPressEnter?: () => void;
 }
 
@@ -29,6 +30,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
   autoComplete,
   inputValue,
   setInputValue,
+  dispatch,
   onPressEnter,
 }) => {
   const [buttonType, setbuttonType] = useState(type);
@@ -36,6 +38,7 @@ export const InputForm: React.FC<IFormInputProps> = ({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setInputValue && setInputValue(e.target.value);
+    dispatch && dispatch({ type: 'SET_INPUT_VALUE', payload: e.target.value });
   };
 
   const showPassword = () => {
@@ -43,13 +46,15 @@ export const InputForm: React.FC<IFormInputProps> = ({
   };
 
   const clearForm = () => {
-    setInputValue('');
+    setInputValue && setInputValue('');
+    dispatch && dispatch({ type: 'CLEAR_INPUT_VALUE' });
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.code === 'Enter' && e.shiftKey == false) {
       e.preventDefault();
-      setInputValue('');
+      setInputValue && setInputValue('');
+      dispatch && dispatch({ type: 'CLEAR_INPUT_VALUE' });
       onPressEnter && onPressEnter();
     }
   };
