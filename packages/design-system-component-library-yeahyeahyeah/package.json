@@ -13,13 +13,18 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.js"
+      "import": "./dist/cjs/index.js",
+      "require": {
+        "default": "./dist/cjs/index.js"
+      }
     },
     "./tailwind.config.js": "./tailwind.config.js"
   },
+  "module": "./dist/esm/index.js",
   "scripts": {
-    "build": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json && yarn copy-files",
-    "build_local": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json",
+    "build": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json && npm run build:cjs && yarn copy-files",
+    "build:local": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json && npm run build:cjs",
+    "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
     "watch": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc --watch -p tsconfig.dist.json",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
