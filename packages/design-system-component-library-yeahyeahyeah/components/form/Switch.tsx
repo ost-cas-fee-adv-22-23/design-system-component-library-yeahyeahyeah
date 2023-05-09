@@ -34,7 +34,7 @@ export const Switch: FC<ISwitchProps> = ({
     <StyledList role="tablist">
       {options.map((option) => {
         return (
-          <>
+          <React.Fragment key={option.value as string}>
             {option.value === active ? (
               <StyledListItemActive
                 id={`tabs-${option.value as string}`}
@@ -58,7 +58,7 @@ export const Switch: FC<ISwitchProps> = ({
                 </StyledLink>
               </StyledListItem>
             )}
-          </>
+          </React.Fragment>
         );
       })}
     </StyledList>
