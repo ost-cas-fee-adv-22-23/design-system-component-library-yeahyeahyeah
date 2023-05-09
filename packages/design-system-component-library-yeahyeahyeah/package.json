@@ -22,8 +22,8 @@
   },
   "module": "./dist/esm/index.js",
   "scripts": {
-    "build": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json && npm run build:cjs && yarn copy-files",
-    "build:local": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json && npm run build:cjs",
+    "build": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json && yarn build:cjs && yarn copy-files",
+    "build:local": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc -p tsconfig.dist.json && yarn build:cjs",
     "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
     "watch": "del ./dist && del ./index.ts && ctix create --overwrite --noBackup --project ./tsconfig.dist.json && tsc --watch -p tsconfig.dist.json",
     "storybook": "start-storybook -p 6006",
