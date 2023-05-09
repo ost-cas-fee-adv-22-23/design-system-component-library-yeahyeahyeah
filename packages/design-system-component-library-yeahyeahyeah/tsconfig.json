@@ -19,7 +19,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "sourceMap": true,
-    "outDir": "dist",
+    "outDir": "dist/esm",
     "allowJs": true
   },
   "include": ["./**/*.tsx", "./**/*.ts", "./../../types/*.d.ts", "./types/*.d.ts"],
