@@ -5,7 +5,7 @@
     "dev:build": "yarn build_local && cd packages/app && yarn dev",
     "start": "cd packages/app && yarn start",
     "build": "cd packages/design-system-component-library-yeahyeahyeah && yarn build",
-    "build:local": "cd packages/design-system-component-library-yeahyeahyeah && yarn build:local",
+    "build_local": "cd packages/design-system-component-library-yeahyeahyeah && yarn build_local",
     "build-app": "yarn build && cd packages/app && yarn build",
     "build-icons": "npx @svgr/cli --typescript --icon 16px --out-dir ./packages/design-system-component-library-yeahyeahyeah/components/icon/components -- ./packages/design-system-component-library-yeahyeahyeah/components/icon/svg",
     "watch": "cd packages/design-system-component-library-yeahyeahyeah && yarn watch",
