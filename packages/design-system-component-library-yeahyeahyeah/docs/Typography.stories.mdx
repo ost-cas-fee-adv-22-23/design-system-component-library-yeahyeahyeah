@@ -1,0 +1,333 @@
+import { Meta, Typeset, Story, Canvas, ColorItem } from '@storybook/addon-docs';
+import { theme, config } from '../docs/config.js';
+import { Container } from '../components/layout/Container.tsx';
+import { ImageContainer } from '../components/image/ImageContainer.tsx';
+import { Paragraph } from '../components/typography/Paragraph.tsx';
+import { Heading } from '../components/typography/Heading.tsx';
+export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+<Meta title="Guidelines/Typography" />
+
+# Mumble Typography
+
+**Google Font**: [Poppins](https://fonts.google.com/specimen/Poppins 'Google Fonts: Poppins')
+
+## Default font style
+
+| Property    | Value           |
+| ----------- | --------------- |
+| font-size   | 18px / 1.125rem |
+| line-height | 25px            |
+| color       | _slate 900_     |
+
+<Canvas>
+  <Paragraph
+    text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    color="medium"
+    size="default"
+    mbSpacing="0"
+  />
+</Canvas>
+
+## Heading font sizes
+
+| size | px   | rem  | lineHeight | tag |
+| ---- | ---- | ---- | ---------- | --- |
+| 4xl  | 48px | 3rem | 0.875rem   | h1  |
+
+<Canvas>
+  <Heading label="Mumble typography rocks..." color="violet" tag="h1" size="default" mbSpacing="0" />
+</Canvas>
+
+| size | px   | rem    | lineHeight | tag |
+| ---- | ---- | ------ | ---------- | --- |
+| 3xl  | 40px | 2.5rem | 0.875rem   | h2  |
+
+<Canvas>
+  <Heading label="Mumble typography rocks..." color="violet" tag="h2" size="default" mbSpacing="0" />
+</Canvas>
+
+| size | px   | rem  | lineHeight | tag |
+| ---- | ---- | ---- | ---------- | --- |
+| 2xl  | 32px | 2rem | 0.875rem   | h3  |
+
+<Canvas>
+  <Heading label="Mumble typography rocks..." color="violet" tag="h3" size="default" mbSpacing="0" />
+</Canvas>
+
+| size | px   | rem  | lineHeight | tag |
+| ---- | ---- | ---- | ---------- | --- |
+| xl   | 24px | 24px | 2.1875rem  | h4  |
+
+<Canvas>
+  <Heading label="Mumble typography rocks..." color="violet" tag="h4" size="default" mbSpacing="0" />
+</Canvas>
+
+## Label sizes with heading tag
+
+Simulate all **Label** styles with heading tags. You can use any heading tag you like, but bear in mind the HTML semantic order.
+
+This view is for demonstration purposes only. A detail example is visible on [User](./?path=/story/user-user--user-story&args=variant:small).
+
+### Label **small** with H1 tag
+
+<Canvas>
+  <Heading label="Mumble typography rocks..." color="dark" tag="h1" size="small" mbSpacing="0" />
+</Canvas>
+
+### Label **medium** with H2 tag
+
+<Canvas>
+  <Heading label="Mumble typography rocks..." color="dark" tag="h2" size="medium" mbSpacing="0" />
+</Canvas>
+
+### Label **large** with H3 tag
+
+<Canvas>
+  <Heading label="Mumble typography rocks..." color="dark" tag="h3" size="large" mbSpacing="0" />
+</Canvas>
+
+### Label **xlarge** with H4 tag
+
+<Canvas>
+  <Heading label="Mumble typography rocks..." color="dark" tag="h4" size="xlarge" mbSpacing="0" />
+</Canvas>
+
+## Heading colors
+
+<ColorItem title={config.fontColors.title} subtitle={config.fontColors.subtitle} colors={config.fontColors.colors} />
+
+## Paragraph colors
+
+Paragraph colors differs only in gray tones.
+
+<Canvas>
+  <Paragraph
+    text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    color="dark"
+    size="default"
+    mbSpacing="0"
+  />
+  <Paragraph
+    text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    color="medium"
+    size="default"
+    mbSpacing="0"
+  />
+  <Paragraph
+    text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    color="light"
+    size="default"
+    mbSpacing="0"
+  />
+</Canvas>
+
+### Paragraph sizes
+
+<Canvas>
+  <Paragraph
+    text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    color="light"
+    size="default"
+    mbSpacing="0"
+  />
+  <Paragraph
+    text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    color="medium"
+    size="medium"
+    mbSpacing="0"
+  />
+  <Paragraph
+    text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    color="light"
+    size="large"
+    mbSpacing="0"
+  />
+</Canvas>
+
+### Paragraph colors
+
+<ColorItem
+  title={config.paragraphColors.title}
+  subtitle={config.paragraphColors.subtitle}
+  colors={config.paragraphColors.colors}
+/>
+
+## Font units
+
+| size | px   | rem      | lineHeight | _label sizes_ |
+| ---- | ---- | -------- | ---------- | ------------- |
+| xxs  | 12px | 0.75rem  | 0.75rem    |               |
+| xs   | 14px | 0.875rem | 0.875rem   | **small**     |
+| sm   | 16px | 1rem     | 0.875rem   | **medium**    |
+| base | 18px | 1.125rem | 1.575rem   |               |
+| md   | 20px | 1.25rem  | 1.575rem   | **large**     |
+| lg   | 24px | 1.5rem   | 1.575rem   | **xlarge**    |
+| xl   | 24px | 24px     | 2.1875rem  |               |
+| 2xl  | 32px | 2rem     | 0.875rem   |               |
+| 3xl  | 40px | 2.5rem   | 0.875rem   |               |
+| 4xl  | 48px | 3rem     | 0.875rem   |               |
+
+## Font weight 300
+
+<Typeset
+  fontWeight={300}
+  fontSizes={[theme.fontSize['xl'][0]]}
+  color={theme.colors.slate[900]}
+  sampleText={SampleText}
+  fontFamily={theme.fontFamily.poppins}
+/>
+
+```css
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z11lFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1JlFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1xlFd2JQEk.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+```
+
+## Font weight 500
+
+<Typeset
+  fontWeight={500}
+  fontSizes={[theme.fontSize['xl'][0]]}
+  color={theme.colors.slate[900]}
+  sampleText={SampleText}
+  fontFamily={theme.fontFamily.poppins}
+/>
+
+```css
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z11lFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1JlFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1xlFd2JQEk.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+```
+
+## Font weight 600
+
+<Typeset
+  fontWeight={600}
+  fontSizes={[theme.fontSize['xl'][0]]}
+  color={theme.colors.slate[900]}
+  sampleText={SampleText}
+  fontFamily={theme.fontFamily.poppins}
+/>
+
+```css
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z11lFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1JlFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+```
+
+## Font weight 700
+
+<Typeset
+  fontWeight={700}
+  fontSizes={[theme.fontSize['xl'][0]]}
+  color={theme.colors.slate[900]}
+  sampleText={SampleText}
+  fontFamily={theme.fontFamily.poppins}
+/>
+
+```css
+/* devanagari */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z11lFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1JlFd2JQEl8qw.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+```

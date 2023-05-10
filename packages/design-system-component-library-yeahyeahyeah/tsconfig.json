@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowSyntheticDefaultImports": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "skipLibCheck": true,
+    // Ensure that .d.ts files are created by tsc, but not .js files
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "emitDeclarationOnly": false,
+    // Ensure that Babel can safely transpile files in the TypeScript project
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "outDir": "dist",
+    "allowJs": true
+  },
+  "include": ["./**/*.tsx", "./**/*.ts", "./../../types/*.d.ts", "./types/*.d.ts"],
+  "typeRoots": ["./../../types/*.d.ts", "./types/*.d.ts", "./../../node_modules/@types"],
+  "exclude": ["node_modules", "dist"]
+}

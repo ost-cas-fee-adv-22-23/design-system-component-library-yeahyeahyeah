@@ -1,0 +1,30 @@
+name: Release Component Library
+
+on:
+  push:
+    branches:
+      - master
+
+concurrency:
+  group: 'release'
+  cancel-in-progress: true
+
+jobs:
+  build_and_deploy:
+    name: Build and Deploy Component Library
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: yarn
+      - run: yarn install
+      - run: yarn build
+      - name: semantic release
+        uses: cycjimmy/semantic-release-action@v3
+        with:
+          working_directory: ./packages/design-system-component-library-yeahyeahyeah
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}

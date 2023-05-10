@@ -1,0 +1,2 @@
+// this extended config is needed to use twin.macro in storybook
+{ "extends": "../../babel.config.js" }
